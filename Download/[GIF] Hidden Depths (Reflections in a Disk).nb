@@ -1,0 +1,245 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8402,        237]
+NotebookOptionsPosition[      7649,        213]
+NotebookOutlinePosition[      8067,        230]
+CellTagsIndexPosition[      8024,        227]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["[GIF] Hidden Depths (Reflections in a Disk)", "Title",
+ CellChangeTimes->{{3.8640988118174767`*^9, 
+  3.864098813938586*^9}},ExpressionUUID->"d769c981-6b2e-4657-8808-\
+c40da9d3e0df"],
+
+Cell[CellGroupData[{
+
+Cell["https://community.wolfram.com/groups/-/m/t/932707", "Subsection",
+ CellChangeTimes->{
+  3.8640988223549566`*^9},ExpressionUUID->"e63632bb-3ec6-4bfc-9ab6-\
+3ff19827aac5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"sol", "=", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\[Alpha]", "=", 
+         RowBox[{"Pi", "/", "10"}]}], ",", 
+        RowBox[{"n", "=", "40"}]}], "}"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"NDSolve", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+             RowBox[{"a", "[", "t", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"y", "'"}], "[", "t", "]"}], "==", 
+             RowBox[{"b", "[", "t", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"x", "[", "0", "]"}], "==", "0"}], ",", 
+            RowBox[{
+             RowBox[{"y", "[", "0", "]"}], "==", 
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"a", "[", "0", "]"}], "==", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"b", "[", "0", "]"}], "==", 
+             RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", 
+            RowBox[{"WhenEvent", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"x", "[", "t", "]"}], "^", "2"}], "+", 
+                RowBox[{
+                 RowBox[{"y", "[", "t", "]"}], "^", "2"}]}], "==", "1"}], ",", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"a", "[", "t", "]"}], ",", 
+                 RowBox[{"b", "[", "t", "]"}]}], "}"}], "->", 
+               RowBox[{"-", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "*", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"a", "[", "t", "]"}], ",", 
+                    RowBox[{"b", "[", "t", "]"}]}], "}"}], ".", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"x", "[", "t", "]"}]}], ",", 
+                    RowBox[{"-", 
+                    RowBox[{"y", "[", "t", "]"}]}]}], "}"}]}], ")"}], " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"x", "[", "t", "]"}]}], ",", 
+                    RowBox[{"-", 
+                    RowBox[{"y", "[", "t", "]"}]}]}], "}"}]}], "-", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"a", "[", "t", "]"}], ",", 
+                    RowBox[{"b", "[", "t", "]"}]}], "}"}]}], ")"}]}]}]}], 
+             "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "y"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", "0", ",", "100"}], "}"}], ",", 
+          RowBox[{"DiscreteVariables", "->", 
+           RowBox[{"{", 
+            RowBox[{"a", ",", "b"}], "}"}]}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]", ",", "0", ",", 
+          RowBox[{
+           RowBox[{"2", " ", "Pi"}], "-", 
+           RowBox[{"2", " ", 
+            RowBox[{"Pi", "/", "n"}]}]}], ",", 
+          RowBox[{"2", " ", 
+           RowBox[{"Pi", "/", "n"}]}]}], "}"}]}], "]"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"star", "=", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"cols", "=", 
+        RowBox[{"RGBColor", "/@", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<#F5E495\>\"", ",", "\"\<#F7825D\>\"", ",", "\"\<#00032D\>\""}],
+           "}"}]}]}], "}"}], ",", 
+      RowBox[{"ParallelTable", "[", 
+       RowBox[{
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "[", "t", "]"}], ",", 
+               RowBox[{"y", "[", "t", "]"}]}], "}"}], "/.", " ", "sol"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"s", "<=", "1"}], ",", 
+                RowBox[{"s", "^", "2"}], ",", 
+                RowBox[{"s", "^", 
+                 RowBox[{"(", 
+                  RowBox[{"3", "/", "2"}], ")"}]}]}], "]"}]}], "}"}], ",", 
+            RowBox[{"Frame", "->", "True"}], ",", 
+            RowBox[{"FrameTicks", "->", "None"}], ",", 
+            RowBox[{"PlotRange", "->", "1.2"}], ",", 
+            RowBox[{"Background", "->", 
+             RowBox[{"cols", "[", 
+              RowBox[{"[", 
+               RowBox[{"-", "1"}], "]"}], "]"}]}], ",", 
+            RowBox[{"ImageSize", "->", 
+             RowBox[{"{", 
+              RowBox[{"540", ",", "540"}], "}"}]}], ",", 
+            RowBox[{"Axes", "->", "False"}], ",", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"Directive", "[", 
+              RowBox[{
+               RowBox[{"Thickness", "[", ".0005", "]"}], ",", 
+               RowBox[{"cols", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}]}], "]"}], ",", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Darker", "[", 
+              RowBox[{
+               RowBox[{"cols", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], ",", ".45"}], "]"}], ",", 
+             RowBox[{"Thickness", "[", ".004", "]"}], ",", 
+             RowBox[{"Circle", "[", "]"}]}], "}"}], "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"s", ",", ".0001", ",", "8.0001", ",", ".08"}], "}"}]}], 
+       "]"}]}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<star.gif\>\""}], ",", 
+   "star", ",", 
+   RowBox[{"\"\<DisplayDurations\>\"", "->", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{"ConstantArray", "[", 
+         RowBox[{
+          RowBox[{"1", "/", "12"}], ",", "99"}], "]"}], ",", "1"}], "]"}], 
+      ",", "3"}], "]"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8640987898357553`*^9, 3.8640987898367343`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ffd0a657-a13d-4e6f-aeef-43e3ca73cec7"],
+
+Cell[BoxData["\<\"E:\\\\Mathematica\\\\Download\\\\star.gif\"\>"], "Output",
+ CellChangeTimes->{3.8640993917928653`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"577a5719-a894-4e70-b679-cc596509af16"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{429, Automatic}, {Automatic, 63}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (2022\:5e742\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"74f21351-8059-4d4a-ac6a-36d92cc83ed3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 188, 3, 160, "Title",ExpressionUUID->"d769c981-6b2e-4657-8808-c40da9d3e0df"],
+Cell[CellGroupData[{
+Cell[793, 29, 175, 3, 54, "Subsection",ExpressionUUID->"e63632bb-3ec6-4bfc-9ab6-3ff19827aac5"],
+Cell[CellGroupData[{
+Cell[993, 36, 6415, 168, 777, "Input",ExpressionUUID->"ffd0a657-a13d-4e6f-aeef-43e3ca73cec7"],
+Cell[7411, 206, 198, 2, 81, "Output",ExpressionUUID->"577a5719-a894-4e70-b679-cc596509af16"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

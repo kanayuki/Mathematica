@@ -1,0 +1,256 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9732,        248]
+NotebookOptionsPosition[      9008,        226]
+NotebookOutlinePosition[      9424,        243]
+CellTagsIndexPosition[      9381,        240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         RowBox[{
+          SqrtBox["2"], 
+          RowBox[{"Cos", "[", 
+           RowBox[{"2", "u"}], "]"}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"Cos", "[", "v", "]"}], ")"}], "2"]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", "u", "]"}], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "v"}], "]"}]}]}], 
+        RowBox[{"2", "-", 
+         RowBox[{"a", 
+          SqrtBox["2"], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"3", "u"}], "]"}], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "v"}], "]"}]}]}]], ",", 
+       FractionBox[
+        RowBox[{
+         RowBox[{
+          SqrtBox["2"], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "u"}], "]"}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"Cos", "[", "v", "]"}], ")"}], "2"]}], "-", 
+         RowBox[{
+          RowBox[{"Sin", "[", "u", "]"}], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "v"}], "]"}]}]}], 
+        RowBox[{"2", "-", 
+         RowBox[{"a", 
+          SqrtBox["2"], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"3", "u"}], "]"}], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "v"}], "]"}]}]}]], ",", 
+       FractionBox[
+        RowBox[{"3", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"Cos", "[", "v", "]"}], ")"}], "2"]}], 
+        RowBox[{"2", "-", 
+         RowBox[{"a", 
+          SqrtBox["2"], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"3", "u"}], "]"}], 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", "v"}], "]"}]}]}]]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"u", ",", 
+       RowBox[{
+        RowBox[{"-", "\[Pi]"}], "/", "2"}], ",", 
+       RowBox[{"\[Pi]", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"v", ",", "0", ",", "\[Pi]"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8466883975108943`*^9, 3.8466887119821925`*^9}, {
+   3.8466887441193724`*^9, 3.8466887869790125`*^9}, {3.8466890547322645`*^9, 
+   3.8466891069949627`*^9}, {3.8466893408338833`*^9, 3.846689342146555*^9}, {
+   3.8466897060257425`*^9, 3.846689738864197*^9}, {3.846689800523173*^9, 
+   3.846689804503714*^9}, {3.8466903236726985`*^9, 3.8466903394907856`*^9}, {
+   3.8466903790984273`*^9, 3.8466904144833536`*^9}, 3.8466904618447943`*^9, {
+   3.8466904966508923`*^9, 3.8466905002596416`*^9}, {3.8466908409330807`*^9, 
+   3.8466908417467756`*^9}, {3.846690910405877*^9, 3.846690915220071*^9}, {
+   3.846691108116679*^9, 3.8466911095467343`*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"ce5e419b-7037-41d7-aff8-0fa9649f4ac5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 0, 1}}, Typeset`size$$ = {360., {182., 187.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`a$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{(Sqrt[2] Cos[2 $CellContext`u] Cos[$CellContext`v]^2 + 
+          Cos[$CellContext`u] Sin[2 $CellContext`v])/(2 - $CellContext`a$$ 
+         Sqrt[2] Sin[3 $CellContext`u] 
+         Sin[2 $CellContext`v]), (
+          Sqrt[2] Sin[2 $CellContext`u] Cos[$CellContext`v]^2 - 
+          Sin[$CellContext`u] Sin[2 $CellContext`v])/(2 - $CellContext`a$$ 
+         Sqrt[2] Sin[3 $CellContext`u] Sin[2 $CellContext`v]), 3 
+         Cos[$CellContext`v]^2/(2 - $CellContext`a$$ Sqrt[2] 
+         Sin[3 $CellContext`u] 
+         Sin[2 $CellContext`v])}, {$CellContext`u, (-Pi)/2, Pi/
+         2}, {$CellContext`v, 0, Pi}], 
+      "Specifications" :> {{$CellContext`a$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{413., {232., 237.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8466887352870693`*^9, {3.846688765993332*^9, 3.846688788484636*^9}, {
+   3.8466890858763466`*^9, 3.846689108951606*^9}, 3.84668960245632*^9, 
+   3.8466897594217815`*^9, 3.8466898053547573`*^9, 3.846690345439864*^9, {
+   3.8466904046556315`*^9, 3.846690429621461*^9}, 3.846690463060708*^9, 
+   3.8466905007816114`*^9, 3.846690883435736*^9, 3.846690945985309*^9, 
+   3.846691071479051*^9, 3.846691650758233*^9},
+ CellLabel->"Out[71]=",ExpressionUUID->"81dcd246-8f32-4f7d-9f85-020e7fc6cf71"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ContourPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["x", "2"], 
+        SuperscriptBox["y", "2"]}], "+", 
+       RowBox[{
+        SuperscriptBox["x", "2"], 
+        SuperscriptBox["z", "2"]}], "+", 
+       RowBox[{
+        SuperscriptBox["y", "2"], 
+        SuperscriptBox["z", "2"]}], "-", 
+       RowBox[{"a", " ", "x", " ", "y", " ", "z"}]}], "==", "0"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.846689864468899*^9, 3.846689960705883*^9}, {
+  3.846690074610694*^9, 3.846690085489102*^9}, {3.846690118521247*^9, 
+  3.8466901226514363`*^9}, {3.846690164267902*^9, 3.8466901647379227`*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"46d75e98-a1e8-4202-beca-2926d7a0f741"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 0, 1}}, Typeset`size$$ = {360., {185., 190.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`a$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot3D[$CellContext`x^2 $CellContext`y^2 + $CellContext`x^2 \
+$CellContext`z^2 + $CellContext`y^2 $CellContext`z^2 - $CellContext`a$$ \
+$CellContext`x $CellContext`y $CellContext`z == 
+        0, {$CellContext`x, -1, 1}, {$CellContext`y, -1, 
+         1}, {$CellContext`z, -1, 1}], 
+      "Specifications" :> {{$CellContext`a$$, 0, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{413., {235., 240.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8466901661646214`*^9},
+ CellLabel->"Out[61]=",ExpressionUUID->"24d2b27b-fc83-41fa-bf37-1588bf19db01"]
+}, Open  ]]
+},
+WindowSize->{860, 1000},
+WindowMargins->{{Automatic, -227}, {-53, Automatic}},
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (2021\:5e747\:670823\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e309e936-a58c-4f01-a376-7bb3c017fd3b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2843, 77, 171, "Input",ExpressionUUID->"ce5e419b-7037-41d7-aff8-0fa9649f4ac5"],
+Cell[3426, 101, 2551, 48, 511, "Output",ExpressionUUID->"81dcd246-8f32-4f7d-9f85-020e7fc6cf71"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6014, 154, 1153, 31, 72, "Input",ExpressionUUID->"46d75e98-a1e8-4202-beca-2926d7a0f741"],
+Cell[7170, 187, 1822, 36, 494, "Output",ExpressionUUID->"24d2b27b-fc83-41fa-bf37-1588bf19db01"]
+}, Open  ]]
+}
+]
+*)
+

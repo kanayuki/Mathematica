@@ -1,0 +1,1036 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     39446,       1027]
+NotebookOptionsPosition[     35351,        896]
+NotebookOutlinePosition[     36934,        946]
+CellTagsIndexPosition[     36614,        934]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Shell Space: The 'Snugness' Condition", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3712008404420433`*^9, 3.371201634267458*^9, 
+   3.3712019376831036`*^9, {3.3712022519164586`*^9, 3.371202255010288*^9}, {
+   3.371202791274016*^9, 3.3712027943053436`*^9}, {3.371203088359024*^9, 
+   3.3712031229534383`*^9}, {3.37130885896875*^9, 3.371308862359375*^9}, {
+   3.378720513745356*^9, 3.378720529198877*^9}, {3.380738607515625*^9, 
+   3.3807386076875*^9}, {3.381366319578125*^9, 3.38136632125*^9}},
+ CellID->700863240],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"shell", "[", 
+    RowBox[{"w_", ",", "d_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"Quiet", "@", 
+    RowBox[{"ParametricPlot3D", "[", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["w", 
+        RowBox[{"\[Theta]", "/", 
+         RowBox[{"(", 
+          RowBox[{"2", "\[Pi]"}], ")"}]}]], 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", "\[Theta]", "]"}], 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"1", "-", "d"}], 
+              RowBox[{"1", "+", "d"}]], 
+             RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ")"}]}], ",", 
+         RowBox[{
+          RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"1", "-", "d"}], 
+              RowBox[{"1", "+", "d"}]], 
+             RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ")"}]}], ",", 
+         RowBox[{
+          RowBox[{"-", "t"}], "+", 
+          RowBox[{
+           FractionBox[
+            RowBox[{"1", "-", "d"}], 
+            RowBox[{"1", "+", "d"}]], 
+           RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}]}], "}"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", 
+        RowBox[{
+         RowBox[{"-", "6"}], "\[Pi]"}], ",", 
+        RowBox[{"3", "\[Pi]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Phi]", ",", 
+        RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+      RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+      RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+      RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"450", ",", "375"}], "}"}]}], ",", 
+      RowBox[{"MaxRecursion", "\[Rule]", "0"}], ",", 
+      RowBox[{"PlotPoints", "\[Rule]", "50"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+      RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Speed\>\""}]}], "]"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.3711932064375*^9, 3.3711933815*^9}, {
+  3.371193412984375*^9, 3.3711934139375*^9}, {3.371193451328125*^9, 
+  3.371193492125*^9}, {3.3711935290625*^9, 3.371193529484375*^9}, {
+  3.37119362046875*^9, 3.371193668078125*^9}, {3.371193700109375*^9, 
+  3.371193702359375*^9}, {3.3712930841875*^9, 3.371293084953125*^9}, {
+  3.378738202738033*^9, 3.3787382043161573`*^9}, {3.3787382594099073`*^9, 
+  3.378738267644283*^9}, {3.3787383610349073`*^9, 3.3787383726286573`*^9}, {
+  3.380738613671875*^9, 3.3807386418125*^9}, {3.380738692875*^9, 
+  3.380738704265625*^9}, {3.38073874528125*^9, 3.380738745984375*^9}, {
+  3.380738821578125*^9, 3.38073883115625*^9}, {3.38073886209375*^9, 
+  3.380738862140625*^9}},
+ CellID->222727363],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"snugShell", "[", 
+    RowBox[{"w_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"shell", "[", 
+    RowBox[{"w", ",", 
+     FractionBox[
+      RowBox[{"1", "+", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         SuperscriptBox["t", "2"]}]], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SqrtBox[
+           RowBox[{"1", "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], " ", "w"}]}], 
+      RowBox[{"1", "-", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         SuperscriptBox["t", "2"]}]], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          SqrtBox[
+           RowBox[{"1", "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], " ", "w"}]}]], ",", "t"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.371193999421875*^9, 3.371194046828125*^9}, 
+   3.371194796125*^9, 3.380738615578125*^9},
+ CellID->104918211]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"snugShell", "[", 
+    RowBox[{"w", ",", "t"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"w", ",", "2", ",", "\"\<flare, W\>\""}], "}"}], ",", "1.1", 
+     ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "\"\<spire, T\>\""}], "}"}], ",", "0", ",", 
+     "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.371193542109375*^9, 3.371193597609375*^9}, {
+   3.37119388875*^9, 3.371193889296875*^9}, {3.371194859328125*^9, 
+   3.371194867125*^9}, {3.371194979859375*^9, 3.37119504990625*^9}, {
+   3.3711951365*^9, 3.37119513715625*^9}, 3.37119517071875*^9, {
+   3.371196558046875*^9, 3.371196636515625*^9}, 3.371203135531805*^9, 
+   3.3712032293304806`*^9, {3.3715464255961475`*^9, 3.371546436901145*^9}, {
+   3.378738224831783*^9, 3.3787382285974073`*^9}, {3.38073860278125*^9, 
+   3.380738602953125*^9}, {3.38073866415625*^9, 3.380738682203125*^9}},
+ CellID->625883086],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0, $CellContext`w$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`w$$], 2, "flare, W"}, 1.1, 4}, {{
+       Hold[$CellContext`t$$], 0, "spire, T"}, 0, 4}}, Typeset`size$$ = {
+    450., {185., 190.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`w$24694$$ = 
+    0, $CellContext`t$24695$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t$$ = 0, $CellContext`w$$ = 2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`w$$, $CellContext`w$24694$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$24695$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`snugShell[$CellContext`w$$, $CellContext`t$$], 
+      "Specifications" :> {{{$CellContext`w$$, 2, "flare, W"}, 1.1, 4, 
+         Appearance -> "Labeled"}, {{$CellContext`t$$, 0, "spire, T"}, 0, 4, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{494., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`snugShell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`shell[$CellContext`w, (1 + 
+          Sqrt[1 + $CellContext`t^2] + (1 - Sqrt[
+            1 + $CellContext`t^2]) $CellContext`w)/(1 - Sqrt[
+         1 + $CellContext`t^2] + (1 + 
+           Sqrt[1 + $CellContext`t^2]) $CellContext`w), $CellContext`t], \
+$CellContext`shell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`d, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := Quiet[
+         ParametricPlot3D[$CellContext`w^($CellContext`\[Theta]/(2 Pi)) {
+           Cos[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), 
+            Sin[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), -$CellContext`t + ((
+               1 - $CellContext`d)/(1 + $CellContext`d)) 
+             Sin[$CellContext`\[Phi]]}, {$CellContext`\[Theta], (-6) Pi, 3 
+           Pi}, {$CellContext`\[Phi], -Pi, Pi}, Boxed -> False, Axes -> None, 
+          Ticks -> None, Mesh -> None, ImageSize -> {450, 375}, MaxRecursion -> 
+          0, PlotPoints -> 50, PlotRange -> All, PerformanceGoal -> 
+          "Speed"]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->365980942]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "David Raup (among others, including Stephen Wolfram) proposes that all \
+naturally occurring shells conform to the same basic design, varying only in \
+a limited number of quantifiable ways. In Raup's simple model, you can \
+specify a shell by setting the flare, ",
+ Cell[BoxData[
+  FormBox["W", TraditionalForm]], "InlineMath"],
+ " (the rate of growth of the spiral), the verm, ",
+ Cell[BoxData[
+  FormBox["D", TraditionalForm]], "InlineMath"],
+ " (the \"tightness\" of the shell cavity), and the spire, ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ " (the rate of creep parallel to the spiral axis). If we insist that shells \
+are snug (that is, the shell cavity is just loose enough so that each wind \
+touches the previous and the next exactly), then the space of shells can be \
+parametrized by flare and spire alone."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3788170677681575`*^9, {3.38073895175*^9, 
+   3.380739041953125*^9}, {3.381366232390625*^9, 3.381366245984375*^9}, {
+   3.3824695519678993`*^9, 3.3824695525147777`*^9}},
+ CellID->136169533]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 1.32, $CellContext`w$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`w$$], 2, "flare, W"}, 1.1, 4}, {{
+       Hold[$CellContext`t$$], 1.32, "spire, T"}, 0, 4}}, Typeset`size$$ = {
+    450., {185., 190.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`w$24750$$ = 
+    0, $CellContext`t$24751$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t$$ = 1.32, $CellContext`w$$ = 2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`w$$, $CellContext`w$24750$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$24751$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`snugShell[$CellContext`w$$, $CellContext`t$$], 
+      "Specifications" :> {{{$CellContext`w$$, 2, "flare, W"}, 1.1, 4, 
+         Appearance -> "Labeled"}, {{$CellContext`t$$, 1.32, "spire, T"}, 0, 
+         4, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{494., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`snugShell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`shell[$CellContext`w, (1 + 
+          Sqrt[1 + $CellContext`t^2] + (1 - Sqrt[
+            1 + $CellContext`t^2]) $CellContext`w)/(1 - Sqrt[
+         1 + $CellContext`t^2] + (1 + 
+           Sqrt[1 + $CellContext`t^2]) $CellContext`w), $CellContext`t], \
+$CellContext`shell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`d, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := Quiet[
+         ParametricPlot3D[$CellContext`w^($CellContext`\[Theta]/(2 Pi)) {
+           Cos[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), 
+            Sin[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), -$CellContext`t + ((
+               1 - $CellContext`d)/(1 + $CellContext`d)) 
+             Sin[$CellContext`\[Phi]]}, {$CellContext`\[Theta], (-6) Pi, 3 
+           Pi}, {$CellContext`\[Phi], -Pi, Pi}, Boxed -> False, Axes -> None, 
+          Ticks -> None, Mesh -> None, ImageSize -> {450, 375}, MaxRecursion -> 
+          0, PlotPoints -> 50, PlotRange -> All, PerformanceGoal -> 
+          "Speed"]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->613361174]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 2.865, $CellContext`w$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`w$$], 2, "flare, W"}, 1.1, 4}, {{
+       Hold[$CellContext`t$$], 2.865, "spire, T"}, 0, 4}}, Typeset`size$$ = {
+    450., {185., 190.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`w$24806$$ = 
+    0, $CellContext`t$24807$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t$$ = 2.865, $CellContext`w$$ = 2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`w$$, $CellContext`w$24806$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$24807$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`snugShell[$CellContext`w$$, $CellContext`t$$], 
+      "Specifications" :> {{{$CellContext`w$$, 2, "flare, W"}, 1.1, 4, 
+         Appearance -> "Labeled"}, {{$CellContext`t$$, 2.865, "spire, T"}, 0, 
+         4, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{494., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`snugShell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`shell[$CellContext`w, (1 + 
+          Sqrt[1 + $CellContext`t^2] + (1 - Sqrt[
+            1 + $CellContext`t^2]) $CellContext`w)/(1 - Sqrt[
+         1 + $CellContext`t^2] + (1 + 
+           Sqrt[1 + $CellContext`t^2]) $CellContext`w), $CellContext`t], \
+$CellContext`shell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`d, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := Quiet[
+         ParametricPlot3D[$CellContext`w^($CellContext`\[Theta]/(2 Pi)) {
+           Cos[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), 
+            Sin[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), -$CellContext`t + ((
+               1 - $CellContext`d)/(1 + $CellContext`d)) 
+             Sin[$CellContext`\[Phi]]}, {$CellContext`\[Theta], (-6) Pi, 3 
+           Pi}, {$CellContext`\[Phi], -Pi, Pi}, Boxed -> False, Axes -> None, 
+          Ticks -> None, Mesh -> None, ImageSize -> {450, 375}, MaxRecursion -> 
+          0, PlotPoints -> 50, PlotRange -> All, PerformanceGoal -> 
+          "Speed"]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->148742752],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 2.865, $CellContext`w$$ = 1.275, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`w$$], 1.275, "flare, W"}, 1.1, 4}, {{
+       Hold[$CellContext`t$$], 2.865, "spire, T"}, 0, 4}}, Typeset`size$$ = {
+    450., {185., 190.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`w$24862$$ = 
+    0, $CellContext`t$24863$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t$$ = 2.865, $CellContext`w$$ = 1.275}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`w$$, $CellContext`w$24862$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$24863$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`snugShell[$CellContext`w$$, $CellContext`t$$], 
+      "Specifications" :> {{{$CellContext`w$$, 1.275, "flare, W"}, 1.1, 4, 
+         Appearance -> "Labeled"}, {{$CellContext`t$$, 2.865, "spire, T"}, 0, 
+         4, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{494., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`snugShell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`shell[$CellContext`w, (1 + 
+          Sqrt[1 + $CellContext`t^2] + (1 - Sqrt[
+            1 + $CellContext`t^2]) $CellContext`w)/(1 - Sqrt[
+         1 + $CellContext`t^2] + (1 + 
+           Sqrt[1 + $CellContext`t^2]) $CellContext`w), $CellContext`t], \
+$CellContext`shell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`d, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := Quiet[
+         ParametricPlot3D[$CellContext`w^($CellContext`\[Theta]/(2 Pi)) {
+           Cos[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), 
+            Sin[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), -$CellContext`t + ((
+               1 - $CellContext`d)/(1 + $CellContext`d)) 
+             Sin[$CellContext`\[Phi]]}, {$CellContext`\[Theta], (-6) Pi, 3 
+           Pi}, {$CellContext`\[Phi], -Pi, Pi}, Boxed -> False, Axes -> None, 
+          Ticks -> None, Mesh -> None, ImageSize -> {450, 375}, MaxRecursion -> 
+          0, PlotPoints -> 50, PlotRange -> All, PerformanceGoal -> 
+          "Speed"]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->66229978],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 4, $CellContext`w$$ = 3.545, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`w$$], 3.545, "flare, W"}, 1.1, 4}, {{
+       Hold[$CellContext`t$$], 4, "spire, T"}, 0, 4}}, Typeset`size$$ = {
+    450., {185., 190.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`w$24918$$ = 
+    0, $CellContext`t$24919$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t$$ = 4, $CellContext`w$$ = 3.545}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`w$$, $CellContext`w$24918$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$24919$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`snugShell[$CellContext`w$$, $CellContext`t$$], 
+      "Specifications" :> {{{$CellContext`w$$, 3.545, "flare, W"}, 1.1, 4, 
+         Appearance -> "Labeled"}, {{$CellContext`t$$, 4, "spire, T"}, 0, 4, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{494., {242., 247.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`snugShell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`shell[$CellContext`w, (1 + 
+          Sqrt[1 + $CellContext`t^2] + (1 - Sqrt[
+            1 + $CellContext`t^2]) $CellContext`w)/(1 - Sqrt[
+         1 + $CellContext`t^2] + (1 + 
+           Sqrt[1 + $CellContext`t^2]) $CellContext`w), $CellContext`t], \
+$CellContext`shell[
+         Pattern[$CellContext`w, 
+          Blank[]], 
+         Pattern[$CellContext`d, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := Quiet[
+         ParametricPlot3D[$CellContext`w^($CellContext`\[Theta]/(2 Pi)) {
+           Cos[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), 
+            Sin[$CellContext`\[Theta]] (
+             1 + ((1 - $CellContext`d)/(1 + $CellContext`d)) 
+              Cos[$CellContext`\[Phi]]), -$CellContext`t + ((
+               1 - $CellContext`d)/(1 + $CellContext`d)) 
+             Sin[$CellContext`\[Phi]]}, {$CellContext`\[Theta], (-6) Pi, 3 
+           Pi}, {$CellContext`\[Phi], -Pi, Pi}, Boxed -> False, Axes -> None, 
+          Ticks -> None, Mesh -> None, ImageSize -> {450, 375}, MaxRecursion -> 
+          0, PlotPoints -> 50, PlotRange -> All, PerformanceGoal -> 
+          "Speed"]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->70605520]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "This simplified model of \"shell space\" was later adopted by Richard \
+Dawkins, who coined the terms \"flare,\" \"verm,\" and \"spire\" for the \
+parameters ",
+ Cell[BoxData[
+  FormBox["W", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["D", TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ ", respectively, as an illustration of the notion of \"design space\" in the \
+book ",
+ StyleBox["Climbing Mount Improbable",
+  FontSlant->"Italic"],
+ ".\n\nHere are precise definitions of the parameters.\n\n1. If ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["w", "1"], TraditionalForm]], "InlineMath"],
+ " is the distance between a point ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["P", "1"], TraditionalForm]], "InlineMath"],
+ " on the generating spiral and that spiral's axis, and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["w", "2"], TraditionalForm]], "InlineMath"],
+ " the distance from the corresponding point ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["P", "2"], TraditionalForm]], "InlineMath"],
+ " one turn later, then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["w", "2"], "/", 
+     SubscriptBox["w", "1"]}], "=", "W"}], TraditionalForm]], "InlineMath"],
+ ", which is strictly greater than 1.\n\n2. If ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["d", "1"], TraditionalForm]], "InlineMath"],
+ " is the distance between the spiral axis and the inner edge of the shell \
+cavity, and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["d", "2"], TraditionalForm]], "InlineMath"],
+ " the distance between the spiral axis and the outer edge on the same turn, \
+then ",
+ Cell[BoxData[
+  FormBox[Cell[TextData[Cell[BoxData[
+    FormBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["d", "1"], "/", 
+       SubscriptBox["d", "2"]}], "=", "D"}], TraditionalForm]]]], 
+    "InlineMath"], TraditionalForm]]],
+ ", which is greater than or equal to 0 and strictly less than 1.\n\n3. If \
+the acute angle between the line ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["P", "1"], " ", 
+    SubscriptBox["P", "2"]}], TraditionalForm]], "InlineMath"],
+ " and the horizontal is ",
+ Cell[BoxData[
+  FormBox["\[Alpha]", TraditionalForm]], "InlineMath"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[Cell["tan \[Alpha] = T", "InlineMath"], TraditionalForm]]],
+ ".\n\nThe \"snugness\" condition states that\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"d", "=", 
+    StyleBox[
+     FractionBox[
+      RowBox[{"1", "+", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         SuperscriptBox["t", "2"]}]], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          SqrtBox[
+           RowBox[{"1", "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], " ", "w"}]}], 
+      RowBox[{"1", "-", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         SuperscriptBox["t", "2"]}]], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "+", 
+          SqrtBox[
+           RowBox[{"1", "+", 
+            SuperscriptBox["t", "2"]}]]}], ")"}], " ", "w"}]}]],
+     FontSize->16]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.37120305170207*^9, {3.3712033658956027`*^9, 
+   3.3712033922867346`*^9}, {3.371203427834292*^9, 3.3712034387563767`*^9}, {
+   3.380739070296875*^9, 3.380739280546875*^9}, {3.381366269890625*^9, 
+   3.38136628846875*^9}},
+ CellID->250722171]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["geometry", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3712015543243303`*^9, 3.3712015586840124`*^9}, {
+   3.3712021854291115`*^9, 3.371202188397994*^9}, {3.371202366263136*^9, 
+   3.3712023681694345`*^9}, {3.371202676708583*^9, 3.3712026814118285`*^9}},
+ CellID->106188693],
+
+Cell["biology", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.371201560199744*^9, 3.3712015632624598`*^9}, {
+   3.3712021940857487`*^9, 3.3712021951795483`*^9}, {3.3712023698569775`*^9, 
+   3.371202374778979*^9}, {3.371202684005645*^9, 3.3712026864900837`*^9}, {
+   3.371203004951173*^9, 3.371203011029414*^9}},
+ CellID->156512149],
+
+Cell["evolution", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.371201563653112*^9, 3.3712015659501486`*^9}, {
+   3.371201792952313*^9, 3.3712017944993167`*^9}, {3.3712021976015315`*^9, 
+   3.3712022011641912`*^9}, {3.3712023787478304`*^9, 3.371202380607253*^9}, {
+   3.371202688771392*^9, 3.371202692443361*^9}, {3.3712030139357204`*^9, 
+   3.371203015545126*^9}},
+ CellID->31111652],
+
+Cell["growth and form", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3712015664189315`*^9, 3.3712015698254213`*^9}, {
+   3.371202206523806*^9, 3.3712022078207393`*^9}, {3.371203017717043*^9, 
+   3.371203020763976*^9}},
+ CellID->282168367]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Growth of Plants and Animals",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://www.wolframscience.com/nksonline/page-1008e-text"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.38299713265625*^9, 3.382997147046875*^9}},
+ CellID->126496058]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Phil Ramsden",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Phil+Ramsden"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Phil+Ramsden"]
+}], "Author",
+ CellID->516835732]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 685},
+WindowMargins->{{46, Automatic}, {Automatic, 18}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (June 19, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[27776, 680, 310, 8, 70, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[28089, 690, 676, 16, 70, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[28768, 708, 339, 11, 70, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[29110, 721, 636, 15, 70, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[29749, 738, 843, 21, 70, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[30595, 761, 303, 8, 70, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[30901, 771, 1411, 31, 70, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[32315, 804, 881, 21, 70, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 35723, 907},
+ {"RotateAndZoomIn3D", 35831, 910},
+ {"DragLocators", 35940, 913},
+ {"CreateAndDeleteLocators", 36055, 916},
+ {"SliderZoom", 36168, 919},
+ {"GamepadControls", 36273, 922},
+ {"AutomaticAnimation", 36385, 925},
+ {"BookmarkAnimation", 36501, 928}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 533, 8, 70, "DemoTitle",
+ CellID->700863240],
+Cell[CellGroupData[{
+Cell[1148, 35, 33, 0, 70, "InitializationSection"],
+Cell[1184, 37, 2843, 71, 70, "Input",
+ CellID->222727363],
+Cell[4030, 110, 934, 31, 70, "Input",
+ CellID->104918211]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5001, 146, 29, 0, 70, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[5055, 150, 1216, 26, 70, "Input",
+ CellID->625883086],
+Cell[6274, 178, 3296, 67, 70, "Output",
+ CellID->365980942]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9616, 251, 36, 0, 70, "ManipulateCaptionSection"],
+Cell[9655, 253, 1122, 22, 70, "ManipulateCaption",
+ CellID->136169533]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10814, 280, 28, 0, 70, "ThumbnailSection"],
+Cell[10845, 282, 3308, 67, 70, "Output",
+ CellID->613361174]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14190, 354, 28, 0, 70, "SnapshotsSection"],
+Cell[14221, 356, 3312, 67, 70, "Output",
+ CellID->148742752],
+Cell[17536, 425, 3327, 67, 70, "Output",
+ CellID->66229978],
+Cell[20866, 494, 3311, 67, 70, "Output",
+ CellID->70605520]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24214, 566, 26, 0, 70, "DetailsSection"],
+Cell[24243, 568, 3456, 105, 70, "DetailNotes",
+ CellID->250722171]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27736, 678, 37, 0, 70, "ControlSuggestionsSection"],
+Cell[27776, 680, 310, 8, 70, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[28089, 690, 676, 16, 70, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[28768, 708, 339, 11, 70, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[29110, 721, 636, 15, 70, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[29749, 738, 843, 21, 70, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[30595, 761, 303, 8, 70, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[30901, 771, 1411, 31, 70, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[32315, 804, 881, 21, 70, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33233, 830, 30, 0, 70, "SearchTermsSection"],
+Cell[33266, 832, 297, 5, 70, "SearchTerms",
+ CellID->106188693],
+Cell[33566, 839, 346, 6, 70, "SearchTerms",
+ CellID->156512149],
+Cell[33915, 847, 399, 7, 70, "SearchTerms",
+ CellID->31111652],
+Cell[34317, 856, 254, 5, 70, "SearchTerms",
+ CellID->282168367]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34608, 866, 31, 0, 70, "RelatedLinksSection"],
+Cell[34642, 868, 300, 7, 70, "RelatedLinks",
+ CellID->126496058]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34979, 880, 25, 0, 70, "AuthorSection"],
+Cell[35007, 882, 316, 10, 70, "Author",
+ CellID->516835732]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

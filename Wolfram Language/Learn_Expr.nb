@@ -1,0 +1,493 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18772,        483]
+NotebookOptionsPosition[     16551,        432]
+NotebookOutlinePosition[     16965,        449]
+CellTagsIndexPosition[     16922,        446]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:57fa\:7840\:8bed\:6cd5", "Title",
+ CellChangeTimes->{{3.8407739798386555`*^9, 
+  3.8407739986045575`*^9}},ExpressionUUID->"13229351-221b-44b9-b91c-\
+caa5df213fe5"],
+
+Cell[CellGroupData[{
+
+Cell["\:8868\:8fbe\:5f0f", "Subsection",
+ CellChangeTimes->{{3.8407740004486995`*^9, 3.8407740240135264`*^9}, {
+  3.840774280028339*^9, 
+  3.8407742816222787`*^9}},ExpressionUUID->"1b056b84-0889-43ab-abbd-\
+f3e20c3ac73b"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[TextData[{
+  "ReplaceAll ",
+  StyleBox["(/.)", "OperatorCharacter"]
+ }], "ObjectName",ExpressionUUID->"1fdd2e8b-c8bf-4b13-a67d-3c0c8e08cace"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"13e8c45c-58d1-4a71-a9eb-11a60a89eec2"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:5168\:90e8\:66ff\:6362", 
+    DocumentationBuild`Make`Private`translationlang$$ = FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "ReplaceAll", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{122., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "4894e2b4-aaf8-494b-b199-8081b34342f4"],
+ "\n",
+ Cell[TextData[{
+  "MapAll ",
+  StyleBox["(//@)", "OperatorCharacter"]
+ }], "ObjectName",ExpressionUUID->"bac37423-6f0b-416d-a0cd-5279ea7b0a00"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"9a3ac8e6-4046-42ca-8efc-ad0b795fd75a"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:6620\:5c04\:5168\:90e8", 
+    DocumentationBuild`Make`Private`translationlang$$ = FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "MapAll", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{122., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "9e212206-8a96-40ce-b22e-d9829cb9727a"],
+ "\n",
+ Cell[TextData[{
+  "Map ",
+  StyleBox["(/@)", "OperatorCharacter"]
+ }], "ObjectName",ExpressionUUID->"c6a4a3c4-c21a-4daa-a52d-175d6b85aade"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"e63cbbb3-5ca0-457b-b808-d5e83840f645"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:6620\:5c04", DocumentationBuild`Make`Private`translationlang$$ = 
+    FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "Map", DocumentationBuild`Make`Private`translationlang$]], \
+$Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{82., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "4ac43bef-46bc-440e-86c2-be884888f954"],
+ "\n",
+ Cell["Postfix", "ObjectName",ExpressionUUID->
+  "ab15654c-6d5d-4d9c-9862-08df7c42d8d7"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"3aa16615-c1cd-4431-965e-f179e3fc670c"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:540e\:7f00", DocumentationBuild`Make`Private`translationlang$$ = 
+    FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "Postfix", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{82., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "f88bd4a1-b77d-48c4-9da3-52735639efe8"],
+ "\n",
+ Cell["Prefix", "ObjectName",ExpressionUUID->
+  "65250e3c-1177-48fe-acc5-d4f9ec485f9a"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"54c262da-fa8e-415c-8f3c-3c49daf9c6d7"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:524d\:7f00", DocumentationBuild`Make`Private`translationlang$$ = 
+    FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "Prefix", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{82., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "325df3ed-f057-4a14-92b4-e5691e2772e7"],
+ "\n",
+ Cell["Infix", "ObjectName",ExpressionUUID->
+  "554448db-e509-4e3b-a82c-4025093d1150"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"408ceaed-76d8-41ed-854c-2d9a20bfd192"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:4e2d\:7f00", DocumentationBuild`Make`Private`translationlang$$ = 
+    FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "Infix", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{82., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "bd9279ac-6dcd-4d0f-bdd8-95127869d782"],
+ "\n",
+ Cell[TextData[{
+  "Function ",
+  StyleBox["(&,|->,\[Function])", "OperatorCharacter"]
+ }], "ObjectName",ExpressionUUID->"e4eb1e26-4f71-4f1d-b774-acaf58b46422"],
+ Cell[BoxData[
+  TemplateBox[{8},
+   "Spacer1"]],ExpressionUUID->"5bed73a3-3fa7-4c06-a1f0-86e8db1089aa"],
+ Cell[BoxData[
+  StyleBox[
+   DynamicModuleBox[{DocumentationBuild`Make`Private`result$$ = 
+    "\:7eaf\:51fd\:6570", DocumentationBuild`Make`Private`translationlang$$ = 
+    FrontEnd`CurrentValue[
+     FrontEndObject[
+      LinkObject["na364_shm", 86, 6]], "Language", "English"]}, 
+    DynamicBox[ToBoxes[
+     DocumentationBuild`Make`Private`translationlang$$ = 
+       FrontEnd`CurrentValue[$FrontEnd, "Language", "English"]; 
+      With[{DocumentationBuild`Make`Private`translationlang$ = 
+         DocumentationBuild`Make`Private`translationlang$$}, 
+        FE`Evaluate[
+         FEPrivate`If[
+          FEPrivate`SameQ[
+           FEPrivate`Set[DocumentationBuild`Make`Private`result$$, 
+            FEPrivate`TranslateKeyword[
+            "Function", 
+             DocumentationBuild`Make`Private`translationlang$]], $Failed], "", 
+          StringJoin["(", DocumentationBuild`Make`Private`result$$, ")"]]]], 
+      StandardForm],
+     ImageSizeCache->{102., {4., 16.}}],
+    DynamicModuleValues:>{}], "ObjectNameTranslation",
+   StripOnInput->False]], "ObjectNameTranslation",ExpressionUUID->
+  "64583e6a-35b4-4043-95f1-11ed2f018900"]
+}], "Subsubsection",
+ CellChangeTimes->{
+  3.840774301454851*^9, {3.840775076114683*^9, 3.840775076655801*^9}, {
+   3.840775115993778*^9, 3.8407751164046307`*^9}, {3.8407760824401064`*^9, 
+   3.8407760829830227`*^9}, {3.8407764265898876`*^9, 
+   3.8407764270866623`*^9}, {3.8407764941847963`*^9, 3.840776494656412*^9}, {
+   3.8407777347340927`*^9, 
+   3.8407777352084427`*^9}},ExpressionUUID->"987dd944-ed63-4a17-bbfe-\
+c3fc6d0e7b72"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], "/.", 
+   RowBox[{"b", "\[Rule]", "x"}]}]}]], "Input",
+ CellChangeTimes->{{3.8407740259628534`*^9, 3.8407740546736603`*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"53c2fc0b-0c33-432e-9d9e-d0726fbe8254"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a", ",", "x", ",", "c", ",", "d"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.8407740568107743`*^9, 3.8407740981652713`*^9, {3.840774194925855*^9, 
+   3.8407741982184277`*^9}, 3.840775291576867*^9},
+ CellLabel->"Out[79]=",ExpressionUUID->"2805dca7-9044-4361-983d-7144f347a8b1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Map", "[", 
+   RowBox[{"f", ",", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8407751639597254`*^9, 3.8407752029174676`*^9}, {
+  3.8407752427496157`*^9, 3.8407752862140226`*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"a4e1db0f-d4a8-4ec9-b354-eb72a2c90644"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"f", "[", "a", "]"}], ",", 
+   RowBox[{"f", "[", "b", "]"}], ",", 
+   RowBox[{"f", "[", "c", "]"}], ",", 
+   RowBox[{"f", "[", "d", "]"}], ",", 
+   RowBox[{"f", "[", "e", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.840775184453268*^9, {3.8407752471858215`*^9, 3.840775276088845*^9}, 
+   3.8407753191905594`*^9},
+ CellLabel->"Out[80]=",ExpressionUUID->"ccc07d67-f5aa-4afc-8e57-2d3fd37bf45b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"f", "/@", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.8407753279110017`*^9, 3.8407753338535824`*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"7074247c-c14b-4d33-9eda-3f91561a4920"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"f", "[", "a", "]"}], ",", 
+   RowBox[{"f", "[", "b", "]"}], ",", 
+   RowBox[{"f", "[", "c", "]"}], ",", 
+   RowBox[{"f", "[", "d", "]"}], ",", 
+   RowBox[{"f", "[", "e", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8407753405525236`*^9},
+ CellLabel->"Out[81]=",ExpressionUUID->"fd36bff0-3208-4eea-8ce2-7d2f728e82c7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"f", "~", "Map", "~", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.840775350342953*^9, 3.8407753588696012`*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"73aac974-116b-43d4-ad4c-2a2aa7afa5db"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"f", "[", "a", "]"}], ",", 
+   RowBox[{"f", "[", "b", "]"}], ",", 
+   RowBox[{"f", "[", "c", "]"}], ",", 
+   RowBox[{"f", "[", "d", "]"}], ",", 
+   RowBox[{"f", "[", "e", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.840775359883398*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"411d15ef-ff65-4b58-a62e-9cf3e9271355"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Infix", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"f", ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}], "]"}], 
+   ",", "\"\<\[DoubleRightArrow]\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8407762603232718`*^9, 3.840776275403007*^9}, {
+  3.840777061857822*^9, 3.8407770854561386`*^9}, {3.8407771183768687`*^9, 
+  3.8407771616345644`*^9}, {3.840777229955101*^9, 3.840777232346306*^9}, {
+  3.840777405246242*^9, 3.8407774163118515`*^9}, {3.840777495188117*^9, 
+  3.8407774969710903`*^9}, {3.840777576337952*^9, 3.840777592126671*^9}, {
+  3.840777627397972*^9, 3.840777654270525*^9}},
+ CellLabel->"In[92]:=",ExpressionUUID->"a69adb85-bffd-4ebc-9f62-d1274309a96d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"f", "\[DoubleRightArrow]", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}],
+  Infix[
+   $CellContext`f[$CellContext`f, {$CellContext`a, $CellContext`b, \
+$CellContext`c, $CellContext`d, $CellContext`e}], "\[DoubleRightArrow]"],
+  Editable->False]], "Output",
+ CellChangeTimes->{
+  3.840777234004576*^9, {3.840777478205989*^9, 3.8407774994116235`*^9}, 
+   3.84077759359241*^9, {3.8407776292476397`*^9, 3.8407776557074594`*^9}},
+ CellLabel->"Out[92]=",ExpressionUUID->"b36a02de-5840-41c8-8c9c-fa9f01af8f26"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "->", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.840777027247535*^9, 3.840777028259813*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"f5257a34-865c-47aa-8c76-ac2a97bd365e"],
+
+Cell[BoxData[
+ RowBox[{"f", "\[Rule]", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e"}], "}"}]}]], "Output",
+ CellChangeTimes->{3.8407770294673133`*^9},
+ CellLabel->"Out[85]=",ExpressionUUID->"5ca1da9c-04f1-4a1a-8981-376486889ec4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "#"}], " ", "&"}], "/@"}]], "Input",
+ CellChangeTimes->{
+  3.8407770409463677`*^9, {3.840777677228326*^9, 
+   3.8407777064149804`*^9}},ExpressionUUID->"f0daf96f-8cb2-4eb9-9938-\
+d4d89d95fe0d"],
+
+Cell[BoxData["f"], "Output",
+ CellChangeTimes->{3.84077704152343*^9},
+ CellLabel->"Out[86]=",ExpressionUUID->"f4299f18-b04a-4e29-86b3-b41a80cfd475"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{887, 878},
+WindowMargins->{{Automatic, 352}, {68, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4c6ff2db-e0d5-4c74-9b86-dff10a977fa3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 171, 3, 96, "Title",ExpressionUUID->"13229351-221b-44b9-b91c-caa5df213fe5"],
+Cell[CellGroupData[{
+Cell[776, 29, 221, 4, 53, "Subsection",ExpressionUUID->"1b056b84-0889-43ab-abbd-f3e20c3ac73b"],
+Cell[CellGroupData[{
+Cell[1022, 37, 10082, 233, 223, "Subsubsection",ExpressionUUID->"987dd944-ed63-4a17-bbfe-c3fc6d0e7b72"],
+Cell[CellGroupData[{
+Cell[11129, 274, 334, 7, 48, "Input",ExpressionUUID->"53c2fc0b-0c33-432e-9d9e-d0726fbe8254"],
+Cell[11466, 283, 317, 6, 32, "Output",ExpressionUUID->"2805dca7-9044-4361-983d-7144f347a8b1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11820, 294, 403, 9, 64, "Input",ExpressionUUID->"a4e1db0f-d4a8-4ec9-b354-eb72a2c90644"],
+Cell[12226, 305, 448, 11, 32, "Output",ExpressionUUID->"ccc07d67-f5aa-4afc-8e57-2d3fd37bf45b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12711, 321, 314, 6, 48, "Input",ExpressionUUID->"7074247c-c14b-4d33-9eda-3f91561a4920"],
+Cell[13028, 329, 371, 9, 32, "Output",ExpressionUUID->"fd36bff0-3208-4eea-8ce2-7d2f728e82c7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13436, 343, 323, 6, 64, "Input",ExpressionUUID->"73aac974-116b-43d4-ad4c-2a2aa7afa5db"],
+Cell[13762, 351, 369, 9, 32, "Output",ExpressionUUID->"411d15ef-ff65-4b58-a62e-9cf3e9271355"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14168, 365, 742, 14, 45, "Input",ExpressionUUID->"a69adb85-bffd-4ebc-9f62-d1274309a96d"],
+Cell[14913, 381, 587, 12, 32, "Output",ExpressionUUID->"b36a02de-5840-41c8-8c9c-fa9f01af8f26"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15537, 398, 272, 5, 28, "Input",ExpressionUUID->"f5257a34-865c-47aa-8c76-ac2a97bd365e"],
+Cell[15812, 405, 256, 5, 32, "Output",ExpressionUUID->"5ca1da9c-04f1-4a1a-8981-376486889ec4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16105, 415, 243, 7, 28, "Input",ExpressionUUID->"f0daf96f-8cb2-4eb9-9938-d4d89d95fe0d"],
+Cell[16351, 424, 148, 2, 32, "Output",ExpressionUUID->"f4299f18-b04a-4e29-86b3-b41a80cfd475"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

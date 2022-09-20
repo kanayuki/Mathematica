@@ -1,0 +1,3325 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    142856,       3316]
+NotebookOptionsPosition[    138171,       3174]
+NotebookOutlinePosition[    139791,       3224]
+CellTagsIndexPosition[    139455,       3212]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["k-Nearest Neighbor (kNN) Classifier", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464102990820312*^9, 3.464102995718775*^9}, {
+   3.4641030891483727`*^9, 3.464103110255443*^9}, {3.464472762466697*^9, 
+   3.464472763168603*^9}, {3.465564165118517*^9, 3.46556417082987*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"yp", "=", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"predictNNB", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"#1", ",", "#2"}], "}"}], ",", "x1x2y", ",", "k"}], 
+           "]"}], "&"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1", ",", "x2"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"VoronoiNN", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", 
+         RowBox[{"{", 
+          RowBox[{"x1", ",", "x2", ",", "y", ",", "yp"}], "}"}], "]"}], ",", 
+        RowBox[{"SizePoint", "\[Rule]", "4"}], ",", 
+        RowBox[{"LabelPlot", "\[Rule]", "Null"}]}], "]"}]}], ",", "g4"}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", "71", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", "k", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SynchronousInitialization", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Get", "[", "\"\<ComputationalGeometry`\>\"", "]"}], ";", 
+      RowBox[{"means", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.253433"}], ",", "1.74148"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.266693", ",", "0.371234"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.09647", ",", "1.23336"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.0612727"}], ",", 
+           RowBox[{"-", "0.208679"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.70354", ",", "0.596828"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.37721", ",", 
+           RowBox[{"-", "1.18641"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.05691", ",", 
+           RowBox[{"-", "0.683894"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.578884", ",", 
+           RowBox[{"-", "0.0683458"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.624252", ",", "0.598738"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.67335", ",", 
+           RowBox[{"-", "0.289316"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.19937", ",", "0.248409"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.302561"}], ",", "0.945419"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.0572723", ",", "2.41973"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.32932", ",", "0.819226"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.0793842"}], ",", "1.6138"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3.50793", ",", "1.05299"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.61392", ",", "0.671738"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.00754", ",", "1.36831"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.454621"}], ",", "1.08607"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.79802"}], ",", "1.92978"}], "}"}]}], "}"}]}], ";", 
+      RowBox[{
+       RowBox[{"greenRV", "[", "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"\[Sigma]", "=", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{"1.`", "/", "5.`"}], "]"}]}]}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"i", "=", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "10"}], "}"}], "]"}]}], ";", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Random", "[", 
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"First", "[", 
+                RowBox[{"means", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "\[Sigma]"}], 
+              "]"}], "]"}], ",", 
+            RowBox[{"Random", "[", 
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"Last", "[", 
+                RowBox[{"means", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "\[Sigma]"}], 
+              "]"}], "]"}]}], "}"}]}]}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"redRV", "[", "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"\[Sigma]", "=", 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{"1.`", "/", "5.`"}], "]"}]}]}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"i", "=", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"11", ",", "20"}], "}"}], "]"}]}], ";", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Random", "[", 
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"First", "[", 
+                RowBox[{"means", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "\[Sigma]"}], 
+              "]"}], "]"}], ",", 
+            RowBox[{"Random", "[", 
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"Last", "[", 
+                RowBox[{"means", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "\[Sigma]"}], 
+              "]"}], "]"}]}], "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"fs", "[", "x_", "]"}], ":=", 
+       RowBox[{"Text", "@", 
+        RowBox[{"Style", "[", 
+         RowBox[{"x", ",", "16", ",", "Bold", ",", "Blue"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"SeedRandom", "[", "29771083", "]"}], ";", 
+      RowBox[{"n", "=", "100"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"y", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"Array", "[", 
+          RowBox[{
+           RowBox[{"0", "&"}], ",", "n"}], "]"}], ",", " ", 
+         RowBox[{"Array", "[", 
+          RowBox[{
+           RowBox[{"1", "&"}], ",", "n"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"xG", "=", 
+       RowBox[{"Array", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"greenRV", "[", "]"}], "&"}], ",", "n"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"xR", "=", 
+       RowBox[{"Array", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"redRV", "[", "]"}], "&"}], ",", "n"}], "]"}]}], ";", 
+      RowBox[{"x1x2y", "=", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"Transpose", "[", 
+           RowBox[{"Join", "[", 
+            RowBox[{"xG", ",", "xR"}], "]"}], "]"}], ",", 
+          RowBox[{"{", "y", "}"}]}], "]"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x1", ",", "x2", ",", "y"}], "}"}], "=", 
+       RowBox[{"Transpose", "[", "x1x2y", "]"}]}], ";", 
+      RowBox[{"g1", "=", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"xG", ",", " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsolutePointSize", "[", "6", "]"}], ",", 
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"0", ",", "1", ",", "0", ",", "0.75"}], "]"}]}], "}"}]}],
+          ",", 
+         RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"DisplayFunction", "\[Rule]", "Identity"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], ";", 
+      RowBox[{"g2", "=", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"xR", ",", " ", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsolutePointSize", "[", "6", "]"}], ",", 
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"1", ",", "0", ",", "0", ",", "0.75"}], "]"}]}], "}"}]}],
+          ",", 
+         RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"EU", "[", 
+        RowBox[{"u_", ",", "v_"}], "]"}], ":=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{
+         RowBox[{"Most", "[", "u", "]"}], ",", 
+         RowBox[{"Most", "[", "v", "]"}]}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"GetNearest", "[", 
+        RowBox[{"xy_", ",", " ", "x0_", ",", " ", "k_"}], "]"}], ":=", 
+       RowBox[{"Nearest", "[", 
+        RowBox[{"xy", ",", " ", 
+         RowBox[{"Append", "[", 
+          RowBox[{"x0", ",", " ", "0"}], "]"}], ",", " ", "k", ",", " ", 
+         RowBox[{"DistanceFunction", "\[Rule]", " ", "EU"}]}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"predictNNB", "[", 
+        RowBox[{"x0_", ",", " ", "xy_", ",", " ", "k_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "z", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"z", "=", 
+           RowBox[{"Tally", "[", 
+            RowBox[{"Last", "/@", 
+             RowBox[{"GetNearest", "[", 
+              RowBox[{"xy", ",", "x0", ",", "k"}], "]"}]}], "]"}]}], ";", " ",
+           "\[IndentingNewLine]", 
+          RowBox[{"z", "=", 
+           RowBox[{"Sort", "[", 
+            RowBox[{"z", ",", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Last", "[", "#1", "]"}], "\[GreaterEqual]", " ", 
+               RowBox[{"Last", "[", "#2", "]"}]}], "&"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"First", "[", 
+            RowBox[{"Transpose", "[", 
+             RowBox[{"Select", "[", 
+              RowBox[{"z", ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Last", "[", 
+                  RowBox[{"First", "[", "z", "]"}], "]"}], "\[Equal]", 
+                 RowBox[{"Last", "[", "#", "]"}]}], "&"}]}], "]"}], "]"}], 
+            "]"}], "//", "RandomChoice"}]}]}], "\[IndentingNewLine]", "]"}]}],
+       ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Options", "[", "VoronoiNN", "]"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ShowLinesQ", "\[Rule]", "False"}], ",", 
+         RowBox[{"LabelPlot", "\[Rule]", "\"\<Veronoi Diagram\>\""}], ",", 
+         RowBox[{"LabelFrameQ", "\[Rule]", "True"}], ",", 
+         RowBox[{"SizePoint", "\[Rule]", " ", "7"}]}], "}"}]}], ";", 
+      RowBox[{
+       RowBox[{"VoronoiNN", "[", 
+        RowBox[{"x1x2y_", ",", " ", 
+         RowBox[{"opts", ":", 
+          RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+       RowBox[{"Module", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "g", ",", "vv", ",", "n", ",", "diag", ",", "l", ",", "hs", ",", 
+           "x", ",", "y", ",", "indxy", ",", "indpoints", ",", "xy", ",", 
+           "vorvert", ",", "vorval", ",", "npts", ",", "rr", ",", "xylim", 
+           ",", "xs", ",", "xmax", ",", "xmin", ",", "ymax", ",", "ymin", ",",
+            "vorvertNew", ",", "vorvalNew", ",", "pl", ",", "SLQ", ",", "LFQ",
+            ",", "SP", ",", "FL"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"SLQ", " ", "=", " ", 
+           RowBox[{"OptionValue", "[", "ShowLinesQ", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"pl", " ", "=", " ", 
+           RowBox[{"OptionValue", "[", "LabelPlot", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"LFQ", " ", "=", " ", 
+           RowBox[{"OptionValue", "[", "LabelFrameQ", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"SP", " ", "=", " ", 
+           RowBox[{"OptionValue", "[", "SizePoint", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Last", "[", 
+              RowBox[{"Dimensions", "[", "x1x2y", "]"}], "]"}], "\[Equal]", 
+             "3"}], ",", "\[IndentingNewLine]", "\t", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y", ",", "indxy"}], "}"}], "=", 
+              RowBox[{"Transpose", "[", "x1x2y", "]"}]}], ";", 
+             "\[IndentingNewLine]", "\t", 
+             RowBox[{"indxy", "=", 
+              RowBox[{"indxy", "+", "1"}]}], ";", "\[IndentingNewLine]", "\t", 
+             RowBox[{"indpoints", "=", "indxy"}], ";"}], 
+            "\[IndentingNewLine]", ",", "\[IndentingNewLine]", "\t", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y", ",", "indpoints", ",", "indxy"}], "}"}],
+               "=", 
+              RowBox[{"Transpose", "[", "x1x2y", "]"}]}], ";", 
+             "\[IndentingNewLine]", "\t", 
+             RowBox[{"indpoints", "=", 
+              RowBox[{"indpoints", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+             "\t", 
+             RowBox[{"indxy", "=", 
+              RowBox[{"indxy", "+", "1"}]}], ";"}]}], "\[IndentingNewLine]", 
+           "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"xy", "=", 
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y"}], "}"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"vorvert", ",", "vorval"}], "}"}], "=", 
+           RowBox[{"ComputationalGeometry`VoronoiDiagram", "[", "xy", "]"}]}],
+           ";", "\[IndentingNewLine]", 
+          RowBox[{"npts", "=", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{"vorvert", ",", "ListQ"}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"rr", "=", 
+           RowBox[{"Last", "/@", 
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"List", "/@", 
+               RowBox[{"Apply", "[", 
+                RowBox[{"List", ",", 
+                 RowBox[{"Drop", "[", 
+                  RowBox[{"vorvert", ",", "npts"}], "]"}], ",", "1"}], 
+                "]"}]}], ",", "1"}], "]"}]}]}], ";", 
+          RowBox[{"xylim", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Min", "[", "#", "]"}], ",", 
+               RowBox[{"Max", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
+            RowBox[{"Transpose", "[", 
+             RowBox[{"Join", "[", 
+              RowBox[{"xy", ",", 
+               RowBox[{"Take", "[", 
+                RowBox[{"vorvert", ",", "npts"}], "]"}]}], "]"}], "]"}]}]}], 
+          ";", 
+          RowBox[{"xylim", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Min", "[", "#", "]"}], ",", 
+               RowBox[{"Max", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
+            RowBox[{"Transpose", "[", "xy", "]"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"xs", "=", 
+           RowBox[{
+            RowBox[{"Max", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Max", "[", "#", "]"}], "-", 
+                 RowBox[{"Min", "[", "#", "]"}]}], ")"}], "&"}], "/@", 
+              "xylim"}], "]"}], "*", "0.1"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"xylim", "=", 
+           RowBox[{"xylim", "+", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "xs"}], ",", "xs"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "xs"}], ",", "xs"}], "}"}]}], "}"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xmin", ",", "xmax"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"ymin", ",", "ymax"}], "}"}]}], "}"}], "=", "xylim"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"vorvertNew", "=", "vorvert"}], ";", 
+          RowBox[{"vorvalNew", "=", "vorval"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"vorvertNew", "=", 
+           RowBox[{"Join", "[", 
+            RowBox[{
+             RowBox[{"Take", "[", 
+              RowBox[{"vorvertNew", ",", "npts"}], "]"}], ",", "rr"}], 
+            "]"}]}], ";", 
+          RowBox[{"vorvalNew", "=", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Max", "@@", 
+                  RowBox[{"Last", "[", "#", "]"}]}], ">", "npts"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"First", "[", "#", "]"}], ",", 
+                  RowBox[{"RotateRight", "[", 
+                   RowBox[{"Last", "[", "#", "]"}], "]"}]}], "}"}], ",", 
+                "#"}], "]"}], "&"}], ")"}], "/@", "vorval"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"hs", "=", 
+           RowBox[{"Which", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Max", "[", "indxy", "]"}], "\[Equal]", "2"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0.3", ",", "0"}], "}"}], ",", 
+             RowBox[{
+              RowBox[{"Max", "[", "indxy", "]"}], "\[Equal]", "3"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0.3", ",", "0.5"}], "}"}], ",", "True", ",", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"i", "-", "1"}], ")"}], "/", 
+                RowBox[{"Max", "[", "indxy", "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", 
+                 RowBox[{"Max", "[", "indxy", "]"}]}], "}"}]}], "]"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"g", "=", 
+           RowBox[{"Table", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"vv", "=", 
+               RowBox[{"Last", "[", 
+                RowBox[{
+                "vorvalNew", "\[LeftDoubleBracket]", "j", 
+                 "\[RightDoubleBracket]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"n", "=", 
+               RowBox[{"Length", "[", "vv", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"diag", "=", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"ii", "=", 
+                   RowBox[{
+                   "vv", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}]}], ";", 
+                  RowBox[{
+                  "vorvertNew", "\[LeftDoubleBracket]", "ii", 
+                   "\[RightDoubleBracket]"}]}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"l", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"diag", ",", 
+                 RowBox[{"First", "[", "diag", "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", "l"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", 
+               RowBox[{"Length", "[", "vorvalNew", "]"}]}], "}"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"glines", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{"SLQ", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"AbsoluteThickness", "[", "1", "]"}], ",", 
+               RowBox[{"RGBColor", "[", 
+                RowBox[{"0", ",", "0", ",", "0"}], "]"}], ",", 
+               RowBox[{"Line", "/@", "g"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"FL", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{"LFQ", ",", 
+             RowBox[{"{", 
+              RowBox[{"FrameLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                 "\"\<\!\(\*SubscriptBox[\(x\), \(1\)]\)\>\"", "//", "fs"}], 
+                 ",", 
+                 RowBox[{
+                 "\"\<\!\(\*SubscriptBox[\(x\), \(2\)]\)\>\"", "//", "fs"}]}],
+                 "}"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Show", "[", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Table", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Hue", "[", 
+                    RowBox[{
+                    RowBox[{"hs", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    "indxy", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}], ",",
+                     "0.15", ",", "1"}], "]"}], ",", 
+                   RowBox[{"Polygon", "[", 
+                    RowBox[{
+                    "g", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], "]"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", 
+                   RowBox[{"Length", "[", "indxy", "]"}]}], "}"}]}], "]"}], 
+               ",", "glines"}], "}"}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+             RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", "xylim"}], ",", "FL", ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"PlotLabel", "\[Rule]", "pl"}], ",", 
+             RowBox[{"Epilog", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"AbsolutePointSize", "[", "SP", "]"}], ",", 
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Hue", "[", 
+                    RowBox[{
+                    RowBox[{"hs", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    "indpoints", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}], ",",
+                     "1", ",", "1"}], "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{
+                    "xy", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], "]"}]}], "}"}], 
+                  "\[IndentingNewLine]", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", 
+                    RowBox[{"Length", "[", "indxy", "]"}]}], "}"}]}], "]"}]}],
+                "\[IndentingNewLine]", "}"}]}]}], "]"}], 
+           "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"\[Sigma]", "=", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"1", "/", "5.0"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"green", "[", 
+        RowBox[{"x1_", ",", " ", "x2_"}], "]"}], ":=", 
+       RowBox[{"0.1", "*", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PDF", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"First", "[", 
+                RowBox[{
+                "means", "\[LeftDoubleBracket]", "i", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", "\[Sigma]"}], "]"}], 
+             ",", "x1"}], "]"}], "*", 
+           RowBox[{"PDF", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"Last", "[", 
+                RowBox[{
+                "means", "\[LeftDoubleBracket]", "i", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", "\[Sigma]"}], "]"}], 
+             ",", "x2"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "10"}], "}"}]}], "]"}]}]}], ";", 
+      RowBox[{
+       RowBox[{"red", "[", 
+        RowBox[{"x1_", ",", " ", "x2_"}], "]"}], ":=", 
+       RowBox[{"0.1", "*", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PDF", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"First", "[", 
+                RowBox[{
+                "means", "\[LeftDoubleBracket]", "i", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", "\[Sigma]"}], "]"}], 
+             ",", "x1"}], "]"}], "*", 
+           RowBox[{"PDF", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{
+               RowBox[{"Last", "[", 
+                RowBox[{
+                "means", "\[LeftDoubleBracket]", "i", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", "\[Sigma]"}], "]"}], 
+             ",", "x2"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "11", ",", "20"}], "}"}]}], "]"}]}]}], ";", 
+      RowBox[{"g4", "=", 
+       RowBox[{"ContourPlot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"green", "[", 
+           RowBox[{"x1", ",", "x2"}], "]"}], "\[Equal]", 
+          RowBox[{"red", "[", 
+           RowBox[{"x1", ",", "x2"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1", ",", 
+           RowBox[{"-", "4"}], ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x2", ",", 
+           RowBox[{"-", "4"}], ",", "5"}], "}"}], ",", 
+         RowBox[{"ContourStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"AbsoluteThickness", "[", "2", "]"}], "}"}]}], ",", 
+         RowBox[{"PlotPoints", "\[Rule]", "30"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(x\), \(1\)]\)\>\"", "//", "fs"}], ",", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(x\), \(2\)]\)\>\"", "//", "fs"}]}], 
+           "}"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", ")"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.403913145503261*^9, {3.403920195008328*^9, 3.4039201951958327`*^9}, 
+   3.4406376877444353`*^9, {3.44064084118184*^9, 3.4406409017890053`*^9}, {
+   3.4406410960283403`*^9, 3.4406410996320095`*^9}, {3.4407202157220526`*^9, 
+   3.4407202194661245`*^9}, {3.4622691221046977`*^9, 3.462269291148465*^9}, {
+   3.462269327278528*^9, 3.4622693278869357`*^9}, {3.462269363392991*^9, 
+   3.4622693644694047`*^9}, {3.4622694828749228`*^9, 
+   3.4622694942318687`*^9}, {3.462269551718605*^9, 3.4622695549790473`*^9}, {
+   3.462272281195998*^9, 3.4622723223181257`*^9}, {3.462272356607365*^9, 
+   3.4622723704135427`*^9}, {3.4622724154201193`*^9, 3.462272449163352*^9}, {
+   3.462272689796437*^9, 3.462272698704151*^9}, {3.4622727332273936`*^9, 
+   3.462272752571642*^9}, {3.4622727923989525`*^9, 3.46227279381857*^9}, {
+   3.4622731736678405`*^9, 3.4622731957109227`*^9}, {3.4622872439981375`*^9, 
+   3.462287251078494*^9}, {3.463322804928909*^9, 3.46332281127919*^9}, {
+   3.4633229551140347`*^9, 3.4633229585616784`*^9}, {3.463323041180338*^9, 
+   3.4633230416483436`*^9}, {3.464101890458001*^9, 3.4641018990381107`*^9}, {
+   3.4641020231065016`*^9, 3.4641020620446005`*^9}, {3.464104254424014*^9, 
+   3.46410429855698*^9}, {3.464104329975783*^9, 3.464104347869212*^9}, {
+   3.4641044012374964`*^9, 3.464104424528595*^9}, 3.4641052230580325`*^9, {
+   3.4641052546640377`*^9, 3.464105276129913*^9}, {3.464446539803142*^9, 
+   3.464446540910756*^9}, {3.4644465724387608`*^9, 3.4644465783044357`*^9}, {
+   3.464620479904932*^9, 3.464620517385746*^9}, {3.4646211404281387`*^9, 
+   3.464621172316288*^9}, 3.464621427706661*^9, {3.46462158303296*^9, 
+   3.4646216042310457`*^9}, {3.464621726994842*^9, 3.464621734335855*^9}, {
+   3.464621822561908*^9, 3.4646219212194347`*^9}, {3.464621959687077*^9, 
+   3.46462196948321*^9}, {3.4647162986845922`*^9, 3.464716299889641*^9}, {
+   3.464716351964814*^9, 3.4647164089185095`*^9}, 3.464716552321848*^9, {
+   3.4648107626574507`*^9, 3.464810765313751*^9}, 3.4650590426473846`*^9, 
+   3.465059073925785*^9, {3.465064594173625*^9, 3.465064602517375*^9}, 
+   3.465064679064*^9, {3.4655672138530617`*^9, 3.4655672219198685`*^9}},
+ CellID->499886299],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30021$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30021$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{$CellContext`k$$, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->45349443]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "In a typical classification problem we wish to predict the output class, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "\[Element]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "1"}], "}"}]}], TraditionalForm]], "InlineMath"],
+ ", given ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", "=", "2"}], TraditionalForm]], "InlineMath"],
+ " inputs, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]], "InlineMath"],
+ ". In the prototypical problem illustrated above, the observed training data \
+consists of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", "=", "200"}], TraditionalForm]], "InlineMath"],
+ " observations equally divided between the two classes. The 0/1 values are \
+color-coded green and red. Based on this training data, our object is to find \
+a predictor for new data, designated the test data. One method is to take the \
+",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " nearest neighbors of the new inputs and predict the new output based on \
+the most frequent outcome, 0 or 1, among these neighbors. By taking ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " odd we avoid ties. This is the kNN classifier and the idea is easily \
+generalized to more than two output classes and more than two inputs. The kNN \
+classifier is one of the most robust and useful classifiers and is often used \
+to provide a benchmark to more complex classifiers such as artificial neural \
+nets and support vector machines."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.46460253282426*^9, 3.464602892656167*^9}, {
+   3.4646029297064047`*^9, 3.4646030633836613`*^9}, {3.4646031136471834`*^9, 
+   3.4646032907239184`*^9}, {3.464603331003377*^9, 3.4646033589275556`*^9}, {
+   3.4647165523368497`*^9, 3.464716552389855*^9}, 3.4648109385514526`*^9, {
+   3.464978619167431*^9, 3.4649786202611675`*^9}, 3.465064851892909*^9, {
+   3.465064962659589*^9, 3.4650649703627634`*^9}, {3.465564142608088*^9, 
+   3.4655641460213947`*^9}},
+ CellID->23546969],
+
+Cell[TextData[{
+ "In this simple example, Voronoi tessellations can be used to visualize the \
+performance of the kNN classifier. The solid thick black curve shows the \
+Bayes optimal decision boundary and the red and green regions show the kNN \
+classifier for selected ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464103037386909*^9, 3.4641030648900614`*^9}, {
+   3.464103121659189*^9, 3.4641031424074554`*^9}, {3.4641031972587585`*^9, 
+   3.464103606905411*^9}, 3.464105389886571*^9, {3.4644466152925096`*^9, 
+   3.4644466907818775`*^9}, {3.464472922717031*^9, 3.4644729724323187`*^9}, {
+   3.4644738304502144`*^9, 3.4644738408867483`*^9}, {3.46460337983169*^9, 
+   3.4646034245571766`*^9}, {3.465065313189287*^9, 3.465065335439625*^9}}],
+
+Cell[TextData[{
+ "Based only on this training dataset, it can be shown that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "=", "17"}], TraditionalForm]], "InlineMath"],
+ " is the best possible choice for ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ ". With ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "=", "17"}], TraditionalForm]], "InlineMath"],
+ ", the expected misclassification rate on future data is minimized. See \
+below for details."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464446693106307*^9, 3.4644467570047264`*^9}, {
+   3.4644487111700044`*^9, 3.4644487935234604`*^9}, {3.4644493965275974`*^9, 
+   3.464449418757882*^9}, 3.464473856564949*^9, {3.464603433714435*^9, 
+   3.464603469781866*^9}, {3.4646035015436697`*^9, 3.46460357637735*^9}, {
+   3.4647165523988557`*^9, 3.464716552405856*^9}, 3.4647166700356183`*^9, 
+   3.4648110067402616`*^9},
+ CellID->671049776],
+
+Cell[TextData[{
+ "In practice, though, we need to base the choice of ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " solely on the training dataset. The pseudo-likelihood method of Holmes and \
+Adams (2003) produces ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["k", "^"], "=", "7"}], TraditionalForm]], "InlineMath"],
+ " while leave-one-out cross-validation yields ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["k", "^"], "=", "3"}], TraditionalForm]], "InlineMath"],
+ ". Linear or logistic regression with an intercept term produces a linear \
+decision boundary and corresponds to choosing kNN with about three effective \
+parameters or ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "\[DotEqual]", "67"}], TraditionalForm]], "InlineMath"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464446693106307*^9, 3.4644467570047264`*^9}, {
+   3.4644487111700044`*^9, 3.4644487935234604`*^9}, {3.4644493965275974`*^9, 
+   3.464449418757882*^9}, 3.464473856564949*^9, {3.464603433714435*^9, 
+   3.464603469781866*^9}, {3.4646035015436697`*^9, 3.46460357637735*^9}, {
+   3.4646053900150557`*^9, 3.4646054006231236`*^9}, 3.4647165524138575`*^9, {
+   3.464811020521776*^9, 3.4648110235687094`*^9}, {3.4650622601589565`*^9, 
+   3.4650624103108816`*^9}, {3.465064916222103*^9, 3.465064928237625*^9}, 
+   3.465564160486307*^9},
+ CellID->107697969]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 17, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 17}, 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30069$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 17}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30069$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{{$CellContext`k$$, 17}, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->670094034]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30117$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30117$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{$CellContext`k$$, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->225036292],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 3}, 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30165$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 3}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30165$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{{$CellContext`k$$, 3}, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->286792649],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 7, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 7}, 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30213$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 7}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30213$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{{$CellContext`k$$, 7}, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->606361658],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 17, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 17}, 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30261$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 17}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30261$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{{$CellContext`k$$, 17}, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->116804156],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 67, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 67}, 1, 71, 2}}, Typeset`size$$ = {
+    360., {164., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$30309$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 67}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$30309$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Show[$CellContext`yp = 
+         MapThread[$CellContext`predictNNB[{#, #2}, $CellContext`x1x2y, \
+$CellContext`k$$]& , {$CellContext`x1, $CellContext`x2}]; \
+$CellContext`VoronoiNN[
+          
+          Transpose[{$CellContext`x1, $CellContext`x2, $CellContext`y, \
+$CellContext`yp}], $CellContext`SizePoint -> 4, $CellContext`LabelPlot -> 
+          Null], $CellContext`g4], 
+      "Specifications" :> {{{$CellContext`k$$, 67}, 1, 71, 2, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`k$$}, SynchronousInitialization -> 
+        False, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{409., {210., 215.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["ComputationalGeometry`"]; $CellContext`means = CompressedData["
+1:eJwBUQGu/iFib1JlAgAAABQAAAACAAAA7ImuCz840L+TNeohGt37P7+dRIR/
+EdE/63JKQEzC1z9oXDgQksUAQOscA7LXu/M/BnZGpSJfr79+VS5U/rXKvzds
+W5TZoAVAbcmqCDcZ4z8Uyy2thgQDQJZbWg2J+/K/twvNdRrp8D+sx32rdeLl
+v2yvBb03huI/J6fRPxx/sb+OzY5U3/njPxjrG5jcKOM/gy9MpgrG+j8KaY1B
+J4TSvzjb3JieMPM/rBqEud3Lzz8z4gLQKF3Tv3aLwFjfQO4/aPPufstSrT9d
+M/lmm1sDQBSzXgzlRPU/fA3BcRk36j8PstHehVK0v4qO5PIf0vk/HEKVmj0Q
+DECbPdAKDNnwP9/DJced0vk/1F+vsOB+5T/mllZD4h7wP9uizAaZ5PU/ycnE
+rYIY3b/jqrLvimDxP9vcmJ6wxPy/HJlH/mDg/j9XC6j4
+        "]; $CellContext`greenRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{1, 10}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`redRV[] := 
+       Module[{$CellContext`i, $CellContext`\[Sigma] = 
+          Sqrt[1./5.]}, $CellContext`i = RandomInteger[{11, 20}]; {
+           Random[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]], 
+           Random[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]]]}]; $CellContext`fs[
+         Pattern[$CellContext`x, 
+          Blank[]]] := Text[
+         Style[$CellContext`x, 16, Bold, Blue]]; 
+      SeedRandom[29771083]; $CellContext`n = 100; $CellContext`y = Join[
+         Array[0& , $CellContext`n], 
+         Array[1& , $CellContext`n]]; $CellContext`xG = 
+       Array[$CellContext`greenRV[]& , $CellContext`n]; $CellContext`xR = 
+       Array[$CellContext`redRV[]& , $CellContext`n]; $CellContext`x1x2y = 
+       Transpose[
+         Join[
+          Transpose[
+           
+           Join[$CellContext`xG, $CellContext`xR]], {$CellContext`y}]]; \
+{$CellContext`x1, $CellContext`x2, $CellContext`y} = 
+       Transpose[$CellContext`x1x2y]; $CellContext`g1 = 
+       ListPlot[$CellContext`xG, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[0, 1, 0, 0.75]}, Axes -> False, Frame -> True, 
+         DisplayFunction -> Identity, PlotRange -> All]; $CellContext`g2 = 
+       ListPlot[$CellContext`xR, PlotStyle -> {
+           AbsolutePointSize[6], 
+           RGBColor[1, 0, 0, 0.75]}, Axes -> False, Frame -> True, PlotRange -> 
+         All]; $CellContext`EU[
+         Pattern[$CellContext`u, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := EuclideanDistance[
+         Most[$CellContext`u], 
+         Most[$CellContext`v]]; $CellContext`GetNearest[
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Nearest[$CellContext`xy, 
+         Append[$CellContext`x0, 0], $CellContext`k, 
+         DistanceFunction -> $CellContext`EU]; $CellContext`predictNNB[
+         Pattern[$CellContext`x0, 
+          Blank[]], 
+         Pattern[$CellContext`xy, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]]] := Module[{$CellContext`z}, $CellContext`z = Tally[
+            Map[Last, 
+             $CellContext`GetNearest[$CellContext`xy, $CellContext`x0, \
+$CellContext`k]]]; $CellContext`z = 
+          Sort[$CellContext`z, Last[#] >= Last[#2]& ]; RandomChoice[
+           First[
+            Transpose[
+             Select[$CellContext`z, Last[
+                First[$CellContext`z]] == Last[#]& ]]]]]; 
+      Options[$CellContext`VoronoiNN] = {$CellContext`ShowLinesQ -> 
+         False, $CellContext`LabelPlot -> 
+         "Veronoi Diagram", $CellContext`LabelFrameQ -> 
+         True, $CellContext`SizePoint -> 7}; $CellContext`VoronoiNN[
+         Pattern[$CellContext`x1x2y, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          OptionsPattern[]]] := 
+       Module[{$CellContext`g, $CellContext`vv, $CellContext`n, \
+$CellContext`diag, $CellContext`l, $CellContext`hs, $CellContext`x, \
+$CellContext`y, $CellContext`indxy, $CellContext`indpoints, $CellContext`xy, \
+$CellContext`vorvert, $CellContext`vorval, $CellContext`npts, \
+$CellContext`rr, $CellContext`xylim, $CellContext`xs, $CellContext`xmax, \
+$CellContext`xmin, $CellContext`ymax, $CellContext`ymin, \
+$CellContext`vorvertNew, $CellContext`vorvalNew, $CellContext`pl, \
+$CellContext`SLQ, $CellContext`LFQ, $CellContext`SP, $CellContext`FL}, \
+$CellContext`SLQ = OptionValue[$CellContext`ShowLinesQ]; $CellContext`pl = 
+          OptionValue[$CellContext`LabelPlot]; $CellContext`LFQ = 
+          OptionValue[$CellContext`LabelFrameQ]; $CellContext`SP = 
+          OptionValue[$CellContext`SizePoint]; If[Last[
+             Dimensions[$CellContext`x1x2y]] == 
+           3, {$CellContext`x, $CellContext`y, $CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indxy = \
+$CellContext`indxy + 1; $CellContext`indpoints = $CellContext`indxy; 
+           Null, {$CellContext`x, $CellContext`y, $CellContext`indpoints, \
+$CellContext`indxy} = 
+            Transpose[$CellContext`x1x2y]; $CellContext`indpoints = \
+$CellContext`indpoints + 1; $CellContext`indxy = $CellContext`indxy + 1; 
+           Null]; $CellContext`xy = 
+          Transpose[{$CellContext`x, $CellContext`y}]; {$CellContext`vorvert, \
+$CellContext`vorval} = 
+          ComputationalGeometry`VoronoiDiagram[$CellContext`xy]; \
+$CellContext`npts = Length[
+            Select[$CellContext`vorvert, ListQ]]; $CellContext`rr = Map[Last, 
+            Flatten[
+             Map[List, 
+              Apply[List, 
+               Drop[$CellContext`vorvert, $CellContext`npts], 1]], 
+             1]]; $CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[
+             Join[$CellContext`xy, 
+              
+              Take[$CellContext`vorvert, $CellContext`npts]]]]; \
+$CellContext`xylim = Map[{
+             Min[#], 
+             Max[#]}& , 
+            Transpose[$CellContext`xy]]; $CellContext`xs = Max[
+             Map[Max[#] - Min[#]& , $CellContext`xylim]] 
+           0.1; $CellContext`xylim = $CellContext`xylim + {{-$CellContext`xs, \
+$CellContext`xs}, {-$CellContext`xs, $CellContext`xs}}; {{$CellContext`xmin, \
+$CellContext`xmax}, {$CellContext`ymin, $CellContext`ymax}} = \
+$CellContext`xylim; $CellContext`vorvertNew = $CellContext`vorvert; \
+$CellContext`vorvalNew = $CellContext`vorval; $CellContext`vorvertNew = Join[
+            
+            Take[$CellContext`vorvertNew, $CellContext`npts], \
+$CellContext`rr]; $CellContext`vorvalNew = Map[If[Apply[Max, 
+               Last[#]] > $CellContext`npts, {
+              First[#], 
+              RotateRight[
+               Last[#]]}, #]& , $CellContext`vorval]; $CellContext`hs = 
+          Which[Max[$CellContext`indxy] == 2, {0.3, 0}, 
+            Max[$CellContext`indxy] == 3, {0, 0.3, 0.5}, True, 
+            
+            Table[($CellContext`i - 1)/
+             Max[$CellContext`indxy], {$CellContext`i, 
+              Max[$CellContext`indxy]}]]; $CellContext`g = 
+          Table[$CellContext`vv = Last[
+               Part[$CellContext`vorvalNew, $CellContext`j]]; $CellContext`n = 
+             Length[$CellContext`vv]; $CellContext`diag = 
+             Table[$CellContext`ii = Part[$CellContext`vv, $CellContext`i]; 
+               Part[$CellContext`vorvertNew, $CellContext`ii], \
+{$CellContext`i, $CellContext`n}]; $CellContext`l = Append[$CellContext`diag, 
+               First[$CellContext`diag]]; $CellContext`l, {$CellContext`j, 
+             Length[$CellContext`vorvalNew]}]; $CellContext`glines = 
+          If[$CellContext`SLQ, {
+             AbsoluteThickness[1], 
+             RGBColor[0, 0, 0], 
+             Map[Line, $CellContext`g]}, {}]; $CellContext`FL = 
+          If[$CellContext`LFQ, {FrameLabel -> {
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+               $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}}, {}]; 
+         Show[
+           Graphics[{
+             Table[{
+               Hue[
+                Part[$CellContext`hs, 
+                 Part[$CellContext`indxy, $CellContext`i]], 0.15, 1], 
+               Polygon[
+                Part[$CellContext`g, $CellContext`i]]}, {$CellContext`i, 
+               Length[$CellContext`indxy]}], $CellContext`glines}, 
+            AspectRatio -> Automatic, Frame -> True, 
+            PlotRange -> $CellContext`xylim, $CellContext`FL, 
+            PlotLabel -> $CellContext`pl, Epilog -> {
+              AbsolutePointSize[$CellContext`SP], 
+              Table[{
+                Hue[
+                 Part[$CellContext`hs, 
+                  Part[$CellContext`indpoints, $CellContext`i]], 1, 1], 
+                Point[
+                 Part[$CellContext`xy, $CellContext`i]]}, {$CellContext`i, 
+                Length[$CellContext`indxy]}]}]]]; $CellContext`\[Sigma] = 
+       Sqrt[1/5.]; $CellContext`green[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 
+           10}]; $CellContext`red[
+         Pattern[$CellContext`x1, 
+          Blank[]], 
+         Pattern[$CellContext`x2, 
+          Blank[]]] := 0.1 Sum[PDF[
+            NormalDistribution[
+             First[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x1] PDF[
+            NormalDistribution[
+             Last[
+              
+              Part[$CellContext`means, $CellContext`i]], \
+$CellContext`\[Sigma]], $CellContext`x2], {$CellContext`i, 11, 
+           20}]; $CellContext`g4 = 
+       ContourPlot[$CellContext`green[$CellContext`x1, $CellContext`x2] == \
+$CellContext`red[$CellContext`x1, $CellContext`x2], {$CellContext`x1, -4, 
+          5}, {$CellContext`x2, -4, 5}, ContourStyle -> {
+           AbsoluteThickness[2]}, PlotPoints -> 30, PlotRange -> All, 
+         AspectRatio -> Automatic, FrameLabel -> {
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(1\)]\)"], 
+           $CellContext`fs["\!\(\*SubscriptBox[\(x\), \(2\)]\)"]}]; Null); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->35793532]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["\<\
+In \[Section]2.3.2 of [1], Hastie et al. pointed out that Voronoi \
+tessellations may be used to visualize the performance of the kNN classifier \
+and produced several examples. The data we use is generated independently of \
+the mixture data used in those examples, but the overall setup is the same, \
+that is, each class is generated from a mixture of ten normal distributions \
+with the same means and variances as suggested in \[Section]2.3.4 of [1].\
+\>", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464449498833709*^9, 3.46444954182786*^9}, {
+   3.4644497038681374`*^9, 3.464449713524661*^9}, {3.464449743913851*^9, 
+   3.4644498282797327`*^9}, {3.4644499018814764`*^9, 3.464450008477643*^9}, {
+   3.4644552463408036`*^9, 3.4644552787580194`*^9}, {3.4644704572026663`*^9, 
+   3.4644705198842697`*^9}, {3.46471655244086*^9, 3.464716552486864*^9}, {
+   3.46497886331913*^9, 3.4649788725845766`*^9}, 3.465065354470875*^9, {
+   3.465065451720875*^9, 3.46506547720525*^9}, {3.465065511595875*^9, 
+   3.4650655605965633`*^9}},
+ CellID->513656182],
+
+Cell[TextData[{
+ "For this model, it can be shown that the optimal Bayes misclassification \
+rate is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Eta]", "=", 
+    RowBox[{"20.76", "%"}]}], TraditionalForm]], "InlineMath"],
+ ". This assumes perfect knowledge of the model. If ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "\[Rule]", "\[Infinity]"}], TraditionalForm]], "InlineMath"],
+ " as the training sample size, ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath"],
+ ", also increases, the misclassification rate of kNN will tend to ",
+ Cell[BoxData[
+  FormBox["\[Eta]", TraditionalForm]], "InlineMath"],
+ " for test data."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464470534860462*^9, 3.464470603549143*^9}, {
+   3.464471624079237*^9, 3.4644716261072626`*^9}, {3.4644716597724943`*^9, 
+   3.464471676885914*^9}, {3.464471791110578*^9, 3.4644718148852825`*^9}, 
+   3.4647165524968653`*^9, {3.4649789118650723`*^9, 3.4649789280053873`*^9}, {
+   3.4650624530398293`*^9, 3.4650624569398794`*^9}},
+ CellID->108299824],
+
+Cell[TextData[{
+ "With a given finite set of training data (in the present case, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", "=", "200"}], TraditionalForm]], "InlineMath"],
+ "), we can ask what is the best possible choice of ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " in the kNN algorithm to predict future test data. This can be determined \
+by simulation. We simulated a test sample of size ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "6"], TraditionalForm]], "InlineMath"],
+ " and calibrated the misclassification rate for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"k", "=", "1"}], ",", "3", ",", "\[Ellipsis]", ",", "101"}], 
+   TraditionalForm]], "InlineMath"],
+ ". It was found that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[Eta]", "^"], "=", 
+    RowBox[{"23.09", "%"}]}], TraditionalForm]], "InlineMath"],
+ " when ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "=", "17"}], TraditionalForm]], "InlineMath"],
+ " and that the standard deviation for ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["\[Eta]", "^"], TraditionalForm]], "InlineMath"],
+ " was sufficiently narrow to exclude other possible values of ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ "."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464471926567115*^9, 3.4644721378312206`*^9}, {
+   3.4644722392093163`*^9, 3.464472409708646*^9}, {3.464716552511867*^9, 
+   3.4647165525408697`*^9}, {3.464978944145703*^9, 3.4649789531142807`*^9}},
+ CellID->92373319],
+
+Cell["\<\
+In-depth treatments of the kNN method are provided in chapter 13 of [1] and  \
+Hastie et al. (2009, Ch. 13) and \[Section]6.2 of [3].\
+\>", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.464604466512845*^9, {3.464604585528534*^9, 
+   3.4646046602851715`*^9}, {3.4646046959942584`*^9, 3.464604709504118*^9}, {
+   3.4646048239172115`*^9, 3.4646048436670647`*^9}, {3.464978987457371*^9, 
+   3.4649789875511193`*^9}, {3.4650656152385874`*^9, 3.4650656377079124`*^9}},
+ CellID->52570028],
+
+Cell[TextData[{
+ "[1] T. Hastie, R. Tibshirani, and J. Friedman, ",
+ StyleBox["The Elements of Statistical Learning: Data Mining, Inference, and \
+Prediction,",
+  FontSlant->"Italic"],
+ " 2nd ed., New York: Springer, 2009. "
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.4644489292139997`*^9, {3.464449206672163*^9, 
+   3.4644492132554474`*^9}, {3.4644492678249474`*^9, 
+   3.4644492962485113`*^9}, {3.464716552554871*^9, 3.4647165525738735`*^9}, {
+   3.4649789970665617`*^9, 3.464979082127428*^9}, {3.465065642645539*^9, 
+   3.4650656450987263`*^9}},
+ CellID->390706458],
+
+Cell[TextData[{
+ "[2] C. C. Holmes and N. M. Adams, \"",
+ ButtonBox["Likelihood Inference in Nearest-Neighbour Classification Models",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://biomet.oxfordjournals.org/cgi/content/abstract/90/1/99"], 
+    None},
+  ButtonNote->"http://biomet.oxfordjournals.org/cgi/content/abstract/90/1/99"],
+ ",\" ",
+ StyleBox["Biometrika",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["90",
+  FontWeight->"Bold"],
+ ", 2003 pp. 99\[Dash]112."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464449217420701*^9, 3.4644492360161395`*^9}, {
+   3.464449325312684*^9, 3.4644493347196045`*^9}, {3.464716552583874*^9, 
+   3.4647165537899947`*^9}, {3.4649790945646896`*^9, 
+   3.4649791836723537`*^9}, {3.464979309357441*^9, 3.464979314122974*^9}, {
+   3.4650656496925945`*^9, 3.4650656501301055`*^9}, {3.465564188262104*^9, 
+   3.465564218358123*^9}},
+ CellID->52326017],
+
+Cell[TextData[{
+ "[3] B. D. Ripley, ",
+ StyleBox["Pattern Recognition and Neural Networks",
+  FontSlant->"Italic"],
+ ", Cambridge, UK: University Press, 1996."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.46460485193517*^9, 3.464604894242913*^9}, {
+   3.4649793185760136`*^9, 3.464979410261753*^9}, {3.465065653161433*^9, 
+   3.465065653598944*^9}, {3.465564237207581*^9, 3.4655642448939447`*^9}},
+ CellID->1848343]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4645209088016696`*^9, 3.4645209102680883`*^9}, 
+   3.4647167711397276`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["Voronoi tessellations", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4644703219635324`*^9, 3.464470341136178*^9}, 
+   3.46506538051775*^9},
+ CellID->67001322],
+
+Cell["Nearest Neighbor Classifier and Predictor", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.46447034829767*^9, 3.4644703710115614`*^9}},
+ CellID->18995288],
+
+Cell["Classification", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4644704070012226`*^9, 3.464470409996461*^9}},
+ CellID->939362241]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Voronoi Diagram",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/VoronoiDiagram.html"], None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/VoronoiDiagram.html"]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4647167953341465`*^9, 3.4647168036709805`*^9}},
+ CellID->330244928]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Ian McLeod",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Ian+McLeod"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Ian+McLeod"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.464103697434473*^9, 3.4641036998213043`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{891, 877},
+WindowMargins->{{113, Automatic}, {Automatic, 3}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[131003, 2967, 433, 11, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[131439, 2980, 678, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[132120, 2998, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[132463, 3011, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[133103, 3028, 844, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[133950, 3051, 369, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[134322, 3062, 1464, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[135789, 3095, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 138547, 3185},
+ {"RotateAndZoomIn3D", 138658, 3188},
+ {"DragLocators", 138769, 3191},
+ {"CreateAndDeleteLocators", 138886, 3194},
+ {"SliderZoom", 139001, 3197},
+ {"GamepadControls", 139108, 3200},
+ {"AutomaticAnimation", 139222, 3203},
+ {"BookmarkAnimation", 139340, 3206}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 293, 4, 74, "DemoTitle"],
+Cell[863, 28, 33, 0, 266, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[921, 32, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[975, 36, 28879, 686, 1888, "Input",
+ CellID->499886299],
+Cell[29857, 724, 12751, 275, 437, "Output",
+ CellID->45349443]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42654, 1005, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[42693, 1007, 2138, 48, 131, "ManipulateCaption",
+ CellID->23546969],
+Cell[44834, 1057, 838, 15, 53, "ManipulateCaption"],
+Cell[45675, 1074, 931, 22, 38, "ManipulateCaption",
+ CellID->671049776],
+Cell[46609, 1098, 1411, 32, 72, "ManipulateCaption",
+ CellID->107697969]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48057, 1135, 28, 0, 168, "ThumbnailSection"],
+Cell[48088, 1137, 12767, 275, 437, "Output",
+ CellID->670094034]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60892, 1417, 28, 0, 138, "SnapshotsSection"],
+Cell[60923, 1419, 12752, 275, 437, "Output",
+ CellID->225036292],
+Cell[73678, 1696, 12763, 275, 437, "Output",
+ CellID->286792649],
+Cell[86444, 1973, 12763, 275, 437, "Output",
+ CellID->606361658],
+Cell[99210, 2250, 12767, 275, 437, "Output",
+ CellID->116804156],
+Cell[111980, 2527, 12766, 275, 437, "Output",
+ CellID->35793532]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[124783, 2807, 26, 0, 332, "DetailsSection"],
+Cell[124812, 2809, 1074, 17, 67, "DetailNotes",
+ CellID->513656182],
+Cell[125889, 2828, 1049, 25, 55, "DetailNotes",
+ CellID->108299824],
+Cell[126941, 2855, 1533, 42, 70, "DetailNotes",
+ CellID->92373319],
+Cell[128477, 2899, 505, 9, 37, "DetailNotes",
+ CellID->52570028],
+Cell[128985, 2910, 589, 13, 37, "DetailNotes",
+ CellID->390706458],
+Cell[129577, 2925, 911, 23, 37, "DetailNotes",
+ CellID->52326017],
+Cell[130491, 2950, 435, 10, 22, "DetailNotes",
+ CellID->1848343]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[130963, 2965, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[131003, 2967, 433, 11, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[131439, 2980, 678, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[132120, 2998, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[132463, 3011, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[133103, 3028, 844, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[133950, 3051, 369, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[134322, 3062, 1464, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[135789, 3095, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[136734, 3121, 30, 0, 152, "SearchTermsSection"],
+Cell[136767, 3123, 180, 4, 22, "SearchTerms",
+ CellID->67001322],
+Cell[136950, 3129, 174, 3, 22, "SearchTerms",
+ CellID->18995288],
+Cell[137127, 3134, 149, 3, 22, "SearchTerms",
+ CellID->939362241]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[137313, 3142, 31, 0, 138, "RelatedLinksSection"],
+Cell[137347, 3144, 349, 8, 22, "RelatedLinks",
+ CellID->330244928]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[137733, 3157, 25, 0, 136, "AuthorSection"],
+Cell[137761, 3159, 382, 11, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

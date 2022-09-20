@@ -1,0 +1,2694 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    112666,       2685]
+NotebookOptionsPosition[    102335,       2374]
+NotebookOutlinePosition[    106116,       2479]
+CellTagsIndexPosition[    105880,       2469]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Getting Started with MathOptimizer ", "Title",
+ CellChangeTimes->{{3.458896617515625*^9, 3.458896629609375*^9}},
+ FontSlant->"Italic"],
+
+Cell[TextData[StyleBox["Frank J. Kampas and J\[AAcute]nos D. Pint\[EAcute]r",
+ FontFamily->"Arial",
+ FontSize->24]], "Subtitle",
+ CellChangeTimes->{{3.458896900078125*^9, 3.458896919984375*^9}, {
+  3.45889756359375*^9, 3.45889758421875*^9}, {3.45896159375*^9, 
+  3.45896160228125*^9}, {3.458963235421875*^9, 3.45896324021875*^9}, {
+  3.458963463796875*^9, 3.458963468125*^9}, {3.459482271515625*^9, 
+  3.459482272015625*^9}, {3.459566914015625*^9, 3.459566948328125*^9}, {
+  3.459652615921875*^9, 3.459652616453125*^9}, {3.461234180882*^9, 
+  3.461234191439*^9}, {3.462250771078125*^9, 3.462250772515625*^9}, {
+  3.464682614921875*^9, 3.464682652421875*^9}, {3.46546517728319*^9, 
+  3.4654651945541897`*^9}, {3.46546522969219*^9, 3.46546523239219*^9}, {
+  3.4654711207961903`*^9, 3.4654711418411903`*^9}, {3.46547128281219*^9, 
+  3.46547129993819*^9}},
+ FontSize->16],
+
+Cell[CellGroupData[{
+
+Cell["Summary", "Subsection",
+ CellChangeTimes->{
+  3.4225317928614616`*^9, {3.4393006012444983`*^9, 3.4393006038674984`*^9}, {
+   3.458896652109375*^9, 3.458896663375*^9}, {3.458897881875*^9, 
+   3.4588978848125*^9}, 3.45896325825*^9},
+ FontSize->24],
+
+Cell[TextData[{
+ "This document serves as a brief introduction to using ",
+ StyleBox["MathOptimizer.",
+  FontSlant->"Italic"],
+ " A more detailed description is presented in the User Guide which should be \
+consulted for technical background and references, further examples and \
+applications. "
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+   3.458897712390625*^9, 3.458897826859375*^9}, {3.458897890078125*^9, 
+   3.458897892546875*^9}, {3.45896348515625*^9, 3.4589635544375*^9}, 
+   3.45984115190625*^9},
+ FontSize->24],
+
+Cell[TextData[{
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " is an integrated global-local optimization package for handling difficult \
+nonlinear optimization problems. Specifically, when its global search is \
+invoked then it aims to find the globally best solution in (possibly) \
+multimodal problems with multiple extrema. Using ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " \"only\" in its local search mode allows to find the best solution from a \
+given starting point that, alternatively, can also be set by default."
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+  3.458897712390625*^9, 3.458897826859375*^9}, {3.458897890078125*^9, 
+  3.458897892546875*^9}, {3.45896348515625*^9, 3.4589635236875*^9}, {
+  3.458963579859375*^9, 3.458963582796875*^9}, {3.458966005703125*^9, 
+  3.45896606328125*^9}, {3.458967129671875*^9, 3.45896732809375*^9}, {
+  3.45956394059375*^9, 3.45956394196875*^9}, {3.4654653371971903`*^9, 
+  3.4654653731901903`*^9}},
+ FontSize->24],
+
+Cell[TextData[{
+ "In principle, ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " can handle optimization models defined by arbitrary continuous functions, \
+without requiring gradient or higher-order analytical information. Formally, \
+we consider the general model type"
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+   3.458897712390625*^9, 3.458897826859375*^9}, {3.458897890078125*^9, 
+   3.458897892546875*^9}, {3.45896348515625*^9, 3.4589635236875*^9}, {
+   3.458963579859375*^9, 3.458963582796875*^9}, {3.458966005703125*^9, 
+   3.45896606328125*^9}, {3.458967129671875*^9, 3.458967273953125*^9}, 
+   3.45896733715625*^9, {3.4612979421868258`*^9, 3.461297950345626*^9}, {
+   3.46546539071519*^9, 3.46546555323919*^9}, {3.46546701766919*^9, 
+   3.46546703776219*^9}},
+ FontSize->24],
+
+Cell["minimize f(x) ", "Text",
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "summary"}],
+
+Cell["subject to the constraints", "Text",
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "summary"}],
+
+Cell["g(x) \[LessEqual] 0", "Text",
+ CellChangeTimes->{{3.461238204336*^9, 3.4612382218*^9}, 3.46546712403519*^9},
+ 
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "summary"}],
+
+Cell["xlb \[LessEqual] x \[LessEqual] xub", "Text",
+ CellChangeTimes->{{3.461238204336*^9, 3.4612382218*^9}, {3.46546712403519*^9,
+   3.46546712659219*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "summary"}],
+
+Cell["\<\
+Here x is an n-dimensional real vector, f is a scalar objective function, and \
+g is an m-component real-valued vector function. We shall assume (require) \
+that the component-wise bounds xlb and xub are finite, and that f and g (the \
+latter component-wise) are continuous. Let us point out that all well-posed, \
+but seemingly more general finite-dimensional constrained optimization models \
+can be brought to the above canonical form by (elementary or more advanced) \
+transformations. \
+\>", "Text",
+ CellChangeTimes->{{3.461238362244*^9, 3.461238487491*^9}, {
+  3.4612386781730003`*^9, 3.461238711102*^9}, {3.461238783215*^9, 
+  3.461238868559*^9}, {3.461291363508*^9, 3.461291423777*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "summary"}],
+
+Cell[TextData[{
+ "The model functions themselves can be defined using ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s extensive related capabilities. This feature supports a very broad range \
+of model development options."
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+   3.458897712390625*^9, 3.458897826859375*^9}, {3.458897890078125*^9, 
+   3.458897892546875*^9}, {3.45896348515625*^9, 3.4589635236875*^9}, {
+   3.458963579859375*^9, 3.458963582796875*^9}, {3.458966005703125*^9, 
+   3.45896606328125*^9}, {3.458967129671875*^9, 3.458967273953125*^9}, 
+   3.45896733715625*^9, {3.4612979421868258`*^9, 3.461297950345626*^9}, {
+   3.46546539071519*^9, 3.46546555323919*^9}, 3.46546701766919*^9},
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " Platform"
+}], "Subsection",
+ CellChangeTimes->{
+  3.4225317928614616`*^9, {3.4393006012444983`*^9, 3.4393006038674984`*^9}, {
+   3.44240307794*^9, 3.442403083663*^9}, {3.442404793138*^9, 
+   3.44240479634*^9}, 3.4425687244*^9, {3.459841874921875*^9, 
+   3.459841881875*^9}, 3.4619020035*^9},
+ FontSize->24],
+
+Cell[TextData[{
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " can be used with ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "version 5.2 and higher, across all platforms for which ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " implementations exist. "
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQA2IQrXO3i/nT/JeOX4JPCoNobl0JSxC98cQfGxD98YT3
+mZ2LXzpOT1kApnPuXpTbBaS/ewqqgGhVNlPZu0tfOm45YQemLyrNVwbRv+oO
+GYJov6QNySD6y1+HXBC9bHZFEYjW3aQ4HUR3Oq5ZA6KvL56yDkRrxhjvBtGm
+cccOgWiBiNYTIFpKX/QciE54WnIJRB84FXgdRD+7cO42iP6mEfEYRDMwdE2R
+Pw6iK5aA6YbKDRD+Dyi9bAeE/rQfKn8EQi89CRFffRbCv3wZQrvdhtCZdyHy
+oU8gdPkLEL3NqOPzzYsvHS0+n/oPos1ObN51C0gbuDsdBdEANobC5g==
+  "],
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Version"], "Input",
+ FontSize->24],
+
+Cell[BoxData["\<\"7.0 for Microsoft Windows (32-bit) (February 18, \
+2009)\"\>"], "Output",
+ CellChangeTimes->{3.461221264348*^9, 3.4622507899375*^9, 3.46546585761019*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Date", "[", "]"}]], "Input",
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2009", ",", "10", ",", "25", ",", "15", ",", "24", ",", 
+   "20.5521901`9.065433042946236"}], "}"}]], "Output",
+ CellChangeTimes->{3.461221272766*^9, 3.462250787609375*^9, 
+  3.4654658605541897`*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell["\<\
+The test results and optional timings reported below were obtained using our \
+various (as of 2009, average capacity) personal computers. All models \
+presented in this document solve in a second or less, except the numerically \
+more intensive parametric integral optimization model described in the \
+section titled \"Optimization of Models with User-Defined Functions\". \
+\>", "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQA2IQrXO3i/nT/JeOX4JPCoNobl0JSxC98cQfGxD98YT3
+mZ2LXzpOT1kApnPuXpTbBaS/ewqqgGhVNlPZu0tfOm45YQemLyrNVwbRv+oO
+GYJov6QNySD6y1+HXBC9bHZFEYjW3aQ4HUR3Oq5ZA6KvL56yDkRrxhjvBtGm
+cccOgWiBiNYTIFpKX/QciE54WnIJRB84FXgdRD+7cO42iP6mEfEYRDMwdE2R
+Pw6iK5aA6YbKDRD+Dyi9bAeE/rQfKn8EQi89CRFffRbCv3wZQrvdhtCZdyHy
+oU8gdPkLEL3NqOPzzYsvHS0+n/oPos1ObN51C0h3NOgdB9EAOmfDZQ==
+  "],
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Install and Launch ",
+ StyleBox["MathOptimizer ",
+  FontSlant->"Italic"]
+}], "Subsection",
+ CellChangeTimes->{
+  3.4225317928614616`*^9, {3.4393006012444983`*^9, 3.4393006038674984`*^9}, {
+   3.458896652109375*^9, 3.458896663375*^9}, 3.458963257265625*^9, {
+   3.459564310703125*^9, 3.45956434021875*^9}},
+ FontSize->24],
+
+Cell[TextData[{
+ "The installer should input $UserAddOnsDirectory into Mathematica and put \
+the MathOptimizer directory into the directory that is returned. \nThe \
+$UserAddOnsDirectory may be hidden, requiring the installer to check \"Show \
+Hidden Files\" or something similar when looking for it. \nFor example, in \
+Suse Linux, $UserAddOnsDirectory is /home/<UserName>/.Mathematica.\nThen ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " can be directly invoked for use by the following statement."
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+  3.458897712390625*^9, 3.458897726515625*^9}, {3.459481120875*^9, 
+  3.459481177453125*^9}, {3.4739642226433496`*^9, 3.4739642462283497`*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MathOptimizer`MO`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.458650587932064*^9, 3.458650592802264*^9}, {
+  3.459481193*^9, 3.459481219078125*^9}},
+ FontSize->24],
+
+Cell[TextData[{
+ "The next statement serves only to verify the availability of ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ "'s integrated MO package."
+}], "Text",
+ CellChangeTimes->{{3.4612213337609997`*^9, 3.461221352998*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell["$ContextPath", "Input",
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"usage", "full text"}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"MathOptimizer`MO`\"\>", ",", "\<\"PacletManager`\"\>", 
+   ",", "\<\"WebServices`\"\>", ",", "\<\"System`\"\>", 
+   ",", "\<\"Global`\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.4618290535950003`*^9, 3.4654658827701902`*^9},
+ FontSize->24,
+ CellTags->{"usage", "full text"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Optimize"}]], "Input",
+ CellChangeTimes->{{3.4393006192634983`*^9, 3.4393006209734983`*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ StyleBox["\<\"Optimize[objective, constraints_List, varswithbounds_List, \
+options___] \\nminimizes the given objective function under a given set \
+(list) of constraint functions, and \\ngiven variable bounds. The \
+varswithbounds list is defined in the form \\n{{var1, var1 lower bound, var1 \
+upper bound}, {var2, var2 lower bound, var2 upper bound}...}.\\nType \
+Options[Optimize] to see the options and their default settings.  \\nType \
+?optionname for more information on each individual option.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.4654658848961897`*^9},
+ FontSize->24,
+ CellTags->"Info3465473084-6175591"]
+}, Open  ]],
+
+Cell["\<\
+The Optimize function requires three key arguments:  the model objective \
+function, the list of model constraints, and the list of decision variables \
+with corresponding bounds.  A number of options can be selected and added to \
+the input list: we will discuss each of the options later on.  \
+\>", "Text",
+ CellChangeTimes->{{3.458897273671875*^9, 3.458897328296875*^9}, {
+   3.458897685046875*^9, 3.458897700359375*^9}, {3.458963645515625*^9, 
+   3.458963666765625*^9}, {3.459481230375*^9, 3.45948140715625*^9}, {
+   3.45948157525*^9, 3.4594815888125*^9}, {3.459650869609375*^9, 
+   3.459650884203125*^9}, {3.461220218152*^9, 3.461220233283*^9}, 
+   3.46546592346519*^9},
+ FontSize->24],
+
+Cell["\<\
+Notice that this structure is a bit different from that of NMinimize, which \
+has the objective function as the first argument of a list containing the \
+objective function and the constraints. \
+\>", "Text",
+ CellChangeTimes->{{3.458897273671875*^9, 3.458897328296875*^9}, {
+   3.458897685046875*^9, 3.458897700359375*^9}, {3.458963645515625*^9, 
+   3.458963666765625*^9}, {3.459481230375*^9, 3.45948140715625*^9}, 
+   3.45948157525*^9},
+ FontSize->24],
+
+Cell["\<\
+Optimize returns a list containing the objective function value at the \
+numerical optimum found, a list of rules giving the variable values, and the \
+maximum constraint violation, which is given as 0 is there are no \
+constraints.  \
+\>", "Text",
+ CellChangeTimes->{{3.458897273671875*^9, 3.458897328296875*^9}, {
+  3.458897685046875*^9, 3.458897700359375*^9}, {3.458963645515625*^9, 
+  3.458963666765625*^9}, {3.459481230375*^9, 3.45948140034375*^9}},
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " Options"
+}], "Subsection",
+ CellChangeTimes->{{3.441282342518279*^9, 3.441282343428279*^9}, {
+   3.45889874*^9, 3.458898742828125*^9}, {3.458961728203125*^9, 
+   3.458961734453125*^9}, {3.4589675054375*^9, 3.45896751265625*^9}, 
+   3.45948252928125*^9},
+ FontSize->24],
+
+Cell[TextData[{
+ "We wish to emphasize that although the global search approaches implemented \
+in ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " are theoretically globally convergent (with probability 1), in numerical \
+practice it could occur that the optimum of a difficult model is not found \
+directly, applying default option settings and a limited numerical effort. \
+Evidently, the same applies to all numerical optimization algorithm \
+implementations. Many of the examples discussed in detail by the ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " ",
+ StyleBox["User's Guide ",
+  FontSlant->"Italic"],
+ "suggest option settings to overcome this inherent difficulty. Generally \
+speaking, in \"relatively easy\" models, one can expect that all reasonable \
+option settings will generate the same global optimum estimate (except small \
+numerical differences). This finding is confirmed by our extensive numerical \
+optimization benchmarking studies. In \"more difficult\" models, option \
+changes may lead to a range of numerical solutions, and the user can \
+eventually select the best one found."
+}], "Text",
+ CellChangeTimes->{{3.458896739265625*^9, 3.458896828078125*^9}, {
+   3.458897712390625*^9, 3.458897826859375*^9}, {3.458897890078125*^9, 
+   3.458897892546875*^9}, {3.45896348515625*^9, 3.4589635236875*^9}, {
+   3.458963579859375*^9, 3.458963582796875*^9}, {3.458966005703125*^9, 
+   3.458966164109375*^9}, {3.458966199875*^9, 3.45896629265625*^9}, {
+   3.458967352734375*^9, 3.458967435578125*^9}, {3.459563961359375*^9, 
+   3.459564016046875*^9}, {3.461901528390625*^9, 3.461901565796875*^9}, 
+   3.46546556920819*^9, {3.46546560286519*^9, 3.4654656047231903`*^9}, {
+   3.46546564235019*^9, 3.46546572056719*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "Optimize", "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.4412114276274166`*^9, 3.441211430354417*^9}, 
+   3.46546602316019*^9},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"PenaltyMultiplier", "\[Rule]", "1"}], ",", 
+   RowBox[{"MultiStarts", "\[Rule]", "10"}], ",", 
+   RowBox[{"Samples", "\[Rule]", "1000"}], ",", 
+   RowBox[{"RandomSeed", "\[Rule]", "0"}], ",", 
+   RowBox[{"SamplingMethod", "\[Rule]", "\<\"Random\"\>"}], ",", 
+   RowBox[{"ListableExpressions", "\[Rule]", "True"}], ",", 
+   RowBox[{"LocalSearches", "\[Rule]", "4"}], ",", 
+   RowBox[{"ShowGlobalResults", "\[Rule]", "False"}], ",", 
+   RowBox[{"ShowDetailedGlobalResults", "\[Rule]", "False"}], ",", 
+   RowBox[{"ShowLocalResults", "\[Rule]", "False"}], ",", 
+   RowBox[{"ShowDetailedLocalResults", "\[Rule]", "False"}], ",", 
+   RowBox[{"LocalSearchMethod", "\[Rule]", "\<\"FindMinimum\"\>"}], ",", 
+   RowBox[{"BoundedLocalSearch", "\[Rule]", "True"}], ",", 
+   RowBox[{"RepeatedLocalSearches", "\[Rule]", "True"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.46546596946419*^9, 3.46546602316019*^9},
+ FontSize->24],
+
+Cell[TextData[{
+ "All default option settings can be overruled (changed) using standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " conventions.  This point is extensively illustrated by detailed examples \
+in the ",
+ StyleBox["MathOptimizer User's Guide",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.4393006363394985`*^9, 3.439300766291498*^9}, {
+   3.4393010647554984`*^9, 3.4393010958994985`*^9}, {3.441282658368279*^9, 
+   3.441282661012279*^9}, {3.441283318558279*^9, 3.441283360540279*^9}, {
+   3.449159570840357*^9, 3.449159618567357*^9}, {3.458897174984375*^9, 
+   3.4588972201875*^9}, {3.458897360375*^9, 3.458897384703125*^9}, {
+   3.458897619046875*^9, 3.45889762453125*^9}, {3.458898900296875*^9, 
+   3.458898903953125*^9}, {3.458898958703125*^9, 3.458898990296875*^9}, {
+   3.45889910884375*^9, 3.4588991548125*^9}, {3.458900012640625*^9, 
+   3.458900016859375*^9}, {3.458963147546875*^9, 3.458963189*^9}, {
+   3.459482366234375*^9, 3.45948241521875*^9}, {3.45948524996875*^9, 
+   3.459485254046875*^9}, {3.461901609859375*^9, 3.461901679328125*^9}, {
+   3.46190206171875*^9, 3.461902061953125*^9}, 3.46546602316019*^9},
+ FontSize->24]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Illustrative Examples", "Subsection",
+ CellChangeTimes->{{3.4613091086882*^9, 3.4613091214802*^9}, {
+  3.4613094907992*^9, 3.4613094936540003`*^9}, {3.4613103075188*^9, 
+  3.4613103181736*^9}, {3.4613104384006*^9, 3.4613104472458*^9}, {
+  3.461314339843*^9, 3.4613143502326*^9}, {3.4613155009722*^9, 
+  3.4613155552757998`*^9}, {3.462245801046875*^9, 3.4622458043125*^9}, {
+  3.46225000175*^9, 3.46225001875*^9}, {3.46225052653125*^9, 
+  3.462250531046875*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"installation", "full text"}],
+
+Cell[CellGroupData[{
+
+Cell["A Box-Constrained Model", "Subsubsection",
+ CellChangeTimes->{{3.462246074578125*^9, 3.462246083140625*^9}, {
+  3.46224619390625*^9, 3.46224620521875*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell["\<\
+If there are no constraints, then the second argument of Optimize is an empy \
+list as shown below. \
+\>", "Text",
+ CellChangeTimes->{{3.4393007753364983`*^9, 3.439300805635498*^9}, {
+   3.4393008585394983`*^9, 3.439300908411498*^9}, {3.441282399971279*^9, 
+   3.441282400643279*^9}, {3.458897475703125*^9, 3.458897479328125*^9}, {
+   3.462245822546875*^9, 3.462245832453125*^9}, {3.462246219890625*^9, 
+   3.462246222484375*^9}, {3.4622462643125*^9, 3.4622463110625*^9}, 
+   3.462246343875*^9},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"9.296796025953995`*^-26", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.9999999999998778`"}], ",", 
+     RowBox[{"y", "\[Rule]", "1.9999999999997207`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.4613138083004*^9, {3.4654660976051903`*^9, 3.46546610106619*^9}},
+ FontSize->24]
+}, Open  ]],
+
+Cell["\<\
+Optimize returns a list containing the objective function value at the \
+numerical optimum found, a list of rules giving the optimized values for the \
+decision variables, and the maximum constraint violation at the numerical \
+optimum. (The latter should be 0 here, since there are no constraints.) \
+\>", "Text",
+ CellChangeTimes->{{3.458897273671875*^9, 3.458897328296875*^9}, {
+  3.458897685046875*^9, 3.458897700359375*^9}, {3.458963645515625*^9, 
+  3.458963666765625*^9}, {3.459481230375*^9, 3.45948140034375*^9}, {
+  3.462246383265625*^9, 3.4622464565*^9}},
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Excplicit Variable Bounds", "Subsubsection",
+ CellChangeTimes->{{3.462246074578125*^9, 3.462246083140625*^9}, {
+  3.46224619390625*^9, 3.46224620521875*^9}, {3.46224646190625*^9, 
+  3.46224647159375*^9}, {3.462247648703125*^9, 3.462247650796875*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell[TextData[{
+ "The stated variable bounds are strictly enforced by ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " in its default mode, as shown by the next example. This is another \
+difference with NMinimize, in which variable bounds are not required, and \
+thus the search range is set only when explicitly defined.  "
+}], "Text",
+ CellChangeTimes->{{3.439300964232498*^9, 3.4393010048514986`*^9}, {
+  3.4393011108674984`*^9, 3.4393011403554983`*^9}, {3.441282703755279*^9, 
+  3.441282707715279*^9}, {3.458897505484375*^9, 3.458897528421875*^9}, {
+  3.45889795446875*^9, 3.458898036265625*^9}, {3.45948164109375*^9, 
+  3.45948164659375*^9}, {3.459481679109375*^9, 3.459481832875*^9}, {
+  3.459651245703125*^9, 3.459651257640625*^9}, {3.4596513125*^9, 
+  3.459651319734375*^9}, {3.462246229234375*^9, 3.462246230375*^9}, {
+  3.462246480875*^9, 3.46224655471875*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "6"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+   3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+   3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, 
+   3.4393009300144987`*^9},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.000000008288492`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "4.999999995855754`"}], ",", 
+     RowBox[{"y", "\[Rule]", "2.000000011595642`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.458898050171875*^9, 3.459161734328125*^9, 
+  3.459481616109375*^9, 3.459481855171875*^9, 3.4596504420625*^9, 
+  3.45965133246875*^9, 3.45976673265625*^9, 3.45976681490625*^9, 
+  3.4613138210299997`*^9, 3.46224658084375*^9, 3.46546612863619*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"NMinimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "6"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+   3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+   3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, 
+   3.4393009300144987`*^9, {3.4393010328794985`*^9, 3.4393010546294985`*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "6.`"}], ",", 
+     RowBox[{"y", "\[Rule]", "2.`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.439301036022498*^9, 3.4393010558894987`*^9}, 
+   3.439569205003892*^9, 3.4408643580048323`*^9, 3.440864767684832*^9, 
+   3.440871730711832*^9, 3.4408725137738323`*^9, 3.441210183960417*^9, 
+   3.4412824202522793`*^9, 3.442871791244257*^9, 3.4429567189544535`*^9, 
+   3.4431167438988357`*^9, 3.4432161717212*^9, 3.443545931023569*^9, 
+   3.444512597492366*^9, 3.444601503363355*^9, 3.4487399125868607`*^9, 
+   3.448740224277026*^9, 3.44874043783438*^9, 3.4487420921737976`*^9, 
+   3.449141368240157*^9, 3.449143273092157*^9, 3.449155641589357*^9, 
+   3.4491568016113567`*^9, 3.4491571594553566`*^9, 3.449159126090357*^9, 
+   3.449159626110357*^9, 3.4500366284701614`*^9, 3.4501966076933537`*^9, 
+   3.450199819166354*^9, 3.450202162066354*^9, 3.4582362532468*^9, 
+   3.458646304359664*^9, 3.4586506055474644`*^9, 3.45889805828125*^9, 
+   3.459481857*^9, 3.45965044234375*^9, 3.459651334375*^9, 
+   3.459766733234375*^9, 3.45976681496875*^9, 3.4613138226991997`*^9, 
+   3.462246583703125*^9, 3.46546613184719*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[TextData[{
+ "Let us remark here again that \[Dash] in a mathematically precise setting \
+\[Dash] one does need variable bounds and continuous model functions to \
+guarantee that a general global optimization problem in itself is well-posed. \
+ The continuity assumptions can be replaced by somewhat milder analytical \
+conditions that will not be discussed here, since continuity is most \
+typically satisfied in the prospective domain of ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " applications. "
+}], "Text",
+ CellChangeTimes->{{3.439300964232498*^9, 3.4393010048514986`*^9}, {
+   3.4393011108674984`*^9, 3.4393011403554983`*^9}, {3.441282703755279*^9, 
+   3.441282707715279*^9}, {3.458897505484375*^9, 3.458897528421875*^9}, {
+   3.45889795446875*^9, 3.458898036265625*^9}, {3.45948164109375*^9, 
+   3.45948164659375*^9}, {3.459481679109375*^9, 3.459481835546875*^9}, {
+   3.459482197984375*^9, 3.459482217265625*^9}, {3.4596509708125*^9, 
+   3.459651234953125*^9}, {3.461313839722*^9, 3.4613138412508*^9}, {
+   3.4613138822164*^9, 3.4613139404824*^9}, 3.46224770253125*^9, {
+   3.4654661586381903`*^9, 3.46546621117519*^9}},
+ FontSize->24],
+
+Cell["\<\
+It is also noted that, in general, tighter variable bounds can lead to better \
+(sometimes much better) numerical performance: therefore it is worthwile to \
+give proper consideration to all variable bound settings.\
+\>", "Text",
+ CellChangeTimes->{{3.439300964232498*^9, 3.4393010048514986`*^9}, {
+  3.4393011108674984`*^9, 3.4393011403554983`*^9}, {3.441282703755279*^9, 
+  3.441282707715279*^9}, {3.458897505484375*^9, 3.458897528421875*^9}, {
+  3.45889795446875*^9, 3.458898036265625*^9}, {3.45948164109375*^9, 
+  3.45948164659375*^9}, {3.459481679109375*^9, 3.459481835546875*^9}, {
+  3.459482197984375*^9, 3.459482217265625*^9}, {3.4596509708125*^9, 
+  3.459651234953125*^9}, {3.461313839722*^9, 3.4613138412508*^9}, {
+  3.4613138822164*^9, 3.4613139404824*^9}, {3.46224770253125*^9, 
+  3.46224776021875*^9}, {3.4654662304801903`*^9, 3.46546624784019*^9}},
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Initial Variable Values ", "Subsubsection",
+ CellChangeTimes->{{3.462246074578125*^9, 3.462246083140625*^9}, {
+  3.46224619390625*^9, 3.46224620521875*^9}, {3.46224646190625*^9, 
+  3.46224647159375*^9}, {3.46224661078125*^9, 3.462246625875*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell["\<\
+It is possible to give initial values for some or all of the variables. If \
+such a value is not given, then the midpoint (component-wise central point) \
+of the interval defined by the bounds is used by default. The initial values \
+of the variables are used as one set of starting values for the local search \
+\[Dash] quite possibly together with some further initial points generated, \
+as will be discussed and illustrated later on.\
+\>", "Text",
+ CellChangeTimes->{{3.4393012131884985`*^9, 3.4393012892674985`*^9}, {
+  3.4393834701782284`*^9, 3.4393834718022285`*^9}, {3.458898071140625*^9, 
+  3.458898165765625*^9}, {3.462246644796875*^9, 3.4622467066875*^9}, {
+  3.462250049859375*^9, 3.46225007671875*^9}, {3.46546628494319*^9, 
+  3.46546632233219*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"9.296796025953995`*^-26", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.9999999999998778`"}], ",", 
+     RowBox[{"y", "\[Rule]", "1.9999999999997207`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.4393013092944984`*^9, 3.4395692051138916`*^9, 3.440864358057832*^9, 
+   3.4408647677698317`*^9, 3.440871730786832*^9, 3.440872525232832*^9, 
+   3.4412101893034167`*^9, 3.441211365144417*^9, 3.4428717912932615`*^9, 
+   3.4431167439508357`*^9, 3.4432161717762003`*^9, 3.4435459310675693`*^9, 
+   3.44423487990817*^9, 3.44423665162517*^9, 3.444512611523366*^9, 
+   3.4446015050793552`*^9, 3.444603370455355*^9, 3.4447408465249605`*^9, 
+   3.448740226483247*^9, 3.4487404416457615`*^9, 3.4487420922278028`*^9, 
+   3.449141375129157*^9, 3.4491432779981565`*^9, 3.4491556460353565`*^9, 
+   3.4491568042303567`*^9, 3.449157161996357*^9, 3.4491591351513567`*^9, 
+   3.449159628371357*^9, 3.450036630980161*^9, 3.450196609739354*^9, 
+   3.4501974910063543`*^9, 3.450199820931354*^9, 3.450202164442354*^9, 
+   3.4586463108346643`*^9, 3.458650605641064*^9, {3.45889818859375*^9, 
+   3.45889820515625*^9}, 3.45916173728125*^9, {3.45948185946875*^9, 
+   3.45948187975*^9}, 3.4596504424375*^9, 3.459766733265625*^9, 
+   3.459766815078125*^9, 3.4613139828682003`*^9, 3.46546632421019*^9},
+ FontSize->24]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Equality and Inequality Constraints", "Subsubsection",
+ CellChangeTimes->{{3.462246074578125*^9, 3.462246083140625*^9}, {
+  3.46224619390625*^9, 3.46224620521875*^9}, {3.46224646190625*^9, 
+  3.46224647159375*^9}, {3.46224661078125*^9, 3.462246625875*^9}, {
+  3.46224672375*^9, 3.462246735859375*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell["\<\
+If the constraints are all inequalities, then it is possible \[Dash] but not \
+necessarily guaranteed \[Dash] that the maximum constraint violation will be \
+0. \
+\>", "Text",
+ CellChangeTimes->{
+  3.423864014415*^9, {3.4393013599794984`*^9, 3.439301413291498*^9}, {
+   3.4393014790434985`*^9, 3.4393015869394984`*^9}, {3.4393834256122284`*^9, 
+   3.4393834381202283`*^9}, {3.441210198385417*^9, 3.441210203345417*^9}, {
+   3.461220453535*^9, 3.461220495542*^9}, {3.462246754640625*^9, 
+   3.46224681653125*^9}, {3.462246856515625*^9, 3.46224691621875*^9}, {
+   3.46546634047919*^9, 3.46546636222119*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"x", "+", "y"}], "\[LessEqual]", " ", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "2"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "1"}], ",", "3"}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393014585984983`*^9, 3.4393014609664984`*^9}, {3.462246961*^9, 
+  3.46224701903125*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4.0596334036934936`*^-7", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0.9995494681648656`"}], ",", 
+     RowBox[{"y", "\[Rule]", "1.9995494620927161`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0.`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.461314012009*^9, {3.46224696503125*^9, 3.462247022453125*^9}, 
+   3.46546637460719*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[TextData[{
+ "If equality constraints are also present, then one can expect corresponding \
+small constraint violations, especially if the exact solution vector has \
+non-rational number components. To illustrate, in the following example the \
+optimal values for both x and y are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"-", 
+    SqrtBox[
+     FractionBox["1", "2"]]}], TraditionalForm]]],
+ "~ -0.707107 which cannot be represented as a machine number. "
+}], "Text",
+ CellChangeTimes->{
+  3.423864014415*^9, {3.4393013599794984`*^9, 3.439301413291498*^9}, {
+   3.4393014790434985`*^9, 3.4393015869394984`*^9}, {3.4393834256122284`*^9, 
+   3.4393834381202283`*^9}, {3.441210198385417*^9, 3.441210203345417*^9}, {
+   3.461220453535*^9, 3.461220495542*^9}, {3.462246754640625*^9, 
+   3.46224681653125*^9}, {3.462246856515625*^9, 3.462246931828125*^9}, {
+   3.46224704940625*^9, 3.46224705978125*^9}, {3.4654663856981897`*^9, 
+   3.4654664160321903`*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Optimize", "[", 
+  RowBox[{
+   RowBox[{"x", "+", "y"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "2"], "+", 
+      SuperscriptBox["y", "2"]}], "\[LessEqual]", " ", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4238639848*^9, 3.42386400976*^9}, {3.423864176984*^9, 
+  3.423864180719*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1.414213644895531`"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      RowBox[{"-", "0.7071057302002984`"}]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"-", "0.7071079146952326`"}]}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "1.1670673760733052`*^-7"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.423864182033*^9, 3.423864291909*^9, 3.4238643944309998`*^9, 
+   3.4239466316712103`*^9, 3.42394680598164*^9, 3.4239478548745184`*^9, 
+   3.423948063061335*^9, 3.4239558768746386`*^9, 3.4239565225201964`*^9, 
+   3.42463699758*^9, 3.424637158368*^9, 3.424637434795*^9, 3.424637811086*^9, 
+   3.424638727151*^9, 3.4246403604630003`*^9, 3.424641844334*^9, 
+   3.424643050999*^9, 3.424643085679*^9, 3.4247247152598867`*^9, 
+   3.424724879797887*^9, 3.4247251282558866`*^9, 3.4247251978578863`*^9, 
+   3.4247253059098864`*^9, 3.4247255208008866`*^9, {3.4247256243928866`*^9, 
+   3.424725653151887*^9}, 3.4247258680128865`*^9, 3.424726676535887*^9, 
+   3.4247274643488865`*^9, 3.4247293294318867`*^9, 3.4247296273768864`*^9, 
+   3.4247308759468865`*^9, 3.4247337859378867`*^9, 3.424771682165821*^9, 
+   3.424778315488821*^9, 3.4247787120488205`*^9, 3.4247788661148205`*^9, 
+   3.4247796188228207`*^9, 3.424779771179821*^9, 3.4247803702988205`*^9, 
+   3.4247804157568207`*^9, 3.424789900495821*^9, 3.424790031448821*^9, 
+   3.4249703024919252`*^9, 3.4249704010469255`*^9, 3.4249705779639254`*^9, 
+   3.430384034200568*^9, 3.431517060473*^9, 3.431517528675*^9, 
+   3.4315179408900003`*^9, 3.431518023316*^9, 3.431518843473*^9, 
+   3.431519550767*^9, 3.431522055748*^9, 3.431535573263*^9, 3.431535845264*^9,
+    3.4315362430109997`*^9, 3.431536560642*^9, 3.431538862277*^9, 
+   3.431538989351*^9, 3.431539816508*^9, 3.4315402338269997`*^9, 
+   3.431543472585*^9, 3.43154354752*^9, 3.433796937875165*^9, 
+   3.434465414793661*^9, 3.4344657352776613`*^9, 3.434466180386661*^9, 
+   3.4344923321169095`*^9, 3.434646094303341*^9, 3.435076478465231*^9, {
+   3.4350928978876076`*^9, 3.435092923760195*^9}, 3.4352391079258175`*^9, 
+   3.436129955687219*^9, 3.4361302576115923`*^9, 3.436130502479556*^9, 
+   3.4361308655611577`*^9, 3.4363765935508833`*^9, 3.4363769359928837`*^9, 
+   3.4363777495738835`*^9, 3.4363781946078835`*^9, 3.436378556351884*^9, 
+   3.4363788536898837`*^9, 3.4363792530508833`*^9, 3.4363794250668836`*^9, 
+   3.4363799263478837`*^9, 3.4363802009798837`*^9, 3.4363805692298837`*^9, 
+   3.4363810578648834`*^9, 3.4363820488368835`*^9, 3.4367192076899614`*^9, 
+   3.436719255923961*^9, 3.4375688428030763`*^9, 3.4375692800100765`*^9, 
+   3.437569347070076*^9, 3.4375697714720764`*^9, 3.437570410327076*^9, 
+   3.437571234844076*^9, 3.437571825364076*^9, 3.4375728209600763`*^9, 
+   3.437572881475076*^9, 3.437573171330076*^9, 3.437574138181076*^9, 
+   3.4375742525430765`*^9, 3.437574452563076*^9, 3.437580508940076*^9, 
+   3.437581703287076*^9, 3.437581837950076*^9, 3.437650711097*^9, 
+   3.437651825659*^9, 3.437651864415*^9, 3.4377750256940002`*^9, 
+   3.43777603546*^9, 3.4378504681512833`*^9, 3.4381739609062757`*^9, 
+   3.439228492211877*^9, 3.4392304060048766`*^9, 3.4393014245404987`*^9, 
+   3.4395692053238916`*^9, 3.4408643582148323`*^9, 3.4408647678398323`*^9, 
+   3.440871730876832*^9, 3.440872528756832*^9, 3.441210209098417*^9, 
+   3.441211368427417*^9, 3.4412824532262793`*^9, 3.4418898683760347`*^9, 
+   3.461220668851*^9, 3.4613140025554*^9, 3.462246845890625*^9, 
+   3.46224707003125*^9, 3.46546640107519*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Optimize", "[", 
+  RowBox[{
+   RowBox[{"x", "+", "y"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "2"], "+", 
+      SuperscriptBox["y", "2"]}], "\[Equal]", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4238639848*^9, 3.42386400976*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1.414213740088086`"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      RowBox[{"-", "0.7071058377361853`"}]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"-", "0.7071079023519008`"}]}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "2.5132909764469247`*^-7"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.423864011325*^9, 3.423864165802*^9, 3.423864291797*^9, 3.423864394326*^9, 
+   3.4239466315762005`*^9, 3.4239468058136225`*^9, 3.4239478547845097`*^9, 
+   3.423948062962325*^9, 3.423955876782629*^9, 3.4239565224401884`*^9, 
+   3.4246369970220003`*^9, 3.424637098927*^9, 3.4246371558929996`*^9, 
+   3.424637281342*^9, 3.424637431726*^9, 3.424637810977*^9, 3.424638727058*^9,
+    3.424640360333*^9, 3.4246418442209997`*^9, 3.424643050896*^9, 
+   3.4246430855480003`*^9, 3.424724715125887*^9, 3.4247248797118864`*^9, 
+   3.4247251281558867`*^9, 3.4247251977598867`*^9, 3.4247253058128867`*^9, 
+   3.4247255201968865`*^9, 3.4247256499638863`*^9, 3.4247266764438868`*^9, 
+   3.4247274642558866`*^9, 3.4247293293268867`*^9, 3.4247296272928867`*^9, 
+   3.4247308758458867`*^9, 3.424733785823887*^9, 3.424771682062821*^9, 
+   3.424778315399821*^9, 3.424778711960821*^9, 3.4247788660018206`*^9, 
+   3.4247796187068205`*^9, 3.424779771083821*^9, 3.4247803701968207`*^9, 
+   3.424780415655821*^9, 3.424789900405821*^9, 3.424790031352821*^9, 
+   3.424970302370925*^9, 3.4249704009379253`*^9, 3.424970577867925*^9, 
+   3.430384034109568*^9, 3.4315170603459997`*^9, 3.4315175285699997`*^9, 
+   3.4315179407869997`*^9, 3.431518023227*^9, 3.431518843377*^9, 
+   3.431519550668*^9, 3.4315220556470003`*^9, 3.431535573158*^9, 
+   3.431535845165*^9, 3.431536242908*^9, 3.4315365605369997`*^9, 
+   3.4315388616800003`*^9, 3.4315389197939997`*^9, 3.431538985913*^9, 
+   3.431539816418*^9, 3.431540233738*^9, 3.43154347249*^9, 3.431543547432*^9, 
+   3.433796937784165*^9, 3.4344654146196613`*^9, 3.4344657351856613`*^9, 
+   3.434466180305661*^9, 3.4344923320088987`*^9, 3.434646094195341*^9, 
+   3.435076478357231*^9, {3.435092897766596*^9, 3.435092923682187*^9}, 
+   3.435239107792817*^9, 3.4361299556122046`*^9, 3.436130257536577*^9, 
+   3.43613050240254*^9, 3.436130865483142*^9, 3.436376593370884*^9, 
+   3.436376935903884*^9, 3.436377749495884*^9, 3.436378194528884*^9, 
+   3.4363785562568836`*^9, 3.4363788536038837`*^9, 3.4363792529548836`*^9, 
+   3.4363794247728834`*^9, 3.4363799262718835`*^9, 3.436380200818884*^9, 
+   3.4363805691408834`*^9, 3.4363810577678833`*^9, 3.4363820487508836`*^9, 
+   3.436719207580961*^9, 3.436719255827961*^9, 3.437568842686076*^9, 
+   3.4375692797430763`*^9, 3.4375693469110765`*^9, 3.437569771291076*^9, 
+   3.4375704074180765`*^9, 3.437571234761076*^9, 3.4375718252860765`*^9, 
+   3.437572820864076*^9, 3.437572881393076*^9, 3.4375731712300763`*^9, 
+   3.4375741381040764`*^9, 3.4375742498420763`*^9, 3.437574450134076*^9, 
+   3.437580508845076*^9, 3.437581701443076*^9, 3.4375818378680763`*^9, 
+   3.437650711007*^9, 3.437651822825*^9, 3.437651876773*^9, 3.437775025585*^9,
+    3.437776033008*^9, 3.437850468028283*^9, 3.4381739607822757`*^9, 
+   3.439228492100877*^9, 3.4392304059438763`*^9, 3.4393014278584986`*^9, 
+   3.439569205623892*^9, 3.4408643585128317`*^9, 3.440864767907832*^9, 
+   3.4408717312038317`*^9, 3.440872531691832*^9, 3.441210213897417*^9, 
+   3.441211370281417*^9, 3.441282455846279*^9, 3.4418898684480343`*^9, 
+   3.461220672941*^9, 3.4613140049266*^9, 3.46224708928125*^9, 
+   3.46546642627919*^9},
+ FontSize->24]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Model Development Step-by-Step ", "Subsubsection",
+ CellChangeTimes->{
+  3.4225317928614616`*^9, {3.4393006012444983`*^9, 3.4393006038674984`*^9}, {
+   3.4588974265*^9, 3.4588974571875*^9}, {3.45948207540625*^9, 
+   3.459482129578125*^9}, {3.459482238875*^9, 3.459482248671875*^9}},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell["\<\
+It is easy to modify the objective function or a constraint, to add new \
+constraints, or to change the model functions otherwise in a stepwise \
+fashion. This feature makes modular development easy, as illustrated by the \
+sequence of models shown below. Model changes can also be made \
+simultaneously, of course.\
+\>", "Text",
+ CellChangeTimes->{{3.458898261296875*^9, 3.458898296765625*^9}, {
+  3.45889875159375*^9, 3.4588987581875*^9}, {3.45948190453125*^9, 
+  3.459482014296875*^9}, {3.4612208098780003`*^9, 3.461220964988*^9}, {
+  3.4654664653631897`*^9, 3.46546646846719*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"x", "-", "y"}], "\[GreaterEqual]", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}, {3.45889830396875*^9, 3.458898311234375*^9}, {
+  3.4588985125625*^9, 3.458898515671875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.0000000230391883`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "2.0000000048827924`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.9999999933631983`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0.`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.458898317546875*^9, 3.458898516125*^9, 3.459161739625*^9,
+   3.459481983*^9, 3.45948201915625*^9, 3.45965044271875*^9, 
+  3.45965139853125*^9, 3.45976673328125*^9, 3.45976681528125*^9, 
+  3.461221016033*^9, 3.4622501981875*^9, 3.46546647534319*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "-", "y"}], "\[GreaterEqual]", "1"}], ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "*", "y"}], "]"}], "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "^", "2"}], "]"}]}], "\[GreaterEqual]", "1"}]}], " ", 
+     "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}, {3.45889830396875*^9, 3.45889845046875*^9}, {
+  3.45889852821875*^9, 3.458898618984375*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.0000000117304335`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "1.9999999344868027`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.9999999286215907`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0.`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.45889845134375*^9, {3.458898536578125*^9, 3.458898566046875*^9}, {
+   3.458898602296875*^9, 3.45889862053125*^9}, 3.4591617441875*^9, 
+   3.4594819861875*^9, 3.4594820219375*^9, 3.4596504435*^9, 
+   3.459766733328125*^9, 3.459766816*^9, 3.461221019951*^9, 3.46225020125*^9, 
+   3.46546647977319*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "-", "y"}], "\[GreaterEqual]", "1"}], ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "*", "y"}], "]"}], "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "^", "2"}], "]"}]}], "\[Equal]", "1"}]}], " ", "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}, {3.45889830396875*^9, 3.45889845046875*^9}, {
+  3.45889852821875*^9, 3.45889864946875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.778822595863187`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "1.3759717459341114`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.3759717237306355`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "4.570709011275653`*^-8"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.458898651734375*^9, 3.45916174921875*^9, 3.459482025421875*^9, 
+   3.459650445828125*^9, 3.45976673334375*^9, 3.45976681825*^9, 
+   3.461221025006*^9, 3.462250204359375*^9, {3.46546650118219*^9, 
+   3.46546650973219*^9}},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"], " ", "+", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"2", "*", "y"}], "]"}], "-", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"x", "^", "2"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "-", "y"}], "\[GreaterEqual]", "1"}], ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "*", "y"}], "]"}], "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "^", "2"}], "]"}]}], "\[Equal]", "1"}]}], " ", "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}, {3.45889830396875*^9, 3.45889845046875*^9}, {
+  3.45889852821875*^9, 3.45889864946875*^9}, {3.4588987875*^9, 
+  3.4588987999375*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3.7788232944480926`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "1.3759718571780375`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.37597151655658007`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "5.797734481394201`*^-8"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.459482036046875*^9, 3.4594822905*^9, 
+  3.459650447578125*^9, 3.45965140990625*^9, 3.459766733359375*^9, 
+  3.459766820078125*^9, 3.461221030573*^9, 3.462250207234375*^9, 
+  3.46546652636419*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"y", "-", "2"}], ")"}], "2"], " ", "+", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"2", "*", "y"}], "]"}], "-", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"x", "^", "2"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "-", "y"}], "\[GreaterEqual]", "0.4"}], ",", " ", 
+      RowBox[{
+       RowBox[{"x", "-", "y"}], "\[LessEqual]", "0.8"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"2", "*", "y"}], "]"}], "-", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"x", "^", "2"}], "]"}]}], "\[Equal]", "1"}]}], " ", "}"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "5"}], ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "5"}], ",", "3", ",", "5"}], "}"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4225308052754617`*^9, 3.422530812621462*^9}, {
+  3.4236565749446926`*^9, 3.423656577839692*^9}, {3.423664761674692*^9, 
+  3.4236648018556924`*^9}, {3.4393008236054983`*^9, 3.4393008475184984`*^9}, {
+  3.4393013056464987`*^9, 3.4393013060944986`*^9}, {3.458898180609375*^9, 
+  3.458898204421875*^9}, {3.45889830396875*^9, 3.45889845046875*^9}, {
+  3.45889852821875*^9, 3.45889864946875*^9}, {3.4588987875*^9, 
+  3.4588987999375*^9}, {3.46546656854319*^9, 3.46546662134619*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.3717164891170603`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "1.2574414392722986`"}], ",", 
+     RowBox[{"y", "\[Rule]", "0.8574412878766441`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "1.618651412904626`*^-8"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.459482036046875*^9, 3.4594822905*^9, 3.459650447578125*^9, 
+   3.45965140990625*^9, 3.459766733359375*^9, 3.459766820078125*^9, 
+   3.461221030573*^9, 3.462250207234375*^9, 3.46546652636419*^9, {
+   3.46546660492019*^9, 3.46546662412919*^9}},
+ FontSize->24]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["A Model Development Template", "Subsubsection",
+ CellChangeTimes->{{3.462246074578125*^9, 3.462246083140625*^9}, {
+   3.46224619390625*^9, 3.46224620521875*^9}, {3.46224646190625*^9, 
+   3.46224647159375*^9}, {3.46224661078125*^9, 3.462246625875*^9}, {
+   3.4622471235*^9, 3.462247137578125*^9}, 3.462250117390625*^9},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell["\<\
+The next example shows an easy-to-use model development template. \
+\>", "Text",
+ CellChangeTimes->{{3.4612214853059998`*^9, 3.4612215462200003`*^9}, {
+   3.461221676884*^9, 3.4612217645769997`*^9}, {3.461221876469*^9, 
+   3.4612219238059998`*^9}, {3.461221991683*^9, 3.46122204267*^9}, {
+   3.461230104606*^9, 3.4612301341029997`*^9}, {3.461231708242*^9, 
+   3.461231711*^9}, 3.461231771682*^9, {3.461314038217*^9, 3.461314039231*^9},
+    3.4622471505625*^9},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[TextData[{
+ "According to the input information requirements of ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ ", we define the following model components:"
+}], "Text",
+ CellChangeTimes->{{3.4612214853059998`*^9, 3.4612215462200003`*^9}, {
+   3.461221676884*^9, 3.4612217645769997`*^9}, {3.461221876469*^9, 
+   3.4612219238059998`*^9}, {3.461221991683*^9, 3.46122204267*^9}, {
+   3.461230104606*^9, 3.4612301341029997`*^9}, {3.461231708242*^9, 
+   3.461231711*^9}, 3.461231771682*^9, {3.461314038217*^9, 3.461314039231*^9},
+    3.4622471505625*^9, {3.46546667018219*^9, 3.46546669042619*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[TextData[{
+ StyleBox["varswithbounds",
+  FontFamily->"Courier New",
+  FontWeight->"Bold"],
+ ": the decision variables with lower and upper bounds, nominal values can be \
+optionally added"
+}], "Text",
+ CellChangeTimes->{{3.4612214853059998`*^9, 3.4612215462200003`*^9}, {
+   3.461221676884*^9, 3.4612217645769997`*^9}, {3.461221876469*^9, 
+   3.4612219283900003`*^9}, 3.461222050833*^9, {3.461230692672*^9, 
+   3.4612307118269997`*^9}, {3.461231782257*^9, 3.461231784322*^9}, {
+   3.461314092303*^9, 3.4613140958754*^9}, {3.4622471734375*^9, 
+   3.46224719575*^9}, {3.462247227578125*^9, 3.462247231859375*^9}, {
+   3.462247267046875*^9, 3.462247267375*^9}, {3.4654667520211897`*^9, 
+   3.46546675332019*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[TextData[{
+ StyleBox["objective",
+  FontFamily->"Courier New",
+  FontWeight->"Bold"],
+ ": the model objective function to minimize"
+}], "Text",
+ CellChangeTimes->{{3.4612214853059998`*^9, 3.4612215462200003`*^9}, {
+   3.461221676884*^9, 3.4612217645769997`*^9}, {3.461221876469*^9, 
+   3.461221930359*^9}, 3.4612220524110003`*^9, {3.461231789653*^9, 
+   3.461231791441*^9}, {3.462247234765625*^9, 3.462247262*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[TextData[{
+ StyleBox["constraints",
+  FontFamily->"Courier New",
+  FontWeight->"Bold"],
+ ": the model constraints."
+}], "Text",
+ CellChangeTimes->{{3.4612214853059998`*^9, 3.4612215462200003`*^9}, {
+  3.461221676884*^9, 3.4612217645769997`*^9}, {3.461221876469*^9, 
+  3.461221930359*^9}, {3.462247251109375*^9, 3.4622472583125*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[TextData[{
+ "varswithbounds = {{x1, -5, 3}, {x2, -5, 4}}; \t\nobjective = (x1^2 - \
+2*x2)^2 + (x1 - 2)^2; ",
+ StyleBox["\n",
+  FontColor->RGBColor[0, 0, 1]],
+ "constraints = {Sin[x1^2 - 3*x1*x2] == 0, x1^4 + 5*x2^3 - 40 \[LessEqual] 0};"
+}], "Input",
+ CellChangeTimes->{
+  3.461221511392*^9, {3.461221551644*^9, 3.461221659111*^9}, {
+   3.461221780271*^9, 3.461221872764*^9}, {3.461221953476*^9, 
+   3.46122195405*^9}, 3.4612220705889997`*^9, {3.461222126949*^9, 
+   3.461222141948*^9}, {3.461230208736*^9, 3.461230411955*^9}, {
+   3.461230547416*^9, 3.46123064277*^9}, {3.4612306764960003`*^9, 
+   3.461230679994*^9}, 3.461230723099*^9, {3.461231214139*^9, 
+   3.461231305336*^9}, {3.461231335835*^9, 3.461231345818*^9}, {
+   3.461231420834*^9, 3.4612314220699997`*^9}, {3.461232044731*^9, 
+   3.461232045738*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"objective", " "}], "\[IndentingNewLine]", 
+ RowBox[{"constraints", 
+  " "}], "\[IndentingNewLine]", "varswithbounds"}], "Input",
+ CellChangeTimes->{{3.462247330484375*^9, 3.462247341046875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", "2"}], "+", "x1"}], ")"}], "2"], "+", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["x1", "2"], "-", 
+     RowBox[{"2", " ", "x2"}]}], ")"}], "2"]}]], "Output",
+ CellChangeTimes->{{3.46224733796875*^9, 3.462247342875*^9}, 
+   3.4622505626875*^9, {3.4654667206861897`*^9, 3.46546672494119*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      SuperscriptBox["x1", "2"], "-", 
+      RowBox[{"3", " ", "x1", " ", "x2"}]}], "]"}], "\[Equal]", "0"}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "40"}], "+", 
+     SuperscriptBox["x1", "4"], "+", 
+     RowBox[{"5", " ", 
+      SuperscriptBox["x2", "3"]}]}], "\[LessEqual]", "0"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.46224733796875*^9, 3.462247342875*^9}, 
+   3.4622505626875*^9, {3.4654667206861897`*^9, 3.46546672494319*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", 
+     RowBox[{"-", "5"}], ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", 
+     RowBox[{"-", "5"}], ",", "4"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.46224733796875*^9, 3.462247342875*^9}, 
+   3.4622505626875*^9, {3.4654667206861897`*^9, 3.46546672494519*^9}},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Optimize[objective, constraints, varswithbounds]", "Input",
+ CellChangeTimes->{{3.461222079734*^9, 3.4612221007869997`*^9}, {
+  3.4612308287539997`*^9, 3.461230843441*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.016618498884745956`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x1", "\[Rule]", "1.8744765645334853`"}], ",", 
+     RowBox[{"x2", "\[Rule]", "1.7421481607805054`"}]}], "}"}], ",", 
+   RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", 
+    "1.8032799765949597`*^-10"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.46225056878125*^9, 3.46546672899219*^9},
+ FontSize->24,
+ CellTags->{"full text", "local tests"}]
+}, Open  ]],
+
+Cell["\<\
+In spite of its small size, this model is not trivial. For comparison, let us \
+solve the same model using the built-in function NMinimize. To this end, we \
+introduce the auxiliary symbols\
+\>", "Text",
+ CellChangeTimes->{{3.461232879797*^9, 3.46123301085*^9}, {
+  3.4613141315369997`*^9, 3.4613141318958*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"vars", " ", "=", " ", 
+  StyleBox[
+   RowBox[{"{", " ", 
+    RowBox[{"x1", ",", "x2"}], "}"}],
+   FontColor->GrayLevel[0]]}], "\[IndentingNewLine]", 
+ RowBox[{"Flatten", "[", 
+  RowBox[{"{", 
+   RowBox[{"objective", ",", " ", "constraints"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.4612327523129997`*^9, 3.461232774462*^9}, {
+  3.461232831472*^9, 3.461232852855*^9}, {3.4612330150109997`*^9, 
+  3.461233018376*^9}, {3.4612330539960003`*^9, 3.46123305451*^9}, {
+  3.46225060325*^9, 3.462250622265625*^9}, {3.462250678421875*^9, 
+  3.4622507191875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"x1", ",", "x2"}], "}"}]], "Output",
+ CellChangeTimes->{{3.461232733115*^9, 3.461232787891*^9}, 3.46123285421*^9, {
+   3.46123297651*^9, 3.4612329788450003`*^9}, 3.461233020041*^9, {
+   3.4613141347506*^9, 3.4613141363106003`*^9}, {3.4622473813125*^9, 
+   3.462247382734375*^9}, 3.462250654875*^9, {3.46546676479219*^9, 
+   3.46546677400119*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", "x1"}], ")"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["x1", "2"], "-", 
+       RowBox[{"2", " ", "x2"}]}], ")"}], "2"]}], ",", 
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      SuperscriptBox["x1", "2"], "-", 
+      RowBox[{"3", " ", "x1", " ", "x2"}]}], "]"}], "\[Equal]", "0"}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "40"}], "+", 
+     SuperscriptBox["x1", "4"], "+", 
+     RowBox[{"5", " ", 
+      SuperscriptBox["x2", "3"]}]}], "\[LessEqual]", "0"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.461232733115*^9, 3.461232787891*^9}, 3.46123285421*^9, {
+   3.46123297651*^9, 3.4612329788450003`*^9}, 3.461233020041*^9, {
+   3.4613141347506*^9, 3.4613141363106003`*^9}, {3.4622473813125*^9, 
+   3.462247382734375*^9}, 3.462250654875*^9, {3.46546676479219*^9, 
+   3.46546677400419*^9}},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NMinimize[Flatten[{objective, constraints}], vars]", "Input",
+ CellChangeTimes->{{3.461222079734*^9, 3.4612221007869997`*^9}, {
+   3.461230451251*^9, 3.461230456635*^9}, {3.461230652468*^9, 
+   3.461230659758*^9}, 3.46123087337*^9, {3.461230914633*^9, 
+   3.461230918948*^9}, {3.461231090968*^9, 3.461231093052*^9}, {
+   3.4612328076730003`*^9, 3.46123282113*^9}, {3.461232859926*^9, 
+   3.461232862291*^9}},
+ FontSize->24,
+ FontColor->GrayLevel[0],
+ CellTags->{"full text", "local tests"}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.0307443282264153`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x1", "\[Rule]", "1.1377404404276386`"}], ",", 
+     RowBox[{"x2", "\[Rule]", "0.3792468141614046`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.462250661359375*^9, 3.46546677686419*^9},
+ FontSize->24,
+ CellTags->{"full text", "local tests"}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The solution found by NMinimize is not as good as ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ "'s solution. This is not always the case, of course. However, the example \
+illustrates an important point: using different approaches (algorithms and \
+corresponding software implementations) to solve difficult numerical problems \
+can be useful \[Dash] especially so in the area of nonlinear optimization."
+}], "Text",
+ CellChangeTimes->{{3.461233106935*^9, 3.461233293426*^9}, {
+   3.4613141874466*^9, 3.4613141931406*^9}, {3.4613142483178*^9, 
+   3.4613142701577997`*^9}, {3.462247438609375*^9, 3.4622474581875*^9}, {
+   3.46546684582019*^9, 3.46546688078719*^9}, 3.46546924226019*^9},
+ FontSize->24]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Optimization Models with Arbitrary (Continuous) ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " Functions"
+}], "Subsubsection",
+ CellChangeTimes->{{3.4395693194408913`*^9, 3.4395693378378916`*^9}, {
+   3.458967112234375*^9, 3.45896711378125*^9}, {3.4589740333125*^9, 
+   3.458974038140625*^9}, 3.458984491171875*^9, {3.459497657484375*^9, 
+   3.459497669109375*^9}, 3.46546934653019*^9},
+ FontFamily->"Times New Roman",
+ FontSize->24],
+
+Cell[TextData[{
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " can handle user-defined model functions applying ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s rich function repertoire.  In principle, one could use all computable ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " functions as model components; for convergence considerations (minimally) \
+the continuity of the model functions is desirable, however."
+}], "Text",
+ CellChangeTimes->{{3.441283733725279*^9, 3.441283785691279*^9}, {
+   3.441283956019279*^9, 3.4412839674762793`*^9}, 3.458967104171875*^9, {
+   3.458967530375*^9, 3.458967606296875*^9}, {3.4589824551875*^9, 
+   3.458982484421875*^9}, {3.458982630359375*^9, 3.458982705921875*^9}, {
+   3.4594968160625*^9, 3.45949684846875*^9}, {3.459497679578125*^9, 
+   3.459497704390625*^9}, {3.461902101765625*^9, 3.46190211984375*^9}},
+ FontSize->24],
+
+Cell["\<\
+A technical consideration is to define the model functions so that they are \
+only evaluated numerically, and for safety (i.e., if in doubt, then) to set \
+ListableExpressions to False. \
+\>", "Text",
+ CellChangeTimes->{{3.441283733725279*^9, 3.441283785691279*^9}, {
+   3.441283956019279*^9, 3.4412839674762793`*^9}, 3.458967104171875*^9, {
+   3.458967530375*^9, 3.458967606296875*^9}, {3.4589824551875*^9, 
+   3.458982484421875*^9}, {3.458982630359375*^9, 3.458982727109375*^9}, {
+   3.459496865328125*^9, 3.459496884859375*^9}, {3.4594977180625*^9, 
+   3.45949773509375*^9}, {3.46546693834619*^9, 3.46546694853319*^9}},
+ FontSize->24],
+
+Cell[TextData[{
+ "In the next example, we optimize the parameter ",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ " in a parametric integral; then we compare our result to the one obtained \
+by NMinimize."
+}], "Text",
+ CellChangeTimes->{{3.441283733725279*^9, 3.441283785691279*^9}, {
+   3.441283956019279*^9, 3.4412839674762793`*^9}, 3.458967104171875*^9, {
+   3.458967530375*^9, 3.458967681515625*^9}, {3.458982755625*^9, 
+   3.458982775484375*^9}, {3.4654669678231897`*^9, 3.46546697680919*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"a_", "?", "NumberQ"}], "]"}], ":=", " ", 
+  RowBox[{"NIntegrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{"a", " ", 
+       RowBox[{"x", "^", "2"}]}], "]"}], "*", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"a", " ", "x"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "\[Pi]"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4395693804598913`*^9, 3.4395694064558916`*^9}, {
+  3.458967867609375*^9, 3.458967912171875*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", " ", "@", " ", 
+  RowBox[{"NMinimize", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"f", "[", "a", "]"}], ",", 
+      RowBox[{
+      "0", " ", "\[LessEqual]", " ", "a", " ", "\[LessEqual]", " ", "3"}]}], 
+     "}"}], ",", 
+    RowBox[{"{", "a", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4395694543088913`*^9, 3.4395694819688916`*^9}, {
+  3.4395696845998917`*^9, 3.4395696862318916`*^9}, {3.458967751359375*^9, 
+  3.45896776465625*^9}, {3.45896792596875*^9, 3.45896794990625*^9}, {
+  3.45896808215625*^9, 3.458968083296875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"51.745`", ",", 
+   RowBox[{"{", 
+    RowBox[{"0.006013887438912666`", ",", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "1.4248363524106802`"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.4589740566875*^9, 3.45949693728125*^9, 
+  3.459650548140625*^9, 3.45976691834375*^9, 3.46546703697819*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", " ", "@", " ", 
+  RowBox[{"Optimize", "[", 
+   RowBox[{
+    RowBox[{"f", "[", "a", "]"}], ",", 
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0", ",", "3"}], "}"}], "}"}], ",", 
+    RowBox[{"ListableExpressions", " ", "\[Rule]", " ", "False"}], ",", " ", 
+    RowBox[{"MultiStarts", " ", "\[Rule]", " ", "1"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4395696154758916`*^9, 3.4395696618398914`*^9}, {
+  3.4395697194238915`*^9, 3.4395697209278917`*^9}, {3.449159823930357*^9, 
+  3.449159828992357*^9}, {3.458967836234375*^9, 3.458967839453125*^9}, {
+  3.458968119609375*^9, 3.458968119921875*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"142.382`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.29360445142517533`"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "0.4653614372657281`"}], "}"}], ",", 
+     RowBox[{"\<\"Maximal Constraint Violation\"\>", "\[Rule]", "0"}]}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.458974536078125*^9, 3.459497031203125*^9, 
+  3.45965064221875*^9, 3.459767010609375*^9, 3.46546739661419*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[TextData[{
+ "Notice that in this example ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ " finds the correct global solution (unlike NMinimize) as shown by the \
+figure below. To generate the figure itself takes some time, due to the \
+embedded integration procedure. "
+}], "Text",
+ CellChangeTimes->{{3.4589744635625*^9, 3.458974467*^9}, {3.45898229425*^9, 
+   3.45898243025*^9}, 3.458982614703125*^9, {3.458982790046875*^9, 
+   3.458982804296875*^9}, {3.458983206109375*^9, 3.45898325740625*^9}, {
+   3.459496915203125*^9, 3.45949691846875*^9}, {3.45949758471875*^9, 
+   3.45949759809375*^9}, {3.45949763115625*^9, 3.459497632125*^9}, {
+   3.461896801671875*^9, 3.461896890828125*^9}, {3.461896921328125*^9, 
+   3.461896928796875*^9}, {3.46546757887819*^9, 3.46546761997919*^9}, {
+   3.4654676678631897`*^9, 3.46546767249619*^9}},
+ FontSize->24],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"f", "[", "a", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", "0", ",", "3"}], "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.45896778203125*^9, 3.458967851171875*^9}, {
+  3.458968097203125*^9, 3.458968098046875*^9}, {3.46546762301519*^9, 
+  3.46546765964219*^9}},
+ FontSize->24],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"19.764999999999983`", ",", 
+   GraphicsBox[{{}, {}, 
+     {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1: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
+0Rp15F4T/G73C6gYV1N/fn8u5PG6CYqMq/GJdtVUvs7/tF6/bwIjLNIx0KWa
+unv+hHvOtyYoOO1mt7tXUyO28w+NNTdh/JY/syOkmso+3iEvMtiEZ4v0K0Mi
+qqlTljTzbfNNeC4dovghqpqq4Pbqme7yZoxfuLKKSKimngt3Lb8q3YyI5p6y
+w6nVVP+0M3wPlZtR6LXhec6namoOa7tGvEYzgq6szYn/Uk3ta1vqUqDfDMN/
+hV7cudXUNdM971vMm8EnSDn4I7+aqi3K7JyxJ9cXhR1bQ6+m3lGMkZJwbwbT
+Q27kR2E19d2Re4a7Hjcj7caeZ7ysamqj+bmg01HNaDis8DyZXU1d6rqT6fCh
+GR/ipY0Li6up+0NXzAVRm9H7eMUBw5Jqqt27AbWUimY0vcr7fJ7ErxjFduzW
+Zpzc8HJzI7m+tOltfOdQM1yOtgtXkf5mxz2buCktEOy406pBnqcoZC4mI9yC
+kzYzyzcyq6lmCnt1D8i04JRvjKQ3yTf44Cpvk+0tKKjV8TtPrabmm3BybxEt
++GD43680Mt7B/8pHnxqQ351aufC7WdVU6aB3W9MvtODcwWktRno1VT/B16rC
+oQX/NYh6+r6vpt6nWr7s92jBSv0VNczEampavUbNktAWSHwV+OEZU01tHVkj
+uCmmBUtD/KRyI6upwoKThzQ/tWDA3lPX6Uk1lZCruXOxoAXulce4kgKqqdFG
+AX0vf5N8eSyDQ+9UUytvXJH9Ss5tXZpLs486VlO5/A6b/ORqRdGnTQL3rlRT
+LXNnioVlW1HtvmfwxqlqatiPOi5llVYkHrD/q6RVTaUPfFbXOdSK7xyf7hv7
+qqkbZOySfSxbYRVtWOslW00NbFkfE+TYCp9lVjX7VlVTJ17VRYR7tIKKrw8C
+yPpnSxx+9PZNKwre8weMDFZR7UTXXGE2tOKXaeqbvowqam1VhXlZbyv6X7v6
+XXtbRdUI8TGqnWoFz5rJ+4/IfnzkOxXrJNiG128DzV/crKKa8lwK89rchrcX
+UrdvVa6ihrRrBPPtaEN75Whs9NoqamGBhL//njas35k4m8VfRVX2qPAM02rD
+DDbfrvhdSaXM7XWMtW5DtvOQe9bjSurbiRUG9Jg2KMcwHA9+qaA21PbrHE0m
+/TVr9Cr4VlCXZ7K0Sj62oUUh4ZQ9eZ+5/neP7NI20GbPjUhwyqnawz3K7c1t
+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
+s4AJt9u+UvxP+9C1XOJ3ngcTHN2bZx0q+3DqweiSlKlCtIyeKCeO/8XeVV++
+W/xgIHht3QaHk38xT69/PERlQOOw+e2oc3/Rvq/8qlMKA1FhdnLzV/9CzFes
+ysiLgQs7/O7k+v9FjthFRdo2Bv7Y0+V3lf5Fw5Fc3gP+dPT0qrlvPdEPuqlP
++/ujBYhYkffDxLgfHXRllpRqAY6pH97ib9EPyrclh5LWFSD50cnanhv9aDqi
+vG/FPxpsN9lvTQjpR5re3CmD9zQMXEqsk6nuxyUN06MXJWl4E6isZNDQj/Rn
+twJGBWjQz8j0cm/vh+6EaKfFKBVpPIVKLZx+LH33Qs7wAxUOsW0PXooOwOlX
+iafbVio4rRLbVxkOwHu5v4zErnzIWE2qrTMbwIWK5xJFEvk40fVDXcF6AOe9
+e2wb574htf/x4b3OA3D9llBymPUNl/8tMjYPH8Ap7fTaLRbf8NTtj+mV1wPg
+tJxZs/foNzAWaBcc3g7gTsJayxylb5Dhc7P1yhyAYs+nwhXzeWgQ4dxLqB2A
+tkVOtlp8HvifVXh9aB5ACGNasTM4D7sl3j/M7hyA7+oi52V38vB0nU1oyfgA
+NDfZWbBP5kFfsSV+cOUg8r686PrHlwe3D7nJk1KDeHPl6sO747lIUXmRRpEf
+RE5188Dtjlzwq5/JFtk1CBlTsfFBRi4KjpR832VE7s+JSGI+ysUwO7ES5oPI
+Nzt8Rf1uLqR1fWqPXR7EWM/HaUX7XNw5RbSauAzi1WxlxFPDXCTVSnVY3R+E
+A9to2RLtXNSdnemx8x2EopzelnmNXKhZfOHcf0bud7Zotd2SC8v2J5MP3wwi
+/Ub723aZXIRaO86GJAyiPvS9Y+PqXNB69Lki0wZhdOehlqFQLgavKfLFfRnE
+fNpvOYPFuZAcWiKYmj8IjlPLwveFHOg4dQtlFg3iTrcRiz2VgyTXWAnWz0EY
+hNWna/bn4OeMu3RlyyBOJV4MYXTlYJG72YZfXYMYvnWzjP47B2rc+xTaBwdB
+f9eudqg5B5Y+4kp/Jwbh/87C/+CvHITwT+wYmyfjLX/kT6vNATWgZtcc3xB2
+lQz05VfnYHD5p318QkMovCRhsr8yB5JhwYTQ6iFku0a67ynPgfZKuyPi64Zg
+rr5sNr00B7cjjmuv3zSEpVS5qynfSb5rN53Ysm0I9fUZ59aT+Ocb3jOqu4cQ
+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
+BymuOYpps5DftOn+v/RiyC+sShz4NAtF6gZeu5RijJ3KfJKWOYuDqV8us+KK
+8Xh6xG77t1lMHxwr3fu0GEXHr61TK53FR7kfd2RvFkOtx8x7Xx+pB/Vls832
+YnDvn3WYHZjF6rX+vQmbilH5ONLs28gs+r5uEP0pXYxru+t24d8sjDmjVUuW
+FSPW16D3EP8cnky/dasl70/hjYf1teXn0KjNXOH4ho2/FxXEz1nOIWkf999j
+i9gwsWvceu3yHNqfl4nWT7PAdgnGPds5GPDeptkMs/A2YOxyjNMceCjpIqGN
+LFhk0jJ7veYwLRpvvZz8HtTwnzt9J24OTp0TwxoXWDgkuvRKYOIcLlz4o6xk
+xMJHKeqdNylzSH3Zqyqvy0KQysZY+uc5fCq9+m3vHha0zo8MCxTOgSm36MOs
+MAu5H/yCX3bMIbMsLN+IWYQtOftj3/fM4cFwUsq2vCJEFA5lUvvnsGtqqf3a
+z0Vw/mXY/GdsDltU5TSVYoqwjUdWUXHRPCZK9CKO3i9CnFFOcd7GeWweeZn+
+fn8RRC5eby7fPA++iFcq3WpF8LgmM9KmNI/gA9Yie5WKYObhK75o1zx0W9ln
+laSLsPrdqSt6R+dRsTbJ8TRXEQLm+nhbLs/j3/h/Nn9KmTjm+JT9znYeX1uP
+7ACLCd7OA4G37OfRIX+MyCxg4n5piOgKFxJrL5kY/sKEw8tdspo+86BP7qlJ
+iWVCSaitU9hvHqszL/a1vGaiz8svuTlwHlcur09VesGElW3T9ltP5/Ep/ANT
+OoQJI3UvvIubx26m2JrT7kyIvt/KcytxHj/KDM9ductEpUxt0eGUeeh0bz0e
+cYuJ4/wK+s3p8zi3QzfGwIEJPreqFe++zIN7Rk293o4J+tCdWpeceXhkDbW5
+XWVif13ZeWH6PO4xE9OkrJj4p31Lppk5j3fN+lMSF5j4ki/TkVw8j7LXa1+o
+mjGxLeG/a4er5iE3JbCaasxEv4TUNuHaeaTydgruMGQiKaiI01Q/j9MHzjyk
+nWJC1lnijkvbPJTvzW/fo89Eaw/9wOEO8vzn/NdkdJl4dd6OS7iH1FdC67C8
+NhNnK1cym/7OY/nigdzjx5hYqUl9lDw0j5iNn2v9jzJRnWWj6zI6j0XU+se9
+mkwEbxURPjxJrreT67E+zIROVG6N0Mw8Dg93NCwcZIJf1Pp50/w8/m7gWGYR
+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
+EzTuPfikUmgnH/4HVEqqTA==
+       "]]}},
+    AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+    Axes->True,
+    AxesOrigin->{0, 0},
+    ImageSize->{700.0000531332802, Automatic},
+    PlotRange->{{0, 3}, {-0.2936012034646873, 0.49250229674657037`}},
+    PlotRangeClipping->True,
+    PlotRangePadding->{
+      Scaled[0.02], 
+      Scaled[0.02]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.45896811159375*^9, 3.4596506561875*^9, 3.4654674168951902`*^9, {
+   3.46546753786619*^9, 3.46546757395819*^9}, 3.46546764164919*^9, 
+   3.46546768082519*^9},
+ FontSize->24]
+}, Open  ]],
+
+Cell[TextData[{
+ "The runtime to solve this model is about 2.7 times higher for ",
+ StyleBox["MathOptimizer ",
+  FontSlant->"Italic"],
+ "than for NMinimize. This is not always the case, of course, as it has been \
+extensively illustrated elsewhere in our articles and presentations."
+}], "Text",
+ CellChangeTimes->{{3.4589744635625*^9, 3.458974467*^9}, {3.45898229425*^9, 
+   3.45898243025*^9}, 3.458982614703125*^9, {3.458982790046875*^9, 
+   3.458982804296875*^9}, {3.458983206109375*^9, 3.45898325740625*^9}, {
+   3.459496915203125*^9, 3.45949691846875*^9}, {3.45949758471875*^9, 
+   3.45949759809375*^9}, {3.45949763115625*^9, 3.459497632125*^9}, {
+   3.461896801671875*^9, 3.461896890828125*^9}, {3.461896921328125*^9, 
+   3.461897001578125*^9}},
+ FontSize->24]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Further Details and Contact Information", "Subsection",
+ CellChangeTimes->{{3.45889764275*^9, 3.45889765584375*^9}, {
+  3.458984163140625*^9, 3.458984173671875*^9}, {3.45950028828125*^9, 
+  3.459500295359375*^9}},
+ FontSize->24],
+
+Cell[TextData[{
+ "For further details, please consult the complete User Guide accompanying ",
+ StyleBox["MathOptimizer",
+  FontSlant->"Italic"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.45898391328125*^9, 3.458983930796875*^9}, {
+  3.458984003828125*^9, 3.4589840150625*^9}, {3.45898411840625*^9, 
+  3.458984127046875*^9}, {3.4589841854375*^9, 3.45898422090625*^9}, {
+  3.45898442590625*^9, 3.458984439671875*^9}, {3.45950010603125*^9, 
+  3.459500206703125*^9}},
+ FontSize->24],
+
+Cell["Thanks for your interest.", "Text",
+ CellChangeTimes->{{3.45898391328125*^9, 3.458983930796875*^9}, {
+  3.458984003828125*^9, 3.4589840150625*^9}, {3.45898411840625*^9, 
+  3.458984127046875*^9}, {3.4589841854375*^9, 3.45898422090625*^9}, {
+  3.45898442590625*^9, 3.458984439671875*^9}, {3.45950010603125*^9, 
+  3.459500241171875*^9}},
+ FontSize->24],
+
+Cell["\<\
+Frank Kampas, PhD, MBA <fkampas@msn.com>
+J\[AAcute]nos Pint\[EAcute]r, PhD, DSc <janos.d.pinter@gmail.com> \
+\>", "Text",
+ CellChangeTimes->{{3.45898391328125*^9, 3.458983930796875*^9}, {
+  3.458984003828125*^9, 3.4589840150625*^9}, {3.45898411840625*^9, 
+  3.458984127046875*^9}, {3.4589841854375*^9, 3.45898422090625*^9}, {
+  3.45898442590625*^9, 3.458984439671875*^9}, {3.45950010603125*^9, 
+  3.459500264109375*^9}, {3.459652585421875*^9, 3.45965260134375*^9}},
+ FontSize->24]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1272, 699},
+WindowMargins->{{98, Automatic}, {Automatic, 103}},
+ShowSelection->True,
+Magnification->0.6999999284744263,
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "full text"->{
+  Cell[4272, 104, 108, 3, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4383, 109, 120, 3, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4506, 114, 194, 5, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4703, 121, 234, 5, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4940, 128, 783, 14, 49, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[10682, 286, 105, 3, 30, "Input",
+   CellTags->{"usage", "full text"}],
+  Cell[10790, 291, 321, 7, 30, "Output",
+   CellTags->{"usage", "full text"}],
+  Cell[18310, 465, 550, 10, 28, "Subsection",
+   CellTags->{"installation", "full text"}],
+  Cell[55168, 1381, 552, 11, 19, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[55723, 1394, 687, 14, 19, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[56413, 1410, 796, 17, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[57212, 1429, 501, 12, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[57716, 1443, 419, 11, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[58138, 1456, 902, 19, 50, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[60704, 1536, 260, 5, 20, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[60967, 1543, 465, 11, 23, "Output",
+   CellTags->{"full text", "local tests"}],
+  Cell[63857, 1629, 496, 9, 20, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[64356, 1640, 364, 10, 20, "Output",
+   CellTags->{"full text", "local tests"}]},
+ "summary"->{
+  Cell[4272, 104, 108, 3, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4383, 109, 120, 3, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4506, 114, 194, 5, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4703, 121, 234, 5, 19, "Text",
+   CellTags->{"full text", "summary"}],
+  Cell[4940, 128, 783, 14, 49, "Text",
+   CellTags->{"full text", "summary"}]},
+ "usage"->{
+  Cell[10682, 286, 105, 3, 30, "Input",
+   CellTags->{"usage", "full text"}],
+  Cell[10790, 291, 321, 7, 30, "Output",
+   CellTags->{"usage", "full text"}]},
+ "Info3465473084-6175591"->{
+  Cell[11287, 308, 654, 11, 100, "Print",
+   CellTags->"Info3465473084-6175591"]},
+ "installation"->{
+  Cell[18310, 465, 550, 10, 28, "Subsection",
+   CellTags->{"installation", "full text"}]},
+ "local tests"->{
+  Cell[55168, 1381, 552, 11, 19, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[55723, 1394, 687, 14, 19, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[56413, 1410, 796, 17, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[57212, 1429, 501, 12, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[57716, 1443, 419, 11, 20, "Text",
+   CellTags->{"full text", "local tests"}],
+  Cell[58138, 1456, 902, 19, 50, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[60704, 1536, 260, 5, 20, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[60967, 1543, 465, 11, 23, "Output",
+   CellTags->{"full text", "local tests"}],
+  Cell[63857, 1629, 496, 9, 20, "Input",
+   CellTags->{"full text", "local tests"}],
+  Cell[64356, 1640, 364, 10, 20, "Output",
+   CellTags->{"full text", "local tests"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"full text", 102689, 2386},
+ {"summary", 104198, 2423},
+ {"usage", 104602, 2434},
+ {"Info3465473084-6175591", 104789, 2439},
+ {"installation", 104891, 2442},
+ {"local tests", 105001, 2445}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 140, 2, 55, "Title"],
+Cell[710, 26, 867, 14, 34, "Subtitle"],
+Cell[CellGroupData[{
+Cell[1602, 44, 251, 5, 32, "Subsection"],
+Cell[1856, 51, 557, 12, 34, "Text"],
+Cell[2416, 65, 1021, 19, 49, "Text"],
+Cell[3440, 86, 829, 16, 34, "Text"],
+Cell[4272, 104, 108, 3, 19, "Text",
+ CellTags->{"full text", "summary"}],
+Cell[4383, 109, 120, 3, 19, "Text",
+ CellTags->{"full text", "summary"}],
+Cell[4506, 114, 194, 5, 19, "Text",
+ CellTags->{"full text", "summary"}],
+Cell[4703, 121, 234, 5, 19, "Text",
+ CellTags->{"full text", "summary"}],
+Cell[4940, 128, 783, 14, 49, "Text",
+ CellTags->{"full text", "summary"}],
+Cell[5726, 144, 755, 14, 19, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6518, 163, 376, 10, 28, "Subsection"],
+Cell[6897, 175, 708, 19, 19, "Text"],
+Cell[CellGroupData[{
+Cell[7630, 198, 49, 1, 20, "Input"],
+Cell[7682, 201, 186, 3, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7905, 209, 67, 2, 20, "Input"],
+Cell[7975, 213, 257, 7, 20, "Output"]
+}, Open  ]],
+Cell[8247, 223, 818, 15, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9102, 243, 338, 9, 28, "Subsection"],
+Cell[9443, 254, 749, 13, 92, "Text"],
+Cell[10195, 269, 206, 4, 30, "Input"],
+Cell[10404, 275, 253, 7, 28, "Text"],
+Cell[CellGroupData[{
+Cell[10682, 286, 105, 3, 30, "Input",
+ CellTags->{"usage", "full text"}],
+Cell[10790, 291, 321, 7, 30, "Output",
+ CellTags->{"usage", "full text"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11148, 303, 136, 3, 30, "Input"],
+Cell[11287, 308, 654, 11, 100, "Print",
+ CellTags->"Info3465473084-6175591"]
+}, Open  ]],
+Cell[11956, 322, 701, 12, 50, "Text"],
+Cell[12660, 336, 463, 9, 50, "Text"],
+Cell[13126, 347, 479, 9, 50, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13642, 361, 338, 9, 28, "Subsection"],
+Cell[13983, 372, 1770, 32, 93, "Text"],
+Cell[CellGroupData[{
+Cell[15778, 408, 228, 5, 20, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[16009, 415, 1018, 19, 74, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[17030, 436, 1231, 23, 34, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[18310, 465, 550, 10, 28, "Subsection",
+ CellTags->{"installation", "full text"}],
+Cell[CellGroupData[{
+Cell[18885, 479, 208, 4, 18, "Subsubsection"],
+Cell[19096, 485, 520, 10, 19, "Text"],
+Cell[CellGroupData[{
+Cell[19641, 499, 786, 23, 24, "Input"],
+Cell[20430, 524, 427, 11, 23, "Output"]
+}, Open  ]],
+Cell[20872, 538, 589, 10, 34, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21498, 553, 303, 5, 16, "Subsubsection"],
+Cell[21804, 560, 895, 16, 34, "Text"],
+Cell[CellGroupData[{
+Cell[22724, 580, 816, 24, 24, "Input"],
+Cell[23543, 606, 596, 13, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24176, 624, 837, 23, 24, "Input"],
+Cell[25016, 649, 1241, 22, 20, "Output"]
+}, Open  ]],
+Cell[26272, 674, 1161, 20, 49, "Text"],
+Cell[27436, 696, 887, 14, 34, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28360, 715, 298, 5, 16, "Subsubsection"],
+Cell[28661, 722, 787, 13, 49, "Text"],
+Cell[CellGroupData[{
+Cell[29473, 739, 912, 26, 24, "Input"],
+Cell[30388, 767, 1435, 25, 23, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31872, 798, 354, 6, 16, "Subsubsection"],
+Cell[32229, 806, 630, 12, 19, "Text"],
+Cell[CellGroupData[{
+Cell[32884, 822, 955, 27, 24, "Input"],
+Cell[33842, 851, 451, 12, 23, "Output"]
+}, Open  ]],
+Cell[34308, 866, 971, 20, 43, "Text"],
+Cell[CellGroupData[{
+Cell[35304, 890, 601, 19, 24, "Input"],
+Cell[35908, 911, 3575, 57, 23, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39520, 973, 549, 18, 24, "Input"],
+Cell[40072, 993, 3586, 57, 23, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[43707, 1056, 335, 6, 16, "Subsubsection"],
+Cell[44045, 1064, 609, 11, 34, "Text"],
+Cell[CellGroupData[{
+Cell[44679, 1079, 1076, 29, 24, "Input"],
+Cell[45758, 1110, 605, 13, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46400, 1128, 1321, 37, 24, "Input"],
+Cell[47724, 1167, 659, 15, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48420, 1187, 1312, 37, 24, "Input"],
+Cell[49735, 1226, 601, 14, 23, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50373, 1245, 1504, 42, 24, "Input"],
+Cell[51880, 1289, 574, 13, 23, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52491, 1307, 1628, 44, 44, "Input"],
+Cell[54122, 1353, 623, 14, 23, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[54794, 1373, 371, 6, 16, "Subsubsection"],
+Cell[55168, 1381, 552, 11, 19, "Text",
+ CellTags->{"full text", "local tests"}],
+Cell[55723, 1394, 687, 14, 19, "Text",
+ CellTags->{"full text", "local tests"}],
+Cell[56413, 1410, 796, 17, 20, "Text",
+ CellTags->{"full text", "local tests"}],
+Cell[57212, 1429, 501, 12, 20, "Text",
+ CellTags->{"full text", "local tests"}],
+Cell[57716, 1443, 419, 11, 20, "Text",
+ CellTags->{"full text", "local tests"}],
+Cell[58138, 1456, 902, 19, 50, "Input",
+ CellTags->{"full text", "local tests"}],
+Cell[CellGroupData[{
+Cell[59065, 1479, 234, 5, 56, "Input"],
+Cell[59302, 1486, 421, 13, 25, "Output"],
+Cell[59726, 1501, 555, 17, 23, "Output"],
+Cell[60284, 1520, 383, 11, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60704, 1536, 260, 5, 20, "Input",
+ CellTags->{"full text", "local tests"}],
+Cell[60967, 1543, 465, 11, 23, "Output",
+ CellTags->{"full text", "local tests"}]
+}, Open  ]],
+Cell[61447, 1557, 336, 7, 34, "Text"],
+Cell[CellGroupData[{
+Cell[61808, 1568, 599, 14, 39, "Input"],
+Cell[62410, 1584, 400, 8, 20, "Output"],
+Cell[62813, 1594, 1007, 30, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63857, 1629, 496, 9, 20, "Input",
+ CellTags->{"full text", "local tests"}],
+Cell[64356, 1640, 364, 10, 20, "Output",
+ CellTags->{"full text", "local tests"}]
+}, Open  ]],
+Cell[64735, 1653, 728, 13, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[65500, 1671, 459, 11, 17, "Subsubsection"],
+Cell[65962, 1684, 888, 18, 34, "Text"],
+Cell[66853, 1704, 647, 11, 34, "Text"],
+Cell[67503, 1717, 507, 11, 19, "Text"],
+Cell[68013, 1730, 547, 16, 20, "Input"],
+Cell[CellGroupData[{
+Cell[68585, 1750, 602, 15, 20, "Input"],
+Cell[69190, 1767, 371, 10, 20, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69598, 1782, 692, 15, 20, "Input"],
+Cell[70293, 1799, 474, 12, 20, "Output"]
+}, Open  ]],
+Cell[70782, 1814, 859, 16, 34, "Text"],
+Cell[CellGroupData[{
+Cell[71666, 1834, 381, 10, 20, "Input"],
+Cell[72050, 1846, 27863, 465, 217, "Output"]
+}, Open  ]],
+Cell[99928, 2314, 766, 14, 34, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[100743, 2334, 234, 4, 28, "Subsection"],
+Cell[100980, 2340, 476, 11, 19, "Text"],
+Cell[101459, 2353, 355, 6, 19, "Text"],
+Cell[101817, 2361, 490, 9, 34, "Text"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

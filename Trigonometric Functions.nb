@@ -1,0 +1,125 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4103,        115]
+NotebookOptionsPosition[      3483,         94]
+NotebookOutlinePosition[      3899,        111]
+CellTagsIndexPosition[      3856,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Trigonometric Functions", "Title",
+ CellChangeTimes->{{3.8296740732803164`*^9, 
+  3.8296740792341137`*^9}},ExpressionUUID->"97ed6666-9abf-4e59-8f0f-\
+523e2214bd2e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"amp", " ", 
+      RowBox[{"fun", "[", 
+       RowBox[{"freq", " ", "x"}], "]"}]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", 
+       RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"amp", ",", " ", "1", ",", " ", "5"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"freq", ",", " ", "1", ",", " ", "5"}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"fun", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"Sin", ",", " ", "Cos", ",", " ", "Tan"}], "}"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[17]:=",ExpressionUUID->"6e75f2d6-8e13-4806-abbe-08e4013e50a2"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`amp$$ = 1, $CellContext`freq$$ = 
+    1, $CellContext`fun$$ = Sin, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`amp$$], 1, 5}, {
+      Hold[$CellContext`freq$$], 1, 5}, {
+      Hold[$CellContext`fun$$], {Sin, Cos, Tan}}}, Typeset`size$$ = {
+    360., {109., 113.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`amp$$ = 1, $CellContext`freq$$ = 
+        1, $CellContext`fun$$ = Sin}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[$CellContext`amp$$ $CellContext`fun$$[$CellContext`freq$$ \
+$CellContext`x], {$CellContext`x, -10, 10}], 
+      "Specifications" :> {{$CellContext`amp$$, 1, 5}, {$CellContext`freq$$, 
+         1, 5}, {$CellContext`fun$$, {Sin, Cos, Tan}}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {182., 188.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8296739523568935`*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"060b47d9-987f-417d-91c6-fa556fa73f28"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{760, 833},
+WindowMargins->{{Automatic, 481}, {-168, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c96666f0-0aed-4c1e-a913-c32df7fa6c77"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 170, 3, 96, "Title",ExpressionUUID->"97ed6666-9abf-4e59-8f0f-523e2214bd2e"],
+Cell[CellGroupData[{
+Cell[775, 29, 734, 20, 82, "Input",ExpressionUUID->"6e75f2d6-8e13-4806-abbe-08e4013e50a2"],
+Cell[1512, 51, 1943, 39, 389, "Output",ExpressionUUID->"060b47d9-987f-417d-91c6-fa556fa73f28"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

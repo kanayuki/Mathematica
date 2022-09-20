@@ -1,0 +1,542 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     22179,        532]
+NotebookOptionsPosition[     21005,        487]
+NotebookOutlinePosition[     21649,        512]
+CellTagsIndexPosition[     21606,        509]
+WindowTitle->Points on a 3D Spiral - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Points on a 3D Spiral", "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False,
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1: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
+FP/69esnAAAAAAAAAAAAwM74B4thROM=
+   "], {{0, 0}, {1800, 25}}, {0, 255},
+   ColorFunction->RGBColor],
+  ImageSize->{1800, 25},
+  PlotRange->{{0, 1800}, {0, 25}}]], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"line", "=", 
+     RowBox[{"Line", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", " ", 
+         RowBox[{
+          RowBox[{"x", " ", 
+           RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+          RowBox[{"x", " ", 
+           RowBox[{"Cos", "[", "x", "]"}]}], ",", 
+          RowBox[{"x", " ", "z"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"-", "turn"}], ",", "turn", ",", 
+          RowBox[{"a", " ", "2", " ", 
+           RowBox[{"Pi", "/", " ", "n"}]}]}], "}"}]}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"point", "=", 
+     RowBox[{
+      RowBox[{"ListPointPlot3D", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", " ", 
+           RowBox[{
+            RowBox[{"x", " ", 
+             RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+            RowBox[{"x", " ", 
+             RowBox[{"Cos", "[", "x", "]"}]}], " ", ",", 
+            RowBox[{"x", " ", "z"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "turn"}], ",", "turn", ",", 
+            RowBox[{"a", " ", "2", " ", 
+             RowBox[{"Pi", "/", " ", "n"}]}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"PointSize", "[", "Medium", "]"}]}]}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{"lines", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RGBColor", "[", 
+             RowBox[{"0.2", ",", "0.6", ",", "0.4"}], "]"}], ",", "line"}], 
+           "}"}], ",", 
+          RowBox[{"{", "}"}]}], "]"}], ",", 
+        RowBox[{"If", "[", 
+         RowBox[{"points", ",", "point", ",", 
+          RowBox[{"{", "}"}]}], "]"}]}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", "turn"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"425", ",", "425"}], "}"}]}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"turn", " ", ",", "100", ",", "\"\<turn\>\""}], "}"}], ",", "0",
+      ",", "500", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", " ", ",", "20", ",", "\"\<n\>\""}], "}"}], ",", "1", ",", 
+     "30", ",", "1", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", " ", ",", "0.618", ",", "\"\<angle\>\""}], "}"}], ",", 
+     "0.1", ",", "1", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z", " ", ",", "0.7", ",", "\"\<z\>\""}], "}"}], ",", "0", ",", 
+     "1.3", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"lines", " ", ",", "True", ",", "\"\<show line\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"points", " ", ",", "True", ",", "\"\<show points\>\""}], "}"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "turn", ",", "n", ",", "a", ",", "lines", ",", "points", ",", "z"}], 
+     "}"}]}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.391270399812742*^9, 3.391270538542226*^9}, {
+   3.391270606710246*^9, 3.3912708309026194`*^9}, {3.391270870599701*^9, 
+   3.3912710404539394`*^9}, {3.391271152555133*^9, 3.3912711620387697`*^9}, {
+   3.391271217538574*^9, 3.391271218299669*^9}, {3.3912712753717346`*^9, 
+   3.3912713131460514`*^9}, {3.3912713468344927`*^9, 3.391271350419648*^9}, 
+   3.391271392099581*^9, {3.391271754100112*^9, 3.3912717821504464`*^9}, 
+   3.391271947588334*^9, {3.3912721576103315`*^9, 3.391272226229*^9}, {
+   3.3912722574839425`*^9, 3.391272262751517*^9}, {3.3912724512926254`*^9, 
+   3.3912724572511935`*^9}, {3.3912728414135923`*^9, 3.391272841744067*^9}, {
+   3.3912728733995857`*^9, 3.3912728804497232`*^9}, {3.3912729252140913`*^9, 
+   3.391272962808149*^9}, {3.391273268587838*^9, 3.3912732721729937`*^9}, {
+   3.3912733030173454`*^9, 3.3912733221949215`*^9}, {3.3912733578962574`*^9, 
+   3.3912733791368*^9}, 3.3912734118238015`*^9, 3.391273450269083*^9, 
+   3.391273504166584*^9, {3.3912735412499075`*^9, 3.391273547148389*^9}, {
+   3.391274626600565*^9, 3.3912746720759554`*^9}, {3.391274746703264*^9, 
+   3.3912747725704594`*^9}, {3.3912748716429186`*^9, 
+   3.3912748995029793`*^9}, {3.3912749328609457`*^9, 
+   3.3912750063165693`*^9}, {3.3912751903211555`*^9, 3.391275212452979*^9}, {
+   3.3912752609527187`*^9, 3.3912753431008415`*^9}, {3.3912754283634434`*^9, 
+   3.391275486036373*^9}, {3.3912756041762495`*^9, 3.391275607170555*^9}, {
+   3.391275647268213*^9, 3.39127567009103*^9}, {3.3913110594771757`*^9, 
+   3.3913110921141057`*^9}, {3.391311256740827*^9, 3.3913112866638546`*^9}, {
+   3.391311353980651*^9, 3.391311356484251*^9}, 3.391339851177352*^9, {
+   3.391340161661727*^9, 3.391340183239852*^9}, {3.391340493646102*^9, 
+   3.391340533880477*^9}, {3.39218201446875*^9, 3.392182026375*^9}, {
+   3.392182437625*^9, 3.392182474890625*^9}, {3.3921825535*^9, 
+   3.392182557921875*^9}, {3.39218306475*^9, 3.392183109984375*^9}, {
+   3.39218315365625*^9, 3.39218323990625*^9}, {3.39218327390625*^9, 
+   3.392183280578125*^9}, {3.3921833415625*^9, 3.3921834334375*^9}, {
+   3.392183562515625*^9, 3.392183577796875*^9}, {3.392183612765625*^9, 
+   3.392183616546875*^9}, {3.39218368125*^9, 3.3921837555*^9}, 
+   3.392183798828125*^9, {3.39218383709375*^9, 3.3921838410625*^9}, {
+   3.392183892046875*^9, 3.392183949125*^9}, {3.3928072293125*^9, 
+   3.392807276328125*^9}, {3.3928073249375*^9, 3.392807379921875*^9}, {
+   3.3928074299375*^9, 3.392807499171875*^9}, {3.39280757325*^9, 
+   3.392807574203125*^9}, {3.392807664796875*^9, 3.39280767046875*^9}, {
+   3.392807752890625*^9, 3.39280780184375*^9}, {3.392807852828125*^9, 
+   3.392807855859375*^9}, 3.392807908140625*^9, {3.392808068484375*^9, 
+   3.392808078578125*^9}, {3.3928081099375*^9, 3.392808140140625*^9}, {
+   3.39280818415625*^9, 3.392808262109375*^9}, {3.392808303296875*^9, 
+   3.39280831321875*^9}, {3.39280838571875*^9, 3.39280839778125*^9}, {
+   3.392808442359375*^9, 3.39280851534375*^9}, {3.392808591125*^9, 
+   3.3928086399375*^9}, {3.3928086748125*^9, 3.392808718609375*^9}, {
+   3.39280889015625*^9, 3.3928089214375*^9}, {3.392808953046875*^9, 
+   3.39280895521875*^9}, {3.394081739609375*^9, 3.39408186321875*^9}, {
+   3.394081898703125*^9, 3.394081934171875*^9}, {3.394081980140625*^9, 
+   3.3940820486875*^9}, {3.39408211840625*^9, 3.394082217296875*^9}, {
+   3.394082269140625*^9, 3.394082527640625*^9}, {3.394082574390625*^9, 
+   3.39408264521875*^9}, {3.39408269059375*^9, 3.3940826910625*^9}, {
+   3.394082744*^9, 3.3940827836875*^9}, {3.394082826125*^9, 
+   3.394082829015625*^9}, {3.39408286915625*^9, 3.394082925171875*^9}, {
+   3.394082955421875*^9, 3.394083062140625*^9}, {3.39408319665625*^9, 
+   3.39408321396875*^9}, {3.394083247390625*^9, 3.39408327846875*^9}, {
+   3.39408331165625*^9, 3.394083314375*^9}, {3.3940833623125*^9, 
+   3.394083401109375*^9}, {3.39408348409375*^9, 3.39408348490625*^9}, {
+   3.39408351615625*^9, 3.394083520359375*^9}},
+ CellID->398765373]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0.618, $CellContext`lines$$ = 
+    True, $CellContext`n$$ = 20, $CellContext`points$$ = 
+    True, $CellContext`turn$$ = 100, $CellContext`z$$ = 0.7, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`turn$$], 100, "turn"}, 0, 500}, {{
+       Hold[$CellContext`n$$], 20, "n"}, 1, 30, 1}, {{
+       Hold[$CellContext`a$$], 0.618, "angle"}, 0.1, 1}, {{
+       Hold[$CellContext`z$$], 0.7, "z"}, 0, 1.3}, {{
+       Hold[$CellContext`lines$$], True, "show line"}, {True, False}}, {{
+       Hold[$CellContext`points$$], True, "show points"}, {True, False}}}, 
+    Typeset`size$$ = {425., {210., 215.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`turn$41654$$ = 0, $CellContext`n$41655$$ = 
+    0, $CellContext`a$41656$$ = 0, $CellContext`z$41657$$ = 
+    0, $CellContext`lines$41658$$ = False, $CellContext`points$41659$$ = 
+    False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0.618, $CellContext`lines$$ = 
+        True, $CellContext`n$$ = 20, $CellContext`points$$ = 
+        True, $CellContext`turn$$ = 100, $CellContext`z$$ = 0.7}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`turn$$, $CellContext`turn$41654$$, 0], 
+        Hold[$CellContext`n$$, $CellContext`n$41655$$, 0], 
+        Hold[$CellContext`a$$, $CellContext`a$41656$$, 0], 
+        Hold[$CellContext`z$$, $CellContext`z$41657$$, 0], 
+        Hold[$CellContext`lines$$, $CellContext`lines$41658$$, False], 
+        Hold[$CellContext`points$$, $CellContext`points$41659$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`line = Line[
+          
+          Table[{$CellContext`x Sin[$CellContext`x], $CellContext`x 
+            Cos[$CellContext`x], $CellContext`x $CellContext`z$$}, \
+{$CellContext`x, -$CellContext`turn$$, $CellContext`turn$$, ($CellContext`a$$ 
+             2) (Pi/$CellContext`n$$)}]]; $CellContext`point = Part[
+          ListPointPlot3D[
+           
+           Table[{$CellContext`x Sin[$CellContext`x], $CellContext`x 
+             Cos[$CellContext`x], $CellContext`x $CellContext`z$$}, \
+{$CellContext`x, -$CellContext`turn$$, $CellContext`turn$$, ($CellContext`a$$ 
+              2) (Pi/$CellContext`n$$)}], PlotStyle -> PointSize[Medium]], 1]; 
+       Graphics3D[{
+          If[$CellContext`lines$$, {
+            RGBColor[0.2, 0.6, 0.4], $CellContext`line}, {}], 
+          If[$CellContext`points$$, $CellContext`point, {}]}, 
+         PlotRange -> $CellContext`turn$$, ImageSize -> {425, 425}, Boxed -> 
+         False]), 
+      "Specifications" :> {{{$CellContext`turn$$, 100, "turn"}, 0, 500, 
+         ImageSize -> Tiny}, {{$CellContext`n$$, 20, "n"}, 1, 30, 1, 
+         ImageSize -> Tiny}, {{$CellContext`a$$, 0.618, "angle"}, 0.1, 1, 
+         ImageSize -> Tiny}, {{$CellContext`z$$, 0.7, "z"}, 0, 1.3, ImageSize -> 
+         Tiny}, {{$CellContext`lines$$, True, "show line"}, {
+         True, False}}, {{$CellContext`points$$, True, "show points"}, {
+         True, False}}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`turn$$, $CellContext`n$$, \
+$CellContext`a$$, $CellContext`lines$$, $CellContext`points$$, \
+$CellContext`z$$}, ControlPlacement -> Left}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{615., {239., 244.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->202998811],
+
+Cell[CellGroupData[{
+
+Cell["CAPTION", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell["\<\
+Points are placed on a 3D spiral at regular intervals. You can vary the \
+number of turns of the spiral (turn), the density of points (n), and the \
+advance angle of points (angle). The points can be connected with lines. With \
+the checkboxes, you can choose whether to show the lines and points.
+\
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "\[NonBreakingSpace]",
+ ButtonBox["S\[AAcute]ndor Kabai",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+\
+Kabai"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+Kabai"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->245863265],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Points on a 3D Spiral",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PointsOnA3DSpiral/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PointsOnA3DSpiral/"],
+ "\"",
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/PointsOnA3DSpiral/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PointsOnA3DSpiral/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PointsOnA3DSpiral/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ "Published: ",
+ "July 27, 2007"
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[1, 1, 1]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PointsOnA3DSpiral"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+CellInsertionPointCell->None,
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Points on a 3D Spiral - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[623, 23, 141, 3, 70, "Section"],
+Cell[767, 28, 3700, 64, 70, "Section"],
+Cell[4470, 94, 7934, 169, 70, "Input",
+ CellID->398765373]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12441, 268, 4152, 77, 70, "Output",
+ CellID->202998811],
+Cell[CellGroupData[{
+Cell[16618, 349, 209, 6, 70, "Section"],
+Cell[16830, 357, 322, 6, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[17178, 367, 355, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[17536, 378, 448, 14, 70, "Text",
+ CellID->245863265],
+Cell[17987, 394, 992, 27, 70, "Text"],
+Cell[CellGroupData[{
+Cell[19004, 425, 793, 24, 70, "Text"],
+Cell[19800, 451, 1189, 33, 70, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature rQNFiU1yPy@cOBpOEZhRJ3lX *)

@@ -1,0 +1,279 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10023,        271]
+NotebookOptionsPosition[      9306,        249]
+NotebookOutlinePosition[      9720,        266]
+CellTagsIndexPosition[      9677,        263]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Apollonius, Thale\[CloseCurlyQuote]s theorem and Orthic triangle", \
+"Title",
+ CellChangeTimes->{
+  3.829673296093195*^9},ExpressionUUID->"0212458f-fef2-48bf-8e92-\
+f13c07343b2f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Apollonius", "[", 
+   RowBox[{
+   "c1_", ",", "c2_", ",", "c3_", ",", "r1_", ",", "r2_", ",", "r3_"}], "]"}],
+   ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"gc", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"c1", "+", "c2", "+", "c3"}], ")"}], "/", "3"}]}], "}"}], ",", 
+    RowBox[{"FindRoot", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"EuclideanDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y"}], "}"}], ",", "c1"}], "]"}], "\[Equal]", 
+         RowBox[{"r", "-", "r1"}]}], ",", 
+        RowBox[{
+         RowBox[{"EuclideanDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y"}], "}"}], ",", "c2"}], "]"}], "\[Equal]", 
+         RowBox[{"r", "-", "r2"}]}], ",", 
+        RowBox[{
+         RowBox[{"EuclideanDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x", ",", "y"}], "}"}], ",", "c3"}], "]"}], "\[Equal]", 
+         RowBox[{"r", "-", "r3"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"gc", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", 
+          RowBox[{"gc", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r", ",", 
+          RowBox[{"r1", "+", "r2", "+", "r3"}]}], "}"}]}], "}"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.829673248893705*^9, 3.829673248894703*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"0dc58e1f-c298-41b4-9b73-369a1db04be8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c1", "=", 
+     RowBox[{"Midpoint", "[", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "b"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"c2", "=", 
+     RowBox[{"Midpoint", "[", 
+      RowBox[{"{", 
+       RowBox[{"b", ",", "c"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"c3", "=", 
+     RowBox[{"Midpoint", "[", 
+      RowBox[{"{", 
+       RowBox[{"c", ",", "a"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"r1", "=", 
+     RowBox[{
+      RowBox[{"EuclideanDistance", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], "/", "2"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"r2", "=", 
+     RowBox[{
+      RowBox[{"EuclideanDistance", "[", 
+       RowBox[{"b", ",", "c"}], "]"}], "/", "2"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"r3", "=", 
+     RowBox[{
+      RowBox[{"EuclideanDistance", "[", 
+       RowBox[{"c", ",", "a"}], "]"}], "/", "2"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Transparent", ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", "Red"}], "}"}], "]"}], ",", 
+         RowBox[{"Triangle", "[", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "b", ",", "c"}], "}"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Dashed", ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{"c1", ",", "r1"}], "]"}], ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{"c2", ",", "r2"}], "]"}], ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{"c3", ",", "r3"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{
+          RowBox[{"Circle", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y"}], "}"}], ",", "r"}], "]"}], "/.", 
+          RowBox[{"Apollonius", "[", 
+           RowBox[{
+           "c1", ",", "c2", ",", "c3", ",", "r1", ",", "r2", ",", "r3"}], 
+           "]"}]}]}], "}"}]}], "}"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"3", ",", "4"}], "}"}], "/", "2"}]}], "}"}], ",", "Locator", 
+     ",", 
+     RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.829673259089774*^9, 3.8296732590927525`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"fc2dd815-92e2-4784-9b19-29ee134de4c5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`c$$ = {1.3379999999999999`, 
+    0.44999999999999996`}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {},
+     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`c$$], {
+        Rational[3, 2], 2}}, Automatic}}, Typeset`size$$ = {
+    360., {177., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`c$$ = {
+          Rational[3, 2], 2}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c1 = 
+        Midpoint[{$CellContext`a, $CellContext`b}]; $CellContext`c2 = 
+        Midpoint[{$CellContext`b, $CellContext`c$$}]; $CellContext`c3 = 
+        Midpoint[{$CellContext`c$$, $CellContext`a}]; $CellContext`r1 = 
+        EuclideanDistance[$CellContext`a, $CellContext`b]/2; $CellContext`r2 = 
+        EuclideanDistance[$CellContext`b, $CellContext`c$$]/
+         2; $CellContext`r3 = 
+        EuclideanDistance[$CellContext`c$$, $CellContext`a]/2; 
+       Graphics[{{Transparent, 
+           EdgeForm[{Thick, Red}], 
+           Triangle[{$CellContext`a, $CellContext`b, $CellContext`c$$}]}, {
+          Dashed, 
+           Circle[$CellContext`c1, $CellContext`r1], 
+           Circle[$CellContext`c2, $CellContext`r2], 
+           Circle[$CellContext`c3, $CellContext`r3]}, {Red, 
+           ReplaceAll[
+            Circle[{$CellContext`x, $CellContext`y}, $CellContext`r], 
+            $CellContext`Apollonius[$CellContext`c1, $CellContext`c2, \
+$CellContext`c3, $CellContext`r1, $CellContext`r2, $CellContext`r3]]}}]), 
+      "Specifications" :> {{{$CellContext`c$$, {
+           Rational[3, 2], 2}}, Automatic, ControlType -> Locator, Appearance -> 
+         None}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{417., {211., 217.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`a = {0, 0}, $CellContext`b = {2, 
+        0}, $CellContext`Apollonius[
+         Pattern[$CellContext`c1, 
+          Blank[]], 
+         Pattern[$CellContext`c2, 
+          Blank[]], 
+         Pattern[$CellContext`c3, 
+          Blank[]], 
+         Pattern[$CellContext`r1, 
+          Blank[]], 
+         Pattern[$CellContext`r2, 
+          Blank[]], 
+         Pattern[$CellContext`r3, 
+          Blank[]]] := 
+       With[{$CellContext`gc = ($CellContext`c1 + $CellContext`c2 + \
+$CellContext`c3)/3}, 
+         FindRoot[{
+          EuclideanDistance[{$CellContext`x, $CellContext`y}, \
+$CellContext`c1] == $CellContext`r - $CellContext`r1, 
+           EuclideanDistance[{$CellContext`x, $CellContext`y}, \
+$CellContext`c2] == $CellContext`r - $CellContext`r2, 
+           EuclideanDistance[{$CellContext`x, $CellContext`y}, \
+$CellContext`c3] == $CellContext`r - $CellContext`r3}, {{$CellContext`x, 
+            Part[$CellContext`gc, 1]}, {$CellContext`y, 
+            
+            Part[$CellContext`gc, 
+             2]}, {$CellContext`r, $CellContext`r1 + $CellContext`r2 + \
+$CellContext`r3}}]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8296733065778008`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"c88f05fd-f97f-4492-b9d7-16ba608f540a"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 813},
+WindowMargins->{{Automatic, 315}, {69, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2aacf9d4-1625-406e-a3e7-c9ac80ddb7a0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 185, 4, 156, "Title",ExpressionUUID->"0212458f-fef2-48bf-8e92-f13c07343b2f"],
+Cell[768, 28, 1719, 50, 138, "Input",ExpressionUUID->"0dc58e1f-c298-41b4-9b73-369a1db04be8"],
+Cell[CellGroupData[{
+Cell[2512, 82, 2829, 80, 416, "Input",ExpressionUUID->"fc2dd815-92e2-4784-9b19-29ee134de4c5"],
+Cell[5344, 164, 3934, 81, 495, "Output",ExpressionUUID->"c88f05fd-f97f-4492-b9d7-16ba608f540a"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

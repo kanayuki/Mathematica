@@ -1,0 +1,211 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7884,        203]
+NotebookOptionsPosition[      6945,        177]
+NotebookOutlinePosition[      7367,        194]
+CellTagsIndexPosition[      7324,        191]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Log", "[", 
+     RowBox[{"1", "-", "x"}], "]"}], 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", "1"}]], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8643732472910533`*^9, 3.8643733161920147`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"7d27446f-80f9-4163-ba3b-253176b1fbc5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "Catalan"}], "+", 
+  RowBox[{
+   FractionBox["1", "8"], " ", "\[Pi]", " ", 
+   RowBox[{"Log", "[", "2", "]"}]}]}]], "Output",
+ CellChangeTimes->{3.864373289730031*^9, 3.8643733214377737`*^9, 
+  3.864373424131934*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"ff46d133-19b8-44a7-beb7-926ab35a7da3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{
+   RowBox[{"-", "Catalan"}], "+", 
+   RowBox[{
+    FractionBox["1", "8"], " ", "\[Pi]", " ", 
+    RowBox[{"Log", "[", "2", "]"}]}]}], "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[4]:=",ExpressionUUID->"b6ddf79d-a5c9-4b0f-8a17-4d8f04d6615f"],
+
+Cell[BoxData[
+ RowBox[{"-", "0.6437673328892688`"}]], "Output",
+ CellChangeTimes->{3.864373762630918*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"bc574b37-0ea0-4999-8238-24862721f1e3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Log", "[", 
+     RowBox[{"1", "-", "x"}], "]"}], 
+    RowBox[{
+     SuperscriptBox["x", "2"], "+", "1"}]], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.864373783960159*^9, 3.8643737854801064`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"74b8c020-cd75-4cc1-be48-83536334bfae"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
+1: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
+4nR+
+       "]]},
+     Annotation[#, "Charting`Private`Tag$26661#1"]& ]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 1}, {-2.2108753471449263`, 0.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.8643737905569177`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"327881ba-65db-4287-bc07-6503e88342be"]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{Automatic, 147}, {-121.5, Automatic}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (2022\:5e742\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a8a719cc-e211-4705-9aab-02162c0ac1d1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 424, 11, 60, "Input",ExpressionUUID->"7d27446f-80f9-4163-ba3b-253176b1fbc5"],
+Cell[1007, 35, 333, 8, 48, "Output",ExpressionUUID->"ff46d133-19b8-44a7-beb7-926ab35a7da3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1377, 48, 294, 8, 59, "Input",ExpressionUUID->"b6ddf79d-a5c9-4b0f-8a17-4d8f04d6615f"],
+Cell[1674, 58, 183, 3, 32, "Output",ExpressionUUID->"bc574b37-0ea0-4999-8238-24862721f1e3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1894, 66, 417, 11, 60, "Input",ExpressionUUID->"74b8c020-cd75-4cc1-be48-83536334bfae"],
+Cell[2314, 79, 4615, 95, 253, "Output",ExpressionUUID->"327881ba-65db-4287-bc07-6503e88342be"]
+}, Open  ]]
+}
+]
+*)
+

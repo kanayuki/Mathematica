@@ -1,0 +1,703 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35180,        693]
+NotebookOptionsPosition[     34053,        650]
+NotebookOutlinePosition[     34709,        675]
+CellTagsIndexPosition[     34666,        672]
+WindowTitle->Polygons at the Vertices of Polyhedra - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Polygons at the Vertices of Polyhedra", "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False,
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJztnVuO40QUQFuAxGyBT5YCSxhWABL8IgESYpOjmR6+gA3Mb/s13Xk0jssu
+19vXjhMn9jkqIqeq7q37qHIuTge+/enXt7988fDw8Pub+uXtj39+99tvP/71
+w1f1m+//+uPnn76sL76p/3nz9cPD6fr1xP719fB6rNv+dH1s3qrOGdpkPfvL
+6DlHiVxVbKZQwyzTxjq+j1/MHs/rt8X38+y+nGPJ+V7cQhzmiqR8QjDyifMi
+6fGHjpHmDR11f9OO++Ph5bh/Puyqpn0+1Nd1z3F3PJpGnlrdWQ/t9y/73akd
+9vXbw/GkEACuD2WYUMmNl2GkUq7kxlN5puNU1NfUc74NVNRzRVI+gYoaAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAALbFEWB7LH3sAAAAYFUsXdoA3DpLn1EA
+AIAwS39CroqDzdLmTGeCI/fl+9LHDgAAAFbF0qXNqrivqjLB6ivqUSx9RgEA
+AFrMj6cDwCZZ+hQCAADAfUNFDSCHR6MAIORT9u+np3+XtuGfT9l/y9qg+fT0
+z+IBWRkUbwAHnosCAKwaKmoHKurZoaIGGEXwuejSRgEAAAAAAAAAAABckOBz
+0T3AddntdkubAEvCBgBYDTubpc25Klv2HQBuAe48G4cNALAatlxVXtl3/WiU
+56IAQmY5mFu7s60VYR5J94rZcsUCAAAwGSpq0FBRAxU1LEjsuegOAAAAAAAA
+AAAAYKWoR6P+T+mXtgsAAAAAAAAAAADgUvBcFAAAAAAAAAAAALZG7Lnoy83w
+/Py8tAmrhdhOhtABwLw8e1xaEEACO2o1kMrLQWwnQ+gAYF6oqEGIk+vdbuf/
+J0aXthEAAADuEr+wnMbSfkxhy74DAAAAwFxsuaq8gu/OtOBz0bnMAAAAAAAA
+AAAAALgFPjdUVVW/1m/Vr+l5LgqwLDN+LQIAAAAAsEGoqAEAYBDJc9HPAAAA
+AAAAAAAAACuiah6Klt2D0ZfQc9E8z4uasqxbTX2ZZVn95tTnvGbFqXU9ipOY
+nlO2c9oJmRrVrX1ryZaloaesiioveilz9bKXalt7Xfb9+qJSy2d1eypO7iin
+CuVeL5I1czopNafnNLPspYzV9fwiiTNhcH6eZ4rTdekE2YqJGcbCjH/R5sjO
+QiuS27JRPUWvx5QyBbvOPh15FygdusIIaTutT3cbfNWpxXs9RTfaTWiVN/r7
+RfWcZAraqHabvOyu/NhakcmK8KsdsbJxsX21Nnx/mvqtnqkrQ0nZ5k4fsVIf
+N+N86ZYbx8rw0zbJSlahXXaC4+8EdYTbV0t/f0zM+DuHy8yg2ZwJsWmlZZtx
+Zs0z6BzS4F1FnDt9WKbmrkrkrr6bebkLbLZE7ipx7oLbuBvuqC/zpmVNy/uD
+0LqQN1nJ2tZPCBkQpf5AqZs6qqqpngixDRAcjTZn0Tyve3qF+YmsI28mSzV7
+tuVdG2dhQm3IvFk0X8H42EISUkFQ22YmR+7C96a3pAy79zKMVGqpe08lFXUs
+BVTUkqqs6I4wFbU4d1TUHlTUY9VSUftB2F5FHfVd7+1m036uKv1XowfFfq+W
+znue6gPclHanN+rupc5w2dVS6lWN6uvWttJ6Va3Tkxe9ErNIUeJKW2nM6VVZ
+7uu7Ti/rDpnofnWhX7WIYbyl2ZxjSjlqGw0q5JUplbe5aoW6OTqHlc6PnVXL
+o2YVHb3cCFShL/yQGh5YnWWbMqOOsfUUdga1BnfFtr90IulHxomb/9bsd3Kk
+4uCE3ZkTf6tPVbtBC4tcbcuisALYOWjtfD1HT+h8Nze/u//NkDo9+hMxj3+0
+mSkwk6tPom25es30CfIEc52rsjPYMFtdZ8ai5lHV2gJ3KWcDFJEz6B8rs8eZ
+Y6be1+/1l3buirNz1+6BC+euv3kaJ2tC7rLu2myWJU6zGScb15MivRPmYvIS
+g4KJLX0d5orJKLVzWesPGcVGfokV79J3d5Qy7G7LsC4gpPLuUxkIGhV1u0EL
+CypqKurWcypqKuq0YGJLX4e5YjJK7VzW+kNU1KN8V1LtA/O6bqiql5cX9VD0
+eDyqJ6OnCXmWh1CCekX96k8zn8wHNTij/kxnclAqJhgc9WcWzddVaW2S5WI2
+xFZPuOOI96NFoD/te1RV3GyJI3koboPazP0QTGtQMBF8YV6CIu2mtUOaEMyN
+fa59H7sVhWT5wKkZrVCWqeBB1qOjtn1QMHajSGsY1C/p33LuhKvEOEetfMUL
+rXIOk2PifGpfx7xRo3AvUIbFetJ2CldPuOOI96NTyzBSGeu5u1QmFpL0BPup
+qINz5OlIcINVWWyXDhpjClJRL5I74SoxzlErX/FCq5zD5JhQUcOlqXP61KDO
+ftX8vajzXDTr/p7f/0lK5nWlHwtn3S8shCJqyDAgIJ4wRj4tZoOzdPBicFTC
+4OP04HIS1MmVTCviofY1SHrkowmpQUFh6NTtK9hfGB/rgwY7iciMny859sSM
+T6cynQjn2vd9Wpx9JYP5VV+smDOzriIKZsSJv9zO2FYcPBHKPNOYLefO+RCf
+pjz9nV0eqXb0x01Qp/4k8uc7Q1pJ4uvCWfBNGvRCouecyC+On6P0qDDd5szg
+l7bpAE5LSux037LvWX9XcdX6vlCGjTJm0AB/ibHK7QySypWkclB/LNS+BkmP
+fDQhNShIRS0xexRBy/1jS0UtMfVGcqehoh6EitrnFqrKLVfUCd8dwyr/d/TN
+34vm3ZcmwVtiZtysMvuWZd4Vg345/YnYOgdWkoVs6D7vW564LYzKu0SJ5BaU
+cMGJ/zQbpk3OvA9Hx86g2c5FzH3JvwjEeuTbLNgTszyBaa3ccj96quQI2pZW
+FRSRp1jLahGhF8GSLGi8KeLM9G8ag9Y6PTpu6WlBtpY7n1gFlZ4/9qNz1CrB
+Ckponpyx9ZXp9dhwxXxJ60lXDnfE2FALuXQlPwsz+k4ZJl9xlEnXL8NIpXzF
+USZRUQdXpKIeXFfizqDljqwWoaJOr3u/ufOhohaqpaKeDBX1pX3Puz8ZVfcB
+9Tv6w+Fg/n+X3r9//2jz8eNH59Xs9zvNt44eR4kzOTYaXNS5jnX6GnyPgoYl
+lAR1+m7GlCdm+l6YRtYXHwydvoi5ljxQsfzGGHTk0TbSl0047uiPrTU4Jybl
+m/ohvvGct4O+pM3wlSRkP3gJffRSllYe0x+Lg++ms3RshyTSFyQY3oRH6QjH
+3HHW2lrugiJCnWlxiZ5YZMYyuOhkVbOYNyOJOI+1Nq3qEkEYtTFmMWmC1H35
+Thk2qCSo03czpjwx0/fCNPJxZBlGKgeV3EsqYzGJLZFwKigYc+TRNtKXTTju
+6I+tNTgnJuWbSkXtOBLbGLEdkkhfkGB4Ex6lIxxzx1lra7kLigh1psUlemKR
+GcvgopNVzWLejCTiPNbatKpLBGHUxpjFpAlSq/E9uMTfDY9NKf7u3btXAAAA
+AAAAAAAAgI3xP5e3Sto=
+   "], {{0, 0}, {1800, 25}}, {0, 255},
+   ColorFunction->RGBColor],
+  ImageSize->{1800, 25},
+  PlotRange->{{0, 1800}, {0, 25}}]], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`aff$$ = 1.6, $CellContext`d$$ = 
+    0.6, $CellContext`dia$$ = 1.6, $CellContext`m$$ = 20, $CellContext`n$$ = 
+    20, $CellContext`polyh$$ = "SnubCube", $CellContext`up$$ = 1.3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`aff$$], 1.6, "polyhedron size"}, 0.3, 3.5}, {{
+       Hold[$CellContext`dia$$], 1.6, "sphere size"}, 0.3, 3.5}, {{
+       Hold[$CellContext`up$$], 1.3, "move rings up"}, 0.1, 3}, {{
+       Hold[$CellContext`d$$], 0.6, "hole size"}, 0, 2}, {{
+       Hold[$CellContext`polyh$$], "SnubCube", "polyhedron"}, {
+      "Cube" -> "cube", "Dodecahedron" -> "dodecahedron", "Icosahedron" -> 
+       "icosahedron", "Octahedron" -> "octahedron", "Tetrahedron" -> 
+       "tetrahedron", Delimiter, "Cuboctahedron" -> "cuboctahedron", 
+       "GreatRhombicosidodecahedron" -> "great rhombicosidodecahedron", 
+       "GreatRhombicuboctahedron" -> "great rhombicuboctahedron", 
+       "Icosidodecahedron" -> "icosidodecahedron", 
+       "SmallRhombicosidodecahedron" -> "small rhombicosidodecahedron", 
+       "SmallRhombicuboctahedron" -> "small rhombicuboctahedron", "SnubCube" -> 
+       "snub cube", "SnubDodecahedron" -> "snub dodecahedron", 
+       "TruncatedCube" -> "truncated cube", "TruncatedDodecahedron" -> 
+       "truncated dodecahedron", "TruncatedIcosahedron" -> 
+       "truncated icosahedron", "TruncatedOctahedron" -> 
+       "truncated octahedron", "TruncatedTetrahedron" -> 
+       "truncated tetrahedron", Delimiter, "DeltoidalHexecontahedron" -> 
+       "deltoidal hexecontahedron", "DeltoidalIcositetrahedron" -> 
+       "deltoidal icositetrahedron", "DisdyakisDodecahedron" -> 
+       "disdyakis dodecahedron", "DisdyakisTriacontahedron" -> 
+       "disdyakis triacontahedron", "PentagonalHexecontahedron" -> 
+       "pentagonal hexecontahedron", "PentagonalIcositetrahedron" -> 
+       "pentagonal icositetrahedron", "PentakisDodecahedron" -> 
+       "pentakis dodecahedron", "RhombicDodecahedron" -> 
+       "rhombic dodecahedron", "RhombicTriacontahedron" -> 
+       "rhombic triacontahedron", "SmallTriakisOctahedron" -> 
+       "small triakis octahedron", "TetrakisHexahedron" -> 
+       "tetrakis hexahedron", "TriakisIcosahedron" -> "triakis icosahedron", 
+       "TriakisTetrahedron" -> "triakis tetrahedron", Delimiter, 
+       "GreatDodecahedron" -> "great dodecahedron", "GreatIcosahedron" -> 
+       "great icosahedron", "GreatStellatedDodecahedron" -> 
+       "great stellated dodecahedron", "SmallStellatedDodecahedron" -> 
+       "small stellated dodecahedron", Delimiter, {"Pyramid", 4} -> 
+       "square pyramid", {"Pyramid", 5} -> "pentagonal pyramid", 
+       "Tetrahedron" -> "tetrahedron", Delimiter, {"Dipyramid", 3} -> 
+       "triangular dipyramid", {"Dipyramid", 5} -> "pentagonal dipyramid", 
+       "Octahedron" -> "octahedron", Delimiter, "Cube" -> 
+       "cube", {"Prism", 3} -> "triangular prism", {"Prism", 5} -> 
+       "pentagonal prism", {"Prism", 6} -> "hexagonal prism", {"Prism", 7} -> 
+       "heptagonal prism", {"Prism", 8} -> "octagonal prism", {"Prism", 9} -> 
+       "nonagonal prism", {"Prism", 10} -> "decagonal prism", 
+       Delimiter, {"Antiprism", 4} -> "square antiprism", {"Antiprism", 5} -> 
+       "pentagonal antiprism", {"Antiprism", 6} -> 
+       "hexagonal antiprism", {"Antiprism", 7} -> 
+       "heptagonal antiprism", {"Antiprism", 8} -> 
+       "octagonal antiprism", {"Antiprism", 9} -> 
+       "nonagonal antiprism", {"Antiprism", 10} -> "decagonal antiprism", 
+       "Octahedron" -> "octahedron", Delimiter, "AugmentedDodecahedron" -> 
+       "augmented dodecahedron", "AugmentedHexagonalPrism" -> 
+       "augmented hexagonal prism", "AugmentedPentagonalPrism" -> 
+       "augmented pentagonal prism", "AugmentedSphenocorona" -> 
+       "augmented sphenocorona", "AugmentedTriangularPrism" -> 
+       "augmented triangular prism", "AugmentedTridiminishedIcosahedron" -> 
+       "augmented tridiminished icosahedron", "AugmentedTruncatedCube" -> 
+       "augmented truncated cube", "AugmentedTruncatedDodecahedron" -> 
+       "augmented truncated dodecahedron", "AugmentedTruncatedTetrahedron" -> 
+       "augmented truncated tetrahedron", "BiaugmentedPentagonalPrism" -> 
+       "biaugmented pentagonal prism", "BiaugmentedTriangularPrism" -> 
+       "biaugmented triangular prism", "BiaugmentedTruncatedCube" -> 
+       "biaugmented truncated cube", 
+       "BigyrateDiminishedRhombicosidodecahedron" -> 
+       "bigyrate diminished rhombicosidodecahedron", "Bilunabirotunda" -> 
+       "bilunabirotunda", "DiminishedRhombicosidodecahedron" -> 
+       "diminished rhombicosidodecahedron", {"Dipyramid", 3} -> 
+       "triangular dipyramid", {"Dipyramid", 5} -> "pentagonal dipyramid", 
+       "Disphenocingulum" -> "disphenocingulum", "ElongatedPentagonalCupola" -> 
+       "elongated pentagonal cupola", "ElongatedPentagonalDipyramid" -> 
+       "elongated pentagonal dipyramid", "ElongatedPentagonalGyrobicupola" -> 
+       "elongated pentagonal gyrobicupola", 
+       "ElongatedPentagonalGyrobirotunda" -> 
+       "elongated pentagonal gyrobirotunda", 
+       "ElongatedPentagonalGyrocupolarotunda" -> 
+       "elongated pentagonal gyrocupolarotunda", 
+       "ElongatedPentagonalOrthobicupola" -> 
+       "elongated pentagonal orthobicupola", 
+       "ElongatedPentagonalOrthobirotunda" -> 
+       "elongated pentagonal orthobirotunda", 
+       "ElongatedPentagonalOrthocupolarotunda" -> 
+       "elongated pentagonal orthocupolarotunda", 
+       "ElongatedPentagonalPyramid" -> "elongated pentagonal pyramid", 
+       "ElongatedPentagonalRotunda" -> "elongated pentagonal rotunda", 
+       "ElongatedSquareCupola" -> "elongated square cupola", 
+       "ElongatedSquareDipyramid" -> "elongated square dipyramid", 
+       "ElongatedSquareGyrobicupola" -> "elongated square gyrobicupola", 
+       "ElongatedSquarePyramid" -> "elongated square pyramid", 
+       "ElongatedTriangularCupola" -> "elongated triangular cupola", 
+       "ElongatedTriangularDipyramid" -> "elongated triangular dipyramid", 
+       "ElongatedTriangularGyrobicupola" -> 
+       "elongated triangular gyrobicupola", 
+       "ElongatedTriangularOrthobicupola" -> 
+       "elongated triangular orthobicupola", "ElongatedTriangularPyramid" -> 
+       "elongated triangular pyramid", 
+       "GyrateBidiminishedRhombicosidodecahedron" -> 
+       "gyrate bidiminished rhombicosidodecahedron", 
+       "GyrateRhombicosidodecahedron" -> "gyrate rhombicosidodecahedron", 
+       "Gyrobifastigium" -> "gyrobifastigium", 
+       "GyroelongatedPentagonalBicupola" -> 
+       "gyroelongated pentagonal bicupola", 
+       "GyroelongatedPentagonalBirotunda" -> 
+       "gyroelongated pentagonal birotunda", "GyroelongatedPentagonalCupola" -> 
+       "gyroelongated pentagonal cupola", 
+       "GyroelongatedPentagonalCupolarotunda" -> 
+       "gyroelongated pentagonal cupolarotunda", 
+       "GyroelongatedPentagonalPyramid" -> "gyroelongated pentagonal pyramid",
+        "GyroelongatedPentagonalRotunda" -> 
+       "gyroelongated pentagonal rotunda", "GyroelongatedSquareBicupola" -> 
+       "gyroelongated square bicupola", "GyroelongatedSquareCupola" -> 
+       "gyroelongated square cupola", "GyroelongatedSquareDipyramid" -> 
+       "gyroelongated square dipyramid", "GyroelongatedSquarePyramid" -> 
+       "gyroelongated square pyramid", "GyroelongatedTriangularBicupola" -> 
+       "gyroelongated triangular bicupola", "GyroelongatedTriangularCupola" -> 
+       "gyroelongated triangular cupola", "Hebesphenomegacorona" -> 
+       "hebesphenomegacorona", "MetabiaugmentedDodecahedron" -> 
+       "metabiaugmented dodecahedron", "MetabiaugmentedHexagonalPrism" -> 
+       "metabiaugmented hexagonal prism", 
+       "MetabiaugmentedTruncatedDodecahedron" -> 
+       "metabiaugmented truncated dodecahedron", 
+       "MetabidiminishedIcosahedron" -> "metabidiminished icosahedron", 
+       "MetabidiminishedRhombicosidodecahedron" -> 
+       "metabidiminished rhombicosidodecahedron", 
+       "MetabigyrateRhombicosidodecahedron" -> 
+       "metabigyrate rhombicosidodecahedron", 
+       "MetagyrateDiminishedRhombicosidodecahedron" -> 
+       "metagyrate diminished rhombicosidodecahedron", 
+       "ParabiaugmentedDodecahedron" -> "parabiaugmented dodecahedron", 
+       "ParabiaugmentedHexagonalPrism" -> "parabiaugmented hexagonal prism", 
+       "ParabiaugmentedTruncatedDodecahedron" -> 
+       "parabiaugmented truncated dodecahedron", 
+       "ParabidiminishedRhombicosidodecahedron" -> 
+       "parabidiminished rhombicosidodecahedron", 
+       "ParabigyrateRhombicosidodecahedron" -> 
+       "parabigyrate rhombicosidodecahedron", 
+       "ParagyrateDiminishedRhombicosidodecahedron" -> 
+       "paragyrate diminished rhombicosidodecahedron", "PentagonalCupola" -> 
+       "pentagonal cupola", "PentagonalGyrobicupola" -> 
+       "pentagonal gyrobicupola", "PentagonalGyrocupolarotunda" -> 
+       "pentagonal gyrocupolarotunda", "PentagonalOrthobicupola" -> 
+       "pentagonal orthobicupola", "PentagonalOrthobirotunda" -> 
+       "pentagonal orthobirotunda", "PentagonalOrthocupolarotunda" -> 
+       "pentagonal orthocupolarotunda", "PentagonalRotunda" -> 
+       "pentagonal rotunda", {"Pyramid", 4} -> 
+       "square pyramid", {"Pyramid", 5} -> "pentagonal pyramid", 
+       "SnubDisphenoid" -> "snub disphenoid", "SnubSquareAntiprism" -> 
+       "snub square antiprism", "Sphenocorona" -> "sphenocorona", 
+       "Sphenomegacorona" -> "sphenomegacorona", "SquareCupola" -> 
+       "square cupola", "SquareGyrobicupola" -> "square gyrobicupola", 
+       "SquareOrthobicupola" -> "square orthobicupola", "TriangularCupola" -> 
+       "triangular cupola", "TriangularHebesphenorotunda" -> 
+       "triangular hebesphenorotunda", "TriangularOrthobicupola" -> 
+       "triangular orthobicupola", "TriaugmentedDodecahedron" -> 
+       "triaugmented dodecahedron", "TriaugmentedHexagonalPrism" -> 
+       "triaugmented hexagonal prism", "TriaugmentedTriangularPrism" -> 
+       "triaugmented triangular prism", "TriaugmentedTruncatedDodecahedron" -> 
+       "triaugmented truncated dodecahedron", "TridiminishedIcosahedron" -> 
+       "tridiminished icosahedron", "TridiminishedRhombicosidodecahedron" -> 
+       "tridiminished rhombicosidodecahedron", 
+       "TrigyrateRhombicosidodecahedron" -> 
+       "trigyrate rhombicosidodecahedron"}}, {{
+       Hold[$CellContext`n$$], 20, "polygon out"}, 3, 20, 1}, {{
+       Hold[$CellContext`m$$], 20, "polygon in"}, 3, 20, 1}}, 
+    Typeset`size$$ = {380., {188., 192.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`aff$9817$$ = 0, $CellContext`dia$9818$$ = 
+    0, $CellContext`up$9819$$ = 0, $CellContext`d$9820$$ = 
+    0, $CellContext`polyh$9821$$ = False, $CellContext`n$9822$$ = 
+    0, $CellContext`m$9823$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`aff$$ = 1.6, $CellContext`d$$ = 
+        0.6, $CellContext`dia$$ = 1.6, $CellContext`m$$ = 
+        20, $CellContext`n$$ = 20, $CellContext`polyh$$ = 
+        "SnubCube", $CellContext`up$$ = 1.3}, "ControllerVariables" :> {
+        Hold[$CellContext`aff$$, $CellContext`aff$9817$$, 0], 
+        Hold[$CellContext`dia$$, $CellContext`dia$9818$$, 0], 
+        Hold[$CellContext`up$$, $CellContext`up$9819$$, 0], 
+        Hold[$CellContext`d$$, $CellContext`d$9820$$, 0], 
+        Hold[$CellContext`polyh$$, $CellContext`polyh$9821$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$9822$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$9823$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`frame = Table[{
+           Sin[$CellContext`i 2 (Pi/$CellContext`n$$)], 
+           Cos[$CellContext`i 2 (Pi/$CellContext`n$$)], 
+           0}, {$CellContext`i, $CellContext`n$$ + 1}]; $CellContext`hole = 
+        Table[{$CellContext`d$$ 
+           Sin[$CellContext`i 2 (Pi/$CellContext`m$$)], $CellContext`d$$ 
+           Cos[$CellContext`i 2 (Pi/$CellContext`m$$)], 
+           0}, {$CellContext`i, $CellContext`m$$ + 1}]; $CellContext`f1 = {
+          FaceForm[Red, 
+           RGBColor[0.3, 1, 1]], 
+          Polygon[
+           Join[$CellContext`frame, $CellContext`hole]]}; $CellContext`vert = 
+        PolyhedronData[$CellContext`polyh$$, 
+          "VertexCoordinates"]; $CellContext`fa = Map[Translate[
+           Rotate[$CellContext`f1, {{0, 0, 1}, 
+             
+             Normalize[# - {0, 0, 
+              0}]}], #]& , $CellContext`up$$ $CellContext`vert]; \
+$CellContext`ph = Scale[
+          GraphicsComplex[
+           PolyhedronData[$CellContext`polyh$$, "VertexCoordinates"], 
+           Polygon[
+            
+            PolyhedronData[$CellContext`polyh$$, 
+             "FaceIndices"]]], $CellContext`aff$$ {1, 1, 1}, {0, 0, 
+          0}]; $CellContext`sp = Sphere[{0, 0, 0}, $CellContext`dia$$]; 
+       Graphics3D[{$CellContext`sp, $CellContext`fa, $CellContext`ph}, 
+         ImageSize -> 380, Boxed -> False, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 10}, ViewAngle -> 0.12]), 
+      "Specifications" :> {{{$CellContext`aff$$, 1.6, "polyhedron size"}, 0.3,
+          3.5}, {{$CellContext`dia$$, 1.6, "sphere size"}, 0.3, 
+         3.5}, {{$CellContext`up$$, 1.3, "move rings up"}, 0.1, 
+         3}, {{$CellContext`d$$, 0.6, "hole size"}, 0, 
+         2}, {{$CellContext`polyh$$, "SnubCube", "polyhedron"}, {
+         "Cube" -> "cube", "Dodecahedron" -> "dodecahedron", "Icosahedron" -> 
+          "icosahedron", "Octahedron" -> "octahedron", "Tetrahedron" -> 
+          "tetrahedron", Delimiter, "Cuboctahedron" -> "cuboctahedron", 
+          "GreatRhombicosidodecahedron" -> "great rhombicosidodecahedron", 
+          "GreatRhombicuboctahedron" -> "great rhombicuboctahedron", 
+          "Icosidodecahedron" -> "icosidodecahedron", 
+          "SmallRhombicosidodecahedron" -> "small rhombicosidodecahedron", 
+          "SmallRhombicuboctahedron" -> "small rhombicuboctahedron", 
+          "SnubCube" -> "snub cube", "SnubDodecahedron" -> 
+          "snub dodecahedron", "TruncatedCube" -> "truncated cube", 
+          "TruncatedDodecahedron" -> "truncated dodecahedron", 
+          "TruncatedIcosahedron" -> "truncated icosahedron", 
+          "TruncatedOctahedron" -> "truncated octahedron", 
+          "TruncatedTetrahedron" -> "truncated tetrahedron", Delimiter, 
+          "DeltoidalHexecontahedron" -> "deltoidal hexecontahedron", 
+          "DeltoidalIcositetrahedron" -> "deltoidal icositetrahedron", 
+          "DisdyakisDodecahedron" -> "disdyakis dodecahedron", 
+          "DisdyakisTriacontahedron" -> "disdyakis triacontahedron", 
+          "PentagonalHexecontahedron" -> "pentagonal hexecontahedron", 
+          "PentagonalIcositetrahedron" -> "pentagonal icositetrahedron", 
+          "PentakisDodecahedron" -> "pentakis dodecahedron", 
+          "RhombicDodecahedron" -> "rhombic dodecahedron", 
+          "RhombicTriacontahedron" -> "rhombic triacontahedron", 
+          "SmallTriakisOctahedron" -> "small triakis octahedron", 
+          "TetrakisHexahedron" -> "tetrakis hexahedron", "TriakisIcosahedron" -> 
+          "triakis icosahedron", "TriakisTetrahedron" -> 
+          "triakis tetrahedron", Delimiter, "GreatDodecahedron" -> 
+          "great dodecahedron", "GreatIcosahedron" -> "great icosahedron", 
+          "GreatStellatedDodecahedron" -> "great stellated dodecahedron", 
+          "SmallStellatedDodecahedron" -> "small stellated dodecahedron", 
+          Delimiter, {"Pyramid", 4} -> "square pyramid", {"Pyramid", 5} -> 
+          "pentagonal pyramid", "Tetrahedron" -> "tetrahedron", 
+          Delimiter, {"Dipyramid", 3} -> 
+          "triangular dipyramid", {"Dipyramid", 5} -> "pentagonal dipyramid", 
+          "Octahedron" -> "octahedron", Delimiter, "Cube" -> 
+          "cube", {"Prism", 3} -> "triangular prism", {"Prism", 5} -> 
+          "pentagonal prism", {"Prism", 6} -> "hexagonal prism", {"Prism", 7} -> 
+          "heptagonal prism", {"Prism", 8} -> "octagonal prism", {"Prism", 9} -> 
+          "nonagonal prism", {"Prism", 10} -> "decagonal prism", 
+          Delimiter, {"Antiprism", 4} -> "square antiprism", {"Antiprism", 5} -> 
+          "pentagonal antiprism", {"Antiprism", 6} -> 
+          "hexagonal antiprism", {"Antiprism", 7} -> 
+          "heptagonal antiprism", {"Antiprism", 8} -> 
+          "octagonal antiprism", {"Antiprism", 9} -> 
+          "nonagonal antiprism", {"Antiprism", 10} -> "decagonal antiprism", 
+          "Octahedron" -> "octahedron", Delimiter, "AugmentedDodecahedron" -> 
+          "augmented dodecahedron", "AugmentedHexagonalPrism" -> 
+          "augmented hexagonal prism", "AugmentedPentagonalPrism" -> 
+          "augmented pentagonal prism", "AugmentedSphenocorona" -> 
+          "augmented sphenocorona", "AugmentedTriangularPrism" -> 
+          "augmented triangular prism", "AugmentedTridiminishedIcosahedron" -> 
+          "augmented tridiminished icosahedron", "AugmentedTruncatedCube" -> 
+          "augmented truncated cube", "AugmentedTruncatedDodecahedron" -> 
+          "augmented truncated dodecahedron", "AugmentedTruncatedTetrahedron" -> 
+          "augmented truncated tetrahedron", "BiaugmentedPentagonalPrism" -> 
+          "biaugmented pentagonal prism", "BiaugmentedTriangularPrism" -> 
+          "biaugmented triangular prism", "BiaugmentedTruncatedCube" -> 
+          "biaugmented truncated cube", 
+          "BigyrateDiminishedRhombicosidodecahedron" -> 
+          "bigyrate diminished rhombicosidodecahedron", "Bilunabirotunda" -> 
+          "bilunabirotunda", "DiminishedRhombicosidodecahedron" -> 
+          "diminished rhombicosidodecahedron", {"Dipyramid", 3} -> 
+          "triangular dipyramid", {"Dipyramid", 5} -> "pentagonal dipyramid", 
+          "Disphenocingulum" -> "disphenocingulum", 
+          "ElongatedPentagonalCupola" -> "elongated pentagonal cupola", 
+          "ElongatedPentagonalDipyramid" -> "elongated pentagonal dipyramid", 
+          "ElongatedPentagonalGyrobicupola" -> 
+          "elongated pentagonal gyrobicupola", 
+          "ElongatedPentagonalGyrobirotunda" -> 
+          "elongated pentagonal gyrobirotunda", 
+          "ElongatedPentagonalGyrocupolarotunda" -> 
+          "elongated pentagonal gyrocupolarotunda", 
+          "ElongatedPentagonalOrthobicupola" -> 
+          "elongated pentagonal orthobicupola", 
+          "ElongatedPentagonalOrthobirotunda" -> 
+          "elongated pentagonal orthobirotunda", 
+          "ElongatedPentagonalOrthocupolarotunda" -> 
+          "elongated pentagonal orthocupolarotunda", 
+          "ElongatedPentagonalPyramid" -> "elongated pentagonal pyramid", 
+          "ElongatedPentagonalRotunda" -> "elongated pentagonal rotunda", 
+          "ElongatedSquareCupola" -> "elongated square cupola", 
+          "ElongatedSquareDipyramid" -> "elongated square dipyramid", 
+          "ElongatedSquareGyrobicupola" -> "elongated square gyrobicupola", 
+          "ElongatedSquarePyramid" -> "elongated square pyramid", 
+          "ElongatedTriangularCupola" -> "elongated triangular cupola", 
+          "ElongatedTriangularDipyramid" -> "elongated triangular dipyramid", 
+          "ElongatedTriangularGyrobicupola" -> 
+          "elongated triangular gyrobicupola", 
+          "ElongatedTriangularOrthobicupola" -> 
+          "elongated triangular orthobicupola", "ElongatedTriangularPyramid" -> 
+          "elongated triangular pyramid", 
+          "GyrateBidiminishedRhombicosidodecahedron" -> 
+          "gyrate bidiminished rhombicosidodecahedron", 
+          "GyrateRhombicosidodecahedron" -> "gyrate rhombicosidodecahedron", 
+          "Gyrobifastigium" -> "gyrobifastigium", 
+          "GyroelongatedPentagonalBicupola" -> 
+          "gyroelongated pentagonal bicupola", 
+          "GyroelongatedPentagonalBirotunda" -> 
+          "gyroelongated pentagonal birotunda", 
+          "GyroelongatedPentagonalCupola" -> 
+          "gyroelongated pentagonal cupola", 
+          "GyroelongatedPentagonalCupolarotunda" -> 
+          "gyroelongated pentagonal cupolarotunda", 
+          "GyroelongatedPentagonalPyramid" -> 
+          "gyroelongated pentagonal pyramid", 
+          "GyroelongatedPentagonalRotunda" -> 
+          "gyroelongated pentagonal rotunda", "GyroelongatedSquareBicupola" -> 
+          "gyroelongated square bicupola", "GyroelongatedSquareCupola" -> 
+          "gyroelongated square cupola", "GyroelongatedSquareDipyramid" -> 
+          "gyroelongated square dipyramid", "GyroelongatedSquarePyramid" -> 
+          "gyroelongated square pyramid", "GyroelongatedTriangularBicupola" -> 
+          "gyroelongated triangular bicupola", 
+          "GyroelongatedTriangularCupola" -> 
+          "gyroelongated triangular cupola", "Hebesphenomegacorona" -> 
+          "hebesphenomegacorona", "MetabiaugmentedDodecahedron" -> 
+          "metabiaugmented dodecahedron", "MetabiaugmentedHexagonalPrism" -> 
+          "metabiaugmented hexagonal prism", 
+          "MetabiaugmentedTruncatedDodecahedron" -> 
+          "metabiaugmented truncated dodecahedron", 
+          "MetabidiminishedIcosahedron" -> "metabidiminished icosahedron", 
+          "MetabidiminishedRhombicosidodecahedron" -> 
+          "metabidiminished rhombicosidodecahedron", 
+          "MetabigyrateRhombicosidodecahedron" -> 
+          "metabigyrate rhombicosidodecahedron", 
+          "MetagyrateDiminishedRhombicosidodecahedron" -> 
+          "metagyrate diminished rhombicosidodecahedron", 
+          "ParabiaugmentedDodecahedron" -> "parabiaugmented dodecahedron", 
+          "ParabiaugmentedHexagonalPrism" -> 
+          "parabiaugmented hexagonal prism", 
+          "ParabiaugmentedTruncatedDodecahedron" -> 
+          "parabiaugmented truncated dodecahedron", 
+          "ParabidiminishedRhombicosidodecahedron" -> 
+          "parabidiminished rhombicosidodecahedron", 
+          "ParabigyrateRhombicosidodecahedron" -> 
+          "parabigyrate rhombicosidodecahedron", 
+          "ParagyrateDiminishedRhombicosidodecahedron" -> 
+          "paragyrate diminished rhombicosidodecahedron", "PentagonalCupola" -> 
+          "pentagonal cupola", "PentagonalGyrobicupola" -> 
+          "pentagonal gyrobicupola", "PentagonalGyrocupolarotunda" -> 
+          "pentagonal gyrocupolarotunda", "PentagonalOrthobicupola" -> 
+          "pentagonal orthobicupola", "PentagonalOrthobirotunda" -> 
+          "pentagonal orthobirotunda", "PentagonalOrthocupolarotunda" -> 
+          "pentagonal orthocupolarotunda", "PentagonalRotunda" -> 
+          "pentagonal rotunda", {"Pyramid", 4} -> 
+          "square pyramid", {"Pyramid", 5} -> "pentagonal pyramid", 
+          "SnubDisphenoid" -> "snub disphenoid", "SnubSquareAntiprism" -> 
+          "snub square antiprism", "Sphenocorona" -> "sphenocorona", 
+          "Sphenomegacorona" -> "sphenomegacorona", "SquareCupola" -> 
+          "square cupola", "SquareGyrobicupola" -> "square gyrobicupola", 
+          "SquareOrthobicupola" -> "square orthobicupola", "TriangularCupola" -> 
+          "triangular cupola", "TriangularHebesphenorotunda" -> 
+          "triangular hebesphenorotunda", "TriangularOrthobicupola" -> 
+          "triangular orthobicupola", "TriaugmentedDodecahedron" -> 
+          "triaugmented dodecahedron", "TriaugmentedHexagonalPrism" -> 
+          "triaugmented hexagonal prism", "TriaugmentedTriangularPrism" -> 
+          "triaugmented triangular prism", 
+          "TriaugmentedTruncatedDodecahedron" -> 
+          "triaugmented truncated dodecahedron", "TridiminishedIcosahedron" -> 
+          "tridiminished icosahedron", "TridiminishedRhombicosidodecahedron" -> 
+          "tridiminished rhombicosidodecahedron", 
+          "TrigyrateRhombicosidodecahedron" -> 
+          "trigyrate rhombicosidodecahedron"}, ImageSize -> Tiny, 
+         ControlPlacement -> Left}, {{$CellContext`n$$, 20, "polygon out"}, 3,
+          20, 1, ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`m$$, 20, "polygon in"}, 3, 20, 1, ImageSize -> 
+         Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> Manipulate, AutorunSequencing -> {1, 2, 3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{574., {272., 279.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1996460468],
+
+Cell[CellGroupData[{
+
+Cell["CAPTION", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell["\<\
+Rings made of an inside and an outside polygon are placed at the vertices of \
+polyhedra; the axes of the rings pass through the centers of the polyhedra. \
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "\[NonBreakingSpace]",
+ ButtonBox["S\[AAcute]ndor Kabai",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+\
+Kabai"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+Kabai"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->245863265],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Polygons at the Vertices of Polyhedra",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PolygonsAtTheVerticesOfPolyhedra/"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/PolygonsAtTheVerticesOfPolyhedra/"],
+ "\"",
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+PolygonsAtTheVerticesOfPolyhedra/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PolygonsAtTheVerticesOfPolyhedra/"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/PolygonsAtTheVerticesOfPolyhedra/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ "Published: ",
+ "July 22, 2008"
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[1, 1, 1]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PolygonsAtTheVerticesOfPolyhedra"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+CellInsertionPointCell->None,
+WindowSize->{774, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Polygons at the Vertices of Polyhedra - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[640, 23, 157, 3, 70, "Section"],
+Cell[800, 28, 3749, 65, 70, "Section"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4586, 98, 25078, 408, 70, "Output",
+ CellID->1996460468],
+Cell[CellGroupData[{
+Cell[29689, 510, 209, 6, 70, "Section"],
+Cell[29901, 518, 179, 3, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[30106, 525, 355, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[30464, 536, 448, 14, 70, "Text",
+ CellID->245863265],
+Cell[30915, 552, 1097, 32, 70, "Text"],
+Cell[CellGroupData[{
+Cell[32037, 588, 793, 24, 70, "Text"],
+Cell[32833, 614, 1204, 33, 70, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature lRjxO@eI2Y6CsCTj3YDyvgb9 *)
