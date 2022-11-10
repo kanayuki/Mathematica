@@ -1,0 +1,85 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2095,         75]
+NotebookOptionsPosition[      1606,         57]
+NotebookOutlinePosition[      2021,         74]
+CellTagsIndexPosition[      1978,         71]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:7ec4\:5408\:6570\:4e0e\:6392\:5217\:6570", "Title",
+ CellChangeTimes->{{3.877096037740487*^9, 
+  3.877096047815625*^9}},ExpressionUUID->"e1c2edb2-ec9c-422c-bf8e-\
+b0cb60acfdff"],
+
+Cell[BoxData[{
+ RowBox[{
+  SubsuperscriptBox["A", "n", "k"], "=", 
+  FractionBox[
+   RowBox[{"n", "!"}], 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"n", "-", "k"}], ")"}], "!"}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubsuperscriptBox["C", "n", "k"], "=", 
+  RowBox[{
+   FractionBox[
+    SubsuperscriptBox["A", "n", "k"], 
+    SubsuperscriptBox["A", "k", "k"]], "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"n", "!"}], 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"n", "-", "k"}], ")"}], "!"}], 
+      RowBox[{"k", "!"}]}]], "=", 
+    SubsuperscriptBox["C", "n", 
+     RowBox[{"n", "-", "k"}]]}]}]}]}], "Text", "Input",
+ CellChangeTimes->{{3.877095825038301*^9, 3.87709593417809*^9}, {
+  3.8770959710130386`*^9, 
+  3.877096011721882*^9}},ExpressionUUID->"c466c6c6-4c19-494d-bc69-\
+71c1dbca77c0"]
+}, Open  ]]
+},
+WindowSize->{571, 418},
+WindowMargins->{{Automatic, 67.5}, {-22, Automatic}},
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c2b0c1d6-09ac-4ad9-919d-a39e3195d707"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 185, 3, 98, "Title",ExpressionUUID->"e1c2edb2-ec9c-422c-bf8e-b0cb60acfdff"],
+Cell[768, 27, 822, 27, 95, "Text",ExpressionUUID->"c466c6c6-4c19-494d-bc69-71c1dbca77c0"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
