@@ -1,0 +1,972 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     45651,        964]
+NotebookOptionsPosition[     43726,        921]
+NotebookOutlinePosition[     44142,        938]
+CellTagsIndexPosition[     44099,        935]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:590d\:5e42\:51fd\:6570Plot", "Title",
+ CellChangeTimes->{{3.8771785429775457`*^9, 3.877178583257138*^9}, {
+  3.8771939418481197`*^9, 
+  3.8771939601290083`*^9}},ExpressionUUID->"499b0196-9e09-48e2-97b8-\
+6784fb3cc447"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"z", "\[Rule]", 
+     RowBox[{"-", "1.324717957244746`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", "\[Rule]", 
+     RowBox[{"0.`", "\[VeryThinSpace]", "-", 
+      RowBox[{"1.`", " ", "\[ImaginaryI]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", "\[Rule]", 
+     RowBox[{"0.`", "\[VeryThinSpace]", "+", 
+      RowBox[{"1.`", " ", "\[ImaginaryI]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", "\[Rule]", 
+     RowBox[{"0.6623589786223733`", "\[VeryThinSpace]", "-", 
+      RowBox[{"0.5622795120623011`", " ", "\[ImaginaryI]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"z", "\[Rule]", 
+     RowBox[{"0.6623589786223733`", "\[VeryThinSpace]", "+", 
+      RowBox[{"0.5622795120623011`", " ", "\[ImaginaryI]"}]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.8771785849736567`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"fc70072b-9d42-4b32-9315-75acf4835648"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ SuperscriptBox[
+  RowBox[{"(", 
+   RowBox[{"75", "-", 
+    RowBox[{"65", "I"}]}], ")"}], "5"]], "Input",
+ CellChangeTimes->{{3.877179743776692*^9, 3.877179767811218*^9}, 
+   3.877180124997892*^9},
+ CellLabel->"In[17]:=",ExpressionUUID->"6417bf0e-bb30-4986-be15-5568ccb631c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "8757187500"}], "+", 
+  RowBox[{"4004162500", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{3.8771797693372884`*^9, 3.8771801255513754`*^9, 
+  3.877180198810938*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"2d4688fa-b2cb-440b-a2dc-e8e690686b47"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"z_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"len", "=", 
+     RowBox[{"Norm", "[", "z", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"\[Theta]", "=", 
+     RowBox[{
+      RowBox[{"ArcCos", "[", 
+       RowBox[{
+        RowBox[{"z", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "/", "len"}], "]"}], 
+      RowBox[{"Sign", "[", 
+       RowBox[{"z", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["len", "n"], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"n", " ", "\[Theta]"}], "]"}], "+", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"n", " ", "\[Theta]"}], "]"}], "I"}]}], ")"}]}], "//", 
+     "N"}]}], ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{"f", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.75"}], ",", 
+     RowBox[{"-", "0.65"}]}], "}"}], ",", "6"}], "]"}], "\[IndentingNewLine]", 
+ SuperscriptBox[
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"-", "0.75"}], "-", 
+    RowBox[{"0.65", "I"}]}], ")"}], "6"]}], "Input",
+ CellChangeTimes->{{3.877179781919565*^9, 3.8771799059576216`*^9}, 
+   3.8771801412269983`*^9, {3.8771804341165304`*^9, 3.877180442367263*^9}, {
+   3.8771818458682375`*^9, 3.8771820716181517`*^9}, {3.877182118156039*^9, 
+   3.877182174132092*^9}, {3.87718222626046*^9, 3.877182230480856*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"7a8ff873-45ac-49eb-87b4-a65d1c567d15"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "0.3965184999999993`"}], "-", 
+  RowBox[{"0.8695293750000006`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{{3.877179895253562*^9, 3.877179906909261*^9}, {
+   3.8771801908606687`*^9, 3.8771802021979156`*^9}, 3.877180443394267*^9, {
+   3.87718203515504*^9, 3.8771820723467236`*^9}, {3.877182119815344*^9, 
+   3.8771821747695293`*^9}, 3.877182232821807*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"b43acb5b-2122-4a27-a962-92ee0d826bed"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "0.3965185`"}], "-", 
+  RowBox[{"0.8695293750000002`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{{3.877179895253562*^9, 3.877179906909261*^9}, {
+   3.8771801908606687`*^9, 3.8771802021979156`*^9}, 3.877180443394267*^9, {
+   3.87718203515504*^9, 3.8771820723467236`*^9}, {3.877182119815344*^9, 
+   3.8771821747695293`*^9}, 3.8771822328343315`*^9},
+ CellLabel->"Out[52]=",ExpressionUUID->"dcf88b49-d329-4519-afa6-b250a3e0ad07"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{"75", "+", 
+    RowBox[{"65", "I"}]}], 
+   RowBox[{"32", "+", 
+    RowBox[{"23", "I"}]}]], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.877179999898346*^9, 3.8771800144127045`*^9}, 
+   3.8771824351421137`*^9},
+ CellLabel->"In[53]:=",ExpressionUUID->"2b89beae-2054-4fd1-aa25-5d41c3a25b20"],
+
+Cell[BoxData[
+ RowBox[{"2.5080489375402446`", "\[VeryThinSpace]", "+", 
+  RowBox[{"0.22858982614294912`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{{3.8771800080583735`*^9, 3.8771800152233715`*^9}, 
+   3.877182435584158*^9},
+ CellLabel->"Out[53]=",ExpressionUUID->"c12a79b6-358c-453e-a754-06eebd0b89ec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"75", "+", 
+      RowBox[{"65", "I"}]}], ")"}], 
+    RowBox[{"(", 
+     RowBox[{"32", "-", 
+      RowBox[{"23", "I"}]}], ")"}]}], 
+   RowBox[{
+    SuperscriptBox["32", "2"], "+", 
+    SuperscriptBox["23", "2"]}]], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.877180036531395*^9, 3.87718009349844*^9}, 
+   3.8771824409337864`*^9},
+ CellLabel->"In[54]:=",ExpressionUUID->"af265b2d-1a97-45fe-9e84-1693106082b8"],
+
+Cell[BoxData[
+ RowBox[{"2.5080489375402446`", "\[VeryThinSpace]", "+", 
+  RowBox[{"0.22858982614294912`", " ", "\[ImaginaryI]"}]}]], "Output",
+ CellChangeTimes->{{3.877180089981106*^9, 3.877180094299831*^9}, 
+   3.877182441572457*^9},
+ CellLabel->"Out[54]=",ExpressionUUID->"8f781653-f585-4afa-95ab-15d8780dd154"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"pts", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "0", ",", 
+         RowBox[{"2", "\[Pi]"}], ",", 
+         RowBox[{"2", 
+          RowBox[{"\[Pi]", "/", "n"}]}]}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"pts2", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{"ReIm", "[", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "+", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "I"}]}], ")"}], "a"], "]"}], 
+         ",", "1"}], "]"}], "&"}], "/@", "pts"}]}], ";", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Orange", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"pts", ",", "pts2"}], "}"}], "\[Transpose]"}], "]"}], ",", 
+        "Magenta", ",", 
+        RowBox[{"Point", "[", "pts", "]"}], ",", 
+        RowBox[{"Point", "[", "pts2", "]"}]}], "}"}], ",", 
+      RowBox[{"Boxed", "->", "False"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "10", ",", "100", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"pts", ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"pts2", ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.87719309220519*^9, 3.877193114479638*^9}, {
+  3.877193147234314*^9, 3.877193317496457*^9}, {3.8771933924149394`*^9, 
+  3.877193451281058*^9}, {3.8771934902833085`*^9, 3.8771935223064985`*^9}, {
+  3.8771935926493926`*^9, 3.8771936234890614`*^9}, {3.8771936700907745`*^9, 
+  3.877193853589281*^9}, {3.8771940211579056`*^9, 3.877194023670684*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"f9f6f745-bfde-4bcb-82a3-8974329c544a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 10., $CellContext`n$$ = 
+    100, $CellContext`pts$$ = {{1, 0, 0}, {
+      Cos[Rational[1, 50] Pi], 
+      Sin[Rational[1, 50] Pi], 0}, {
+      Cos[Rational[1, 25] Pi], 
+      Sin[Rational[1, 25] Pi], 0}, {
+      Cos[Rational[3, 50] Pi], 
+      Sin[Rational[3, 50] Pi], 0}, {
+      Cos[Rational[2, 25] Pi], 
+      Sin[Rational[2, 25] Pi], 
+      0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 
+      Rational[1, 4] (-1 + 5^Rational[1, 2]), 0}, {
+      Cos[Rational[3, 25] Pi], 
+      Sin[Rational[3, 25] Pi], 0}, {
+      Cos[Rational[7, 50] Pi], 
+      Sin[Rational[7, 50] Pi], 0}, {
+      Cos[Rational[4, 25] Pi], 
+      Sin[Rational[4, 25] Pi], 0}, {
+      Cos[Rational[9, 50] Pi], 
+      Sin[Rational[9, 50] Pi], 0}, {
+     Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+       Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Cos[Rational[11, 50] Pi], 
+      Sin[Rational[11, 50] Pi], 0}, {
+      Cos[Rational[6, 25] Pi], 
+      Sin[Rational[6, 25] Pi], 0}, {
+      Sin[Rational[6, 25] Pi], 
+      Cos[Rational[6, 25] Pi], 0}, {
+      Sin[Rational[11, 50] Pi], 
+      Cos[Rational[11, 50] Pi], 
+      0}, {(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2],
+       Rational[1, 4] (1 + 5^Rational[1, 2]), 0}, {
+      Sin[Rational[9, 50] Pi], 
+      Cos[Rational[9, 50] Pi], 0}, {
+      Sin[Rational[4, 25] Pi], 
+      Cos[Rational[4, 25] Pi], 0}, {
+      Sin[Rational[7, 50] Pi], 
+      Cos[Rational[7, 50] Pi], 0}, {
+      Sin[Rational[3, 25] Pi], 
+      Cos[Rational[3, 25] Pi], 0}, {
+     Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+       Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Sin[Rational[2, 25] Pi], 
+      Cos[Rational[2, 25] Pi], 0}, {
+      Sin[Rational[3, 50] Pi], 
+      Cos[Rational[3, 50] Pi], 0}, {
+      Sin[Rational[1, 25] Pi], 
+      Cos[Rational[1, 25] Pi], 0}, {
+      Sin[Rational[1, 50] Pi], 
+      Cos[Rational[1, 50] Pi], 0}, {0, 1, 0}, {-Sin[Rational[1, 50] Pi], 
+      Cos[Rational[1, 50] Pi], 0}, {-Sin[Rational[1, 25] Pi], 
+      Cos[Rational[1, 25] Pi], 0}, {-Sin[Rational[3, 50] Pi], 
+      Cos[Rational[3, 50] Pi], 0}, {-Sin[Rational[2, 25] Pi], 
+      Cos[Rational[2, 25] Pi], 0}, {
+     Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+       Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
+      Sin[Rational[3, 25] Pi], 
+      Cos[Rational[3, 25] Pi], 0}, {-Sin[Rational[7, 50] Pi], 
+      Cos[Rational[7, 50] Pi], 0}, {-Sin[Rational[4, 25] Pi], 
+      Cos[Rational[4, 25] Pi], 0}, {-Sin[Rational[9, 50] Pi], 
+      Cos[Rational[9, 50] Pi], 
+      0}, {-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 0}, {-
+      Sin[Rational[11, 50] Pi], 
+      Cos[Rational[11, 50] Pi], 0}, {-Sin[Rational[6, 25] Pi], 
+      Cos[Rational[6, 25] Pi], 0}, {-Cos[Rational[6, 25] Pi], 
+      Sin[Rational[6, 25] Pi], 0}, {-Cos[Rational[11, 50] Pi], 
+      Sin[Rational[11, 50] Pi], 0}, {
+     Rational[1, 4] (-1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+       Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
+      Cos[Rational[9, 50] Pi], 
+      Sin[Rational[9, 50] Pi], 0}, {-Cos[Rational[4, 25] Pi], 
+      Sin[Rational[4, 25] Pi], 0}, {-Cos[Rational[7, 50] Pi], 
+      Sin[Rational[7, 50] Pi], 0}, {-Cos[Rational[3, 25] Pi], 
+      Sin[Rational[3, 25] Pi], 
+      0}, {-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2],
+       Rational[1, 4] (-1 + 5^Rational[1, 2]), 0}, {-Cos[Rational[2, 25] Pi], 
+      Sin[Rational[2, 25] Pi], 0}, {-Cos[Rational[3, 50] Pi], 
+      Sin[Rational[3, 50] Pi], 0}, {-Cos[Rational[1, 25] Pi], 
+      Sin[Rational[1, 25] Pi], 0}, {-Cos[Rational[1, 50] Pi], 
+      Sin[Rational[1, 50] Pi], 0}, {-1, 0, 
+     0}, {-Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 0}, {-
+      Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 0}, {-
+      Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 0}, {-
+      Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 
+      0}, {-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2],
+       Rational[1, 4] (1 - 5^Rational[1, 2]), 0}, {-Cos[Rational[3, 25] Pi], -
+      Sin[Rational[3, 25] Pi], 0}, {-Cos[Rational[7, 50] Pi], -
+      Sin[Rational[7, 50] Pi], 0}, {-Cos[Rational[4, 25] Pi], -
+      Sin[Rational[4, 25] Pi], 0}, {-Cos[Rational[9, 50] Pi], -
+      Sin[Rational[9, 50] Pi], 0}, {
+     Rational[1, 4] (-1 - 5^
+       Rational[1, 2]), -(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], 0}, {-Cos[Rational[11, 50] Pi], -
+      Sin[Rational[11, 50] Pi], 0}, {-Cos[Rational[6, 25] Pi], -
+      Sin[Rational[6, 25] Pi], 0}, {-Sin[Rational[6, 25] Pi], -
+      Cos[Rational[6, 25] Pi], 0}, {-Sin[Rational[11, 50] Pi], -
+      Cos[Rational[11, 50] Pi], 
+      0}, {-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 0}, {-
+      Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 0}, {-
+      Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 0}, {-
+      Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 0}, {-
+      Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 0}, {
+     Rational[1, 4] (1 - 5^
+       Rational[1, 2]), -(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], 0}, {-Sin[Rational[2, 25] Pi], -
+      Cos[Rational[2, 25] Pi], 0}, {-Sin[Rational[3, 50] Pi], -
+      Cos[Rational[3, 50] Pi], 0}, {-Sin[Rational[1, 25] Pi], -
+      Cos[Rational[1, 25] Pi], 0}, {-Sin[Rational[1, 50] Pi], -
+      Cos[Rational[1, 50] Pi], 0}, {0, -1, 0}, {
+      Sin[Rational[1, 50] Pi], -Cos[Rational[1, 50] Pi], 0}, {
+      Sin[Rational[1, 25] Pi], -Cos[Rational[1, 25] Pi], 0}, {
+      Sin[Rational[3, 50] Pi], -Cos[Rational[3, 50] Pi], 0}, {
+      Sin[Rational[2, 25] Pi], -Cos[Rational[2, 25] Pi], 0}, {
+     Rational[1, 4] (-1 + 
+       5^Rational[1, 2]), -(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], 0}, {
+      Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 0}, {
+      Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 0}, {
+      Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 0}, {
+      Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 
+      0}, {(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2],
+       Rational[1, 4] (-1 - 5^Rational[1, 2]), 0}, {
+      Sin[Rational[11, 50] Pi], -Cos[Rational[11, 50] Pi], 0}, {
+      Sin[Rational[6, 25] Pi], -Cos[Rational[6, 25] Pi], 0}, {
+      Cos[Rational[6, 25] Pi], -Sin[Rational[6, 25] Pi], 0}, {
+      Cos[Rational[11, 50] Pi], -Sin[Rational[11, 50] Pi], 0}, {
+     Rational[1, 4] (1 + 
+       5^Rational[1, 2]), -(Rational[5, 8] + 
+        Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Cos[Rational[9, 50] Pi], -Sin[Rational[9, 50] Pi], 0}, {
+      Cos[Rational[4, 25] Pi], -Sin[Rational[4, 25] Pi], 0}, {
+      Cos[Rational[7, 50] Pi], -Sin[Rational[7, 50] Pi], 0}, {
+      Cos[Rational[3, 25] Pi], -Sin[Rational[3, 25] Pi], 
+      0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 
+      Rational[1, 4] (1 - 5^Rational[1, 2]), 0}, {
+      Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 0}, {
+      Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 0}, {
+      Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 0}, {
+      Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 0}, {1, 0, 
+     0}}, $CellContext`pts2$$ = {{1., 0, 1}, {
+     0.8090169943749475, 0.5877852522924731, 1}, {
+     0.30901699437494756`, 0.951056516295154, 1}, {-0.309016994374947, 
+      0.951056516295154, 1}, {-0.809016994374947, 0.587785252292473, 
+      1}, {-0.9999999999999998, -3.2162452993532727`*^-16, 
+      1}, {-0.8090169943749478, -0.5877852522924732, 
+      1}, {-0.3090169943749467, -0.9510565162951535, 1}, {
+     0.3090169943749473, -0.9510565162951539, 1}, {
+     0.8090169943749476, -0.5877852522924735, 1}, {
+     1.0000000000000002`, -2.449293598294707*^-16, 1}, {
+     0.8090169943749473, 0.5877852522924728, 1}, {
+     0.3090169943749477, 0.9510565162951533, 1}, {-0.30901699437494706`, 
+      0.9510565162951534, 1}, {-0.809016994374948, 0.5877852522924718, 
+      1}, {-1.0000000000000002`, 3.6739403974420604`*^-16, 
+      1}, {-0.8090169943749479, -0.5877852522924729, 
+      1}, {-0.3090169943749479, -0.9510565162951536, 1}, {
+     0.30901699437494695`, -0.9510565162951535, 1}, {
+     0.8090169943749486, -0.5877852522924722, 1}, {
+     0.9999999999999998, -4.898587196589412*^-16, 1}, {
+     0.8090169943749475, 0.5877852522924725, 1}, {
+     0.3090169943749463, 0.9510565162951542, 1}, {-0.309016994374947, 
+      0.9510565162951542, 1}, {-0.8090169943749481, 0.5877852522924721, 
+      1}, {-1., 6.123233995736766*^-16, 
+      1}, {-0.8090169943749478, -0.5877852522924726, 
+      1}, {-0.3090169943749448, -0.9510565162951549, 1}, {
+     0.30901699437494684`, -0.951056516295154, 1}, {
+     0.8090169943749467, -0.5877852522924735, 1}, {
+     0.9999999999999998, 2.817925599312088*^-15, 1}, {
+     0.8090169943749482, 0.5877852522924727, 1}, {
+     0.3090169943749481, 0.9510565162951531, 1}, {-0.3090169943749501, 
+      0.951056516295153, 1}, {-0.8090169943749471, 0.5877852522924739, 
+      1}, {-1.0000000000000002`, 8.572527594031474*^-16, 
+      1}, {-0.8090169943749477, -0.5877852522924724, 
+      1}, {-0.30901699437494484`, -0.9510565162951542, 1}, {
+     0.30901699437494984`, -0.9510565162951525, 1}, {
+     0.8090169943749488, -0.5877852522924709, 1}, {
+     1.0000000000000002`, -9.797174393178828*^-16, 1}, {
+     0.8090169943749482, 0.5877852522924725, 1}, {
+     0.30901699437494845`, 0.9510565162951535, 1}, {-0.309016994374943, 
+      0.9510565162951548, 1}, {-0.8090169943749492, 0.5877852522924714, 
+      1}, {-0.9999999999999998, 1.1021821192326177`*^-15, 
+      1}, {-0.8090169943749478, -0.587785252292472, 
+      1}, {-0.3090169943749452, -0.9510565162951545, 1}, {
+     0.3090169943749498, -0.9510565162951533, 1}, {
+     0.8090169943749467, -0.5877852522924741, 1}, {1., 0, 1}, {
+     0.8090169943749467, 0.5877852522924741, 1}, {
+     0.3090169943749498, 0.9510565162951533, 1}, {-0.3090169943749452, 
+      0.9510565162951545, 1}, {-0.8090169943749478, 0.587785252292472, 
+      1}, {-0.9999999999999998, -1.1021821192326177`*^-15, 
+      1}, {-0.8090169943749492, -0.5877852522924714, 
+      1}, {-0.309016994374943, -0.9510565162951548, 1}, {
+     0.30901699437494845`, -0.9510565162951535, 1}, {
+     0.8090169943749482, -0.5877852522924725, 1}, {
+     1.0000000000000002`, 9.797174393178828*^-16, 1}, {
+     0.8090169943749488, 0.5877852522924709, 1}, {
+     0.30901699437494984`, 0.9510565162951525, 1}, {-0.30901699437494484`, 
+      0.9510565162951542, 1}, {-0.8090169943749477, 0.5877852522924724, 
+      1}, {-1.0000000000000002`, -8.572527594031474*^-16, 
+      1}, {-0.8090169943749471, -0.5877852522924739, 
+      1}, {-0.3090169943749501, -0.951056516295153, 1}, {
+     0.3090169943749481, -0.9510565162951531, 1}, {
+     0.8090169943749482, -0.5877852522924727, 1}, {
+     0.9999999999999998, -2.817925599312088*^-15, 1}, {
+     0.8090169943749467, 0.5877852522924735, 1}, {
+     0.30901699437494684`, 0.951056516295154, 1}, {-0.3090169943749448, 
+      0.9510565162951549, 1}, {-0.8090169943749478, 0.5877852522924726, 
+      1}, {-1., -6.123233995736766*^-16, 
+      1}, {-0.8090169943749481, -0.5877852522924721, 
+      1}, {-0.309016994374947, -0.9510565162951542, 1}, {
+     0.3090169943749463, -0.9510565162951542, 1}, {
+     0.8090169943749475, -0.5877852522924725, 1}, {
+     0.9999999999999998, 4.898587196589412*^-16, 1}, {
+     0.8090169943749486, 0.5877852522924722, 1}, {
+     0.30901699437494695`, 0.9510565162951535, 1}, {-0.3090169943749479, 
+      0.9510565162951536, 1}, {-0.8090169943749479, 0.5877852522924729, 
+      1}, {-1.0000000000000002`, -3.6739403974420604`*^-16, 
+      1}, {-0.809016994374948, -0.5877852522924718, 
+      1}, {-0.30901699437494706`, -0.9510565162951534, 1}, {
+     0.3090169943749477, -0.9510565162951533, 1}, {
+     0.8090169943749473, -0.5877852522924728, 1}, {
+     1.0000000000000002`, 2.449293598294707*^-16, 1}, {
+     0.8090169943749476, 0.5877852522924735, 1}, {
+     0.3090169943749473, 0.9510565162951539, 1}, {-0.3090169943749467, 
+      0.9510565162951535, 1}, {-0.8090169943749478, 0.5877852522924732, 
+      1}, {-0.9999999999999998, 3.2162452993532727`*^-16, 
+      1}, {-0.809016994374947, -0.587785252292473, 
+      1}, {-0.309016994374947, -0.951056516295154, 1}, {
+     0.30901699437494756`, -0.951056516295154, 1}, {
+     0.8090169943749475, -0.5877852522924731, 1}, {1., 0, 1}}, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 10}, {
+      Hold[$CellContext`n$$], 10, 100, 1}, {
+      Hold[$CellContext`pts$$]}, {
+      Hold[$CellContext`pts2$$]}}, Typeset`size$$ = {360., {178., 182.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`n$$ = 
+        10, $CellContext`pts$$ = Null, $CellContext`pts2$$ = Null}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`pts$$ = Table[{
+           Cos[$CellContext`\[Theta]], 
+           Sin[$CellContext`\[Theta]], 0}, {$CellContext`\[Theta], 0, 2 Pi, 
+           2 (Pi/$CellContext`n$$)}]; $CellContext`pts2$$ = Map[Append[
+           ReIm[(Part[#, 1] + Part[#, 2] I)^$CellContext`a$$], 
+           1]& , $CellContext`pts$$]; Graphics3D[{Thick, Orange, 
+          Line[
+           Transpose[{$CellContext`pts$$, $CellContext`pts2$$}]], Magenta, 
+          Point[$CellContext`pts$$], 
+          Point[$CellContext`pts2$$]}, Boxed -> False]), 
+      "Specifications" :> {{$CellContext`a$$, 1, 10}, {$CellContext`n$$, 10, 
+         100, 1}, {$CellContext`pts$$, ControlType -> 
+         None}, {$CellContext`pts2$$, ControlType -> None}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{835., {208.134033203125, 213.865966796875}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.877193282914976*^9, 3.8771935471988134`*^9, 
+  3.8771936265610313`*^9, 3.877193763932146*^9, 3.87719382421214*^9, 
+  3.877193854599166*^9, 3.8771941283643274`*^9},
+ CellLabel->"Out[61]=",ExpressionUUID->"87949ee3-b03c-4d81-bcf9-499c02a47d0f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"pts", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]", "]"}], ",", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], ",", "0"}], "}"}], ",", 
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"ReIm", "[", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"Cos", "[", "\[Theta]", "]"}], "+", 
+               RowBox[{
+                RowBox[{"Sin", "[", "\[Theta]", "]"}], "I"}]}], ")"}], "a"], 
+            "]"}], ",", "1"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "0", ",", 
+         RowBox[{"2", "\[Pi]"}], ",", 
+         RowBox[{"2", 
+          RowBox[{"\[Pi]", "/", "n"}]}]}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Line", "[", "pts", "]"}], "}"}], ",", 
+      RowBox[{"Boxed", "->", "False"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "100"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "100"}], "}"}], ",", "10", ",", "200", ",", "1"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"pts", ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"pts2", ",", 
+     RowBox[{"ControlType", "->", "None"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.87719309220519*^9, 3.877193114479638*^9}, {
+   3.877193147234314*^9, 3.877193317496457*^9}, {3.8771933924149394`*^9, 
+   3.877193451281058*^9}, {3.8771934902833085`*^9, 3.8771935223064985`*^9}, {
+   3.8771935926493926`*^9, 3.8771936234890614`*^9}, {3.8771936700907745`*^9, 
+   3.877193853589281*^9}, {3.8771940211579056`*^9, 3.877194023670684*^9}, 
+   3.877194162360909*^9, {3.8771941965581956`*^9, 3.8771943113144197`*^9}, {
+   3.877194574548384*^9, 3.877194641714965*^9}, {3.877194684590867*^9, 
+   3.877194685070465*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"5fc1c941-10b8-4886-9ddb-77587158463d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`n$$ = 
+    100, $CellContext`pts$$ = {{{1, 0, 0}, {1, 0, 1}}, {{
+       Cos[Rational[1, 50] Pi], 
+       Sin[Rational[1, 50] Pi], 0}, {
+       Cos[Rational[1, 50] Pi], 
+       Sin[Rational[1, 50] Pi], 1}}, {{
+       Cos[Rational[1, 25] Pi], 
+       Sin[Rational[1, 25] Pi], 0}, {
+       Cos[Rational[1, 25] Pi], 
+       Sin[Rational[1, 25] Pi], 1}}, {{
+       Cos[Rational[3, 50] Pi], 
+       Sin[Rational[3, 50] Pi], 0}, {
+       Cos[Rational[3, 50] Pi], 
+       Sin[Rational[3, 50] Pi], 1}}, {{
+       Cos[Rational[2, 25] Pi], 
+       Sin[Rational[2, 25] Pi], 0}, {
+       Cos[Rational[2, 25] Pi], 
+       Sin[Rational[2, 25] Pi], 
+       1}}, {{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 
+       0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2],
+        Rational[1, 4] (-1 + 5^Rational[1, 2]), 1}}, {{
+       Cos[Rational[3, 25] Pi], 
+       Sin[Rational[3, 25] Pi], 0}, {
+       Cos[Rational[3, 25] Pi], 
+       Sin[Rational[3, 25] Pi], 1}}, {{
+       Cos[Rational[7, 50] Pi], 
+       Sin[Rational[7, 50] Pi], 0}, {
+       Cos[Rational[7, 50] Pi], 
+       Sin[Rational[7, 50] Pi], 1}}, {{
+       Cos[Rational[4, 25] Pi], 
+       Sin[Rational[4, 25] Pi], 0}, {
+       Cos[Rational[4, 25] Pi], 
+       Sin[Rational[4, 25] Pi], 1}}, {{
+       Cos[Rational[9, 50] Pi], 
+       Sin[Rational[9, 50] Pi], 0}, {
+       Cos[Rational[9, 50] Pi], 
+       Sin[Rational[9, 50] Pi], 1}}, {{
+      Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{
+       Cos[Rational[11, 50] Pi], 
+       Sin[Rational[11, 50] Pi], 0}, {
+       Cos[Rational[11, 50] Pi], 
+       Sin[Rational[11, 50] Pi], 1}}, {{
+       Cos[Rational[6, 25] Pi], 
+       Sin[Rational[6, 25] Pi], 0}, {
+       Cos[Rational[6, 25] Pi], 
+       Sin[Rational[6, 25] Pi], 1}}, {{
+       Sin[Rational[6, 25] Pi], 
+       Cos[Rational[6, 25] Pi], 0}, {
+       Sin[Rational[6, 25] Pi], 
+       Cos[Rational[6, 25] Pi], 1}}, {{
+       Sin[Rational[11, 50] Pi], 
+       Cos[Rational[11, 50] Pi], 0}, {
+       Sin[Rational[11, 50] Pi], 
+       Cos[Rational[11, 50] Pi], 
+       1}}, {{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 
+       0}, {(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 1}}, {{
+       Sin[Rational[9, 50] Pi], 
+       Cos[Rational[9, 50] Pi], 0}, {
+       Sin[Rational[9, 50] Pi], 
+       Cos[Rational[9, 50] Pi], 1}}, {{
+       Sin[Rational[4, 25] Pi], 
+       Cos[Rational[4, 25] Pi], 0}, {
+       Sin[Rational[4, 25] Pi], 
+       Cos[Rational[4, 25] Pi], 1}}, {{
+       Sin[Rational[7, 50] Pi], 
+       Cos[Rational[7, 50] Pi], 0}, {
+       Sin[Rational[7, 50] Pi], 
+       Cos[Rational[7, 50] Pi], 1}}, {{
+       Sin[Rational[3, 25] Pi], 
+       Cos[Rational[3, 25] Pi], 0}, {
+       Sin[Rational[3, 25] Pi], 
+       Cos[Rational[3, 25] Pi], 1}}, {{
+      Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{
+       Sin[Rational[2, 25] Pi], 
+       Cos[Rational[2, 25] Pi], 0}, {
+       Sin[Rational[2, 25] Pi], 
+       Cos[Rational[2, 25] Pi], 1}}, {{
+       Sin[Rational[3, 50] Pi], 
+       Cos[Rational[3, 50] Pi], 0}, {
+       Sin[Rational[3, 50] Pi], 
+       Cos[Rational[3, 50] Pi], 1}}, {{
+       Sin[Rational[1, 25] Pi], 
+       Cos[Rational[1, 25] Pi], 0}, {
+       Sin[Rational[1, 25] Pi], 
+       Cos[Rational[1, 25] Pi], 1}}, {{
+       Sin[Rational[1, 50] Pi], 
+       Cos[Rational[1, 50] Pi], 0}, {
+       Sin[Rational[1, 50] Pi], 
+       Cos[Rational[1, 50] Pi], 1}}, {{0, 1, 0}, {0, 1, 
+     1}}, {{-Sin[Rational[1, 50] Pi], 
+       Cos[Rational[1, 50] Pi], 0}, {-Sin[Rational[1, 50] Pi], 
+       Cos[Rational[1, 50] Pi], 1}}, {{-Sin[Rational[1, 25] Pi], 
+       Cos[Rational[1, 25] Pi], 0}, {-Sin[Rational[1, 25] Pi], 
+       Cos[Rational[1, 25] Pi], 1}}, {{-Sin[Rational[3, 50] Pi], 
+       Cos[Rational[3, 50] Pi], 0}, {-Sin[Rational[3, 50] Pi], 
+       Cos[Rational[3, 50] Pi], 1}}, {{-Sin[Rational[2, 25] Pi], 
+       Cos[Rational[2, 25] Pi], 0}, {-Sin[Rational[2, 25] Pi], 
+       Cos[Rational[2, 25] Pi], 1}}, {{
+      Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{-
+       Sin[Rational[3, 25] Pi], 
+       Cos[Rational[3, 25] Pi], 0}, {-Sin[Rational[3, 25] Pi], 
+       Cos[Rational[3, 25] Pi], 1}}, {{-Sin[Rational[7, 50] Pi], 
+       Cos[Rational[7, 50] Pi], 0}, {-Sin[Rational[7, 50] Pi], 
+       Cos[Rational[7, 50] Pi], 1}}, {{-Sin[Rational[4, 25] Pi], 
+       Cos[Rational[4, 25] Pi], 0}, {-Sin[Rational[4, 25] Pi], 
+       Cos[Rational[4, 25] Pi], 1}}, {{-Sin[Rational[9, 50] Pi], 
+       Cos[Rational[9, 50] Pi], 0}, {-Sin[Rational[9, 50] Pi], 
+       Cos[Rational[9, 50] Pi], 
+       1}}, {{-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 
+       0}, {-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 1}}, {{-
+       Sin[Rational[11, 50] Pi], 
+       Cos[Rational[11, 50] Pi], 0}, {-Sin[Rational[11, 50] Pi], 
+       Cos[Rational[11, 50] Pi], 1}}, {{-Sin[Rational[6, 25] Pi], 
+       Cos[Rational[6, 25] Pi], 0}, {-Sin[Rational[6, 25] Pi], 
+       Cos[Rational[6, 25] Pi], 1}}, {{-Cos[Rational[6, 25] Pi], 
+       Sin[Rational[6, 25] Pi], 0}, {-Cos[Rational[6, 25] Pi], 
+       Sin[Rational[6, 25] Pi], 1}}, {{-Cos[Rational[11, 50] Pi], 
+       Sin[Rational[11, 50] Pi], 0}, {-Cos[Rational[11, 50] Pi], 
+       Sin[Rational[11, 50] Pi], 1}}, {{
+      Rational[1, 4] (-1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (-1 - 5^Rational[1, 2]), (Rational[5, 8] + 
+        Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{-
+       Cos[Rational[9, 50] Pi], 
+       Sin[Rational[9, 50] Pi], 0}, {-Cos[Rational[9, 50] Pi], 
+       Sin[Rational[9, 50] Pi], 1}}, {{-Cos[Rational[4, 25] Pi], 
+       Sin[Rational[4, 25] Pi], 0}, {-Cos[Rational[4, 25] Pi], 
+       Sin[Rational[4, 25] Pi], 1}}, {{-Cos[Rational[7, 50] Pi], 
+       Sin[Rational[7, 50] Pi], 0}, {-Cos[Rational[7, 50] Pi], 
+       Sin[Rational[7, 50] Pi], 1}}, {{-Cos[Rational[3, 25] Pi], 
+       Sin[Rational[3, 25] Pi], 0}, {-Cos[Rational[3, 25] Pi], 
+       Sin[Rational[3, 25] Pi], 
+       1}}, {{-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 
+       0}, {-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 1}}, {{-
+       Cos[Rational[2, 25] Pi], 
+       Sin[Rational[2, 25] Pi], 0}, {-Cos[Rational[2, 25] Pi], 
+       Sin[Rational[2, 25] Pi], 1}}, {{-Cos[Rational[3, 50] Pi], 
+       Sin[Rational[3, 50] Pi], 0}, {-Cos[Rational[3, 50] Pi], 
+       Sin[Rational[3, 50] Pi], 1}}, {{-Cos[Rational[1, 25] Pi], 
+       Sin[Rational[1, 25] Pi], 0}, {-Cos[Rational[1, 25] Pi], 
+       Sin[Rational[1, 25] Pi], 1}}, {{-Cos[Rational[1, 50] Pi], 
+       Sin[Rational[1, 50] Pi], 0}, {-Cos[Rational[1, 50] Pi], 
+       Sin[Rational[1, 50] Pi], 1}}, {{-1, 0, 0}, {-1, 0, 
+     1}}, {{-Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 0}, {-
+       Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 1}}, {{-
+       Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 0}, {-
+       Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 1}}, {{-
+       Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 0}, {-
+       Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 1}}, {{-
+       Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 0}, {-
+       Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 
+       1}}, {{-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 
+       0}, {-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 1}}, {{-
+       Cos[Rational[3, 25] Pi], -Sin[Rational[3, 25] Pi], 0}, {-
+       Cos[Rational[3, 25] Pi], -Sin[Rational[3, 25] Pi], 1}}, {{-
+       Cos[Rational[7, 50] Pi], -Sin[Rational[7, 50] Pi], 0}, {-
+       Cos[Rational[7, 50] Pi], -Sin[Rational[7, 50] Pi], 1}}, {{-
+       Cos[Rational[4, 25] Pi], -Sin[Rational[4, 25] Pi], 0}, {-
+       Cos[Rational[4, 25] Pi], -Sin[Rational[4, 25] Pi], 1}}, {{-
+       Cos[Rational[9, 50] Pi], -Sin[Rational[9, 50] Pi], 0}, {-
+       Cos[Rational[9, 50] Pi], -Sin[Rational[9, 50] Pi], 1}}, {{
+      Rational[1, 4] (-1 - 5^
+        Rational[1, 2]), -(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], 0}, {
+      Rational[1, 4] (-1 - 5^
+        Rational[1, 2]), -(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], 1}}, {{-Cos[Rational[11, 50] Pi], -
+       Sin[Rational[11, 50] Pi], 0}, {-Cos[Rational[11, 50] Pi], -
+       Sin[Rational[11, 50] Pi], 1}}, {{-Cos[Rational[6, 25] Pi], -
+       Sin[Rational[6, 25] Pi], 0}, {-Cos[Rational[6, 25] Pi], -
+       Sin[Rational[6, 25] Pi], 1}}, {{-Sin[Rational[6, 25] Pi], -
+       Cos[Rational[6, 25] Pi], 0}, {-Sin[Rational[6, 25] Pi], -
+       Cos[Rational[6, 25] Pi], 1}}, {{-Sin[Rational[11, 50] Pi], -
+       Cos[Rational[11, 50] Pi], 0}, {-Sin[Rational[11, 50] Pi], -
+       Cos[Rational[11, 50] Pi], 
+       1}}, {{-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 
+       0}, {-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 1}}, {{-
+       Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 0}, {-
+       Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 1}}, {{-
+       Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 0}, {-
+       Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 1}}, {{-
+       Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 0}, {-
+       Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 1}}, {{-
+       Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 0}, {-
+       Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 1}}, {{
+      Rational[1, 4] (1 - 5^
+        Rational[1, 2]), -(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], 0}, {
+      Rational[1, 4] (1 - 5^
+        Rational[1, 2]), -(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+        Rational[1, 2], 1}}, {{-Sin[Rational[2, 25] Pi], -
+       Cos[Rational[2, 25] Pi], 0}, {-Sin[Rational[2, 25] Pi], -
+       Cos[Rational[2, 25] Pi], 1}}, {{-Sin[Rational[3, 50] Pi], -
+       Cos[Rational[3, 50] Pi], 0}, {-Sin[Rational[3, 50] Pi], -
+       Cos[Rational[3, 50] Pi], 1}}, {{-Sin[Rational[1, 25] Pi], -
+       Cos[Rational[1, 25] Pi], 0}, {-Sin[Rational[1, 25] Pi], -
+       Cos[Rational[1, 25] Pi], 1}}, {{-Sin[Rational[1, 50] Pi], -
+       Cos[Rational[1, 50] Pi], 0}, {-Sin[Rational[1, 50] Pi], -
+       Cos[Rational[1, 50] Pi], 1}}, {{0, -1, 0}, {0, -1, 1}}, {{
+       Sin[Rational[1, 50] Pi], -Cos[Rational[1, 50] Pi], 0}, {
+       Sin[Rational[1, 50] Pi], -Cos[Rational[1, 50] Pi], 1}}, {{
+       Sin[Rational[1, 25] Pi], -Cos[Rational[1, 25] Pi], 0}, {
+       Sin[Rational[1, 25] Pi], -Cos[Rational[1, 25] Pi], 1}}, {{
+       Sin[Rational[3, 50] Pi], -Cos[Rational[3, 50] Pi], 0}, {
+       Sin[Rational[3, 50] Pi], -Cos[Rational[3, 50] Pi], 1}}, {{
+       Sin[Rational[2, 25] Pi], -Cos[Rational[2, 25] Pi], 0}, {
+       Sin[Rational[2, 25] Pi], -Cos[Rational[2, 25] Pi], 1}}, {{
+      Rational[1, 4] (-1 + 
+        5^Rational[1, 2]), -(Rational[5, 8] + 
+         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (-1 + 
+        5^Rational[1, 2]), -(Rational[5, 8] + 
+         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{
+       Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 0}, {
+       Sin[Rational[3, 25] Pi], -Cos[Rational[3, 25] Pi], 1}}, {{
+       Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 0}, {
+       Sin[Rational[7, 50] Pi], -Cos[Rational[7, 50] Pi], 1}}, {{
+       Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 0}, {
+       Sin[Rational[4, 25] Pi], -Cos[Rational[4, 25] Pi], 1}}, {{
+       Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 0}, {
+       Sin[Rational[9, 50] Pi], -Cos[Rational[9, 50] Pi], 
+       1}}, {{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 
+       0}, {(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 1}}, {{
+       Sin[Rational[11, 50] Pi], -Cos[Rational[11, 50] Pi], 0}, {
+       Sin[Rational[11, 50] Pi], -Cos[Rational[11, 50] Pi], 1}}, {{
+       Sin[Rational[6, 25] Pi], -Cos[Rational[6, 25] Pi], 0}, {
+       Sin[Rational[6, 25] Pi], -Cos[Rational[6, 25] Pi], 1}}, {{
+       Cos[Rational[6, 25] Pi], -Sin[Rational[6, 25] Pi], 0}, {
+       Cos[Rational[6, 25] Pi], -Sin[Rational[6, 25] Pi], 1}}, {{
+       Cos[Rational[11, 50] Pi], -Sin[Rational[11, 50] Pi], 0}, {
+       Cos[Rational[11, 50] Pi], -Sin[Rational[11, 50] Pi], 1}}, {{
+      Rational[1, 4] (1 + 
+        5^Rational[1, 2]), -(Rational[5, 8] + 
+         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
+      Rational[1, 4] (1 + 
+        5^Rational[1, 2]), -(Rational[5, 8] + 
+         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 1}}, {{
+       Cos[Rational[9, 50] Pi], -Sin[Rational[9, 50] Pi], 0}, {
+       Cos[Rational[9, 50] Pi], -Sin[Rational[9, 50] Pi], 1}}, {{
+       Cos[Rational[4, 25] Pi], -Sin[Rational[4, 25] Pi], 0}, {
+       Cos[Rational[4, 25] Pi], -Sin[Rational[4, 25] Pi], 1}}, {{
+       Cos[Rational[7, 50] Pi], -Sin[Rational[7, 50] Pi], 0}, {
+       Cos[Rational[7, 50] Pi], -Sin[Rational[7, 50] Pi], 1}}, {{
+       Cos[Rational[3, 25] Pi], -Sin[Rational[3, 25] Pi], 0}, {
+       Cos[Rational[3, 25] Pi], -Sin[Rational[3, 25] Pi], 
+       1}}, {{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
+       Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 
+       0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2],
+        Rational[1, 4] (1 - 5^Rational[1, 2]), 1}}, {{
+       Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 0}, {
+       Cos[Rational[2, 25] Pi], -Sin[Rational[2, 25] Pi], 1}}, {{
+       Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 0}, {
+       Cos[Rational[3, 50] Pi], -Sin[Rational[3, 50] Pi], 1}}, {{
+       Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 0}, {
+       Cos[Rational[1, 25] Pi], -Sin[Rational[1, 25] Pi], 1}}, {{
+       Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 0}, {
+       Cos[Rational[1, 50] Pi], -Sin[Rational[1, 50] Pi], 1}}, {{1, 0, 0}, {1,
+      0, 1}}}, $CellContext`pts2$$ = Null, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 100}, {{
+       Hold[$CellContext`n$$], 100}, 10, 200, 1}, {
+      Hold[$CellContext`pts$$]}, {
+      Hold[$CellContext`pts2$$]}}, Typeset`size$$ = {360., {178., 182.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`n$$ = 
+        100, $CellContext`pts$$ = Null, $CellContext`pts2$$ = Null}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`pts$$ = Table[{{
+            Cos[$CellContext`\[Theta]], 
+            Sin[$CellContext`\[Theta]], 0}, 
+           Append[
+            
+            ReIm[(Cos[$CellContext`\[Theta]] + 
+              Sin[$CellContext`\[Theta]] I)^$CellContext`a$$], 
+            1]}, {$CellContext`\[Theta], 0, 2 Pi, 2 (Pi/$CellContext`n$$)}]; 
+       Graphics3D[{
+          Line[$CellContext`pts$$]}, Boxed -> False]), 
+      "Specifications" :> {{$CellContext`a$$, 1, 
+         100}, {{$CellContext`n$$, 100}, 10, 200, 1}, {$CellContext`pts$$, 
+         ControlType -> None}, {$CellContext`pts2$$, ControlType -> None}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{835., {208.134033203125, 213.865966796875}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8771946427785387`*^9, 3.877194772064041*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"fccbdaba-4f66-45d6-8784-b1ea1d3733ed"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{960, 478},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8813307c-3dbe-49ed-b396-2976e796eb2a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 226, 4, 98, "Title",ExpressionUUID->"499b0196-9e09-48e2-97b8-6784fb3cc447"],
+Cell[809, 28, 961, 24, 32, "Output",ExpressionUUID->"fc70072b-9d42-4b32-9315-75acf4835648"],
+Cell[CellGroupData[{
+Cell[1795, 56, 290, 7, 28, "Input",ExpressionUUID->"6417bf0e-bb30-4986-be15-5568ccb631c0"],
+Cell[2088, 65, 293, 6, 32, "Output",ExpressionUUID->"2d4688fa-b2cb-440b-a2dc-e8e690686b47"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2418, 76, 1552, 43, 159, "Input",ExpressionUUID->"7a8ff873-45ac-49eb-87b4-a65d1c567d15"],
+Cell[3973, 121, 485, 8, 32, "Output",ExpressionUUID->"b43acb5b-2122-4a27-a962-92ee0d826bed"],
+Cell[4461, 131, 478, 8, 32, "Output",ExpressionUUID->"dcf88b49-d329-4519-afa6-b250a3e0ad07"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4976, 144, 338, 9, 59, "Input",ExpressionUUID->"2b89beae-2054-4fd1-aa25-5d41c3a25b20"],
+Cell[5317, 155, 317, 5, 32, "Output",ExpressionUUID->"c12a79b6-358c-453e-a754-06eebd0b89ec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5671, 165, 490, 15, 60, "Input",ExpressionUUID->"af265b2d-1a97-45fe-9e84-1693106082b8"],
+Cell[6164, 182, 313, 5, 32, "Output",ExpressionUUID->"8f781653-f585-4afa-95ab-15d8780dd154"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6514, 192, 2240, 58, 156, "Input",ExpressionUUID->"f9f6f745-bfde-4bcb-82a3-8974329c544a"],
+Cell[8757, 252, 15172, 278, 441, "Output",ExpressionUUID->"87949ee3-b03c-4d81-bcf9-499c02a47d0f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23966, 535, 2149, 54, 118, "Input",ExpressionUUID->"5fc1c941-10b8-4886-9ddb-77587158463d"],
+Cell[26118, 591, 17580, 326, 441, "Output",ExpressionUUID->"fccbdaba-4f66-45d6-8784-b1ea1d3733ed"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
