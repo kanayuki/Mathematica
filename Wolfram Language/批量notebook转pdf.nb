@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     91333,       1998]
-NotebookOptionsPosition[     83777,       1874]
-NotebookOutlinePosition[     84187,       1891]
-CellTagsIndexPosition[     84144,       1888]
+NotebookDataLength[     38838,        943]
+NotebookOptionsPosition[     30978,        811]
+NotebookOutlinePosition[     31388,        828]
+CellTagsIndexPosition[     31345,        825]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,6 +24,13 @@ Cell["\:6279\:91cfnotebook\:8f6cpdf", "Title",
  CellChangeTimes->{{3.877751425718624*^9, 
   3.8777514443475895`*^9}},ExpressionUUID->"690a1079-2a90-45ef-ad16-\
 d92fe4b3ba95"],
+
+Cell[CellGroupData[{
+
+Cell["\:83b7\:53d6\:6240\:6709\:6587\:4ef6", "Subsection",
+ CellChangeTimes->{{3.877756652412875*^9, 
+  3.8777566761301594`*^9}},ExpressionUUID->"4cc663e3-6718-445d-b2d2-\
+1261217eb0a5"],
 
 Cell[CellGroupData[{
 
@@ -359,123 +366,25 @@ Cell[BoxData["\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\RegionPlot3D.nb\"\>"], \
 
 Cell[CellGroupData[{
 
-Cell["\:8f6c\:6362\:6587\:4ef6\:683c\:5f0f", "Subsection",
- CellChangeTimes->{{3.877754123903907*^9, 
-  3.877754131912558*^9}},ExpressionUUID->"6c246050-1ecc-46ff-87a9-\
-57d90fa6fe82"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"FileConvert", "[", 
-  RowBox[{
-  "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
-", ",", "\"\<PDF\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.8777500756984653`*^9, 3.8777501455058823`*^9}, 
-   3.877750295354071*^9, {3.877750705128826*^9, 3.8777507143917184`*^9}, {
-   3.877750840305818*^9, 3.877750844652869*^9}},
- CellLabel->
-  "In[231]:=",ExpressionUUID->"65df8453-8029-48ae-9dcb-4ccb03239c73"],
-
-Cell[BoxData[
- RowBox[{"File", "[", 
-  TemplateBox[{"\"3D\:87ba\:65cb\:5957\:5a03.pdf\""},
-   "FileArgument"], "]"}]], "Output",
- CellChangeTimes->{3.877750894553187*^9},
- CellLabel->
-  "Out[231]=",ExpressionUUID->"a2ebc299-c86c-4be8-a274-068f47a98350"]
-}, Open  ]],
-
-Cell["\:8f93\:51fa\:6587\:4ef6\:7684\:4f4d\:7f6e\:5e76\:6ca1\:5982\:9884\:671f\
-\:51fa\:73b0\:5728\:76f8\:540c\:76ee\:5f55\:4e0b", "Text",
- CellChangeTimes->{{3.877754151055043*^9, 
-  3.87775420220831*^9}},ExpressionUUID->"428fd81a-3ef5-4709-99cc-\
-cc8917d01a46"],
-
-Cell["", "Text",ExpressionUUID->"44f27053-edb7-4ab5-87d9-f683cbdb3323"],
-
-Cell["\:6211\:4eec\:53ef\:4ee5\:4f7f\:7528SetDirectory\:4fee\:6539\:5f53\:524d\
-\:76ee\:5f55", "Text",
- CellChangeTimes->{{3.877750975806842*^9, 3.877750979733961*^9}, {
-  3.8777542180355453`*^9, 
-  3.8777542440891175`*^9}},ExpressionUUID->"077f28ef-3aea-4508-ab50-\
-edcf1412d03b"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"File", "[", 
-  "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
-", "]"}]], "Input",
- CellChangeTimes->{{3.8777511129686565`*^9, 3.877751121107543*^9}, {
-  3.877751528281663*^9, 3.877751539350032*^9}},
- CellLabel->
-  "In[235]:=",ExpressionUUID->"402f7902-ef75-4613-9caa-6a54309009a3"],
-
-Cell[BoxData[
- RowBox[{"File", "[", 
-  TemplateBox[{
-   "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\""},
-   "FileArgument"], "]"}]], "Output",
- CellChangeTimes->{3.877751541046221*^9},
- CellLabel->
-  "Out[235]=",ExpressionUUID->"111df146-221c-4aaa-ba61-d9ed12028568"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"DirectoryName", "[", 
-  RowBox[{
-  "File", "[", 
-   "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
-", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.8777517111794014`*^9, 3.877751739307253*^9}, {
-  3.8777518101429014`*^9, 3.877751828048149*^9}, {3.87775247138783*^9, 
-  3.877752506038763*^9}},
- CellLabel->
-  "In[238]:=",ExpressionUUID->"86a2350a-5ce3-4fe9-ab72-be516bd698a2"],
-
-Cell[BoxData["\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\"\>"], "Output",
- CellChangeTimes->{3.8777517405559354`*^9, 3.8777525073165493`*^9},
- CellLabel->
-  "Out[238]=",ExpressionUUID->"d5fea6d4-12e0-40ea-8618-9e9620894758"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"FileBaseName", "[", 
-  RowBox[{
-  "File", "[", 
-   "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
-", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.8777517111794014`*^9, 3.877751739307253*^9}, {
-  3.8777518101429014`*^9, 3.877751828048149*^9}, {3.87775247138783*^9, 
-  3.877752506038763*^9}, {3.877752632349024*^9, 3.8777526485492325`*^9}},
- CellLabel->
-  "In[240]:=",ExpressionUUID->"0049d4c8-d0f2-4732-8171-9dd3cd7d5675"],
-
-Cell[BoxData["\<\"3D\:87ba\:65cb\:5957\:5a03\"\>"], "Output",
- CellChangeTimes->{3.87775264971685*^9},
- CellLabel->
-  "Out[240]=",ExpressionUUID->"e61501c1-e72a-455e-98b5-97d62235ed07"]
-}, Open  ]],
+Cell["\:6700\:597d\:7684\:65b9\:5f0f", "Subsubsection",
+ CellChangeTimes->{{3.877756694275592*^9, 
+  3.877756697431218*^9}},ExpressionUUID->"cd14cdbf-2a0c-4cdc-a7a3-\
+c0e2a38d4f25"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"FileNames", "[", 
-  RowBox[{"\"\<*\>\"", ",", "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\>\""}],
-   "]"}]], "Input",
+  RowBox[{
+  "\"\<*.nb\>\"", ",", "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8777567177754946`*^9, 3.8777567224431467`*^9}},
  NumberMarks->False,
- CellLabel->
-  "In[239]:=",ExpressionUUID->"55f6f25b-d4c5-4d00-83db-cd046340d72d"],
+ CellLabel->"In[17]:=",ExpressionUUID->"55f6f25b-d4c5-4d00-83db-cd046340d72d"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:7ebd\:7ed3\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\2D \:5fc3\:5f62.nb\"\>", 
+  RowBox[{"\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\2D \:5fc3\:5f62.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\2D\:65cb\:8f6c.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:82b12.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:7403\:9762\:87ba\:65cb.\
@@ -485,8 +394,6 @@ nb\"\>", ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D \:5fc3\:5f62.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D \:73af.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\Epispiral.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5185\:65cb\:8f6e\:7ebf\
-\:52a8\:753b\:6f14\:793a.ggb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\Limacon.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:52a8\:753b\:7ed8\:5236\
 \:51fd\:6570\:5207\:7ebf\:548c\:6cd5\:7ebf.nb\"\>", 
@@ -523,15 +430,119 @@ nb\"\>", ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\PolarPlot.nb\"\>", 
    ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\RegionPlot3D.nb\"\>"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.8777525194882326`*^9},
- CellLabel->
-  "Out[239]=",ExpressionUUID->"a4ae410b-36cd-45c4-8e64-f44bb83c5c3f"]
+ CellChangeTimes->{
+  3.8777525194882326`*^9, {3.877756704770979*^9, 3.8777567235959544`*^9}},
+ CellLabel->"Out[17]=",ExpressionUUID->"a507e271-ed2f-409c-be25-6a2961bcc696"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["\:6587\:4ef6\:6269\:5c55\:540d\:66ff\:6362", "Subsection",
+Cell["\:8f6c\:6362\:6587\:4ef6\:683c\:5f0f", "Subsection",
+ CellChangeTimes->{{3.877754123903907*^9, 
+  3.877754131912558*^9}},ExpressionUUID->"6c246050-1ecc-46ff-87a9-\
+57d90fa6fe82"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileConvert", "[", 
+  RowBox[{
+  "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
+", ",", "\"\<PDF\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8777500756984653`*^9, 3.8777501455058823`*^9}, 
+   3.877750295354071*^9, {3.877750705128826*^9, 3.8777507143917184`*^9}, {
+   3.877750840305818*^9, 3.877750844652869*^9}},
+ CellLabel->
+  "In[231]:=",ExpressionUUID->"65df8453-8029-48ae-9dcb-4ccb03239c73"],
+
+Cell[BoxData[
+ RowBox[{"File", "[", 
+  TemplateBox[{"\"3D\:87ba\:65cb\:5957\:5a03.pdf\""},
+   "FileArgument"], "]"}]], "Output",
+ CellChangeTimes->{3.877750894553187*^9},
+ CellLabel->
+  "Out[231]=",ExpressionUUID->"a2ebc299-c86c-4be8-a274-068f47a98350"]
+}, Open  ]],
+
+Cell["\:8f93\:51fa\:6587\:4ef6\:7684\:4f4d\:7f6e\:5e76\:6ca1\:5982\:9884\:671f\
+\:51fa\:73b0\:5728\:76f8\:540c\:76ee\:5f55\:4e0b", "Text",
+ CellChangeTimes->{{3.877754151055043*^9, 
+  3.87775420220831*^9}},ExpressionUUID->"428fd81a-3ef5-4709-99cc-\
+cc8917d01a46"],
+
+Cell["\:6211\:4eec\:53ef\:4ee5\:4f7f\:7528SetDirectory\:4fee\:6539\:5f53\:524d\
+\:76ee\:5f55", "Subsubsection",
+ CellChangeTimes->{{3.877750975806842*^9, 3.877750979733961*^9}, {
+  3.8777542180355453`*^9, 
+  3.8777542440891175`*^9}},ExpressionUUID->"077f28ef-3aea-4508-ab50-\
+edcf1412d03b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:8fd9\:91cc\:6211\:4eec\:4f7f\:7528FileConvert\:7684\:53e6\:4e00\:79cd\
+\:65b9\:5f0f", "Subsection",
+ CellChangeTimes->{{3.8777567857579775`*^9, 
+  3.8777568482168264`*^9}},ExpressionUUID->"5327eca8-a956-4e96-a229-\
+53ebdaf8c2f0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "=", 
+  RowBox[{
+  "File", "[", 
+   "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\>\"\
+", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8777511129686565`*^9, 3.877751121107543*^9}, {
+  3.877751528281663*^9, 3.877751539350032*^9}, {3.8777570010267477`*^9, 
+  3.877757001293764*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"402f7902-ef75-4613-9caa-6a54309009a3"],
+
+Cell[BoxData[
+ RowBox[{"File", "[", 
+  TemplateBox[{
+   "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.nb\""},
+   "FileArgument"], "]"}]], "Output",
+ CellChangeTimes->{3.877751541046221*^9, 3.8777570033617587`*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"5c604da5-f85e-4220-9051-91a73d332dcf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"DirectoryName", "[", "f", "]"}], ",", 
+    RowBox[{"FileBaseName", "[", "f", "]"}], ",", 
+    RowBox[{"FileExtension", "[", "f", "]"}]}], "}"}], "//", 
+  "Column"}]], "Input",
+ CellChangeTimes->{{3.8777517111794014`*^9, 3.877751739307253*^9}, {
+  3.8777518101429014`*^9, 3.877751828048149*^9}, {3.87775247138783*^9, 
+  3.877752506038763*^9}, {3.8777570098851542`*^9, 3.8777570783053055`*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"86a2350a-5ce3-4fe9-ab72-be516bd698a2"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\"\>"},
+    {"\<\"3D\:87ba\:65cb\:5957\:5a03\"\>"},
+    {"\<\"nb\"\>"}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{
+  3.8777570315792522`*^9, {3.877757069355451*^9, 3.8777570792339687`*^9}},
+ CellLabel->"Out[21]=",ExpressionUUID->"0a9e5585-b62f-437d-a8fd-62a62fbfd013"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:6587\:4ef6\:6269\:5c55\:540d\:66ff\:6362", "Subsubsection",
  CellChangeTimes->{{3.8777535520166535`*^9, 
   3.8777535633364077`*^9}},ExpressionUUID->"20ecf805-7ccc-4f31-9dba-\
 a0b7efc7d08a"],
@@ -587,7 +598,7 @@ Cell[BoxData["\<\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\
 
 Cell[CellGroupData[{
 
-Cell["\:540c\:76ee\:5f55\:8f6c\:6362\:6587\:4ef6", "Subsection",
+Cell["\:540c\:76ee\:5f55\:8f6c\:6362\:6587\:4ef6", "Subsubsection",
  CellChangeTimes->{{3.8777535762358727`*^9, 
   3.877753593015952*^9}},ExpressionUUID->"d163941d-83bb-45ce-8f3f-\
 b03566ef716f"],
@@ -626,6 +637,7 @@ Cell[BoxData[
  CellLabel->
   "Out[255]=",ExpressionUUID->"19e509ed-e899-4aad-aab2-e94aa1cbcb2d"]
 }, Open  ]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -642,8 +654,9 @@ Cell[BoxData[
   RowBox[{"fs", "=", 
    RowBox[{"FileNames", "[", 
     RowBox[{
-    "\"\<*.nb\>\"", ",", "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\>\""}], 
-    "]"}]}], ";", 
+    "\"\<*.nb\>\"", ",", 
+     "\"\<E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:7ebd\:7ed3\>\""}], "]"}]}], 
+  ";", 
   RowBox[{
    RowBox[{
     RowBox[{"FileConvert", "[", 
@@ -654,505 +667,18 @@ Cell[BoxData[
          RowBox[{"RegularExpression", "[", "\"\<.nb$\>\"", "]"}], "->", 
          "\"\<.pdf\>\""}]}], "]"}]}], "]"}], "&"}], "/@", "fs"}]}]], "Input",
  CellChangeTimes->{{3.877754298866439*^9, 3.877754360950911*^9}, {
-  3.8777554896661935`*^9, 
-  3.8777554993378706`*^9}},ExpressionUUID->"9fbe61ff-0fa5-4bcd-af7e-\
-560bb9922013"],
+   3.8777554896661935`*^9, 3.8777554993378706`*^9}, 3.8777565249564066`*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"9fbe61ff-0fa5-4bcd-af7e-560bb9922013"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\2D \:5fc3\:5f62.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\2D\:65cb\:8f6c.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{\\\"b\\\", \\\"[\\\", \
-\\\"3.122743097668254`\\\", \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \
-\:7684\:90e8\:5206 \\!\\(\\*TagBox[\\\"2\\\", Function[Short[Slot[1], 5]]]\\) \
-\:4e0d\:5b58\:5728.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Part", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{\\\"b\\\", \\\"[\\\", \
-\\\"3.122743097668254`\\\", \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \
-\:7684\:90e8\:5206 \\!\\(\\*TagBox[\\\"2\\\", Function[Short[Slot[1], 5]]]\\) \
-\:4e0d\:5b58\:5728.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Part", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    Part, <|"MessageTemplate" :> MessageName[Part, "partw"], 
-      "MessageParameters" -> {
-        HoldForm[2], 
-        HoldForm[
-         $CellContext`b[3.122743097668254]]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 RowBox[{
-                   TagBox[
-                    
-                    TemplateBox[{"\"MessageTemplate\"", "\": \""}, 
-                    "RowDefault"], "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox[
-                    StyleBox[
-                    RowBox[{"ParametricPlot3D", "::", "nfunfail"}], 
-                    "MessageName"], HoldForm], "SummaryItem"]}]}, {
-                 RowBox[{
-                   TagBox[
-                    
-                    TemplateBox[{"\"MessageParameters\"", "\": \""}, 
-                    "RowDefault"], "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox[
-                    RowBox[{"{", 
-                    TagBox[
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"Sin", "[", "u", "]"}], " ", 
-                    RowBox[{"Sin", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "]"}]}], ",", 
-                    RowBox[{
-                    RowBox[{"Sin", "[", "u", "]"}], " ", 
-                    RowBox[{"Cos", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "]"}]}], ",", 
-                    RowBox[{"Cos", "[", "u", "]"}]}], "}"}], "/.", 
-                    "\[VeryThinSpace]", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"u", "\[Rule]", 
-                    RowBox[{"\[Pi]", " ", "t"}]}], ",", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "\[Rule]", 
-                    RowBox[{"\[Pi]", " ", "t"}]}]}], "}"}]}], "}"}], 
-                    HoldForm], "}"}], HoldForm], "SummaryItem"]}]}, {
-                 RowBox[{
-                   TagBox[
-                    TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
-                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox["ParametricPlot3D", HoldForm], "SummaryItem"]}]}}, 
-               GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 RowBox[{
-                   TagBox[
-                    
-                    TemplateBox[{"\"MessageTemplate\"", "\": \""}, 
-                    "RowDefault"], "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox[
-                    StyleBox[
-                    RowBox[{"ParametricPlot3D", "::", "nfunfail"}], 
-                    "MessageName"], HoldForm], "SummaryItem"]}]}, {
-                 RowBox[{
-                   TagBox[
-                    
-                    TemplateBox[{"\"MessageParameters\"", "\": \""}, 
-                    "RowDefault"], "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox[
-                    RowBox[{"{", 
-                    TagBox[
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"Sin", "[", "u", "]"}], " ", 
-                    RowBox[{"Sin", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "]"}]}], ",", 
-                    RowBox[{
-                    RowBox[{"Sin", "[", "u", "]"}], " ", 
-                    RowBox[{"Cos", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "]"}]}], ",", 
-                    RowBox[{"Cos", "[", "u", "]"}]}], "}"}], "/.", 
-                    "\[VeryThinSpace]", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"u", "\[Rule]", 
-                    RowBox[{"\[Pi]", " ", "t"}]}], ",", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"1", ",", "0", ",", "0.2`"}], "}"}], "\[Rule]", 
-                    RowBox[{"\[Pi]", " ", "t"}]}]}], "}"}]}], "}"}], 
-                    HoldForm], "}"}], HoldForm], "SummaryItem"]}]}, {
-                 RowBox[{
-                   TagBox[
-                    TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
-                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-                   TagBox[
-                    TagBox["ParametricPlot3D", HoldForm], "SummaryItem"]}]}}, 
-               GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    ParametricPlot3D, <|
-     "MessageTemplate" :> MessageName[ParametricPlot3D, "nfunfail"], 
-      "MessageParameters" -> {
-        HoldForm[{
-          
-          ReplaceAll[{
-           Sin[$CellContext`u] Sin[{1, 0, 0.2}], Sin[$CellContext`u] 
-            Cos[{1, 0, 0.2}], 
-            Cos[$CellContext`u]}, {$CellContext`u -> 
-            Pi $CellContext`t, {1, 0, 0.2} -> (1 Pi) $CellContext`t}]}]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D\:87ba\:65cb\:5957\:5a03.pdf\"\
-"},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D \:56fe\:5f62.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D \:5fc3\:5f62.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\3D \:73af.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\Epispiral.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\Limacon.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{\\\"b\\\", \\\"[\\\", \
-\\\"0.25902557373046875`\\\", \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \
-\:7684\:90e8\:5206 \\!\\(\\*TagBox[\\\"2\\\", Function[Short[Slot[1], 5]]]\\) \
-\:4e0d\:5b58\:5728.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Part", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{\\\"b\\\", \\\"[\\\", \
-\\\"0.25902557373046875`\\\", \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \
-\:7684\:90e8\:5206 \\!\\(\\*TagBox[\\\"2\\\", Function[Short[Slot[1], 5]]]\\) \
-\:4e0d\:5b58\:5728.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Part", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    Part, <|"MessageTemplate" :> MessageName[Part, "partw"], 
-      "MessageParameters" -> {
-        HoldForm[2], 
-        HoldForm[
-         $CellContext`b[0.25902557373046875`]]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:4e09\:89d2\:51fd\:6570\:4e0e\
-\:5706\:5468\:8fd0\:52a8.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:53cd\:6bd4\:4f8b\:51fd\:6570\
-\:548c\:53cc\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:6446\:7ebf\:4e0e\:6e10\:5f00\
-\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5229\:8428\:8339\:66f2\:7ebf.\
-pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:66f2\:7ebf\:7684\:66f2\:7387.\
-pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:4e09\:89d2\:6ce2\:5f62.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5185\:65cb\:8f6e\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5782\:8db3\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5916\:65cb\:8f6e\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:76f8\:4ea4\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:7b49\:5bbd\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:87ba\:65cb\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5185\:6446\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:53cc\:66f2\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:5916\:6446\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:8d85\:692d\:5706.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:53f6\:5b50.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:7f20\:7ed5.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:87ba\:65cb.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:87ba\:7ebf.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:82b1.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\PolarPlot.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\RegionPlot3D.pdf\""},
-     "FileArgument"], "]"}]}], "}"}]], "Output",
- CellChangeTimes->{3.8777545924128475`*^9},
- CellLabel->
-  "Out[256]=",ExpressionUUID->"83bd955c-f7c1-4d6e-bb64-c44fe02fa346"]
+  RowBox[{"File", "[", 
+   TemplateBox[{
+    "\"E:\\\\Mathematica\\\\\:66f2\:7ebf\\\\\:7ebd\:7ed3\\\\\:7b80\:5355\:7ebd\
+\:7ed3.pdf\""},
+    "FileArgument"], "]"}], "}"}]], "Output",
+ CellChangeTimes->{3.8777545924128475`*^9, 3.8777565298412266`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"34e436bf-f614-4bb0-a16c-e938ad39ba5d"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1197,17 +723,19 @@ Cell[BoxData[{
    3.877755081094263*^9, 3.877755125717048*^9}, 3.877755212529468*^9, {
    3.8777552522962923`*^9, 3.8777552538770065`*^9}, {3.877755468160212*^9, 
    3.877755469243325*^9}, 3.8777556534873753`*^9},
- CellLabel->"In[6]:=",ExpressionUUID->"e87b1a95-e863-4f20-a827-89b36b1b0ca1"],
+ CellLabel->"In[22]:=",ExpressionUUID->"e87b1a95-e863-4f20-a827-89b36b1b0ca1"],
 
 Cell[BoxData[
  RowBox[{"{", "}"}]], "Output",
- CellChangeTimes->{3.8777555445011177`*^9, 3.877755658275751*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"803cd423-a7d2-4d56-a184-e41f7eae6727"],
+ CellChangeTimes->{3.8777555445011177`*^9, 3.877755658275751*^9, 
+  3.8777571954534397`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"4f529eaf-dddf-4943-b071-2e9988d739f1"],
 
 Cell[BoxData[
  RowBox[{"{", "}"}]], "Output",
- CellChangeTimes->{3.8777555445011177`*^9, 3.877755658334593*^9},
- CellLabel->"Out[8]=",ExpressionUUID->"ee2340fa-53f4-4718-8590-c9230877893c"]
+ CellChangeTimes->{3.8777555445011177`*^9, 3.877755658275751*^9, 
+  3.8777571955140667`*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"3db02644-be49-4ed6-9abd-4a0bdbff75da"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1244,631 +772,40 @@ Cell[BoxData[{
    3.8777551323779507`*^9, {3.8777552715406137`*^9, 3.8777552797452545`*^9}, {
    3.8777555773070164`*^9, 3.877755599908909*^9}, {3.8777556330171604`*^9, 
    3.8777556337890253`*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"9c3190c7-2175-4abe-a420-4e0fe93469cc"],
+ CellLabel->"In[25]:=",ExpressionUUID->"9c3190c7-2175-4abe-a420-4e0fe93469cc"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:5229\:7528\:590d\:53d8\
-\:51fd\:6570\:7684\:6620\:5c04\:751f\:6210\:66f2\:9762.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7a81\:51fa\:663e\:793a\
-\:4e24\:4e2a\:66f2\:9762\:76f8\:4ea4\:90e8\:5206.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:87ba\:65cb-\:83ab\:6bd4\
-\:4e4c\:65af'\:6241\:7ba1'.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:50cf\:819c\:4e00\:6837\
-\:7684\:66f2\:9762.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:767e\:53d8\:751c\:751c\
-\:5708.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7ba1\:72b6\:66f2\:9762.nb\
-\"\>", ",", \
-"\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7c7b\:7403\:66f2\:9762.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7cbd\:5b50\:66f2\:9762.nb\
-\"\>", ",", \
-"\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7f57\:9a6c\:66f2\:9762.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:9ebb\:82b1\:66f2\:9762.nb\
-\"\>", ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:53cc\:66f2\:9762.nb\"\
-\>", ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:6c34\:6ef4.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7897.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\ParametricPlot3D.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:9542\:7a7a\:66f2\:9762-\
-RegionFunction.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\RevolutionPlot3D.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Roman surface.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Sin \:66f2\:9762.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Surface.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Trefoil Art.nb\"\>", 
-   ",", "\<\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\xy\:66f2\:9762.nb\"\>"}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.877755281763111*^9, 3.8777556890210643`*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"e3d0a00a-7e06-44ed-8c59-793d2617732e"],
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.877755281763111*^9, 3.8777556890210643`*^9, 
+  3.8777564818832183`*^9, 3.8777571997577825`*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"4d68e5c3-cd41-4a13-b606-eb90b2388215"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:5229\:7528\:590d\:53d8\:51fd\
-\:6570\:7684\:6620\:5c04\:751f\:6210\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7a81\:51fa\:663e\:793a\:4e24\
-\:4e2a\:66f2\:9762\:76f8\:4ea4\:90e8\:5206.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\:78b0\:5230\:65e0\:7a77\:8868\:8fbe\:5f0f \
-\\!\\(\\*TagBox[FractionBox[\\\"1\\\", \\\"0.`\\\"], Function[Short[Slot[1], \
-5]]]\\).\"", "SummaryItem"]}}, GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Power", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\:78b0\:5230\:65e0\:7a77\:8868\:8fbe\:5f0f \
-\\!\\(\\*TagBox[FractionBox[\\\"1\\\", \\\"0.`\\\"], Function[Short[Slot[1], \
-5]]]\\).\"", "SummaryItem"]}}, GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Power", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    Power, <|"MessageTemplate" :> MessageName[Power, "infy"], 
-      "MessageParameters" -> {
-        HoldForm[0.^(-1)]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:50cf\:819c\:4e00\:6837\:7684\
-\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:767e\:53d8\:751c\:751c\:5708.\
-pdf\""},
-     "FileArgument"], "]"}], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{RowBox[{\\\"(\\\", \
-GraphicsBox[List[Thickness[Large], CircleBox[List[0, 0], List[2, 1], \
-NCache[List[0, Pi], List[0, 3.141592653589793`]]], CircleBox[List[2, 0], \
-List[4, 2], NCache[List[Pi, Times[2, Pi]], List[3.141592653589793`, \
-6.283185307179586`]]], CircleBox[List[-2, 0], List[8, 4], NCache[List[0, Pi], \
-List[0, 3.141592653589793`]]]]], \\\")\\\"}], \\\"[\\\", RowBox[{\\\"t_\\\", \
-\\\",\\\", \\\"r_\\\"}], \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \:4e2d\
-\:7684\:6807\:7b7e \\!\\(\\*TagBox[\\\"Graphics\\\", Function[Short[Slot[1], \
-5]]]\\) \:88ab\:4fdd\:62a4.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["SetDelayed", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\\!\\(\\*TagBox[RowBox[{RowBox[{\\\"(\\\", \
-GraphicsBox[List[Thickness[Large], CircleBox[List[0, 0], List[2, 1], \
-NCache[List[0, Pi], List[0, 3.141592653589793`]]], CircleBox[List[2, 0], \
-List[4, 2], NCache[List[Pi, Times[2, Pi]], List[3.141592653589793`, \
-6.283185307179586`]]], CircleBox[List[-2, 0], List[8, 4], NCache[List[0, Pi], \
-List[0, 3.141592653589793`]]]]], \\\")\\\"}], \\\"[\\\", RowBox[{\\\"t_\\\", \
-\\\",\\\", \\\"r_\\\"}], \\\"]\\\"}], Function[Short[Slot[1], 5]]]\\) \:4e2d\
-\:7684\:6807\:7b7e \\!\\(\\*TagBox[\\\"Graphics\\\", Function[Short[Slot[1], \
-5]]]\\) \:88ab\:4fdd\:62a4.\"", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["SetDelayed", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    SetDelayed, <|
-     "MessageTemplate" :> MessageName[SetDelayed, "write"], 
-      "MessageParameters" -> {
-        HoldForm[Graphics], 
-        HoldForm[
-         Graphics[{
-           Thickness[Large], 
-           Circle[{0, 0}, {2, 1}, {0, Pi}], 
-           Circle[{2, 0}, {4, 2}, {Pi, 2 Pi}], 
-           Circle[{-2, 0}, {8, 4}, {0, Pi}]}][
-          Pattern[$CellContext`t, 
-           Blank[]], 
-          Pattern[$CellContext`r, 
-           Blank[]]]]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7c7b\:7403\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["Failure",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
-      "Ready"}, 
-      TemplateBox[{
-        PaneSelectorBox[{False -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\:65e0\:6cd5\:5408\:5e76 \
-\\!\\(\\*TagBox[RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"spink\\\", \\\",\
-\\\", Graphics3DBox[List[List[List[List[], List[], \
-TagBox[List[AbsoluteThickness[Skeleton[1]], Thickness[Skeleton[1]], \
-RGBColor[Skeleton[3]], Line3DBox[Skeleton[1]]], Function[Annotation[Slot[1], \
-\\\"Charting`Private`Tag$11603#1\\\"]]]]], List[]], \
-List[Rule[DisplayFunction, Identity], Rule[PlotRangePadding, \
-List[List[Scaled[0.05`], Scaled[0.05`]], List[Scaled[0.05`], Scaled[0.05`]], \
-List[Scaled[0.05`], Scaled[0.05`]]]], Rule[ImagePadding, Automatic], \
-Rule[DisplayFunction, Identity], Rule[Axes, True], \
-RuleDelayed[DisplayFunction, Identity], Rule[FaceGridsStyle, Automatic], \
-Rule[Method, List[Rule[\\\"DefaultGraphicsInteraction\\\", \
-List[Rule[Skeleton[2]], Rule[Skeleton[2]], Rule[Skeleton[2]]]]]], \
-Rule[PlotRange, List[List[-0.9999999999999979`, 0.9999999999999979`], \
-List[-0.9999998830731719`, 0.9999999999999918`], List[-0.9999999999999815`, \
-0.9999999999999815`]]], Rule[PlotRangePadding, List[Scaled[0.02`], \
-Scaled[0.02`], Scaled[0.02`]]], Skeleton[1]]]}], \\\"]\\\"}], \
-Function[Short[Slot[1], 5]]]\\) \:4e2d\:7684\:56fe\:5f62\:5bf9\:8c61.\"", 
-                    "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Show", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}], True -> GridBox[{{
-              FrameBox[
-               StyleBox["\"\[WarningSign]\"", 
-                Directive["Message", 35], StripOnInput -> False], 
-               ContentPadding -> False, FrameStyle -> None, 
-               FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
-              GridBox[{{
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Message: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox[
-                    "\"\:65e0\:6cd5\:5408\:5e76 \
-\\!\\(\\*TagBox[RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"spink\\\", \\\",\
-\\\", Graphics3DBox[List[List[List[List[], List[], \
-TagBox[List[AbsoluteThickness[Skeleton[1]], Thickness[Skeleton[1]], \
-RGBColor[Skeleton[3]], Line3DBox[Skeleton[1]]], Function[Annotation[Slot[1], \
-\\\"Charting`Private`Tag$11603#1\\\"]]]]], List[]], \
-List[Rule[DisplayFunction, Identity], Rule[PlotRangePadding, \
-List[List[Scaled[0.05`], Scaled[0.05`]], List[Scaled[0.05`], Scaled[0.05`]], \
-List[Scaled[0.05`], Scaled[0.05`]]]], Rule[ImagePadding, Automatic], \
-Rule[DisplayFunction, Identity], Rule[Axes, True], \
-RuleDelayed[DisplayFunction, Identity], Rule[FaceGridsStyle, Automatic], \
-Rule[Method, List[Rule[\\\"DefaultGraphicsInteraction\\\", \
-List[Rule[Skeleton[2]], Rule[Skeleton[2]], Rule[Skeleton[2]]]]]], \
-Rule[PlotRange, List[List[-0.9999999999999979`, 0.9999999999999979`], \
-List[-0.9999998830731719`, 0.9999999999999918`], List[-0.9999999999999815`, \
-0.9999999999999815`]]], Rule[PlotRangePadding, List[Scaled[0.02`], \
-Scaled[0.02`], Scaled[0.02`]]], Skeleton[1]]]}], \\\"]\\\"}], \
-Function[Short[Slot[1], 5]]]\\) \:4e2d\:7684\:56fe\:5f62\:5bf9\:8c61.\"", 
-                    "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
-                 TagBox[
-                  GridBox[{{
-                    TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
-                    TagBox["Show", "SummaryItem"]}}, 
-                   GridBoxItemSize -> {"Columns" -> {6.5, All}}, 
-                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                   GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}},
-                GridBoxAlignment -> {
-                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-               False, GridBoxItemSize -> {
-                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-               GridBoxSpacings -> {
-                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
-               BaseStyle -> {
-                ShowStringCharacters -> False, NumberMarks -> False, 
-                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            BaselinePosition -> {1, 1}]}, 
-         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
-       "SummaryPanel"],
-      DynamicModuleValues:>{}], "]"}],
-    Failure[
-    Show, <|"MessageTemplate" :> MessageName[Show, "gcomb"], 
-      "MessageParameters" -> {
-        HoldForm[
-         Show[$CellContext`spink, 
-          Graphics3D[{{{{}, {}, 
-              Annotation[{
-                AbsoluteThickness[2], 
-                Thickness[Large], 
-                RGBColor[1, 0, 1], 
-                Line[CompressedData["
-1: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
-                 "]]}, "Charting`Private`Tag$11603#1"]}}, {}}, {
-           DisplayFunction -> Identity, PlotRangePadding -> {{
-               Scaled[0.05], 
-               Scaled[0.05]}, {
-               Scaled[0.05], 
-               Scaled[0.05]}, {
-               Scaled[0.05], 
-               Scaled[0.05]}}, ImagePadding -> Automatic, DisplayFunction -> 
-            Identity, Axes -> True, DisplayFunction :> Identity, 
-            FaceGridsStyle -> Automatic, 
-            Method -> {
-             "DefaultGraphicsInteraction" -> {
-               "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-                "Effects" -> {
-                 "Highlight" -> {"ratio" -> 2}, 
-                  "HighlightPoint" -> {"ratio" -> 2}, 
-                  "Droplines" -> {
-                   "freeformCursorMode" -> True, 
-                    "placement" -> {"x" -> "All", "y" -> "None"}}}}}, 
-            PlotRange -> {{-0.9999999999999979, 
-             0.9999999999999979}, {-0.9999998830731719, 
-             0.9999999999999918}, {-0.9999999999999815, 0.9999999999999815}}, 
-            PlotRangePadding -> {
-              Scaled[0.02], 
-              Scaled[0.02], 
-              Scaled[0.02]}, 
-            Ticks -> {Automatic, Automatic, Automatic}}]]]}|>],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7f57\:9a6c\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:9ebb\:82b1\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:53cc\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:6c34\:6ef4.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:7897.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\ParametricPlot3D.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\\:9542\:7a7a\:66f2\:9762-\
-RegionFunction.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\RevolutionPlot3D.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Roman surface.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Sin \:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Surface.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{"\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\Trefoil Art.pdf\""},
-     "FileArgument"], "]"}], ",", 
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"E:\\\\Mathematica\\\\\:66f2\:9762\\\\xy\:66f2\:9762.pdf\""},
-     "FileArgument"], "]"}]}], "}"}]], "Output",
- CellChangeTimes->{3.877755281763111*^9, 3.877756013447399*^9},
- CellLabel->"Out[11]=",ExpressionUUID->"33ae3c3c-02a1-4a20-a2b5-bee7713de6c7"]
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.877755281763111*^9, 3.8777556890210643`*^9, 
+  3.8777564818832183`*^9, 3.87775719981565*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"04285356-64be-42d7-9c58-a5d6916796c2"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Summary", "Subsection",
+ CellChangeTimes->{{3.87775722082308*^9, 
+  3.8777572233216457`*^9}},ExpressionUUID->"727d1c30-284a-4112-b767-\
+02b047955632"],
+
+Cell["\<\
+\:5230\:73b0\:5728\:ff0c\:5df2\:7ecf\:57fa\:672c\:80fd\:6ee1\:8db3\:6211\:4eec\
+\:7684\:9700\:8981\:4e86
+\:4e3a\:4e86\:65b9\:4fbf\:4f7f\:7528\:ff0c\:53ef\:4ee5\:5c01\:88c5\:6210\:53ef\
+\:4ea4\:4e92\:7684\:5f62\:5f0f
+\:8fd9\:90e8\:5206\:5185\:5bb9\:653e\:5230FileConverter.nb\:4e2d\
+\>", "Text",
+ CellChangeTimes->{{3.8777572285472093`*^9, 3.8777573236160154`*^9}, {
+  3.877757359501813*^9, 
+  3.87775741666355*^9}},ExpressionUUID->"2b7154bb-0bb1-4c1d-a079-\
+becc716bddbf"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1893,111 +830,119 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 174, 3, 98, "Title",ExpressionUUID->"690a1079-2a90-45ef-ad16-d92fe4b3ba95"],
 Cell[CellGroupData[{
-Cell[779, 29, 397, 8, 45, "Input",ExpressionUUID->"b012a493-45fc-4b90-912c-4f189970df97"],
-Cell[1179, 39, 3145, 57, 131, "Output",ExpressionUUID->"c6a867c6-21b7-4c91-b72f-3c3f6a1dcc6c"]
+Cell[779, 29, 186, 3, 54, "Subsection",ExpressionUUID->"4cc663e3-6718-445d-b2d2-1261217eb0a5"],
+Cell[CellGroupData[{
+Cell[990, 36, 397, 8, 45, "Input",ExpressionUUID->"b012a493-45fc-4b90-912c-4f189970df97"],
+Cell[1390, 46, 3145, 57, 131, "Output",ExpressionUUID->"c6a867c6-21b7-4c91-b72f-3c3f6a1dcc6c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4361, 101, 583, 14, 45, "Input",ExpressionUUID->"0a535d66-97b3-46c2-9639-2fa532b3dc3c"],
+Cell[4572, 108, 583, 14, 45, "Input",ExpressionUUID->"0a535d66-97b3-46c2-9639-2fa532b3dc3c"],
 Cell[CellGroupData[{
-Cell[4969, 119, 266, 5, 22, "Print",ExpressionUUID->"45a07ecb-9c92-4d4b-92bc-3327b288ff42"],
-Cell[5238, 126, 265, 5, 22, "Print",ExpressionUUID->"0bd04dc0-c890-49ee-8495-1a3055fe48b0"],
-Cell[5506, 133, 258, 5, 22, "Print",ExpressionUUID->"c09235e0-7f2d-41d8-850b-9de5f9cd0213"],
-Cell[5767, 140, 275, 5, 22, "Print",ExpressionUUID->"1d88e3cd-1715-47ee-9418-8b35bfa9f3c9"],
-Cell[6045, 147, 277, 5, 22, "Print",ExpressionUUID->"95be4f5c-7f80-4738-b342-96f1f213c841"],
-Cell[6325, 154, 264, 5, 22, "Print",ExpressionUUID->"04757406-dda5-42d4-9882-4b2a471cb335"],
-Cell[6592, 161, 266, 5, 22, "Print",ExpressionUUID->"3fa227f6-e592-4526-8e51-882460c8c73b"],
-Cell[6861, 168, 257, 5, 22, "Print",ExpressionUUID->"63188083-f720-480e-98dc-5670feb72792"],
-Cell[7121, 175, 260, 5, 22, "Print",ExpressionUUID->"715be2ec-f15f-4554-9f8b-e324e2eefd1c"],
-Cell[7384, 182, 258, 5, 22, "Print",ExpressionUUID->"684363e3-e696-4a21-8134-a75cf71d8616"],
-Cell[7645, 189, 317, 5, 22, "Print",ExpressionUUID->"de36d07c-a169-404a-b2a6-25829e1d7ca8"],
-Cell[7965, 196, 303, 5, 22, "Print",ExpressionUUID->"539fb5b3-2b3b-40a4-8632-87e69f4a21b2"],
-Cell[8271, 203, 303, 5, 22, "Print",ExpressionUUID->"76aa0223-5561-4578-b898-0dc81b1f3c48"],
-Cell[8577, 210, 285, 5, 22, "Print",ExpressionUUID->"477447d2-88ee-4382-a850-37a8c723f0db"],
-Cell[8865, 217, 279, 5, 22, "Print",ExpressionUUID->"b465cade-6df7-4912-870b-46db92f017ad"],
-Cell[9147, 224, 279, 5, 22, "Print",ExpressionUUID->"173a91ab-00eb-432e-a155-e61e27fe9375"],
-Cell[9429, 231, 275, 5, 22, "Print",ExpressionUUID->"131bd5ba-c013-4028-9bb6-ca1aa54d8d73"],
-Cell[9707, 238, 273, 5, 22, "Print",ExpressionUUID->"857ff24f-612c-450a-a662-33cc09da76d8"],
-Cell[9983, 245, 273, 5, 22, "Print",ExpressionUUID->"fd9d47e2-570b-4dca-a0f8-77df8867300a"],
-Cell[10259, 252, 275, 5, 22, "Print",ExpressionUUID->"b1112ce3-c1ac-4df0-a0e0-eeffa4f08945"],
-Cell[10537, 259, 273, 5, 22, "Print",ExpressionUUID->"1bf5b07e-ba25-4efc-a63c-63cc57a1ef00"],
-Cell[10813, 266, 275, 5, 22, "Print",ExpressionUUID->"115b82ed-e8cd-44a1-9302-41d4815ae0a5"],
-Cell[11091, 273, 273, 5, 22, "Print",ExpressionUUID->"c8a44e7d-c3a0-4137-87db-93f123439aef"],
-Cell[11367, 280, 269, 5, 22, "Print",ExpressionUUID->"440c6ccd-317e-4ff2-a4c1-c2bb5eb7e43a"],
-Cell[11639, 287, 267, 5, 22, "Print",ExpressionUUID->"edf5ca8e-fc6e-412b-b098-cc2cf769ede7"],
-Cell[11909, 294, 269, 5, 22, "Print",ExpressionUUID->"90fa69d7-517d-4b9d-bc0c-486b27b5bf96"],
-Cell[12181, 301, 269, 5, 22, "Print",ExpressionUUID->"32b5b433-014a-4f81-967d-3543729715f3"],
-Cell[12453, 308, 263, 5, 22, "Print",ExpressionUUID->"f9f0b0c9-81ad-470a-9045-99fd55dee4ef"],
-Cell[12719, 315, 261, 5, 22, "Print",ExpressionUUID->"f9d10e0f-8e34-482f-9181-12c3e3dd8934"],
-Cell[12983, 322, 263, 5, 22, "Print",ExpressionUUID->"f975c4f4-90b7-40c8-8dba-ae9de3a497b1"],
-Cell[13249, 329, 263, 5, 22, "Print",ExpressionUUID->"71de13d6-f7f0-4e2a-b449-6a298b9fb82d"],
-Cell[13515, 336, 257, 5, 22, "Print",ExpressionUUID->"9201b942-31be-404b-ad15-b53d5700057b"],
-Cell[13775, 343, 258, 5, 22, "Print",ExpressionUUID->"ca9f317c-9c2e-4be3-b7ef-1bb7e832cf88"],
-Cell[14036, 350, 261, 5, 22, "Print",ExpressionUUID->"3c77bcdf-b482-4f5d-972a-2c045cfbab07"]
+Cell[5180, 126, 266, 5, 22, "Print",ExpressionUUID->"45a07ecb-9c92-4d4b-92bc-3327b288ff42"],
+Cell[5449, 133, 265, 5, 22, "Print",ExpressionUUID->"0bd04dc0-c890-49ee-8495-1a3055fe48b0"],
+Cell[5717, 140, 258, 5, 22, "Print",ExpressionUUID->"c09235e0-7f2d-41d8-850b-9de5f9cd0213"],
+Cell[5978, 147, 275, 5, 22, "Print",ExpressionUUID->"1d88e3cd-1715-47ee-9418-8b35bfa9f3c9"],
+Cell[6256, 154, 277, 5, 22, "Print",ExpressionUUID->"95be4f5c-7f80-4738-b342-96f1f213c841"],
+Cell[6536, 161, 264, 5, 22, "Print",ExpressionUUID->"04757406-dda5-42d4-9882-4b2a471cb335"],
+Cell[6803, 168, 266, 5, 22, "Print",ExpressionUUID->"3fa227f6-e592-4526-8e51-882460c8c73b"],
+Cell[7072, 175, 257, 5, 22, "Print",ExpressionUUID->"63188083-f720-480e-98dc-5670feb72792"],
+Cell[7332, 182, 260, 5, 22, "Print",ExpressionUUID->"715be2ec-f15f-4554-9f8b-e324e2eefd1c"],
+Cell[7595, 189, 258, 5, 22, "Print",ExpressionUUID->"684363e3-e696-4a21-8134-a75cf71d8616"],
+Cell[7856, 196, 317, 5, 22, "Print",ExpressionUUID->"de36d07c-a169-404a-b2a6-25829e1d7ca8"],
+Cell[8176, 203, 303, 5, 22, "Print",ExpressionUUID->"539fb5b3-2b3b-40a4-8632-87e69f4a21b2"],
+Cell[8482, 210, 303, 5, 22, "Print",ExpressionUUID->"76aa0223-5561-4578-b898-0dc81b1f3c48"],
+Cell[8788, 217, 285, 5, 22, "Print",ExpressionUUID->"477447d2-88ee-4382-a850-37a8c723f0db"],
+Cell[9076, 224, 279, 5, 22, "Print",ExpressionUUID->"b465cade-6df7-4912-870b-46db92f017ad"],
+Cell[9358, 231, 279, 5, 22, "Print",ExpressionUUID->"173a91ab-00eb-432e-a155-e61e27fe9375"],
+Cell[9640, 238, 275, 5, 22, "Print",ExpressionUUID->"131bd5ba-c013-4028-9bb6-ca1aa54d8d73"],
+Cell[9918, 245, 273, 5, 22, "Print",ExpressionUUID->"857ff24f-612c-450a-a662-33cc09da76d8"],
+Cell[10194, 252, 273, 5, 22, "Print",ExpressionUUID->"fd9d47e2-570b-4dca-a0f8-77df8867300a"],
+Cell[10470, 259, 275, 5, 22, "Print",ExpressionUUID->"b1112ce3-c1ac-4df0-a0e0-eeffa4f08945"],
+Cell[10748, 266, 273, 5, 22, "Print",ExpressionUUID->"1bf5b07e-ba25-4efc-a63c-63cc57a1ef00"],
+Cell[11024, 273, 275, 5, 22, "Print",ExpressionUUID->"115b82ed-e8cd-44a1-9302-41d4815ae0a5"],
+Cell[11302, 280, 273, 5, 22, "Print",ExpressionUUID->"c8a44e7d-c3a0-4137-87db-93f123439aef"],
+Cell[11578, 287, 269, 5, 22, "Print",ExpressionUUID->"440c6ccd-317e-4ff2-a4c1-c2bb5eb7e43a"],
+Cell[11850, 294, 267, 5, 22, "Print",ExpressionUUID->"edf5ca8e-fc6e-412b-b098-cc2cf769ede7"],
+Cell[12120, 301, 269, 5, 22, "Print",ExpressionUUID->"90fa69d7-517d-4b9d-bc0c-486b27b5bf96"],
+Cell[12392, 308, 269, 5, 22, "Print",ExpressionUUID->"32b5b433-014a-4f81-967d-3543729715f3"],
+Cell[12664, 315, 263, 5, 22, "Print",ExpressionUUID->"f9f0b0c9-81ad-470a-9045-99fd55dee4ef"],
+Cell[12930, 322, 261, 5, 22, "Print",ExpressionUUID->"f9d10e0f-8e34-482f-9181-12c3e3dd8934"],
+Cell[13194, 329, 263, 5, 22, "Print",ExpressionUUID->"f975c4f4-90b7-40c8-8dba-ae9de3a497b1"],
+Cell[13460, 336, 263, 5, 22, "Print",ExpressionUUID->"71de13d6-f7f0-4e2a-b449-6a298b9fb82d"],
+Cell[13726, 343, 257, 5, 22, "Print",ExpressionUUID->"9201b942-31be-404b-ad15-b53d5700057b"],
+Cell[13986, 350, 258, 5, 22, "Print",ExpressionUUID->"ca9f317c-9c2e-4be3-b7ef-1bb7e832cf88"],
+Cell[14247, 357, 261, 5, 22, "Print",ExpressionUUID->"3c77bcdf-b482-4f5d-972a-2c045cfbab07"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14346, 361, 184, 3, 54, "Subsection",ExpressionUUID->"6c246050-1ecc-46ff-87a9-57d90fa6fe82"],
+Cell[14557, 368, 181, 3, 45, "Subsubsection",ExpressionUUID->"cd14cdbf-2a0c-4cdc-a7a3-c0e2a38d4f25"],
 Cell[CellGroupData[{
-Cell[14555, 368, 452, 9, 45, "Input",ExpressionUUID->"65df8453-8029-48ae-9dcb-4ccb03239c73"],
-Cell[15010, 379, 253, 6, 40, "Output",ExpressionUUID->"a2ebc299-c86c-4be8-a274-068f47a98350"]
-}, Open  ]],
-Cell[15278, 388, 263, 4, 35, "Text",ExpressionUUID->"428fd81a-3ef5-4709-99cc-cc8917d01a46"],
-Cell[15544, 394, 71, 0, 35, "Text",ExpressionUUID->"44f27053-edb7-4ab5-87d9-f683cbdb3323"],
-Cell[15618, 396, 281, 5, 35, "Text",ExpressionUUID->"077f28ef-3aea-4508-ab50-edcf1412d03b"],
-Cell[CellGroupData[{
-Cell[15924, 405, 335, 7, 45, "Input",ExpressionUUID->"402f7902-ef75-4613-9caa-6a54309009a3"],
-Cell[16262, 414, 293, 7, 40, "Output",ExpressionUUID->"111df146-221c-4aaa-ba61-d9ed12028568"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[16592, 426, 429, 10, 45, "Input",ExpressionUUID->"86a2350a-5ce3-4fe9-ab72-be516bd698a2"],
-Cell[17024, 438, 223, 3, 32, "Output",ExpressionUUID->"d5fea6d4-12e0-40ea-8618-9e9620894758"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[17284, 446, 476, 10, 45, "Input",ExpressionUUID->"0049d4c8-d0f2-4732-8171-9dd3cd7d5675"],
-Cell[17763, 458, 185, 3, 32, "Output",ExpressionUUID->"e61501c1-e72a-455e-98b5-97d62235ed07"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[17985, 466, 244, 6, 45, "Input",ExpressionUUID->"55f6f25b-d4c5-4d00-83db-cd046340d72d"],
-Cell[18232, 474, 3173, 53, 247, "Output",ExpressionUUID->"a4ae410b-36cd-45c4-8e64-f44bb83c5c3f"]
+Cell[14763, 375, 316, 7, 45, "Input",ExpressionUUID->"55f6f25b-d4c5-4d00-83db-cd046340d72d"],
+Cell[15082, 384, 3038, 50, 247, "Output",ExpressionUUID->"a507e271-ed2f-409c-be25-6a2961bcc696"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21454, 533, 194, 3, 54, "Subsection",ExpressionUUID->"20ecf805-7ccc-4f31-9dba-a0b7efc7d08a"],
+Cell[18181, 441, 184, 3, 54, "Subsection",ExpressionUUID->"6c246050-1ecc-46ff-87a9-57d90fa6fe82"],
 Cell[CellGroupData[{
-Cell[21673, 540, 506, 12, 45, "Input",ExpressionUUID->"bfa81b1d-4d93-40c7-9258-f2a4e256a4e4"],
-Cell[22182, 554, 330, 6, 32, "Output",ExpressionUUID->"b9d08bfd-2786-4820-a3d3-f1a041dd71a5"]
+Cell[18390, 448, 452, 9, 45, "Input",ExpressionUUID->"65df8453-8029-48ae-9dcb-4ccb03239c73"],
+Cell[18845, 459, 253, 6, 40, "Output",ExpressionUUID->"a2ebc299-c86c-4be8-a274-068f47a98350"]
+}, Open  ]],
+Cell[19113, 468, 263, 4, 35, "Text",ExpressionUUID->"428fd81a-3ef5-4709-99cc-cc8917d01a46"],
+Cell[19379, 474, 290, 5, 45, "Subsubsection",ExpressionUUID->"077f28ef-3aea-4508-ab50-edcf1412d03b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22549, 565, 520, 12, 45, "Input",ExpressionUUID->"770a009e-5157-44a5-a33e-1dca7de51d77"],
-Cell[23072, 579, 255, 4, 32, "Output",ExpressionUUID->"ea0148f6-1e90-4d3b-97ca-1439edee801b"]
+Cell[19706, 484, 237, 4, 54, "Subsection",ExpressionUUID->"5327eca8-a956-4e96-a229-53ebdaf8c2f0"],
+Cell[CellGroupData[{
+Cell[19968, 492, 409, 9, 45, "Input",ExpressionUUID->"402f7902-ef75-4613-9caa-6a54309009a3"],
+Cell[20380, 503, 313, 6, 40, "Output",ExpressionUUID->"5c604da5-f85e-4220-9051-91a73d332dcf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20730, 514, 536, 11, 43, "Input",ExpressionUUID->"86a2350a-5ce3-4fe9-ab72-be516bd698a2"],
+Cell[21269, 527, 506, 12, 91, "Output",ExpressionUUID->"0a9e5585-b62f-437d-a8fd-62a62fbfd013"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21812, 544, 197, 3, 45, "Subsubsection",ExpressionUUID->"20ecf805-7ccc-4f31-9dba-a0b7efc7d08a"],
+Cell[CellGroupData[{
+Cell[22034, 551, 506, 12, 45, "Input",ExpressionUUID->"bfa81b1d-4d93-40c7-9258-f2a4e256a4e4"],
+Cell[22543, 565, 330, 6, 32, "Output",ExpressionUUID->"b9d08bfd-2786-4820-a3d3-f1a041dd71a5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22910, 576, 520, 12, 45, "Input",ExpressionUUID->"770a009e-5157-44a5-a33e-1dca7de51d77"],
+Cell[23433, 590, 255, 4, 32, "Output",ExpressionUUID->"ea0148f6-1e90-4d3b-97ca-1439edee801b"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23376, 589, 192, 3, 54, "Subsection",ExpressionUUID->"d163941d-83bb-45ce-8f3f-b03566ef716f"],
+Cell[23737, 600, 195, 3, 45, "Subsubsection",ExpressionUUID->"d163941d-83bb-45ce-8f3f-b03566ef716f"],
 Cell[CellGroupData[{
-Cell[23593, 596, 742, 18, 43, "Input",ExpressionUUID->"34657de5-1e28-459d-90d8-8aff52293532"],
-Cell[24338, 616, 445, 10, 40, "Output",ExpressionUUID->"19e509ed-e899-4aad-aab2-e94aa1cbcb2d"]
+Cell[23957, 607, 742, 18, 43, "Input",ExpressionUUID->"34657de5-1e28-459d-90d8-8aff52293532"],
+Cell[24702, 627, 445, 10, 40, "Output",ExpressionUUID->"19e509ed-e899-4aad-aab2-e94aa1cbcb2d"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24832, 632, 174, 3, 54, "Subsection",ExpressionUUID->"f419e004-e51d-4f19-aa05-91e166250445"],
+Cell[25208, 644, 174, 3, 54, "Subsection",ExpressionUUID->"f419e004-e51d-4f19-aa05-91e166250445"],
 Cell[CellGroupData[{
-Cell[25031, 639, 675, 19, 81, "Input",ExpressionUUID->"9fbe61ff-0fa5-4bcd-af7e-560bb9922013"],
-Cell[25709, 660, 22401, 494, 483, "Output",ExpressionUUID->"83bd955c-f7c1-4d6e-bb64-c44fe02fa346"]
+Cell[25407, 651, 735, 19, 81, "Input",ExpressionUUID->"9fbe61ff-0fa5-4bcd-af7e-560bb9922013"],
+Cell[26145, 672, 358, 8, 41, "Output",ExpressionUUID->"34e436bf-f614-4bb0-a16c-e938ad39ba5d"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[48159, 1160, 206, 3, 54, "Subsection",ExpressionUUID->"aa863e30-9aed-43ca-905f-5e0a905a2f21"],
+Cell[26552, 686, 206, 3, 54, "Subsection",ExpressionUUID->"aa863e30-9aed-43ca-905f-5e0a905a2f21"],
 Cell[CellGroupData[{
-Cell[48390, 1167, 1290, 32, 116, "Input",ExpressionUUID->"e87b1a95-e863-4f20-a827-89b36b1b0ca1"],
-Cell[49683, 1201, 189, 3, 32, "Output",ExpressionUUID->"803cd423-a7d2-4d56-a184-e41f7eae6727"],
-Cell[49875, 1206, 189, 3, 32, "Output",ExpressionUUID->"ee2340fa-53f4-4718-8590-c9230877893c"]
+Cell[26783, 693, 1291, 32, 116, "Input",ExpressionUUID->"e87b1a95-e863-4f20-a827-89b36b1b0ca1"],
+Cell[28077, 727, 217, 4, 32, "Output",ExpressionUUID->"4f529eaf-dddf-4943-b071-2e9988d739f1"],
+Cell[28297, 733, 217, 4, 32, "Output",ExpressionUUID->"3db02644-be49-4ed6-9abd-4a0bdbff75da"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50101, 1214, 1223, 32, 116, "Input",ExpressionUUID->"9c3190c7-2175-4abe-a420-4e0fe93469cc"],
-Cell[51327, 1248, 2047, 33, 171, "Output",ExpressionUUID->"e3d0a00a-7e06-44ed-8c59-793d2617732e"],
-Cell[53377, 1283, 30360, 586, 413, "Output",ExpressionUUID->"33ae3c3c-02a1-4a20-a2b5-bee7713de6c7"]
+Cell[28551, 742, 1224, 32, 116, "Input",ExpressionUUID->"9c3190c7-2175-4abe-a420-4e0fe93469cc"],
+Cell[29778, 776, 241, 4, 32, "Output",ExpressionUUID->"4d68e5c3-cd41-4a13-b606-eb90b2388215"],
+Cell[30022, 782, 238, 4, 32, "Output",ExpressionUUID->"04285356-64be-42d7-9c58-a5d6916796c2"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30309, 792, 156, 3, 54, "Subsection",ExpressionUUID->"727d1c30-284a-4112-b767-02b047955632"],
+Cell[30468, 797, 482, 10, 81, "Text",ExpressionUUID->"2b7154bb-0bb1-4c1d-a079-becc716bddbf"]
 }, Open  ]]
 }, Open  ]]
 }
