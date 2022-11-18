@@ -8,3 +8,9 @@ Mathematica notebook
 我从网上下载的笔记放在了Download文件夹中
 
 目前分类是比较乱的，改日好好整理一下
+
+## 20221118
+为了方便查找感兴趣的文档，我将逐步把笔记本转换成PDF格式
+批量转换方法参考:
+> Wolfram Language/批量notebook转pdf.nb
+
