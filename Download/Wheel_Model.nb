@@ -1,0 +1,840 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='%s'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     37432,        741]*)
+(*NotebookOutlinePosition[     38286,        772]*)
+(*  CellTagsIndexPosition[     38242,        768]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[CellGroupData[{Cell["\<\
+Modeling a Mechanical System by Numerical \
+Solutions to
+Differential Equations\
+\>", "Title",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[CellGroupData[{Cell["Description", "Section",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[TextData[{
+  "This Notebook shows how ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " can be used in the modeling of mechanical systems; it involves a simple \
+example representing automobile shock absorbers."
+}], "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+By: John M. Novak
+Wolfram Research, Inc.\
+\>", "Text",
+  AspectRatioFixed->False,
+  ImageRegion->{{0, 1}, {0, 1}}]}, Open]],
+
+Cell[CellGroupData[{Cell["Model", "Section",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[TextData[{
+  "The system we investigate here is a simple fourth-order mechanical \
+network.  Naturally, there are many approaches to working with such a system. \
+ We chose to use the numeric differential equation solver in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " to investigate this situation."
+}], "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[CellGroupData[{Cell[BoxData[
+    \(Show[
+      Graphics[{GrayLevel[0], Disk[{0, 0}, 1], GrayLevel[1], 
+          Disk[{0, 0},  .4], GrayLevel[0], 
+          Line[{{1.1, 0}, {2, 0}, {1.9, 1.3}, {\(-1.4\), 1.7}, {\(-1.7\), 
+                3.0}, {\(-2.2\), 3.0}}], 
+          Line[{{\(-1.1\), 0}, {\(-2.2\), 0}}], 
+          Line[{{0, \(-1.1\)}, {0, \(-2.0\)}}], 
+          Polygon[{{0, \(-1.1\)}, { .2, \(-1.6\)}, {\(- .2\), \(-1.6\)}, {0, \
+\(-1.1\)}}], Text["\<F\>", {0, \(-2.3\)}]}], 
+      AspectRatio \[Rule] Automatic]\)], "Input",
+  CellOpen->False,
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[GraphicsData["PICT", "\<\
+3`h0102K0<P1=`0A0_l<0?ooool0V`0000@0004g0000b0000000000N00402P04
+09/0b04g09R0W0000000a02L000000000000B00004P0000000P00@080000002J
+hgP00000000n>@000?l00?ooooooo`01003oo?ol00;oo?olZZP00jZXoobZZ004
+=b<g8cLS00Ef9WHVMRH01[DZ]BZe:P07m2kd;_@^00P00?olZZP02C/C>a<k4`0:
+NQMj5gXG00^i6[TJ^AX033LS=b<g8`0=MRIf9WHV00je:[DZ]BX03o@^m2kd;P0@
+o0kl3_`>015EE00000004UEDoocoo00CZZSoo?ol01@k4c/C>a<05GXGNQMj5`0F
+^AZi6[TJ01Oh7_PNn1h06000oocoo00I?`<o0cl301Yn1gh7OPL06kd;_@^m2`0L
+>a<k4c/C01ej5gXGNQL07[TJ^AZi6P0On1kh7_PN02000000EE@08EED001EE00R
+ZZP0000002?oo000000093l3?`<o0`0UOPMn1gh702Jm2kd;_@/09o`>o0kl3P0X
+0o03l0?`02U2ld;c@_<0:X7gPON1m`0[`?_0nl3k02`o0cl3?`<0;Gh7OPMn1`0^
+_@^m2kd;02ooo000EE@0<000002ZZ00aEE@00:ZX03:ZZ000EE@0<`?`0o03l00d
+@_=2ld;c03F1mh7gPOL0=/3k`?_0n`0g000005ED03P7h0OP1n00>DKTA^A6i00j
+QNN5ihGW03/3l0?`0o00?4;c@_=2l`0mPON1mh7g03k0nl3k`?/0?ool002ZZ010
+00000?ol045EE000oo`0@ZZX002ZZ0131n07h0OP04A6i4KTA^@0AHGWQNN5i`16
+a>_4jlC[04L00000ZZP0B0_@2m0;d019B]A:e4[D04Z9f8WHRMP0B`OP1n07h01<
+A^A6i4KT04f5ihGWQNL0C/C[a>_4j`1?oo`00?ol050005ED0000DEEDEE@0001B
+ZZP00?ol05<;d0_@2m00E4[DB]A:e01ERMR9f8WH05K8flSKb=/0E`00003oo01H
+3l0?`0o005U>a4k4C/@0FXg8SLR=b01K2m0;d0_@05a:e4[DB]@0GHWHRMR9f01N
+b=_8flSK05ooo5ED0000H000EEAEE01QEEAEE5ED06:ZZ5ED0000H`o03l0?`01T
+C/A>a4k406F=b8g8SLP0I/c<c<c<c01W001EE00006PC/A>a4k40JE:dD[AB]01Z
+TKRA^96h06/?`0o03l00K4k4C/A>a01]SLR=b8g806k<c<c<c<`0KoolEEAEE01`
+001EE:ZX075EE5EDZZP0LZZXEEAEE01c4k4C/A>a07AB]5:dD[@0MI6hTKRA^01f
+d;c@_=2l07L005EDEE@0N1NQ5j4GX@1iEZEFYEJU07ZEZ9FXUJP0Na>a4k4C/@1l
+D[AB]5:d07fA^96hTKP0O]2ld;c@_01oooaEE:ZX080005EDoo`0PEEDEECoo022
+ZZQEE:ZX08<GXANQ5j40Q5JUEZEFY@25UJREZ9FX08KD[=B/e:`0Q`00EEBZZ028
+6i4KTA^A08UJUEZEFYD0RYVIVIVIV@2;5j4GXANQ08aFYEJUEZD0SIFXUJREZ02>
+e:cD[=B/08ooo5EDoo`0T000ZZP0002AEEBZZ00009:ZZ5EDoo`0Ta^A6i4KT@2D
+FYEJUEZE09FIVIVIVIT0U]RLf9cHW02G001EE?ol09POPAn17h40VEj5GXENQ@2J
+WHVMRIf909/KTA^A6i40W5ZEFYEJU@2MVIVIVIVI09kHW=RLf9`0WoolZZP0002P
+002ZZ5ED0:5EE:ZXEE@0XZZXZZP0002S7h4OPAn10:ANQEj5GXD0YIf9WHVMR@2V
+g8cLS=b<0:L00:ZX0000Z2=b8g8SLP2YHWERMF9e0:ZQNJ5iXGT0Zan17h4OP@2/
+GXENQEj50:fMRIf9WHT0[]b<g8cLS02_oobZZ5ED0;000:ZXZZP0/EEDZZRZZ02b
+ZZRZZ5ED0;<SLR=b8g80]69eHWERM@2eXGVQNJ5i0;KPON1mh7d0]`00ZZQEE02h
+9f8WHRMR0;UVIVIVIVH0^ZEYYFVUJ@2k8g8SLR=b0;aRMF9eHWD0_J5iXGVQN@2n
+h7gPON1m0;ooo:ZXZZP0`000ZZSoo031EEBZZ?ol0<:ZZ:ZXZZP0`bMR9f8WHP34
+IVIVIVIV0<FUJJEYYFT0a^A]i6gTK@37002ZZ:ZX0<P[DR]B:e80bFYFJUIZEP3:
+ZEVYFJUI0</WHRMR9f80c6IVIVIVIP3=YFVUJJEY0<kTKNA]i6d0coolZZSoo03@
+003oo0000=5EE?ol0000dZZXZZSoo03C:e8[DR]B0=AZEVYFJUH0eJUIZEVYF@3F
+j5gXGNQM0=L00:ZXoo`0f2m2;d8_@P3IKTI^AVi60=Z]BZe:[DX0fb]B:e8[DP3L
+JUIZEVYF0=fYFJUIZET0g^QMj5gXG@3Ooocoo0000>000?olEE@0hEEDooaEE03R
+ZZSoo0000><_@Rm2;d80i6i6KTI^AP3U[DZ]BZe:0>K/CNa=k4d0i`00oo`0003X
+<c<c<c<c0>Ub=W8fLSH0j[4j/CZa>P3[;d8_@Rm20>a^AVi6KTH0kJe:[DZ]BP3^
+k4g/CNa=0>ooo?olEE@0l000oobZZ03aEECoo:ZX0?:ZZ?olEE@0lc<c<c<c<`3d
+LSIb=W8f0?Fa>[4j/CX0m_0nl3k`?P3g003oo5ED0?Pg8cLS=b<0nGHVMRIf9P3j
+]BZe:[DZ0?/c<c<c<c<0o78fLSIb=P3m/CZa>[4j0?k`?_0nl3h0o`0000000000
+0000a02L00@0V`380CL090B10>D01840i@04P@3U00B10>D01840i@08o@3_oh40
+n`08k000oh40n`08j`00oh40o008j`00oh40o008j`00oh40o008j`00oh40o008
+jP00oh40o@08jP00oh40o@08jP00oh40o@08jP00oh40o@08j@00oh40oP08j@00
+oh40oP08j@00oh40oP08j@00oh40oP08j000oh40o`08j000oh40o`08j000oh40
+o`08j000oh40o`08i`00oh400008i`00oh400008i`00oh400008i`00oh400008
+i`00oh400006iP00oh401^H00?n100KV003oP@06iP00oh401^D00?n200KU003o
+PP06i@00oh801^D00?n200KT003oP`06i000oh<01^@00?n300KT003oP`06h`00
+oh@01^<00?n400KS003oQ006h`00oh@01^800?n500KR003oQ@06hP00ohD01^80
+0?n500KQ003oQP06h@00ohH01^40oOn900KM0?WoT@06e@3hoiX01/`0nOnR00K4
+0?WoZP06_03hok<01[<0nOnk00J[0?Wo``06X`3iol/01Y/0n?oD00JB0?Wog006
+RP3ion@01X80n?o]00R10?T0nOoe00R10?40o?oj00R10>d00?oj00R10>d00?oj
+00R10>d00?oj00R10>d00?oj00R10>d00?oj00R10>d00?oj00R10>d00?oj00R1
+0>`00?ok00R10>`00?ok00R10>`00?ok00Zf0?Coa000oo/02[P0k_o8003on`0:
+^`3Xol/00?ok00Zo0>?oc000oo/02/80gOo?003on`0:``3Jom400?ok00[40=So
+dP00oo/02/D0eOoD003on`0:a`3BomD00?ok00[80=7oe@00oo/02/T0cooF003o
+n`0:bP3=omL00?ok00[;0<[of000oo`02/`0b?oI003oo00:c038omT00?ol00[=
+0<KofP00oo`02/h0a?oK003oo00:c`33om/00?ol00[?0<?of`00oo`02]00`OoL
+003oo00:d031om`00?ol00k@0>ConP3Tomd00?ol00kA0>Kom03Womd00?ol00kA
+0>Sol03Yomd00?ol00kA0>WokP3Zomd00?ol00kB0>Wok03Zomh00?ol00kB0>[o
+jP3[omh00?ol00kB0>_oj03/omd00?om00kB0>_oj03[omh00?om00kC0>_oi`3[
+omh00?om00kC0>_oiP3/omh00?om00kC0>_oiP3/omh00?om00kC0>coi@3/omh0
+0?om00kC0>coi@3/omh00?om00kC0>coi@3/omh00?om01;m0=[ooP3/onD0k?om
+0>7oo@0:d`3/onD0k?oI00[C0>coi@3/omT02]<0k?oV0>_of@0:d`3[onL0jooI
+00[B0>coj03ZomT02]80jooY0>_of00:dP3ZonX0jooH00[B0>Wok03ZomP02]40
+jOo]0>_oe`0:d@3Xonl0j_oG00[A0>Ool@3YomL02]40iOof0>Koe`0:d03TooX0
+iOoF00K@0<7oeP06c`33omD01/h0a?oE00K>0<Coe@06c@36om@01/`0b?oC00K<
+0<WodP06b`3;om401/X0c?oA00K:0<god006b@3?oll01/P0dOo>00K60=Coc@06
+a@3Fol`01/<0fOo;00K20=cob@06`@3NolP01[l0h_o600Jl0>So``06^@3^ol00
+1[D0m_nl00B10>D01840i@04P@3U00J`003o]`07/@01oong00Na007ookL01[40
+o_nh00Jb0?go^006/P3lokT01[<0noni00Jc0?_o^@06/`3jokX01[@0nOnj00Jd
+0?Wo^P06]03hok/01[D0monk00Je0?Ko_006]P3eok`01[H0mOnl00Jf0?Co_@06
+]`3cokd01[000?ng00J`003o]`06/000okL01[000?ng00J`003o]`06/000okL0
+1[000?ng00J`003o]`06/000okL01[000?ng00J`003o]`06/000okL01[000?ng
+00J`003o]`06/000okL01840i@04P@3U00B10>D01840i@04P@3U00B10>D01[<0
+o?nh00Vb00?o003o^006/P00okD01[80o_ng00Jb003o]@06/P00okD01[<0o_nf
+00B10>D01840i@000?l\>"], "Graphics",
+  ImageSize->{156, 196},
+  ImageMargins->{{148, Inherited}, {Inherited, Inherited}},
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[OutputFormData["\<\
+The Unformatted text for this cell was not \
+generated.
+Use options in the Actions Settings dialog box to control
+when Unformatted text is generated.\
+\>", "\<\
+-Graphics-\
+\>"], "Output",
+  ImageRegion->{{0, 1}, {0, 1}}]}, Open]],
+
+Cell["\<\
+Consider a simplistic view of an automobile suspension.  We have a \
+pair of masses, the car and the wheel, coupled by a spring and a damper (the \
+shock absorbers).  In addition, the wheel is coupled to the road by a spring \
+and a damper (the tire).  We choose here to model the road as an oscillatory \
+force on the tire.  We then observe the oscillations of the wheel and car, \
+with a view to minimizing the effect on the car, while not straining the \
+systems coupling the wheel to the car and road.  (See diagrams.)  Again,  it \
+must be emphasized that this is a simplistic model-- much is  omitted or just \
+plain not right in this model, but it does give the general idea.\
+\>", "Text",\
+
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[TextData[{
+  "Mathematically, we can now express the equations of motion of the wheel \
+and car by summing the forces on each mass.  Here, the resting length of each \
+of the springs is .5 m.  The first equation represents the forces on the \
+upper mass, the second on the lower. ",
+  StyleBox[" f[t]",
+    FontWeight->"Bold"],
+  " is our driving force, the force the road exerts on the wheel."
+}], "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"eqn1", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"m1", " ", 
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], 
+            "-", \(k1\ \(( .5 - \((x1[t] - x2[t])\))\)\), "+", 
+            RowBox[{"d1", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    SuperscriptBox["x1", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}], "-", 
+                  RowBox[{
+                    SuperscriptBox["x2", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}]}], ")"}]}]}], 
+          "==", "0"}]}], ";"}]], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"eqn2", "=", 
+        RowBox[{
+          RowBox[{
+            RowBox[{"m2", " ", 
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}], 
+            "-", \(k1\ \((\((x1[t] - x2[t])\) -  .5)\)\), "-", 
+            RowBox[{"d1", " ", 
+              RowBox[{"(", 
+                RowBox[{
+                  RowBox[{
+                    SuperscriptBox["x1", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}], "-", 
+                  RowBox[{
+                    SuperscriptBox["x2", "\[Prime]",
+                      MultilineFunction->None], "[", "t", "]"}]}], ")"}]}], 
+            "-", \(k2\ \(( .5 - x2[t])\)\), "+", 
+            RowBox[{"d2", " ", 
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]",
+                  MultilineFunction->None], "[", "t", "]"}]}]}], 
+          "==", \(f[t]\)}]}], ";"}]], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+We also need to specify boundary values for the equations.  Here, \
+assume there is  no initial acceleration or velocity, with the wheel  at 1/2 \
+m and the car at 1 m.\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"bvals", "=", 
+        RowBox[{"{", 
+          RowBox[{\(x1[0] == 1\), ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "==", "0"}], ",",
+             
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x1", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "==", "0"}], 
+            ",", \(x2[0] ==  .5\), ",", 
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "==", "0"}], ",",
+             
+            RowBox[{
+              RowBox[{
+                SuperscriptBox["x2", "\[Prime]\[Prime]",
+                  MultilineFunction->None], "[", "0", "]"}], "==", "0"}]}], 
+          "}"}]}], ";"}]], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+These equations we just assembled are entirely symbolic.  To use \
+them, we need a simple mechanism for substituting the values for our \
+constants, that will at the same time allow us to easily modify the \
+equations.  This mechanism can also be used to pass in the equations \
+representing the driving force.  We can do this in the following \
+fashion:\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(eqns[em1_, em2_, ek1_, ek2_, ed1_, ed2_, force_] := 
+      Flatten[{eqn1, eqn2, bvals}] /. \[InvisibleSpace]{m1 \[Rule] em1, 
+          m2 \[Rule] em2, k1 \[Rule] ek1, k2 \[Rule] ek2, d1 \[Rule] ed1, 
+          d2 \[Rule] ed2, f[t] \[Rule] force}\)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+This is all we need to start investigating solutions.  As a note, I \
+assume that consistent units are used everywhere here - these were generated \
+with MKS units in mind, so our force, for instance, ranges approximately \
+between positive and negative 1/3 of the force of gravity.\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+For convenience, we can define a simple function to represent an \
+impulse--a square pulse starting at some particular time, and lasting for a \
+defined time.\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(Pulse[t_?NumberQ, tmin_, length_] := 
+      If[t \[GreaterEqual] tmin && t \[LessEqual] tmin + length, 1, 
+        0]\)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}]}, Open]],
+
+Cell[CellGroupData[{Cell["Solutions", "Section",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+Now that we have our equations, we want to see solutions.  Here is \
+a simple example:\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(soln1 = 
+      NDSolve[eqns[1000, 15, 1000, 8000, 1000, 800, 
+          1000\ Pulse[t, 0,  .5]], {x1[t], x2[t]}, {t, 0, 20}]; \)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell["\<\
+This results in a pair of substitution rules, representing the \
+solutions (this format is best if multiple solutions are generated).  I \
+suppressed the actual print form for space saving purposes.  To display \
+these, then, we need to extract the functions from the rule form, then plot \
+them.  This can be done as follows.\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[CellGroupData[{Cell[BoxData[
+    \(Plot[
+      Evaluate[First[{x1[t], x2[t]} /. \[InvisibleSpace]soln1]], {t, 0, 20}, 
+      Frame \[Rule] True, PlotRange \[Rule] {0, 1.3}]\)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[GraphicsData["PICT", "\<\
+5NP0100[0;81A@0A0_l<0?ooool0:`0000@000550000/P000000000N00402P04
+02/0/P5509R16P000000[P4J000000000000B00004P0000000P00@080000002J
+hk@00000000n>@000?l00?ooooooo`01003oo?ol00;oo?olZZP00jZXoobZZ004
+=b<g8cLS00Ef9WHVMRH01[DZ]BZe:P07m2kd;_@^00P00?olZZP02C/C>a<k4`0:
+NQMj5gXG00^i6[TJ^AX033LS=b<g8`0=MRIf9WHV00je:[DZ]BX03o@^m2kd;P0@
+o0kl3_`>015EE00000004UEDoocoo00CZZSoo?ol01@k4c/C>a<05GXGNQMj5`0F
+^AZi6[TJ01Oh7_PNn1h06000oocoo00I?`<o0cl301Yn1gh7OPL06kd;_@^m2`0L
+>a<k4c/C01ej5gXGNQL07[TJ^AZi6P0On1kh7_PN02000000EE@08EED001EE00R
+ZZP0000002?oo000000093l3?`<o0`0UOPMn1gh702Jm2kd;_@/09o`>o0kl3P0X
+0o03l0?`02U2ld;c@_<0:X7gPON1m`0[`?_0nl3k02`o0cl3?`<0;Gh7OPMn1`0^
+_@^m2kd;02ooo000EE@0<000002ZZ00aEE@00:ZX03:ZZ000EE@0<`?`0o03l00d
+@_=2ld;c03F1mh7gPOL0=/3k`?_0n`0g000005ED03P7h0OP1n00>DKTA^A6i00j
+QNN5ihGW03/3l0?`0o00?4;c@_=2l`0mPON1mh7g03k0nl3k`?/0?ool002ZZ010
+00000?ol045EE000oo`0@ZZX002ZZ0131n07h0OP04A6i4KTA^@0AHGWQNN5i`16
+a>_4jlC[04L00000ZZP0B0_@2m0;d019B]A:e4[D04Z9f8WHRMP0B`OP1n07h01<
+A^A6i4KT04f5ihGWQNL0C/C[a>_4j`1?oo`00?ol050005ED0000DEEDEE@0001B
+ZZP00?ol05<;d0_@2m00E4[DB]A:e01ERMR9f8WH05K8flSKb=/0E`00003oo01H
+3l0?`0o005U>a4k4C/@0FXg8SLR=b01K2m0;d0_@05a:e4[DB]@0GHWHRMR9f01N
+b=_8flSK05ooo5ED0000H000EEAEE01QEEAEE5ED06:ZZ5ED0000H`o03l0?`01T
+C/A>a4k406F=b8g8SLP0I/c<c<c<c01W001EE00006PC/A>a4k40JE:dD[AB]01Z
+TKRA^96h06/?`0o03l00K4k4C/A>a01]SLR=b8g806k<c<c<c<`0KoolEEAEE01`
+001EE:ZX075EE5EDZZP0LZZXEEAEE01c4k4C/A>a07AB]5:dD[@0MI6hTKRA^01f
+d;c@_=2l07L005EDEE@0N1NQ5j4GX@1iEZEFYEJU07ZEZ9FXUJP0Na>a4k4C/@1l
+D[AB]5:d07fA^96hTKP0O]2ld;c@_01oooaEE:ZX080005EDoo`0PEEDEECoo022
+ZZQEE:ZX08<GXANQ5j40Q5JUEZEFY@25UJREZ9FX08KD[=B/e:`0Q`00EEBZZ028
+6i4KTA^A08UJUEZEFYD0RYVIVIVIV@2;5j4GXANQ08aFYEJUEZD0SIFXUJREZ02>
+e:cD[=B/08ooo5EDoo`0T000ZZP0002AEEBZZ00009:ZZ5EDoo`0Ta^A6i4KT@2D
+FYEJUEZE09FIVIVIVIT0U]RLf9cHW02G001EE?ol09POPAn17h40VEj5GXENQ@2J
+WHVMRIf909/KTA^A6i40W5ZEFYEJU@2MVIVIVIVI09kHW=RLf9`0WoolZZP0002P
+002ZZ5ED0:5EE:ZXEE@0XZZXZZP0002S7h4OPAn10:ANQEj5GXD0YIf9WHVMR@2V
+g8cLS=b<0:L00:ZX0000Z2=b8g8SLP2YHWERMF9e0:ZQNJ5iXGT0Zan17h4OP@2/
+GXENQEj50:fMRIf9WHT0[]b<g8cLS02_oobZZ5ED0;000:ZXZZP0/EEDZZRZZ02b
+ZZRZZ5ED0;<SLR=b8g80]69eHWERM@2eXGVQNJ5i0;KPON1mh7d0]`00ZZQEE02h
+9f8WHRMR0;UVIVIVIVH0^ZEYYFVUJ@2k8g8SLR=b0;aRMF9eHWD0_J5iXGVQN@2n
+h7gPON1m0;ooo:ZXZZP0`000ZZSoo031EEBZZ?ol0<:ZZ:ZXZZP0`bMR9f8WHP34
+IVIVIVIV0<FUJJEYYFT0a^A]i6gTK@37002ZZ:ZX0<P[DR]B:e80bFYFJUIZEP3:
+ZEVYFJUI0</WHRMR9f80c6IVIVIVIP3=YFVUJJEY0<kTKNA]i6d0coolZZSoo03@
+003oo0000=5EE?ol0000dZZXZZSoo03C:e8[DR]B0=AZEVYFJUH0eJUIZEVYF@3F
+j5gXGNQM0=L00:ZXoo`0f2m2;d8_@P3IKTI^AVi60=Z]BZe:[DX0fb]B:e8[DP3L
+JUIZEVYF0=fYFJUIZET0g^QMj5gXG@3Ooocoo0000>000?olEE@0hEEDooaEE03R
+ZZSoo0000><_@Rm2;d80i6i6KTI^AP3U[DZ]BZe:0>K/CNa=k4d0i`00oo`0003X
+<c<c<c<c0>Ub=W8fLSH0j[4j/CZa>P3[;d8_@Rm20>a^AVi6KTH0kJe:[DZ]BP3^
+k4g/CNa=0>ooo?olEE@0l000oobZZ03aEECoo:ZX0?:ZZ?olEE@0lc<c<c<c<`3d
+LSIb=W8f0?Fa>[4j/CX0m_0nl3k`?P3g003oo5ED0?Pg8cLS=b<0nGHVMRIf9P3j
+]BZe:[DZ0?/c<c<c<c<0o78fLSIb=P3m/CZa>[4j0?k`?_0nl3h0o`0000000000
+0000[P4J00@0:`2b0DD09008j021ohCoo@00G^P00?ol003omP00ooH00?of003o
+mP00ooH00?of003omP00ooH00?of003omP00ooH00?of003omP00ooH00?of003o
+mP00ooH00?of003omP00ooH00?ol003oo@007^P00?ol003oaP00olH00?o6003o
+aP00oo`00?om000=j000oh40Q`01ooom000<j000oh40QP00ood000cX003oP@26
+003oo@003>P00?n108H00?om000=j000oh40Q`01ooom000<j000oh40QP00ood0
+01Cl003om`3noo/00?n108H00?om000Io@01oooh003ooP00oo`00?n108H00?om
+000Ho000ooP00?on003oo000oh40QP00ood001Kl003om@00oo/00OooP@28007o
+ood001Cl003omP00ooX00?n108H00?om000Go000ooL00ol00?ol003oP@26003o
+o@006?d0o_om003ooP3loo`00?n108H00?om000<j000oh40QP00ood000gX003o
+P@27007oood000cX003oP@26003oo@003>P00?n108H00?om000<j000oh40QP00
+ood000cX003oP@26003oo@003NP00?n108L00Oooo@003>P00?n108H00?om000<
+j000oh40QP00ood000cX003oP@26003oo@003>P00?n108H00?om000=j000oh40
+Q`01ooom000<j000oh40QP00ood000cX003oP@26003oo@004>P00?od0?WoP@2K
+003oo@005NP00?of007oooT0o_n109h00?om000Ej000ooH00?oe0?koP@2R007o
+ood001S`003onP00ooL00?oa0?koP@2T003oo@006O400OoonP00ooP00?o]0?ko
+P@2W003oo@006O000?oj003onP01oooY0?koP@2Z003oo@007o000?oj007oood0
+0Oooi03lom/0POoJood00Oooo@006?000?oj003of03konl0lon10=D00?om000D
+l000ooX00?oB0>ooP@37003oo@004?40o_ok003oP@26003oo@003>P00?n108H0
+0?om000=j000oh40Q`01ooom000<j000oh40QP00ood000cX003oP@26003oo@00
+3>P00?n108H00?om000<j000oh40QP00ood000gX003oP@27007oood000cX003o
+P@26003oo@003>P00?n108H00?om000<j000oh40QP00ood000cX003oP@26003o
+o@003NP00?n108L00Oooo@003>P00?n108H00?om000<j000oh40QP00ood000cX
+003oP@26003oo@003>P00?n108H00?om000=j000oh40Q`01ooom000Eo001oooh
+0?kon`00oh40QP00ood001_m00?o003onP00ooh00?ol003oP@26003oo@006od0
+0ol00?oj003ooP00oo`00?n108H00?om000Io@03o`00ooT0o_ok007ooh40R001
+ooom000Ko@03o`00ooX00?on003oo000oh40QP00ood001_m00?o003onP00ooh0
+0?ol003oP@26003oo@006O`00Oooo@00ood0o_ok003oP@26003oo@003>P00?n1
+08H00?om000=j000oh40Q`01ooom000<j000oh40QP00ood000cX003oP@26003o
+o@003>P00?n108H00?om000<j000oh40QP00ood000gX003oP@27007oood000cX
+003oP@26003oo@003>P00?n108H00?om000<j000oh40QP00ood000cX003oP@26
+003oo@003NP00?n108L00Oooo@003>P00?n108H00?om000<j000oh40QP00ood0
+00cX003oP@26003oo@003>P00?n108H00?om000=j000oh40Q`01ooom000Fo001
+ooog007ooo/00?n108H00?om000Go@03o`00ooT00?oi003oP@26003oo@007?d0
+0ol00?oj003on000ooL00OooP@2B003oo@007od00ol00?oj0?gon`01oooi00;o
+0?n109<00Oooo@008_d00ol00?oj003ooP00oo`00?oi00?o003oP@2B003oo@00
+8od00ol00?oj003ooP00oo`00?oj003ooP00oh40TP00ood0027l007oood00?om
+0?kon`00ooX00?om003oP@2C003oo@005>P00?ok003oo000oh40T`00ood001GX
+003on`00oo/00?n109D00Oooo@005>P00?ok003on`00oh40U000ood001CX003o
+n`00oo/00?n109@00?om000Dj000oo/00?oj003oP@2E003oo@005>P00?ol003o
+n000oh40UP00ood001GX003oo000ooL00?n109P00Oooo@005NP00?ol003omP01
+oon109T00?om000Hj000oo`00?od0?Goh`21olSoo000ood0013X003ohP3Soh40
+``00ood000cX003oP@26003oo@003NP00?n108L00Oooo@003>P00?n108H00?om
+000<j000oh40QP00ood000cX003oP@26003oo@003>P00?n108H00?om000=j000
+oh40Q`01ooom000Eo001ooof003on`00oh40QP00ood001Sm00?o003on001oook
+003oP@26003oo@006Od00ol00?oi00;o0?ok003oP@26003oo@007?d00ol00?oj
+00?o003on`01oon108P00Oooo@005od00ol00?oj0?coo000oh40QP00ood001Om
+00?o003om`00oo/00?n108H00?om000Io001ooom003oo03noo`00?n108H00?om
+000<j000oh40QP00ood000gX003oP@27007oood000cX003oP@26003oo@003>P0
+0?n108H00?om000<j000oh40QP00ood000cX003oP@26003oo@003NP00?n108L0
+0Oooo@003>P00?n108H00?om000<j000oh40QP00ood000cX003oP@26003oo@00
+3>P00?n108H00?om000=j000oh40Q`01ooom000<j000oh40QP00ood000cX003o
+P@26003oo@003>P00?n108H00?om000<j000oh40QP00ood000gX003oP@27007o
+ood001Gl007oooP0o_ok003oP@26003oo@006od00ol00?oj003ooP00oo`00?n1
+08H00?om000Ko@03o`00ooX00?on003oo000oh40QP00ood001Wm00?o003om`00
+oo/00OooP@28007oood001Om00?o003on000ooX00?n108H00?om000Jo@03o`00
+ooT00ol00?ol003oP@26003oo@006O`00Oooo@00ooh0o?ol003oP@26003oo@00
+3>P00?n108H00?om000=j000oh40Q`01ooom000<j000oh40QP00ood000cX003o
+P@26003oo@003>P00?n108H00?om000<j000oh40QP00ood000gX003oP@27007o
+ood000cX003oP@26003oo@003>P00?n108H00?om000<j000oh40QP00ood000cX
+003oP@26003oo@003NP00?n108L00Oooo@003>P00?n108H00?om000<j000oh40
+QP00ood000cX003oP@26003oo@003>P00?n108H00?om000=j000oh40Q`01ooom
+000Al001oook003oP@26003oo@004o400ol00?ol003oP@26003oo@009O400ol0
+0?ol003oo000olH00?o6003oaP00olH00?ol003oo@003o400ol00?ol087oQ?om
+000=l@03o`00oh40P@3k000=l@03o`00oh40P@3k000;l001oon10840nP001X40
+P@3W0006P@210>L000J10840i`001X40P@3W000Uh`01ooo90?cob`00oo`00Ooo
+c@00ooh0o?o?0?koo@01oooj000`i003o`00olX00?o8007oood00ol00?o?007o
+ooh00?o<003ooP06o`00o`00oo/002kT00?o003obP3molX00?om00?o003ocP00
+ooh0oOo?003ooP06o`00o`00oo/002_T00?o003oaP00ol/00?om00?o003ocP00
+ooX00?o=003ooP03o`00oo/002_T00?o003oaP00ol/00?om00?o003ocP00ooX0
+0?o>003oo@03o`00oo/003GT00?o003obP00ooh00?o;003oo@03o`00olh00?on
+003ooP00oll02Ol00?l00?l00?ok000Uh`01ooo80?kob`3nood00OoocP3nooh0
+o_o?0?cooP01oooj0006P@210>L000J10840i`001X40P@3W0000o`\>"], "Graphics",
+  ImageSize->{282, 174},
+  ImageMargins->{{36, Inherited}, {Inherited, Inherited}},
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[OutputFormData["\<\
+The Unformatted text for this cell was not \
+generated.
+Use options in the Actions Settings dialog box to control
+when Unformatted text is generated.\
+\>", "\<\
+-Graphics-\
+\>"], "Output",
+  ImageRegion->{{0, 1}, {0, 1}}]}, Open]],
+
+Cell["\<\
+Here, we can generate a number of solutions, and then display them \
+together with a scaled representation of the impulse:\
+\>", "Text",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(gr1 = 
+      Plot[Evaluate[
+          Flatten[{\(1000\ Pulse[t, 0,  .5]\)\/3000, 
+              First[{x1[t], x2[t]} /. \[InvisibleSpace]soln1]}]], {t, 0, 20}, 
+        PlotStyle \[Rule] {Hue[0], GrayLevel[0], GrayLevel[0]}, 
+        Frame \[Rule] True, PlotRange \[Rule] {0, 1.3}, 
+        DisplayFunction \[Rule] Identity]; \)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(soln2 = 
+      NDSolve[eqns[1000, 15, 1000, 8000, 1000, 800, 
+          2000\ Pulse[t, 0,  .5] + 3000\ Pulse[t, 3,  .6] + 
+            1500\ Pulse[t, 5,  .4]], {x1[t], x2[t]}, {t, 0, 20}, 
+        MaxSteps \[Rule] 3000]; \)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    \(gr2 = 
+      Plot[Evaluate[
+          Flatten[{\(\(1\/3000\)\((2000\ Pulse[t, 0,  .5] + 
+                  3000\ Pulse[t, 3,  .6] + 1500\ Pulse[t, 5,  .4])\)\), 
+              First[{x1[t], x2[t]} /. \[InvisibleSpace]soln2]}]], {t, 0, 20}, 
+        PlotStyle \[Rule] {Hue[0], GrayLevel[0], GrayLevel[0]}, 
+        Frame \[Rule] True, PlotRange \[Rule] {0, 1.3}, 
+        DisplayFunction \[Rule] Identity]; \)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[CellGroupData[{Cell[BoxData[
+    \(Show[GraphicsArray[{{gr1}, {gr2}}], 
+      DisplayFunction \[Rule] $DisplayFunction]\)], "Input",
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[GraphicsData["PICT", "\<\
+8Lh0100/0A00n`0A0_l<0?ooool0;00000@0003k000140000000000N00402P04
+02`1403k09R0d0000001303?000000000000B00004P0000000P00@080000002J
+hi@00000000n>@000?l00?ooooooo`01003oo?ol00;oo?olZZP00jZXoobZZ004
+=b<g8cLS00Ef9WHVMRH01[DZ]BZe:P07m2kd;_@^00P00?olZZP02C/C>a<k4`0:
+NQMj5gXG00^i6[TJ^AX033LS=b<g8`0=MRIf9WHV00je:[DZ]BX03o@^m2kd;P0@
+o0kl3_`>015EE00000004UEDoocoo00CZZSoo?ol01@k4c/C>a<05GXGNQMj5`0F
+^AZi6[TJ01Oh7_PNn1h06000oocoo00I?`<o0cl301Yn1gh7OPL06kd;_@^m2`0L
+>a<k4c/C01ej5gXGNQL07[TJ^AZi6P0On1kh7_PN02000000EE@08EED001EE00R
+ZZP0000002?oo000000093l3?`<o0`0UOPMn1gh702Jm2kd;_@/09o`>o0kl3P0X
+0o03l0?`02U2ld;c@_<0:X7gPON1m`0[`?_0nl3k02`o0cl3?`<0;Gh7OPMn1`0^
+_@^m2kd;02ooo000EE@0<000002ZZ00aEE@00:ZX03:ZZ000EE@0<`?`0o03l00d
+@_=2ld;c03F1mh7gPOL0=/3k`?_0n`0g000005ED03P7h0OP1n00>DKTA^A6i00j
+QNN5ihGW03/3l0?`0o00?4;c@_=2l`0mPON1mh7g03k0nl3k`?/0?ool002ZZ010
+00000?ol045EE000oo`0@ZZX002ZZ0131n07h0OP04A6i4KTA^@0AHGWQNN5i`16
+a>_4jlC[04L00000ZZP0B0_@2m0;d019B]A:e4[D04Z9f8WHRMP0B`OP1n07h01<
+A^A6i4KT04f5ihGWQNL0C/C[a>_4j`1?oo`00?ol050005ED0000DEEDEE@0001B
+ZZP00?ol05<;d0_@2m00E4[DB]A:e01ERMR9f8WH05K8flSKb=/0E`00003oo01H
+3l0?`0o005U>a4k4C/@0FXg8SLR=b01K2m0;d0_@05a:e4[DB]@0GHWHRMR9f01N
+b=_8flSK05ooo5ED0000H000EEAEE01QEEAEE5ED06:ZZ5ED0000H`o03l0?`01T
+C/A>a4k406F=b8g8SLP0I/c<c<c<c01W001EE00006PC/A>a4k40JE:dD[AB]01Z
+TKRA^96h06/?`0o03l00K4k4C/A>a01]SLR=b8g806k<c<c<c<`0KoolEEAEE01`
+001EE:ZX075EE5EDZZP0LZZXEEAEE01c4k4C/A>a07AB]5:dD[@0MI6hTKRA^01f
+d;c@_=2l07L005EDEE@0N1NQ5j4GX@1iEZEFYEJU07ZEZ9FXUJP0Na>a4k4C/@1l
+D[AB]5:d07fA^96hTKP0O]2ld;c@_01oooaEE:ZX080005EDoo`0PEEDEECoo022
+ZZQEE:ZX08<GXANQ5j40Q5JUEZEFY@25UJREZ9FX08KD[=B/e:`0Q`00EEBZZ028
+6i4KTA^A08UJUEZEFYD0RYVIVIVIV@2;5j4GXANQ08aFYEJUEZD0SIFXUJREZ02>
+e:cD[=B/08ooo5EDoo`0T000ZZP0002AEEBZZ00009:ZZ5EDoo`0Ta^A6i4KT@2D
+FYEJUEZE09FIVIVIVIT0U]RLf9cHW02G001EE?ol09POPAn17h40VEj5GXENQ@2J
+WHVMRIf909/KTA^A6i40W5ZEFYEJU@2MVIVIVIVI09kHW=RLf9`0WoolZZP0002P
+002ZZ5ED0:5EE:ZXEE@0XZZXZZP0002S7h4OPAn10:ANQEj5GXD0YIf9WHVMR@2V
+g8cLS=b<0:L00:ZX0000Z2=b8g8SLP2YHWERMF9e0:ZQNJ5iXGT0Zan17h4OP@2/
+GXENQEj50:fMRIf9WHT0[]b<g8cLS02_oobZZ5ED0;000:ZXZZP0/EEDZZRZZ02b
+ZZRZZ5ED0;<SLR=b8g80]69eHWERM@2eXGVQNJ5i0;KPON1mh7d0]`00ZZQEE02h
+9f8WHRMR0;UVIVIVIVH0^ZEYYFVUJ@2k8g8SLR=b0;aRMF9eHWD0_J5iXGVQN@2n
+h7gPON1m0;ooo:ZXZZP0`000ZZSoo031EEBZZ?ol0<:ZZ:ZXZZP0`bMR9f8WHP34
+IVIVIVIV0<FUJJEYYFT0a^A]i6gTK@37002ZZ:ZX0<P[DR]B:e80bFYFJUIZEP3:
+ZEVYFJUI0</WHRMR9f80c6IVIVIVIP3=YFVUJJEY0<kTKNA]i6d0coolZZSoo03@
+003oo0000=5EE?ol0000dZZXZZSoo03C:e8[DR]B0=AZEVYFJUH0eJUIZEVYF@3F
+j5gXGNQM0=L00:ZXoo`0f2m2;d8_@P3IKTI^AVi60=Z]BZe:[DX0fb]B:e8[DP3L
+JUIZEVYF0=fYFJUIZET0g^QMj5gXG@3Ooocoo0000>000?olEE@0hEEDooaEE03R
+ZZSoo0000><_@Rm2;d80i6i6KTI^AP3U[DZ]BZe:0>K/CNa=k4d0i`00oo`0003X
+<c<c<c<c0>Ub=W8fLSH0j[4j/CZa>P3[;d8_@Rm20>a^AVi6KTH0kJe:[DZ]BP3^
+k4g/CNa=0>ooo?olEE@0l000oobZZ03aEECoo:ZX0?:ZZ?olEE@0lc<c<c<c<`3d
+LSIb=W8f0?Fa>[4j/CX0m_0nl3k`?P3g003oo5ED0?Pg8cLS=b<0nGHVMRIf9P3j
+]BZe:[DZ0?/c<c<c<c<0o78fLSIb=P3m/CZa>[4j0?k`?_0nl3h0o`0000000000
+0001303?00@0;04@0?/090J10;800?l4P@2a00B10;401840/@04P@2a00B10;40
+2>D0POoHooH0G^D00?on003onP00ooX00?oj003onP00ooX00?oj003onP00ooX0
+0?oj003onP00ooX00?oj003onP00ooX00?oj003onP00ooX00?oj003onP00ooX0
+0?on003omP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU003oP@3J003omP0D
+m`00ooL0o_om003oP@3J003omP0In001oooh003ooP00ooh00?n10=X00?of01Sg
+003on000ooh00?on003oP@3J003omP0Fm`00ooD00?om007ooh40g001ooof01Cg
+003omP00oo`00?n10=X00?of01Og003om`03o`00ooh00?n10=X00?of01Sh0?ko
+o@00ooh0o?on003oP@3J003omP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU
+003oP@3J003omP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU003oP@3J003o
+mP0<i@00oh40fP00ooH03>D00?n10=X00?of013U003on@3koh40j000ooH06>/0
+0?ol003onP00oo/0oOn10>`00?of01W/007ooo`00?ok003omP3noh40k`00ooH0
+6>/00?ol003oo000oo80o_n10?800?of01c[003oo005ool00?ookP3nonL0T_l3
+003oooH04^/00?ol003oiP3Wohl00?of013[003oo000oh40fP00ooH04>`0o_om
+003oP@3J003omP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU003oP@3J003o
+mP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU003oP@3J003omP0<i@00oh40
+fP00ooH03>D00?n10=X00?of00cU003oP@3J003omP0Em`01oooh0?koo@00oh40
+fP00ooH07OP00ol00?oj003ooP00ooh00?n10=X00?og003o6oP00ol00?oj003o
+oP00ooh00?n10=X00?of01Wh00?o003on@3nood00OooP@3L007oooH06oP00ol0
+0?oj003ooP00ooh00?n10=X00?of01_h00?o003onP00ooh00?on003oP@3J003o
+mP0Km`01ooom003oo@3nood00?n10=X00?og003o3>D00?n10=X00?of00cU003o
+P@3J003omP0>i@00oh40fP00ooL00?l<i@00oh40fP00ooH03>D00?n10=X00?of
+00cU003oP@3J003omP0<i@00oh40fP00ooH03>D00?n10=X00?of00cU003oP@3J
+003omP0Fm`01ooog007oood00?n10=X00?of01Oh00?o003on@00oo/00?n10=X0
+0?of01ch00?o003onP00ooX00?ok007ooh40hP00ooH07_P00ol00?oj0?goo@01
+oool007ooh40h`01ooof027h00?o003onP00ooh00?on003oo002o`3oP@3R003o
+mP0Sn003o`00ooX00?on003ooP00ood00?on003oP@3S003omP0Qm`01ooom003o
+o@3nood00?om003ooP00oh40h`00ooH05>D00?om003ooP00oh40h`00ooH05>D0
+0?om003oo@00oh40i000ooH05>D00?on003oo000oh40i000ooH05ND00?on003o
+n`01oon10>H00?of01KU003ooP00ooT0mOo`08KooP00ooH03^D00?oY0?3oP`00
+ooH03>D00?n10=X00?of00cU003oP@3J003omP0<i@00oh40fP00ooH05OL00Ooo
+mP00ood00?n10=X00?of01Sh00?o003on001ooom003oP@3J003omP0In003o`00
+ooT00_l0ood00?n10=X00?of01ch00?o003onP03o`00ood00OooP@3L007oooH0
+5oP00ol00?oj0?cooP00oh40fP00ooH05oP00ol00?og003oo@00oh40fP00ooH0
+6OL00Oooo@00oo`0o_on003oP@3J003omP0<i@00oh40fP00ooH03>D00?n10=X0
+0?of013U003ooP3l8h40hP00ooH04>D00?oj000SP@3R003omP0@i@00ooX002>1
+0>800?of013U003onP008h40hP00ooH04>D00?oj000SP@3R003omP0@i@00ooX0
+02>10>800?of013U003onP008h40hP00ooH06OL00Ooon03nood00?oj000SP@3R
+003omP0On003o`00ooX00?on003ooP00ooX002>10>800?of01oh00?o003onP00
+ooh00?on003onP008h40hP00ooH07OP00ol00?og003oo@01oook000SP@3S007o
+ooH06oP00ol00?oh003oo000ooX002>10>800?of01kh00?o003on@03o`00ooh0
+0?oj000SP@3R003omP0Mm`01ooom003ooP3looh00?oj000SP@3R003omP0@i@00
+ooX002>10>800?of013U003onP008h40hP00ooH04>D00?oj000SP@3R003omP0@
+i@00ooX002>10>800?of013U003onP008h40hP00ooH04>D00?oj000SP@3R003o
+mP0@i@00ooX002>10>800?of013U003onP008h40hP00ooH04>D00?oj000SP@3R
+003omP0Ej`01ooom003onP008h40hP00ooH05n`00ol00?on003onP008h40hP00
+ooH0:N`00ol00?on003ooP00ooh002?N003ofP00omX00?oJ003ooP00ooH04n`0
+0ol00?on0?WoPB?T8ogomP0;k003o`00oh40bP0;k003o`00oh40bP09j`01oon1
+0<T01840/@04P@2a00B10;401840/@0UhP01oooM0?cog`00oo`00Oooh@00ooh0
+o?oS0?koo@01oooe033S00?o003ogP00om`00Oooo@03o`00on<00OoooP00on00
+0?on00Ko003o003omP0^h`03o`00omh0oOoN003oo@03o`00on800?on0?goh`00
+ooh01_l00?l00?of02gS00?o003ofP00oml00?om00?o003ohP00ooX00?oQ003o
+oP03o`00ooL00?l[h`03o`00omX00?oO003oo@03o`00on800?oj003ohP00ood0
+0ol00?of03GS00?o003ogP00ooh00?oO003oo@03o`00on800?on003ooP00on<0
+2Ol00?l00?l00?of02GR007oom`0o_oO0?koo@01oooR0?kooP3non<0o?on007o
+ooD01840/@04P@2a00B10;401840/@04P@2a00J10;800?l4P@2a00B10;401840
+/@04P@2a00B10;401840/@04P@2a00B10;401840/@08i@21omSomP1Ni@00ooh0
+0?oj003onP00ooX00?oj003onP00ooX00?oj003onP00ooX00?oj003onP00ooX0
+0?oj003onP00ooX00?oj003onP00ooX00?oj003onP00ooh00?of00cU003oP@3J
+003omP0<i@00oh40fP00ooH03>D00?n10=X00?of01Cg003om`3nood00?n10=X0
+0?of01Wh007oooP00?on003ooP00oh40fP00ooH06?L00?oh003ooP00ooh00?n1
+0=X00?of01Kg003om@00ood00OooP@3L007oooH05?L00?of003oo000oh40fP00
+ooH05oL00?og00?o003ooP00oh40fP00ooH07?P0o_om003ooP3looh00?oP0?go
+P@02003omP0Ci@00on000?on003oP@010?of01;U003oh@00oo`00?n1003omP0C
+i@00on400?ok007ooh<00?of01;U003oh@00ooT00?n4003omP0Fi@00ooT0noo`
+003on000oh@00?of01_U003onP01oool003olP00ooH00?n5003omP0Ki@00ooX0
+0?oj007ooo@00?oe0?[oS000ooH06^D00?ok003om`00ooD00?o^003oS@00ooH0
+6^D00?ok003omP00ooL00?o/003oSP00ooH08>/00?ol003oo000oo@00Ooon@00
+on/00OooT000ooH07n`00Oooo000ood00?oa003onP00onT00?nA003omP0Nj`00
+oo`00?on003ok`3nood00?oX003oTP00ooH08N/00?ol00Coo`00on`0oOom8nX0
+0?oU0;;o0`00ooof01k[003oo000onH00?om000Sj@3mond0oOn_003omP0Nj`00
+oo`00?oV000So@008nD00?of0?WoZ`00ooH06^`0o_om003oiP008od002?T0?Ko
+X`00ooH05>D00?oV000So@008h40n`00ooH05>D00?oV000So@008h40n`00ooH0
+5>D00?oV000So@008h40n`00ooH05>D00?oV000So@008h40n`00ooH05>D00?oV
+000So@008h40n`00ooH05>D00?oV000So@008h40n`00ooH05>D00?oV000So@00
+8h40n`00ooH05>D00?oV000So@008h40n`00ooH05ND00?oV000SoP01oon10?/0
+0?of01kg007oooP0o_om003oiP008oh00OooP@3k003omP0Vn003o`00ooX00?on
+003ooP00onH01B<00?l0oh40n`00ooL00?lTn003o`00ooX00?on003ooP00onH0
+1B<00?l0oh40n`00ooH08_P00ol00?oi0?koo@01oooW00DS0?l00?n10?`00Ooo
+mP0Tn003o`00ooX00?on003ooP00onH01B<0o`00oh40n`00ooH09?P00ol00?oj
+003ooP00ooh00?oV00DS0?l00?n10?/00?of02;g007oood00?om0?koo@00onH0
+1B<0o`00oh40n`00ooH05ND00?oV00DS0?l00?n10?/00?of01GU003oiP058`3o
+003oP@3k003omP0Ji@00oo/00OookP058`3o003oP@3k003omP0Ki@00oo/00Ooo
+kP018oon004Soh40o000ooH06nD00?ok007oonh00B?ooP018on10?`00?of01cU
+003oo002o`3okP018oon004Soh40o000ooH07>D00?ol00;o0?o^004Sooh00B?o
+P@3l003omP0Ni@00ooh012?o8b?okP018oon004Soh40o000ooH08>D00?om00Co
+000Sonl00B?ooP018ooe003oR@00ooH0;OL00Ooom`01ooom003oo@04o`008oo_
+004Sooh00B?omP01oon9003om`00obkh00?o003on@00oo/00?om00Co000Sonl0
+0B?ooP028`3om`02o`3oRP00ooH0;OP00ol00?oj003onP00ood01?l002?ok`00
+ood00R<0ooL00_l0ohX00?of033h00?o003onP3mood00OoooP04o`008oo_003o
+o@028`3on003o`00oh/00OoomP0cn003o`00ooX00?on003ooP00ood01Ol002<0
+oo000?om008S0?oh00?o003oRP00ooH0<oP00ol00?oj003ooP00ooh00?om00Go
+000S0?o`003oo@028`3on003o`00ohX00?of03?g007oood00?om0?koo@00ooh0
+0?on008S0?o`003oo@038`00ooT00ol00?n:003omP0Wi@00ooh00?on008S0?o`
+003oo@038`00ooT00?on003oR`00ooH0:ND00?on003ooP038`00oo400?om000S
+oP00oo/00?om003oR`00ooH0:^D00?on003ooP008oh00?ob003oo@008od00?ol
+003oo000oh`00?of02_U003ooP00ooh002?n0?kom000ood002?l007oooh00?ok
+003oS@00ooH0;>D00?on003ooP008o/0nooj003oo@008oX0oOon8od0o_o[0:Wo
+oP00ooH08ND00?oj000Sm@3iood002?g00<S000Sn`3ZojH00?of01gU003onP00
+8nh002?m000Sm`038`008hT00?of01gU003onP008nh002?m000Sm`038`008hT0
+0?of01gU003onP008nh002?m000Sm`038`008hT00?of02Kg007oooH00?om003o
+nP008nh002?m000Sm`038`008hT00?of02Wh00?o003on001ooom003onP008nh0
+02?m000Sm`038`008hT00?of02ch00?o003on@02o`3oo@00ooX002?^000So@00
+8oL00b<002>9003om`00obgh00?o003onP03o`00ood00Ooon`008nh002?m000S
+m`038`008hX00OoomP0Xn003o`00ooX0o?on003onP008nh002?m000Sm`038`00
+8hT00?of02Sh00?o003om`00ood00?oj000SkP008od002?g00<S000SR@00ooH0
+:_L00Oooo@00oo`0o_on003onP008nh002?m000Sm`038`008hT00?of01gU003o
+nP008nh002?m000Sm`038`008hT00?of01gU003onP008nh002?m000Sm`038`00
+8hT00?of01gU003onP008nh002?m000Sm`038`008hT00?of01gU003onP008nh0
+02?m000Sm`038`008hT00?of01gU003onP008nh002?m000Sm`038`008hT00?of
+01gU003onP008nh002?m000Sm`038`008hT00?of01gU003onP008nh002?m000S
+m`038`008hT00?of01gU003onP008nh002?m000Sm`038`008hT00?of01oU003o
+nP008nh002?m000Sm`038`008hT00?og003o9_L00Ooon03nood00?oj000SkP00
+8od002?g00<S000SR@00ooH0;?P00ol00?oj003ooP00ooh00?oj000SkP008od0
+02?g00<S000SR@00ooH0;?P00ol00?oj003ooP00ooh00?oj000SkP008od002?g
+00<S000SR@00ooH0:_P00ol00?og003oo@01oook000SkP008od002?g00<S000S
+RP01ooof02Sh00?o003on000oo`00?oj000SkP008od002?g00<S000SR@00ooH0
+:oP00ol00?oi00?o003ooP00ooX002?^000So@008oL00b<002>9003omP0Zm`01
+ooom003ooP3looh00?oj000SkP008od002?g00<S000SR@00ooH07ND00?oj000S
+kP008od002?g00<S000SR@00ooH07ND00?oj000SkP008od002?g00<S000SR@00
+ooH07ND00?oj000SkP008od002?g00<S000SR@00ooH07ND00?oj000SkP008od0
+02?g00<S000SR@00ooH07ND00?oj000SkP008od002?g00<S000SR@00ooH07ND0
+0?oj000SkP008od002?g00<S000SR@00ooH07ND00?oj000SkP008od002?g00<S
+000SR@00ooH07ND00?oj000SkP008od002?g00<S000SR@00ooH07ND00?oj000S
+kP008od002?g00<S000SR@00ooH08^/00Oooo@00ooX002?^000So@008oL00b<0
+02>9003omP0Tk003o`00ooh00?oj000SkP008od002?g00<S000SR@00ooH0=>`0
+0ol00?on003ooP00ooh002?^000So@008oL00b<002?M003ofP00omX00?on003o
+mP0Jk003o`00ooh0nOo/8ogomB<1oon;8ogomP0;k003o`00oh40bP0;k003o`00
+oh40bP09j`01oon10<T01840/@04P@2a00B10;401840/@0UhP01oooM0?cog`00
+oo`00Oooh@00ooh0o?oS0?koo@01oooe033S00?o003ogP00om`00Oooo@03o`00
+on<00OoooP00on000?on00Ko003o003omP0^h`03o`00omh0oOoN003oo@03o`00
+on800?on0?goh`00ooh01_l00?l00?of02_S00?o003ofP00oml00?om00?o003o
+hP00ooX00?oQ003ooP03o`00ooH0:n<00ol00?oJ003og`00ood00ol00?oR003o
+nP00on800?om00?o003omP0eh`03o`00omh00?on003og`00ood00ol00?oR003o
+oP00ooh00?oS00Wo003o003o003omP0UhP01oooL0?kog`3nood00OoohP3nooh0
+o_oS0?cooP01oooe00B10;401840/@04P@2a00B10;401840/@04P@2a00B10;40
+1840/@06P@2b003o0?l\>"], "Graphics",
+  ImageSize->{207, 268},
+  ImageMargins->{{37, Inherited}, {Inherited, Inherited}},
+  ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  GraphicsArray  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output",
+  ImageRegion->{{0, 1}, {0, 1}}]}, Open]]}, Open]]}, Open]]
+},
+FrontEndVersion->"4.2 for Macintosh",
+ScreenRectangle->{{28, 1152}, {0, 746}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 624},
+WindowMargins->{{108, Automatic}, {Automatic, 24}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1763, 53, 137, 5, 70, "Title"],
+
+Cell[CellGroupData[{
+Cell[1923, 60, 63, 1, 70, "Section"],
+Cell[1989, 63, 270, 7, 70, "Text"],
+Cell[2262, 72, 124, 5, 70, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[2418, 79, 57, 1, 70, "Section"],
+Cell[2478, 82, 364, 8, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[2865, 92, 573, 12, 70, "Input",
+  CellOpen->False],
+Cell[3441, 106, 5385, 84, 70, 5267, 81, "GraphicsData", "PICT", "Graphics"],
+Cell[8829, 192, 246, 8, 70, "Output"]
+}, Closed]],
+Cell[9087, 202, 741, 12, 70, "Text"],
+Cell[9831, 216, 444, 9, 70, "Text"],
+Cell[10278, 227, 800, 20, 70, "Input"],
+Cell[11081, 249, 1023, 25, 70, "Input"],
+Cell[12107, 276, 225, 5, 70, "Text"],
+Cell[12335, 283, 953, 25, 70, "Input"],
+Cell[13291, 310, 411, 8, 70, "Text"],
+Cell[13705, 320, 312, 5, 70, "Input"],
+Cell[14020, 327, 339, 6, 70, "Text"],
+Cell[14362, 335, 215, 5, 70, "Text"],
+Cell[14580, 342, 183, 4, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[14795, 348, 61, 1, 70, "Section"],
+Cell[14859, 351, 143, 4, 70, "Text"],
+Cell[15005, 357, 192, 4, 70, "Input"],
+Cell[15200, 363, 383, 7, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[15606, 372, 203, 4, 70, "Input"],
+Cell[15812, 378, 7759, 120, 70, 7642, 117, "GraphicsData", "PICT", \
+"Graphics"],
+Cell[23574, 500, 246, 8, 70, "Output"]
+}, Open  ]],
+Cell[23832, 510, 179, 4, 70, "Text"],
+Cell[24014, 516, 392, 8, 70, "Input"],
+Cell[24409, 526, 287, 6, 70, "Input"],
+Cell[24699, 534, 472, 9, 70, "Input"],
+
+Cell[CellGroupData[{
+Cell[25194, 545, 150, 3, 70, "Input"],
+Cell[25347, 550, 11884, 184, 70, 11767, 181, "GraphicsData", "PICT", \
+"Graphics"],
+Cell[37234, 736, 168, 4, 70, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)

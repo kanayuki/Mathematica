@@ -1,0 +1,2505 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    117282,       2497]
+NotebookOptionsPosition[    108798,       2320]
+NotebookOutlinePosition[    111081,       2379]
+CellTagsIndexPosition[    110745,       2367]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Series RLC Circuit Solver", "DemoTitle",
+ CellChangeTimes->{
+  3.35332394657587*^9, {3.38126871925653*^9, 3.38126877592682*^9}, {
+   3.8363165825822215`*^9, 3.836316587023618*^9}, {3.8589391156687083`*^9, 
+   3.858939128042124*^9}},
+ CellID->700863240,ExpressionUUID->"e2e3a7c8-dca4-4379-9d43-5ce59f433596"],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection",ExpressionUUID->"0e3ed8f2-dbfd-45a8-b2e8-4773b511b866"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Circuit", "=", 
+   GraphicsBox[
+    TagBox[RasterBox[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+      "], {{0, 97.8}, {186., 0}}, {0, 255},
+      ColorFunction->RGBColor,
+      ImageResolution->{120., 120.},
+      SmoothingQuality->"High"],
+     BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+     Selectable->False],
+    DefaultBaseStyle->"ImageGraphics",
+    ImageSize->{157.10546875, Automatic},
+    ImageSizeRaw->{186., 97.8},
+    PlotRange->{{0, 186.}, {0, 97.8}}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.857326790016054*^9, 3.857326809334494*^9}},
+ CellLabel->"In[1]:=",
+ CellID->89211482,ExpressionUUID->"cd01739b-eb83-40e5-b2b1-1a4547acece4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"V", "[", 
+   RowBox[{"A_", ",", "\[Omega]_", ",", "\[Phi]_"}], "]"}], ":=", 
+  RowBox[{"A", "*", 
+   RowBox[{"Cos", "[", 
+    RowBox[{
+     RowBox[{"\[Omega]", "*", "t"}], "+", "\[Phi]"}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8571398832084894`*^9, 3.8571398839983916`*^9}, {
+  3.857140048938345*^9, 3.857140050703452*^9}, {3.8572212854220095`*^9, 
+  3.8572212971329336`*^9}, {3.8573208329459143`*^9, 3.8573208336653805`*^9}},
+ CellLabel->"In[2]:=",
+ CellID->165909917,ExpressionUUID->"9b50d3df-ece5-4233-a1ed-5501a5bc02e5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gov", "[", 
+   RowBox[{
+   "A_", ",", "\[Omega]_", ",", "\[Phi]_", ",", "R_", ",", "L_", ",", "c_"}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"L", "*", 
+     RowBox[{
+      RowBox[{"x", "''"}], "[", "t", "]"}]}], "+", 
+    RowBox[{"R", "*", 
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "/", "c"}], ")"}], "*", 
+     RowBox[{"x", "[", "t", "]"}]}]}], "==", 
+   RowBox[{"V", "[", 
+    RowBox[{"A", ",", "\[Omega]", ",", "\[Phi]"}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.856360250741826*^9, 3.8563603384169855`*^9}, {
+  3.8563621804784193`*^9, 3.8563621846512847`*^9}, {3.8563623224091015`*^9, 
+  3.8563623493342204`*^9}, {3.8563625452329383`*^9, 3.8563625468411922`*^9}, {
+  3.856362807038578*^9, 3.856362822603959*^9}, {3.8563640704833093`*^9, 
+  3.8563640753791304`*^9}, {3.8571397538821206`*^9, 3.8571397541914964`*^9}, {
+  3.8571399257508893`*^9, 3.857139951933668*^9}, {3.8572212987360215`*^9, 
+  3.857221301663333*^9}, {3.8573255630756855`*^9, 3.8573255669733963`*^9}},
+ CellLabel->"In[3]:=",
+ CellID->129628749,ExpressionUUID->"99a67c4e-f536-4ae8-8b6d-7c5c2047b894"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"soln", "[", 
+   RowBox[{
+   "A_", ",", "\[Omega]_", ",", "\[Phi]_", ",", "R_", ",", "L_", ",", "c_", 
+    ",", "tmax_"}], "]"}], ":=", 
+  RowBox[{"NDSolve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"gov", "[", 
+       RowBox[{
+       "A", ",", "\[Omega]", ",", "\[Phi]", ",", "R", ",", "L", ",", "c"}], 
+       "]"}], ",", 
+      RowBox[{
+       RowBox[{"x", "[", "0", "]"}], "==", 
+       RowBox[{"A", "*", 
+        RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x", "'"}], "[", "0", "]"}], "==", "0"}]}], "}"}], ",", "x", 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "tmax"}], "}"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8573207259367495`*^9, 3.8573207621286974`*^9}, {
+  3.857320859465731*^9, 3.857320900663788*^9}, {3.857321097314066*^9, 
+  3.857321097830447*^9}, {3.8573239039994717`*^9, 3.857323908381134*^9}, {
+  3.8573242186416674`*^9, 3.8573242747152853`*^9}, {3.857324371321974*^9, 
+  3.8573243756923213`*^9}, {3.857325571816033*^9, 3.857325578687788*^9}, {
+  3.85733827867023*^9, 3.857338282647221*^9}},
+ CellLabel->"In[4]:=",
+ CellID->269455930,ExpressionUUID->"63a80d70-d799-41c3-ba2d-a3e8a6a87a10"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"disc", "[", 
+   RowBox[{"R_", ",", "L_", ",", "c_"}], "]"}], ":=", 
+  RowBox[{"Text", "[", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"R", "^", "2"}], "-", 
+       RowBox[{"4", 
+        RowBox[{"L", "/", "c"}]}]}], ">", "0"}], ",", "\<\"overdamped\"\>", 
+     ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"R", "^", "2"}], "-", 
+         RowBox[{"4", 
+          RowBox[{"L", "/", "c"}]}]}], "<", "0"}], ",", "\<\"underdamped\"\>",
+        ",", "\<\"critically damped\"\>"}], "]"}]}], "]"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.856363163625023*^9, 3.8563631815593247`*^9}, {
+  3.856363591420432*^9, 3.8563636026227894`*^9}, {3.857325582590743*^9, 
+  3.8573255846275377`*^9}, {3.864472823226301*^9, 3.864472834712432*^9}, {
+  3.864475061370358*^9, 3.864475074440482*^9}},
+ CellLabel->"In[5]:=",
+ CellID->22390043,ExpressionUUID->"58d9a0e8-8901-4df3-9f9b-0406a3ace5ce"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"plot", "[", 
+   RowBox[{
+   "A_", ",", "\[Omega]_", ",", "\[Phi]_", ",", "R_", ",", "L_", ",", "c_", 
+    ",", "tmax_"}], "]"}], ":=", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"V", "[", 
+       RowBox[{"A", ",", "\[Omega]", ",", "\[Phi]"}], "]"}], ",", 
+      RowBox[{"Evaluate", "[", 
+       RowBox[{
+        RowBox[{"x", "[", "t", "]"}], "/.", 
+        RowBox[{"soln", "[", 
+         RowBox[{
+         "A", ",", "\[Omega]", ",", "\[Phi]", ",", "R", ",", "L", ",", "c", 
+          ",", "tmax"}], "]"}]}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+    RowBox[{"PlotRange", "->", "All"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"disc", "[", 
+        RowBox[{"R", ",", "L", ",", "c"}], "]"}], ",", "20", ",", "Black"}], 
+      "\[IndentingNewLine]", "]"}]}], ",", 
+    RowBox[{"Frame", "->", "True"}], ",", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "14", ",", 
+       RowBox[{"Thickness", "[", "0.005", "]"}]}], "]"}]}], ",", 
+    RowBox[{"FrameLabel", "->", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\<\"time (\"\>", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\<\"s\"\>", ",", "Italic"}], "]"}], ",", "\<\")\"\>"}], 
+         "}"}], "]"}], ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\<\"voltage (\"\>", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\<\"V\"\>", ",", "Italic"}], "]"}], ",", "\<\")\"\>"}], 
+         "}"}], "]"}]}], "}"}]}], ",", 
+    RowBox[{"FrameTicksStyle", "\[Rule]", "10"}], ",", 
+    RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Directive", "[", 
+        RowBox[{"Blue", ",", 
+         RowBox[{"Thickness", "[", "0.005", "]"}]}], "]"}], ",", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Thickness", "[", "0.005", "]"}]}], "]"}]}], "}"}]}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+    RowBox[{"PlotLegends", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\<\"\!\(\*SubscriptBox[\(V\), \(in\)]\)\"\>", 
+       ",", "\<\"\!\(\*SubscriptBox[\(V\), \(out\)]\)\"\>"}], "}"}]}], ",", 
+    RowBox[{"Epilog", "->", 
+     RowBox[{"Inset", "[", 
+      RowBox[{"Circuit", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"0.82", "*", "tmax"}], ",", 
+         RowBox[{"0.72", "*", "A"}]}], "}"}], ",", "Automatic", ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", ".6"}], "}"}]}], "]"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.857321033771197*^9, 3.857321050696493*^9}, {
+   3.8573211029533987`*^9, 3.857321103235496*^9}, {3.8573213338399725`*^9, 
+   3.8573214511184945`*^9}, {3.8573214896241703`*^9, 
+   3.8573215086031017`*^9}, {3.857321888404419*^9, 3.857321888905244*^9}, {
+   3.8573239402908173`*^9, 3.857323945177854*^9}, {3.857324303820094*^9, 
+   3.8573243199386997`*^9}, {3.8573243579227896`*^9, 
+   3.8573243672380495`*^9}, {3.8573255873598003`*^9, 
+   3.8573255953957953`*^9}, {3.85732589534958*^9, 3.857325898885562*^9}, {
+   3.857325982169981*^9, 3.857325997681634*^9}, {3.8573260896813784`*^9, 
+   3.8573260954939346`*^9}, {3.8573263203046017`*^9, 
+   3.8573263558729525`*^9}, {3.8573382857936473`*^9, 
+   3.8573382898618097`*^9}, {3.8573919683088565`*^9, 
+   3.8573919696344366`*^9}, {3.857392370833022*^9, 3.8573923710166416`*^9}, {
+   3.8589410116435657`*^9, 3.8589410118186555`*^9}, {3.8644727515897903`*^9, 
+   3.864472791410989*^9}, 3.864472839675995*^9, {3.864472993355463*^9, 
+   3.864472993613846*^9}, {3.864473505457999*^9, 3.864473505817952*^9}, {
+   3.864475408962862*^9, 3.864475470235696*^9}, {3.8644757479244413`*^9, 
+   3.864475760472567*^9}, {3.864478451574251*^9, 3.864478476843512*^9}, {
+   3.864478512601926*^9, 3.8644786025757313`*^9}, {3.864478657695322*^9, 
+   3.864478662174097*^9}, {3.864478692197377*^9, 3.864478820989183*^9}, {
+   3.864637751784445*^9, 3.864637752206546*^9}, {3.864637987802638*^9, 
+   3.864638042735488*^9}},
+ CellLabel->"In[8]:=",
+ CellID->107556074,ExpressionUUID->"1770f929-fcc2-4255-a9e8-9a5b6f8f04e2"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection",ExpressionUUID->"0164ee94-855f-4453-8dd7-57b07d54f6eb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"plot", "[", 
+    RowBox[{"A", ",", "\[Omega]", ",", 
+     RowBox[{"\[Phi]", " ", "Degree"}], ",", "R", ",", "L", ",", "c", ",", 
+     "tmax"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"A", ",", "1", ",", "\"\<amplitude (V)\>\""}], "}"}], ",",
+            "1", ",", "100", ",", "1", ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "\[Omega]", ",", "100", ",", "\"\<angular frequency (Hz)\>\""}], 
+            "}"}], ",", 
+           RowBox[{"10.", "^", 
+            RowBox[{"-", "3"}]}], ",", 
+           RowBox[{"10", "^", "3"}], ",", "1", ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "\[Phi]", " ", ",", "0", ",", "\"\<phase shift (deg)\>\""}], 
+            "}"}], ",", "0", ",", "360", ",", "1", ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "R", ",", "100", ",", "\"\<resistance (\[CapitalOmega])\>\""}], 
+            "}"}], ",", "0", ",", "500", ",", "1", ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"L", ",", "1", ",", "\"\<inductance (H)\>\""}], "}"}], 
+           ",", ".01", ",", "100", ",", "1", ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"c", ",", 
+             RowBox[{"10.", "^", 
+              RowBox[{"-", "6"}]}], ",", "\"\<capacitance (F)\>\""}], "}"}], 
+           ",", 
+           RowBox[{"10.", "^", 
+            RowBox[{"-", "6"}]}], ",", 
+           RowBox[{"5", "*", 
+            RowBox[{"10.", "^", 
+             RowBox[{"-", "5"}]}]}], ",", 
+           RowBox[{"10.", "^", 
+            RowBox[{"-", "6"}]}], ",", 
+           RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+           RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"Control", "@", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"tmax", ",", "0.05", ",", "\"\<time\>\""}], "}"}], ",", 
+          ".01", ",", "1", ",", 
+          RowBox[{"Appearance", "->", "\"\<Labeled\>\""}], ",", 
+          RowBox[{"ImageSize", "->", "Small"}]}], "}"}]}], "}"}]}], "}"}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", " ", 
+   RowBox[{"SaveDefinitions", "->", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8589410196946115`*^9, 3.858941019833952*^9}, {
+   3.859289248345067*^9, 3.859289305164626*^9}, {3.8592980033979964`*^9, 
+   3.8592980520287714`*^9}, {3.85929808648022*^9, 3.8592980904155617`*^9}, {
+   3.8593015385858*^9, 3.859301541100297*^9}, 3.859301600220533*^9, {
+   3.864472358529337*^9, 3.864472393934614*^9}, {3.8644725520025263`*^9, 
+   3.864472567346963*^9}, {3.864472659083126*^9, 3.864472666361848*^9}, {
+   3.864472708665344*^9, 3.864472722458198*^9}, {3.8644728688358803`*^9, 
+   3.864472890516478*^9}, {3.864472934410281*^9, 3.864472943763348*^9}, {
+   3.864473003742585*^9, 3.864473028433346*^9}, {3.8644733951706553`*^9, 
+   3.864473413553084*^9}, {3.8644772530964727`*^9, 3.864477254642569*^9}, 
+   3.864477285739953*^9, {3.8644773848562937`*^9, 3.8644773853016443`*^9}, {
+   3.8644774883627443`*^9, 3.8644775084007807`*^9}, {3.864477654104443*^9, 
+   3.864477669544286*^9}, {3.864477715088685*^9, 3.864477748301285*^9}, 
+   3.864477891276886*^9, {3.864477932072481*^9, 3.864477966676785*^9}, {
+   3.8644780131617823`*^9, 3.86447801633644*^9}},
+ CellLabel->"In[82]:=",
+ CellID->29913164,ExpressionUUID->"4429a835-97e3-41eb-bc7e-7002c4fd9bca"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`c$$ = 
+    1.*^-6, $CellContext`L$$ = 1, $CellContext`R$$ = 
+    100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+    0, $CellContext`\[Omega]$$ = 100, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`A$$], 1, "amplitude (V)"}, 1, 100, 1}, {{
+       Hold[$CellContext`\[Omega]$$], 100, "angular frequency (Hz)"}, 0.001, 
+      1000, 1}, {{
+       Hold[$CellContext`\[Phi]$$], 0, "phase shift (deg)"}, 0, 360, 1}, {{
+       Hold[$CellContext`R$$], 100, "resistance (\[CapitalOmega])"}, 0, 500, 
+      1}, {{
+       Hold[$CellContext`L$$], 1, "inductance (H)"}, 0.01, 100, 1}, {{
+       Hold[$CellContext`c$$], 1.*^-6, "capacitance (F)"}, 1.*^-6, 0.00005, 
+      1.*^-6}, {{
+       Hold[$CellContext`tmax$$], 0.05, "time"}, 0.01, 1}, {
+      Hold[
+       Grid[{{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}, {
+          Manipulate`Place[3], 
+          Manipulate`Place[4]}, {
+          Manipulate`Place[5], 
+          Manipulate`Place[6]}, {
+          Manipulate`Place[7]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {703., {212., 217.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 1, $CellContext`c$$ = 
+        1.*^-6, $CellContext`L$$ = 1, $CellContext`R$$ = 
+        100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+        0, $CellContext`\[Omega]$$ = 100}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plot[$CellContext`A$$, $CellContext`\[Omega]$$, \
+$CellContext`\[Phi]$$ 
+        Degree, $CellContext`R$$, $CellContext`L$$, $CellContext`c$$, \
+$CellContext`tmax$$], 
+      "Specifications" :> {{{$CellContext`A$$, 1, "amplitude (V)"}, 1, 100, 1,
+          Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[Omega]$$, 100, "angular frequency (Hz)"}, 0.001,
+          1000, 1, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 
+         2}, {{$CellContext`\[Phi]$$, 0, "phase shift (deg)"}, 0, 360, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         3}, {{$CellContext`R$$, 100, "resistance (\[CapitalOmega])"}, 0, 500,
+          1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         4}, {{$CellContext`L$$, 1, "inductance (H)"}, 0.01, 100, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         5}, {{$CellContext`c$$, 1.*^-6, "capacitance (F)"}, 1.*^-6, 0.00005, 
+         1.*^-6, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 6}, {{$CellContext`tmax$$, 0.05, "time"}, 0.01, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         7}, 
+        Grid[{{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}, {
+           Manipulate`Place[3], 
+           Manipulate`Place[4]}, {
+           Manipulate`Place[5], 
+           Manipulate`Place[6]}, {
+           Manipulate`Place[7]}}]}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{755., {304., 310.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plot[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := Plot[{
+          $CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\
+\[Phi]], 
+          Evaluate[
+           ReplaceAll[
+            $CellContext`x[$CellContext`t], 
+            $CellContext`soln[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c, \
+$CellContext`tmax]]]}, {$CellContext`t, 0, $CellContext`tmax}, PlotRange -> 
+         All, PlotLabel -> Style[
+           $CellContext`disc[$CellContext`R, $CellContext`L, $CellContext`c], 
+           20, Black], Frame -> True, FrameStyle -> Directive[Black, 14, 
+           Thickness[0.005]], FrameLabel -> {
+           Row[{"time (", 
+             Style["s", Italic], ")"}], 
+           Row[{"voltage (", 
+             Style["V", Italic], ")"}]}, FrameTicksStyle -> 10, GridLines -> 
+         Automatic, PlotStyle -> {
+           Directive[Blue, 
+            Thickness[0.005]], 
+           Directive[Red, 
+            Thickness[0.005]]}, ImageSize -> 500, 
+         PlotLegends -> {
+          "\!\(\*SubscriptBox[\(V\), \(in\)]\)", 
+           "\!\(\*SubscriptBox[\(V\), \(out\)]\)"}, Epilog -> 
+         Inset[$CellContext`Circuit, {
+           0.82 $CellContext`tmax, 0.72 $CellContext`A}, Automatic, {
+           1, 0.6}]], $CellContext`V[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]]] := $CellContext`A 
+        Cos[$CellContext`\[Omega] $CellContext`t + $CellContext`\[Phi]], \
+$CellContext`soln[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := NDSolve[{
+          $CellContext`gov[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c], \
+$CellContext`x[0] == $CellContext`A Cos[$CellContext`\[Phi]], 
+          Derivative[1][$CellContext`x][0] == 
+          0}, $CellContext`x, {$CellContext`t, 
+          0, $CellContext`tmax}], $CellContext`gov[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := $CellContext`L 
+          Derivative[2][$CellContext`x][$CellContext`t] + $CellContext`R 
+          Derivative[1][$CellContext`x][$CellContext`t] + (
+           1/$CellContext`c) $CellContext`x[$CellContext`t] == \
+$CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\[Phi]], 
+       Attributes[Derivative] = {NHoldAll}, $CellContext`disc[
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := Text[
+         If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) > 0, 
+          "overdamped", 
+          
+          If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) < 0, 
+           "underdamped", "critically damped"]]], $CellContext`Circuit = 
+       Image[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+         "], "Byte", ColorSpace -> "RGB", ImageResolution -> {120., 120.}, 
+         ImageSize -> {157.10546875, Automatic}, Interleaving -> True]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1725607562,ExpressionUUID->"912f5f1d-ad68-4096-9cdb-f05e983fced2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection",ExpressionUUID->"2648530a-63b7-4b8a-a967-b2e0e65d9ccd"],
+
+Cell[TextData[{
+ "This Demonstration shows the input and output voltage of an RLC series \
+circuit with tunable resistance ",
+ Cell[BoxData[
+  FormBox["R", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "bd1168c2-06b9-406c-8e81-144673b9ffb9"],
+ ", capacitance ",
+ Cell[BoxData[
+  FormBox["C", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "06c4ba75-5aad-4e91-929a-ab21427dad04"],
+ ", and inductance ",
+ Cell[BoxData[
+  FormBox["I", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "6b228bac-4366-49dd-81fb-0475f622ddd2"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.858780796436516*^9, 3.8587810503728743`*^9}, {
+  3.858939199328272*^9, 3.8589392017568502`*^9}, {3.864473589598096*^9, 
+  3.864473595965919*^9}, {3.8644737989335413`*^9, 3.864473805042275*^9}, {
+  3.864476113328162*^9, 3.8644761163436213`*^9}, {3.864478080086936*^9, 
+  3.864478097494544*^9}, {3.864637819407483*^9, 3.864637831256016*^9}, {
+  3.864637878835085*^9, 3.864637913435953*^9}},
+ CellID->51853694,ExpressionUUID->"66b2e6d6-9771-4bbb-8c70-530069ced4d4"],
+
+Cell["\<\
+The plot represents the voltage across the capacitor over time. The governing \
+equation for the circuit is given by \
+\>", "ManipulateCaption",
+ CellChangeTimes->{{3.864473629773506*^9, 3.864473651365028*^9}, {
+  3.8644743966975822`*^9, 3.864474397279451*^9}, {3.8644764234003677`*^9, 
+  3.8644764700811443`*^9}},
+ CellID->117774054,ExpressionUUID->"9b4ba20a-12ea-4641-bd44-67d55b88fcad"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"L", 
+      FormBox[
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["d", "2"], "x"}], 
+        RowBox[{"d", "\[InvisibleSpace]", 
+         SuperscriptBox["t", "2"]}]],
+       TraditionalForm]}], "+", 
+     RowBox[{"R", 
+      FormBox[
+       FractionBox[
+        RowBox[{"d", "\[VeryThinSpace]", "x", "\[InvisibleSpace]"}], 
+        RowBox[{"d", "\[InvisibleSpace]", "t"}]],
+       TraditionalForm]}], "+", 
+     RowBox[{
+      FormBox[
+       FractionBox["1", "C"],
+       TraditionalForm], "x"}]}], "=", 
+    RowBox[{"A", " ", 
+     RowBox[{"cos", "(", 
+      RowBox[{
+       RowBox[{"\[Omega]", " ", "t"}], "+", "\[Phi]"}], ")"}]}]}], 
+   TraditionalForm]], "InlineMath",ExpressionUUID->
+  "7b47fbf5-c28a-4598-b6e3-5f98818ca2a8"],
+ ","
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.864473661590448*^9, 3.864473698276449*^9}, {
+  3.864476477953248*^9, 3.864476478766361*^9}, {3.864478134483371*^9, 
+  3.8644781365340347`*^9}, {3.864637859875351*^9, 3.8646378598754396`*^9}, {
+  3.864637921716237*^9, 3.864637922692111*^9}, {3.8646381172403*^9, 
+  3.864638118191718*^9}, {3.864825700358323*^9, 3.864825728493905*^9}},
+ CellID->684994449,ExpressionUUID->"4a7dd1c2-5780-46aa-b279-24013e2e970b"],
+
+Cell["\<\
+where the right side of the equation represents the input sinusoidal voltage.\
+\>", "ManipulateCaption",
+ InitializationCell->True,
+ CellChangeTimes->{{3.864473629773506*^9, 3.8644736352756023`*^9}, {
+   3.864473702643434*^9, 3.864473722262321*^9}, {3.864476482631485*^9, 
+   3.864476571470129*^9}, {3.864476632105257*^9, 3.8644766336878557`*^9}, {
+   3.864476698369965*^9, 3.864476733423086*^9}, 3.864478131515703*^9, 
+   3.864637875409938*^9, {3.86463792631627*^9, 3.86463793299893*^9}},
+ CellID->2065711277,ExpressionUUID->"5be171f6-aef9-4323-af92-883d88763431"],
+
+Cell["\<\
+As inductance or capacitance increases, the period of the output increases. \
+As resistance increases, the rate of decay increases. The discriminant of the \
+characteristic equation determines the type of response: overdamped, \
+underdamped or critically damped. \
+\>", "ManipulateCaption",
+ InitializationCell->True,
+ CellChangeTimes->{{3.864473629773506*^9, 3.8644736352756023`*^9}, {
+   3.864473702643434*^9, 3.864473722262321*^9}, {3.864476482631485*^9, 
+   3.864476571470129*^9}, {3.864476632105257*^9, 3.8644766336878557`*^9}, {
+   3.864476698369965*^9, 3.864476733423086*^9}, 3.864478131515703*^9, 
+   3.864637875409938*^9, {3.86463792631627*^9, 3.864637951780972*^9}},
+ CellID->77311505,ExpressionUUID->"8a677621-b774-42de-9bf9-c5de5edbbc72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection",ExpressionUUID->"6eda749e-8090-4330-b03b-12dbb8ba7925"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`c$$ = Rational[
+    1, 1000000], $CellContext`L$$ = 1, $CellContext`R$$ = 
+    100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+    0, $CellContext`\[Omega]$$ = 100, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`A$$], 1, "amplitude (V)"}, 1, 100, 1}, {{
+       Hold[$CellContext`\[Omega]$$], 100, "angular frequency (Hz)"}, 0.001, 
+      1000, 1}, {{
+       Hold[$CellContext`\[Phi]$$], 0, "phase shift (deg)"}, 0, 360, 1}, {{
+       Hold[$CellContext`R$$], 100, "resistance (\[CapitalOmega])"}, 0, 500, 
+      1}, {{
+       Hold[$CellContext`L$$], 1, "inductance (H)"}, 0.01, 100, 1}, {{
+       Hold[$CellContext`c$$], 
+       Rational[1, 1000000], "capacitance (F)"}, 1.*^-6, 0.00005, 1.*^-6}, {{
+       Hold[$CellContext`tmax$$], 0.05, "time"}, 0.01, 1}, {
+      Hold[
+       Grid[{{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}, {
+          Manipulate`Place[3], 
+          Manipulate`Place[4]}, {
+          Manipulate`Place[5], 
+          Manipulate`Place[6]}, {
+          Manipulate`Place[7]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {703., {212., 217.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 1, $CellContext`c$$ = 
+        Rational[1, 1000000], $CellContext`L$$ = 1, $CellContext`R$$ = 
+        100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+        0, $CellContext`\[Omega]$$ = 100}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plot[$CellContext`A$$, $CellContext`\[Omega]$$, \
+$CellContext`\[Phi]$$ 
+        Degree, $CellContext`R$$, $CellContext`L$$, $CellContext`c$$, \
+$CellContext`tmax$$], 
+      "Specifications" :> {{{$CellContext`A$$, 1, "amplitude (V)"}, 1, 100, 1,
+          Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[Omega]$$, 100, "angular frequency (Hz)"}, 0.001,
+          1000, 1, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 
+         2}, {{$CellContext`\[Phi]$$, 0, "phase shift (deg)"}, 0, 360, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         3}, {{$CellContext`R$$, 100, "resistance (\[CapitalOmega])"}, 0, 500,
+          1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         4}, {{$CellContext`L$$, 1, "inductance (H)"}, 0.01, 100, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         5}, {{$CellContext`c$$, 
+          Rational[1, 1000000], "capacitance (F)"}, 1.*^-6, 0.00005, 1.*^-6, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         6}, {{$CellContext`tmax$$, 0.05, "time"}, 0.01, 1, Appearance -> 
+         "Labeled", ImageSize -> Small, ControlPlacement -> 7}, 
+        Grid[{{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}, {
+           Manipulate`Place[3], 
+           Manipulate`Place[4]}, {
+           Manipulate`Place[5], 
+           Manipulate`Place[6]}, {
+           Manipulate`Place[7]}}]}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{755., {308., 314.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plot[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := Plot[{
+          $CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\
+\[Phi]], 
+          Evaluate[
+           ReplaceAll[
+            $CellContext`x[$CellContext`t], 
+            $CellContext`soln[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c, \
+$CellContext`tmax]]]}, {$CellContext`t, 0, $CellContext`tmax}, PlotRange -> 
+         All, PlotLabel -> Style[
+           $CellContext`disc[$CellContext`R, $CellContext`L, $CellContext`c], 
+           20, Black], Frame -> True, FrameStyle -> Directive[Black, 14, 
+           Thickness[0.005]], FrameLabel -> {
+           Row[{"time (", 
+             Style["s", Italic], ")"}], 
+           Row[{"voltage (", 
+             Style["V", Italic], ")"}]}, FrameTicksStyle -> 10, GridLines -> 
+         Automatic, PlotStyle -> {
+           Directive[Blue, 
+            Thickness[0.005]], 
+           Directive[Red, 
+            Thickness[0.005]]}, ImageSize -> 500, 
+         PlotLegends -> {
+          "\!\(\*SubscriptBox[\(V\), \(in\)]\)", 
+           "\!\(\*SubscriptBox[\(V\), \(out\)]\)"}, Epilog -> 
+         Inset[$CellContext`Circuit, {
+           0.82 $CellContext`tmax, 0.72 $CellContext`A}, Automatic, {
+           1, 0.6}]], $CellContext`V[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]]] := $CellContext`A 
+        Cos[$CellContext`\[Omega] $CellContext`t + $CellContext`\[Phi]], \
+$CellContext`soln[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := NDSolve[{
+          $CellContext`gov[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c], \
+$CellContext`x[0] == $CellContext`A Cos[$CellContext`\[Phi]], 
+          Derivative[1][$CellContext`x][0] == 
+          0}, $CellContext`x, {$CellContext`t, 
+          0, $CellContext`tmax}], $CellContext`gov[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := $CellContext`L 
+          Derivative[2][$CellContext`x][$CellContext`t] + $CellContext`R 
+          Derivative[1][$CellContext`x][$CellContext`t] + (
+           1/$CellContext`c) $CellContext`x[$CellContext`t] == \
+$CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\[Phi]], 
+       Attributes[Derivative] = {NHoldAll}, $CellContext`disc[
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := Text[
+         If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) > 0, 
+          "overdamped", 
+          
+          If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) < 0, 
+           "underdamped", "critically damped"]]], $CellContext`Circuit = 
+       Image[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+         "], "Byte", ColorSpace -> "RGB", ImageResolution -> {120., 120.}, 
+         ImageSize -> {157.10546875, Automatic}, Interleaving -> True]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->519641799,ExpressionUUID->"bfa52e46-bd6c-48d9-88ae-1970c3b7abb5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection",ExpressionUUID->"1caef6f7-5544-4d92-a04e-599b6e27efd5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`c$$ = 
+    0.00005, $CellContext`L$$ = Rational[1, 100], $CellContext`R$$ = 
+    100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+    0, $CellContext`\[Omega]$$ = 100, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`A$$], 1, "amplitude (V)"}, 1, 100, 1}, {{
+       Hold[$CellContext`\[Omega]$$], 100, "angular frequency (Hz)"}, 0.001, 
+      1000, 1}, {{
+       Hold[$CellContext`\[Phi]$$], 0, "phase shift (deg)"}, 0, 360, 1}, {{
+       Hold[$CellContext`R$$], 100, "resistance (\[CapitalOmega])"}, 0, 500, 
+      1}, {{
+       Hold[$CellContext`L$$], 
+       Rational[1, 100], "inductance (H)"}, 0.01, 100, 1}, {{
+       Hold[$CellContext`c$$], 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005, 
+      1.*^-6}, {{
+       Hold[$CellContext`tmax$$], 0.05, "time"}, 0.01, 1}, {
+      Hold[
+       Grid[{{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}, {
+          Manipulate`Place[3], 
+          Manipulate`Place[4]}, {
+          Manipulate`Place[5], 
+          Manipulate`Place[6]}, {
+          Manipulate`Place[7]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {703., {212., 217.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 1, $CellContext`c$$ = 
+        0.00005, $CellContext`L$$ = Rational[1, 100], $CellContext`R$$ = 
+        100, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+        0, $CellContext`\[Omega]$$ = 100}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plot[$CellContext`A$$, $CellContext`\[Omega]$$, \
+$CellContext`\[Phi]$$ 
+        Degree, $CellContext`R$$, $CellContext`L$$, $CellContext`c$$, \
+$CellContext`tmax$$], 
+      "Specifications" :> {{{$CellContext`A$$, 1, "amplitude (V)"}, 1, 100, 1,
+          Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[Omega]$$, 100, "angular frequency (Hz)"}, 0.001,
+          1000, 1, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 
+         2}, {{$CellContext`\[Phi]$$, 0, "phase shift (deg)"}, 0, 360, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         3}, {{$CellContext`R$$, 100, "resistance (\[CapitalOmega])"}, 0, 500,
+          1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         4}, {{$CellContext`L$$, 
+          Rational[1, 100], "inductance (H)"}, 0.01, 100, 1, Appearance -> 
+         "Labeled", ImageSize -> Small, ControlPlacement -> 
+         5}, {{$CellContext`c$$, 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005,
+          1.*^-6, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 6}, {{$CellContext`tmax$$, 0.05, "time"}, 0.01, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         7}, 
+        Grid[{{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}, {
+           Manipulate`Place[3], 
+           Manipulate`Place[4]}, {
+           Manipulate`Place[5], 
+           Manipulate`Place[6]}, {
+           Manipulate`Place[7]}}]}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{755., {308., 314.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plot[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := Plot[{
+          $CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\
+\[Phi]], 
+          Evaluate[
+           ReplaceAll[
+            $CellContext`x[$CellContext`t], 
+            $CellContext`soln[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c, \
+$CellContext`tmax]]]}, {$CellContext`t, 0, $CellContext`tmax}, PlotRange -> 
+         All, PlotLabel -> Style[
+           $CellContext`disc[$CellContext`R, $CellContext`L, $CellContext`c], 
+           20, Black], Frame -> True, FrameStyle -> Directive[Black, 14, 
+           Thickness[0.005]], FrameLabel -> {
+           Row[{"time (", 
+             Style["s", Italic], ")"}], 
+           Row[{"voltage (", 
+             Style["V", Italic], ")"}]}, FrameTicksStyle -> 10, GridLines -> 
+         Automatic, PlotStyle -> {
+           Directive[Blue, 
+            Thickness[0.005]], 
+           Directive[Red, 
+            Thickness[0.005]]}, ImageSize -> 500, 
+         PlotLegends -> {
+          "\!\(\*SubscriptBox[\(V\), \(in\)]\)", 
+           "\!\(\*SubscriptBox[\(V\), \(out\)]\)"}, Epilog -> 
+         Inset[$CellContext`Circuit, {
+           0.82 $CellContext`tmax, 0.72 $CellContext`A}, Automatic, {
+           1, 0.6}]], $CellContext`V[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]]] := $CellContext`A 
+        Cos[$CellContext`\[Omega] $CellContext`t + $CellContext`\[Phi]], \
+$CellContext`soln[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := NDSolve[{
+          $CellContext`gov[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c], \
+$CellContext`x[0] == $CellContext`A Cos[$CellContext`\[Phi]], 
+          Derivative[1][$CellContext`x][0] == 
+          0}, $CellContext`x, {$CellContext`t, 
+          0, $CellContext`tmax}], $CellContext`gov[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := $CellContext`L 
+          Derivative[2][$CellContext`x][$CellContext`t] + $CellContext`R 
+          Derivative[1][$CellContext`x][$CellContext`t] + (
+           1/$CellContext`c) $CellContext`x[$CellContext`t] == \
+$CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\[Phi]], 
+       Attributes[Derivative] = {NHoldAll}, $CellContext`disc[
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := Text[
+         If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) > 0, 
+          "overdamped", 
+          
+          If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) < 0, 
+           "underdamped", "critically damped"]]], $CellContext`Circuit = 
+       Image[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+         "], "Byte", ColorSpace -> "RGB", ImageResolution -> {120., 120.}, 
+         ImageSize -> {157.10546875, Automatic}, Interleaving -> True]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1951207091,ExpressionUUID->"4ae3e7d7-d778-4689-8926-93c947447958"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`c$$ = 
+    0.00005, $CellContext`L$$ = 0.025, $CellContext`R$$ = 
+    10, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+    0, $CellContext`\[Omega]$$ = 100, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`A$$], 1, "amplitude (V)"}, 1, 100, 1}, {{
+       Hold[$CellContext`\[Omega]$$], 100, "angular frequency (Hz)"}, 0.001, 
+      1000, 1}, {{
+       Hold[$CellContext`\[Phi]$$], 0, "phase shift (deg)"}, 0, 360, 1}, {{
+       Hold[$CellContext`R$$], 10, "resistance (\[CapitalOmega])"}, 0, 500, 
+      1}, {{
+       Hold[$CellContext`L$$], 0.025, "inductance (H)"}, 0.01, 100, 1}, {{
+       Hold[$CellContext`c$$], 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005, 
+      1.*^-6}, {{
+       Hold[$CellContext`tmax$$], 0.05, "time"}, 0.01, 1}, {
+      Hold[
+       Grid[{{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}, {
+          Manipulate`Place[3], 
+          Manipulate`Place[4]}, {
+          Manipulate`Place[5], 
+          Manipulate`Place[6]}, {
+          Manipulate`Place[7]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {703., {212., 217.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 1, $CellContext`c$$ = 
+        0.00005, $CellContext`L$$ = 0.025, $CellContext`R$$ = 
+        10, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+        0, $CellContext`\[Omega]$$ = 100}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plot[$CellContext`A$$, $CellContext`\[Omega]$$, \
+$CellContext`\[Phi]$$ 
+        Degree, $CellContext`R$$, $CellContext`L$$, $CellContext`c$$, \
+$CellContext`tmax$$], 
+      "Specifications" :> {{{$CellContext`A$$, 1, "amplitude (V)"}, 1, 100, 1,
+          Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[Omega]$$, 100, "angular frequency (Hz)"}, 0.001,
+          1000, 1, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 
+         2}, {{$CellContext`\[Phi]$$, 0, "phase shift (deg)"}, 0, 360, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         3}, {{$CellContext`R$$, 10, "resistance (\[CapitalOmega])"}, 0, 500, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         4}, {{$CellContext`L$$, 0.025, "inductance (H)"}, 0.01, 100, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         5}, {{$CellContext`c$$, 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005,
+          1.*^-6, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 6}, {{$CellContext`tmax$$, 0.05, "time"}, 0.01, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         7}, 
+        Grid[{{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}, {
+           Manipulate`Place[3], 
+           Manipulate`Place[4]}, {
+           Manipulate`Place[5], 
+           Manipulate`Place[6]}, {
+           Manipulate`Place[7]}}]}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{755., {303., 310.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plot[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := Plot[{
+          $CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\
+\[Phi]], 
+          Evaluate[
+           ReplaceAll[
+            $CellContext`x[$CellContext`t], 
+            $CellContext`soln[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c, \
+$CellContext`tmax]]]}, {$CellContext`t, 0, $CellContext`tmax}, PlotRange -> 
+         All, PlotLabel -> Style[
+           $CellContext`disc[$CellContext`R, $CellContext`L, $CellContext`c], 
+           20, Black], Frame -> True, FrameStyle -> Directive[Black, 14, 
+           Thickness[0.005]], FrameLabel -> {
+           Row[{"time (", 
+             Style["s", Italic], ")"}], 
+           Row[{"voltage (", 
+             Style["V", Italic], ")"}]}, FrameTicksStyle -> 10, GridLines -> 
+         Automatic, PlotStyle -> {
+           Directive[Blue, 
+            Thickness[0.005]], 
+           Directive[Red, 
+            Thickness[0.005]]}, ImageSize -> 500, 
+         PlotLegends -> {
+          "\!\(\*SubscriptBox[\(V\), \(in\)]\)", 
+           "\!\(\*SubscriptBox[\(V\), \(out\)]\)"}, Epilog -> 
+         Inset[$CellContext`Circuit, {
+           0.82 $CellContext`tmax, 0.72 $CellContext`A}, Automatic, {
+           1, 0.6}]], $CellContext`V[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]]] := $CellContext`A 
+        Cos[$CellContext`\[Omega] $CellContext`t + $CellContext`\[Phi]], \
+$CellContext`soln[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := NDSolve[{
+          $CellContext`gov[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c], \
+$CellContext`x[0] == $CellContext`A Cos[$CellContext`\[Phi]], 
+          Derivative[1][$CellContext`x][0] == 
+          0}, $CellContext`x, {$CellContext`t, 
+          0, $CellContext`tmax}], $CellContext`gov[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := $CellContext`L 
+          Derivative[2][$CellContext`x][$CellContext`t] + $CellContext`R 
+          Derivative[1][$CellContext`x][$CellContext`t] + (
+           1/$CellContext`c) $CellContext`x[$CellContext`t] == \
+$CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\[Phi]], 
+       Attributes[Derivative] = {NHoldAll}, $CellContext`disc[
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := Text[
+         If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) > 0, 
+          "overdamped", 
+          
+          If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) < 0, 
+           "underdamped", "critically damped"]]], $CellContext`Circuit = 
+       Image[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+         "], "Byte", ColorSpace -> "RGB", ImageResolution -> {120., 120.}, 
+         ImageSize -> {157.10546875, Automatic}, Interleaving -> True]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1862288747,ExpressionUUID->"5601fe9d-99ee-401d-839c-0eb4a9b85d90"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`c$$ = 
+    0.00005, $CellContext`L$$ = 0.01, $CellContext`R$$ = 
+    3, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+    0, $CellContext`\[Omega]$$ = 99.99999999999989, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`A$$], 1, "amplitude (V)"}, 1, 100, 1}, {{
+       Hold[$CellContext`\[Omega]$$], 99.99999999999989, 
+       "angular frequency (Hz)"}, 0.001, 1000, 1}, {{
+       Hold[$CellContext`\[Phi]$$], 0, "phase shift (deg)"}, 0, 360, 1}, {{
+       Hold[$CellContext`R$$], 3, "resistance (\[CapitalOmega])"}, 0, 500, 
+      1}, {{
+       Hold[$CellContext`L$$], 0.01, "inductance (H)"}, 0.01, 100, 1}, {{
+       Hold[$CellContext`c$$], 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005, 
+      1.*^-6}, {{
+       Hold[$CellContext`tmax$$], 0.05, "time"}, 0.01, 1}, {
+      Hold[
+       Grid[{{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}, {
+          Manipulate`Place[3], 
+          Manipulate`Place[4]}, {
+          Manipulate`Place[5], 
+          Manipulate`Place[6]}, {
+          Manipulate`Place[7]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {703., {212., 217.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`A$$ = 1, $CellContext`c$$ = 
+        0.00005, $CellContext`L$$ = 0.01, $CellContext`R$$ = 
+        3, $CellContext`tmax$$ = 0.05, $CellContext`\[Phi]$$ = 
+        0, $CellContext`\[Omega]$$ = 99.99999999999989}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plot[$CellContext`A$$, $CellContext`\[Omega]$$, \
+$CellContext`\[Phi]$$ 
+        Degree, $CellContext`R$$, $CellContext`L$$, $CellContext`c$$, \
+$CellContext`tmax$$], 
+      "Specifications" :> {{{$CellContext`A$$, 1, "amplitude (V)"}, 1, 100, 1,
+          Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[Omega]$$, 99.99999999999989, 
+          "angular frequency (Hz)"}, 0.001, 1000, 1, Appearance -> "Labeled", 
+         ImageSize -> Small, ControlPlacement -> 
+         2}, {{$CellContext`\[Phi]$$, 0, "phase shift (deg)"}, 0, 360, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         3}, {{$CellContext`R$$, 3, "resistance (\[CapitalOmega])"}, 0, 500, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         4}, {{$CellContext`L$$, 0.01, "inductance (H)"}, 0.01, 100, 1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         5}, {{$CellContext`c$$, 0.00005, "capacitance (F)"}, 1.*^-6, 0.00005,
+          1.*^-6, Appearance -> "Labeled", ImageSize -> Small, 
+         ControlPlacement -> 6}, {{$CellContext`tmax$$, 0.05, "time"}, 0.01, 
+         1, Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         7}, 
+        Grid[{{
+           Manipulate`Place[1], 
+           Manipulate`Place[2]}, {
+           Manipulate`Place[3], 
+           Manipulate`Place[4]}, {
+           Manipulate`Place[5], 
+           Manipulate`Place[6]}, {
+           Manipulate`Place[7]}}]}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{755., {303., 310.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plot[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := Plot[{
+          $CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\
+\[Phi]], 
+          Evaluate[
+           ReplaceAll[
+            $CellContext`x[$CellContext`t], 
+            $CellContext`soln[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c, \
+$CellContext`tmax]]]}, {$CellContext`t, 0, $CellContext`tmax}, PlotRange -> 
+         All, PlotLabel -> Style[
+           $CellContext`disc[$CellContext`R, $CellContext`L, $CellContext`c], 
+           20, Black], Frame -> True, FrameStyle -> Directive[Black, 14, 
+           Thickness[0.005]], FrameLabel -> {
+           Row[{"time (", 
+             Style["s", Italic], ")"}], 
+           Row[{"voltage (", 
+             Style["V", Italic], ")"}]}, FrameTicksStyle -> 10, GridLines -> 
+         Automatic, PlotStyle -> {
+           Directive[Blue, 
+            Thickness[0.005]], 
+           Directive[Red, 
+            Thickness[0.005]]}, ImageSize -> 500, 
+         PlotLegends -> {
+          "\!\(\*SubscriptBox[\(V\), \(in\)]\)", 
+           "\!\(\*SubscriptBox[\(V\), \(out\)]\)"}, Epilog -> 
+         Inset[$CellContext`Circuit, {
+           0.82 $CellContext`tmax, 0.72 $CellContext`A}, Automatic, {
+           1, 0.6}]], $CellContext`V[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]]] := $CellContext`A 
+        Cos[$CellContext`\[Omega] $CellContext`t + $CellContext`\[Phi]], \
+$CellContext`soln[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]], 
+         Pattern[$CellContext`tmax, 
+          Blank[]]] := NDSolve[{
+          $CellContext`gov[$CellContext`A, $CellContext`\[Omega], \
+$CellContext`\[Phi], $CellContext`R, $CellContext`L, $CellContext`c], \
+$CellContext`x[0] == $CellContext`A Cos[$CellContext`\[Phi]], 
+          Derivative[1][$CellContext`x][0] == 
+          0}, $CellContext`x, {$CellContext`t, 
+          0, $CellContext`tmax}], $CellContext`gov[
+         Pattern[$CellContext`A, 
+          Blank[]], 
+         Pattern[$CellContext`\[Omega], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := $CellContext`L 
+          Derivative[2][$CellContext`x][$CellContext`t] + $CellContext`R 
+          Derivative[1][$CellContext`x][$CellContext`t] + (
+           1/$CellContext`c) $CellContext`x[$CellContext`t] == \
+$CellContext`V[$CellContext`A, $CellContext`\[Omega], $CellContext`\[Phi]], 
+       Attributes[Derivative] = {NHoldAll}, $CellContext`disc[
+         Pattern[$CellContext`R, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`c, 
+          Blank[]]] := Text[
+         If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) > 0, 
+          "overdamped", 
+          
+          If[$CellContext`R^2 - 4 ($CellContext`L/$CellContext`c) < 0, 
+           "underdamped", "critically damped"]]], $CellContext`Circuit = 
+       Image[CompressedData["
+1:eJztnb9vG8kZhp2kCXBNirg1kMZwqyZMZVzKqDwhhQCB0B1zPqTQRbgLGARQ
+oV4NW5VCAHVsVBKq9AeoU8VKhTsWLNS5YJ7sC32Z2yWXlLQkh9T7ADao5XB3
+dmbe+X7MLPmH7/7xzadfv3nz5uff8t833/7rzz/99O2/937HH3/98ee///Dj
+93/7y4///P6H73/603e/4eB/+PfHX71587/XE2OMMWYrOD8/v7i4uL6+jiNf
+vnzhCMdvbm7WWLGXwC3c3d3NLdbv9+eWubq64mz1ZbjWcDhctHLGPIX9/f2D
+gwP0GEcYkIeHhxxHp2us2Eu4vb09OzurL/P582fuce6pPn36NFd9NNQiYjfm
+GRwWlBTKsOTg5iq01+txCw8PDzVlBoPB3t5evalFxZS5vLysvxzXOjo6ek5F
+jZnH9il0PB4fFGBJa4p1u912u11/j1hGytSrDwvLtTDHyPmZNd4o7u/vmdwY
+ML0CmohZrhQIjEYjQiTaVmWY4uiL0oTJnxzkLZVRqMUHS5ejeQk0KIBTxEV5
+XXVpaHk+m1aJM8+NTTaF7VMonYisOp1OelMlGAloijKor6YrUTFlOFuNo8sY
+Uxty3ZdWPW9Q4snJCe1GgxwmcIRmVCqDhkUjTFmlMhzRiJJOEVEcDPgIR1Ci
+5jo0fnx8XLocrzlCv2j6pV9OT0+rVeI8jOHt6JHtUyjdiqy4BbppVhmsAH1K
+GTp3lvowFipDU9Q4urocMHobqH2uMBg0p2n8I0lkwr1LNRznIC2g4aQ/abpu
+gfpCc91RgT6i/1WGg6lgOZU+oj+5kC4nJcbldIa0SpBWiT+rdnmz2DKFMs9r
+bGhUzHJ0mXil4prblC3WqRgbU8ugYsZtXG5bHV2Gh/Si/CG3KceD/4kpmO7U
+AmpS/scOMu+FW0sZOgJBaSpTGbSDlYwyvOAj2F96JD0VvYDE4nJcWvY3yqgH
+6QidSlXizAhWWob6jETmbJlC0y4u3VdAj0vF6mKYeqowjjK1jIFqGbm4KsaL
+rczoclOynjTILHukYFxNOsuX0LgSnHCWalC32pzpcdYEy5wQvVwTy/BWmOl5
+d5kv26RQOl1TPbejjp4aZsrF5V3kLF+rmtHVWozMQY2jKxUzAGQgZpnazUWz
+mVoS2zSrWNhH+ZZTV9JLs9lUZYULpJJTu49ejuijZvIUXEU+8ObGpNukUEmP
+7qCjGSTKKlTVp/yPIhQKTL1TOlThDFLV8KvOwwwMpUS4rsqvK6PLjYSb1yy0
+jO6rZlkKSxfNiKakrFIZ6qYZj/hCk+fUoEBNzcd13aliV4Jdc6bEzkw7q24M
+Zs2iFHvirT8BboT2X1L2eJsUKulpeDDhV29tUgxm9a/uTsmN6oiKoTJ5DEgZ
+LaW5WgERA08CkVpXPFfTWXLsZXrSvWGNnFyKq0+CqQJA+ZipSm2lCVOT56y2
+KnWNZFXdeaJckNwV3pUlrZmdaJO49FNbYC4MMyWslKqqX+B7HmqTFSv0YQnQ
+/rqXCAY1V5cmT4UwkcKV2S1ldJkSlVeUZyuPtxpmKpMZtlWNVh3My7hZIXlG
+Ogv29va08tgIyoPJSajpTXmkkhJt1S4ozRXyNkNKarqS+qi5FrLVF/qIhB9l
+YuJVX4Twa5bD+Ii6j97kVE01jtAMH4kyOVENnl8b/GoU2vgd6RKcWZFgsygq
+iWxGOm/H3SmLG7KlPdUC6XQko5kagtSkCo3ew2QZVHFWydGVB9j4nZbuOiVi
+vaZOPnfnVYz/STEdTZ3eafZ0NpPtK4XtYX8V8Mbkmca/mi0jiaS5lD/r95Bz
+C802S6mJltf+ncd8dVWhmhMaJN3AoyhDl243B53FSIgbeShin3S0KO9RGj9V
+9UX+J46EQxvq0xEuGipmGq9aHNnxTjEnNHinImbvFDV1U4RRmDX4GS2pgzHL
+AZNCw8GIlHtaJhSqy8k7TafcyePEGOtoIdh6hWofhUo2yNT2b7yj6xXa1FVK
+dioU2m+akrcT657ylCIkSYvJ742D4dOmyVs5b+nBkosrIgcVA6NduApUg+HX
++M0CE0tpeDAnNHuJmpEv1FwaQtg7DZvSB0tGsyRYEZLUNNh/nBVTL1fJvfaj
+F63c79wdnpPCmWm2WUTnlzaUitEODZ6fYdOppL6l0GbHFZKkGasKndv7LyQ6
+XX6aBkYphx8ZXakv8kIlsStnIvWFYPu/HIdydNtFBniSeMvLezaNgScXTtet
+38S4JJS6UctELFmSTL+QG9DamMhqZDEpnBDN5zKICvFKnjCf1VYE5W9ldte4
+V4QKRPvT0akL1xQ1cejcZzoWh37hRqoKXfZw4rpxg7MGxiRR7uTR6a3OHv3E
+0e0XCf/q2kqkVhScylte9mMv1EF71Bd5lHUZxETENCivvrohIcJ2mi48marh
+U0RAd0T5amdpFZu3uPF02lwX3LU27S/peer6TFFTV9FjXKtX6OTR0aUr09XS
+UhmNMc3eapDq7BTeL4VL3mxKuB9ywNorX39ZPZoG1chVlyxQo0UAxfRV7X2a
+XXGBvPfqCtekUEQ89dAp1lXrU82bztYrVDN2mvuaWr12smYxa5tKmFdFHP1p
+MVrsnIltNpu+c3sRuOvYDi1XtlpGyooWnho5KhUcubVZO/rk86jk1j+Zu/UK
+VUY3Bs+sm4oZXsZxasX6j3u2pdCpKk53qB7WbnfZMrRwT1PXOHsIWZnYmmaR
+kDkVRnZWDnk8HqsL2rUPBm4HW6/QSWL7ajaWxJMsNTceT7J0Zm/BjW1mshTL
+2MeSJ6iJdpsbiyn3WF8G88qArNkGPClGFGVeQ/O+BoWGo1uT6lRG91PtE6OT
+IqOrxqkZZrq71+CAmRXwGhSaZnRrikXkWFOmX9m6UEVbF+pVbMyCvAaFTorc
+wlyfEweMMvVrTMrozk3vK0p6DTkis2xeiUIHgwFBaP3lVMm5mQd817krxdzg
+MhavzSvklShUOzPnFsPRnVslfedGfRmM9TIeRDKvkPZKnj5bu0L1FTdzi82V
+3qS4l0UutzXfBmnWy9TvnNdWjW1SqMkQAn995YLQZr91Vyo7cP/G43FpaXhU
+UPPM0VOxQk0Vep+o/00BvlyD4808FSvUTAVDIIU6771erFAzlZubG+TZarXW
+XZHXjhVqpkLsiUK9MrV2clbo7e3t9fX1zSN67ZTFavjqq69Q6Ob+Uu3WkLNC
+iYDOz88VDR0dHfX7fU3sOzs7XtNcKkyDanbniOrRYwL7+/tff/01Ojo7O2NO
+0y/KNXiJbBU6KXbSaqhEfRQfQf0TFuYlMMZo4d3d3XVXJF/0rS+0kn7uDR0x
+VlFo4+m1zBVKfbhfapgeVCPYAVseGAVaeOO+OH1l4GO8ffuWJqraSom0wWtl
+rlANlXTbBnOXFGpHd0nQwgpCHfJPBcnUjECs58ePH5u9XLYKpQ5qinTPvByw
+d+/e5VDDrYSBRwu/f/9+agtv6+88Lg4hZ02Wm/mt2Wcbc1aoQk6Giv4k8FTi
+iCMeJ8tDftrUr6qg2Tf69wRfDupb8UaOnBWqzC16/PDhg5rlU9M/UWSq4J/M
+CvNbrdYrDy52dnY0Dld2xZwVqtbQUFFk9MqHxwqIICv9qlI8N3pB3l0OA2Nd
+xCLUKr/HNVuFRmuoJvJv2+32emu13TDwWo/gt7x9+/b3BVhVeTKvfItRrPSt
+8msMs1WoHP5YZ4m53Ru5l8faOz1zBoPB6tfis1Vop9OhKdKvX6CeXqQza0RZ
+blhlojJbhVaXnPDB0tSuMSsmHLlZ6UoC9sbNa54KjcmqtC/UexXMekEajMD9
+/f3qW2hzd3e3cfOaoUKJQGN55fT0NI3KT05OtF1h638UyeQJJgMvjkF4dnYW
+GuEFg7bVai3D+81QoZ8L9H0vvEjdBtpHB71jwawLBmG325UFQTvYzZJgmyVD
+hRqTPwhEzy8v+xdqrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYKNSZnrFBjcsYK
+NSZnrNAtYzwe393dDQaDfr9/eXnJ/zc3N8Ph0B26oVih2wH9hRJPT0/pvoOD
+g3a7ffgIrznCi16vh3jXXVPzNKzQLeD29vbo6EgylEL3fwki7XQ6vMVrVHx/
+f7/uKptFsUI3Grrp7OwM3SFAhEnH0YMIdjQaqQf5ny7GvGJApV9KUh7vd911
+NwthhW4uDw8P3W5XosNKEnvW9xqypX9Dzmh2ZVU1z8YK3VCQJ56twkwcV/5c
+8IPD4ZAPStTY36VW0rwcK3RDQVyS5zNMIXI+Pj6WJbW7mzlW6CaCQ4uzSk89
+2wjKBCsmxao2Wz3TIFboxoG4OgVIbHHntsr9/b1iUpzkBqtnmsUK3TjwS7XE
+eXNz88JTqbvRqddJs8UK3TjknRJIVt+iN9Ea/y94qtFoJHPsvG62WKGbhVxT
+bOjV1VV6nH7EWeUtbVfodrsLmkVlnOjxlzjMZnlYoZvFYDBoF6SGMiJKbSjS
+Cindent7O/eEuMrymZ0vypNZCl1vrcwszs/P6SAc3ZhCeYHF1Pom3YfpVKD6
+qWCuZQyj/PKo1iyDWQrtmSxREIokowcxlPQgRvDy8jIOIreDguvr6/oBgMBl
+f09OTtZ9c2YKhCGae0OhscvaZAiTZ2l9BCOI0eTIeDxOdacdR6UFUxVG1Klt
+1YZed3q2pAql+46Pj7smVySlbmJDZ4E2JbpUjMzJWMzd3d3RaJTaUE6Lotd9
+c2Y6SNJbvzaFXvGIShqHzgJDGe7rcDhEkrjBem40NcGEOdqeNNcfNsbM5erq
+SioLI1gDZhQPVvtvJUNZ1TQPjJAVsTqXa8zLQUdPSr0Sv0iAfETrpKX9DDLK
+Xg81phFwbrULCN91wY/oCW6c2KqVRJXV1JMx5iUQTh42tJlWK6ecapG9DcaY
+RSAC1YpYd4GMbg3j8VhR6tQtvsaYZxNZ2fPz8+edAW8ZP1nPh9qAGtMssdPv
+2V+SEF/R8GyNG2NqwNfV6gkifZLKcG71tbqAGfUjEsYsifv7+9itRyw511lF
+jNfX10oF8xGssOVpzFLBkqJNJY4wptjEwWBQWvFEhsPhUPs5lRoi9uz1epan
+MasB9clr1TNo2p+gfbYYWT1PGi4xx/2gmTErhugy1knTH22JhyM4jjbxcm06
+jVkjBKc4uhcXF3q0kP95jdFc/MuLjDHGGGOMMcYYY8ymc3Fx8bGg1WodHh6m
+Syp3d3cHBwe8tbOzE994Y4xZMajvTUH1rdFoxPGev1vemPUxHA5nKbTf7797
+9271VTLGBDKUkH4zp+CgnzIzZu1gKKtiPDs78+8IGJMDe3t7KDT93SUZ1qpV
+Ncasnl6vhx7Tbwbb3993/taYTOj3+ygUVepP3N3379+vt0rGmODu7g6Ftlot
+/fnhwwcniIzJh4eHB6VzeXF5eXl0dLTuGhlj/s+XL19wa1Ho/f29E0TGZMjh
+4SHaRKf+wSxjMuT09DQNRY0xWXF1dYVC/VtmxuTJ7e3tC38wwhhjjDHGGGOM
+McYYY4wxxhhjjDHmlfDw8OBffTLGGGOMMcYYY4wxZhH+C1xUPLk=
+         "], "Byte", ColorSpace -> "RGB", ImageResolution -> {120., 120.}, 
+         ImageSize -> {157.10546875, Automatic}, Interleaving -> True]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2060299451,ExpressionUUID->"aefb2d2a-5c44-4360-aaa0-1929084087a0"]
+}, Open  ]],
+
+Cell["", "DetailsSection",ExpressionUUID->"7afa3296-1362-4d95-999f-70b11bbc812d"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection",
+ CellID->46779836,ExpressionUUID->"db7b6cad-6527-4d6e-af49-2657ede46b17"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Resize Images",ExpressionUUID->"df9c0773-0381-4cf7-a723-6062265e6cbf"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\""]], "ControlSuggestions",
+ CellChangeTimes->{{3.864473878070095*^9, 3.864473878171076*^9}},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages",
+ CellID->249688850,ExpressionUUID->"0a7f7880-4330-4bf3-b2e3-33a5ff92d398"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Rotate and Zoom in 3D",ExpressionUUID->
+    "f2b93709-7f10-491d-ab5c-8c72886befd0"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" on Mac) and drag up and down to zoom.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D",
+ CellID->337455712,ExpressionUUID->"5cd35f91-ae43-4925-baf7-adbe0f0c9662"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Drag Locators",ExpressionUUID->"db9c4ed4-4f10-4f50-971e-6152f88ef183"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators",
+ CellID->113839857,ExpressionUUID->"2e60a582-745f-4bfc-8b8c-e0662f014af1"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Create and Delete Locators",ExpressionUUID->
+    "f869f2de-aa59-4c40-b326-73c2b5869fcf"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators",
+ CellID->2046030769,ExpressionUUID->"04c8b8ab-49fe-4947-b3c2-1fa8f913287f"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Slider Zoom",ExpressionUUID->"c9e702b8-3105-4a20-a800-5b1412e0f8f4"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" to make ever finer adjustments.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{{3.864473881175205*^9, 3.864473881276126*^9}},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom",
+ CellID->2130978819,ExpressionUUID->"65c06632-bce1-4dd4-9740-d071706aa110"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Gamepad Controls",ExpressionUUID->
+    "11ee8e74-bf4d-474f-b645-3f115e512657"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\""]], "ControlSuggestions",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3895522232313623`*^9, {3.864473881703837*^9, 
+   3.864473881804714*^9}},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls",
+ CellID->1776229914,ExpressionUUID->"7eaa0ec4-f06a-43f4-a9ee-4ec166cc8745"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Automatic Animation",ExpressionUUID->
+    "a9f5ebe8-7909-4049-910b-7edd21f9eb74"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{{3.864473882165145*^9, 3.864473882254767*^9}},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation",
+ CellID->925987651,ExpressionUUID->"7bba0eaf-b368-4d64-8496-c81947df3ba1"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Bookmark Animation",ExpressionUUID->
+    "8b2ff5ef-df0b-4caa-a2c6-df862cdcdbb3"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation",
+ CellID->260460548,ExpressionUUID->"c1a4c536-fa17-4804-9ce5-5d64bb71fae8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection",ExpressionUUID->"70de995b-2d75-42b3-bf3f-e8474026a5d0"],
+
+Cell["circuit", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686689143543`*^9}},
+ CellID->188831110,ExpressionUUID->"7cec456a-aff0-4ac3-a452-73f8507f917f"],
+
+Cell["series", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686847588696`*^9}},
+ CellID->705723916,ExpressionUUID->"4bfc8555-27ef-4a9b-9e78-7188649af472"],
+
+Cell["voltage input", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.8589393563356504`*^9, 
+  3.8589393563356504`*^9}},
+ CellID->46966917,ExpressionUUID->"0114a5b4-a70f-4072-8571-d9f3d00dd043"],
+
+Cell["voltage output", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.858939356997778*^9, 
+  3.8589393704761305`*^9}},
+ CellID->332232842,ExpressionUUID->"46679dc9-c7fa-4776-8fde-64ac338bf74f"],
+
+Cell["RLC", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.858939356997778*^9, 
+  3.8589394096166883`*^9}},
+ CellID->286674908,ExpressionUUID->"304fa87a-6937-45f9-8ce5-9d92a4b8e7c5"],
+
+Cell["resistor", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.858939356997778*^9, 
+  3.858939410716672*^9}},
+ CellID->245949951,ExpressionUUID->"8119b241-2a57-4d12-90e7-425552f74133"],
+
+Cell["inductor", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.858939356997778*^9, 
+  3.858939411897806*^9}},
+ CellID->148242829,ExpressionUUID->"079a6aae-32a2-4827-9cc4-eb843efd0cc4"],
+
+Cell["capacitor", "SearchTerms",
+ CellChangeTimes->{{3.8587686654198723`*^9, 3.8587686845467196`*^9}, {
+  3.858768727861602*^9, 3.8587687306666493`*^9}, {3.858939356997778*^9, 
+  3.8589394136462116`*^9}},
+ CellID->185929063,ExpressionUUID->"d35cbfed-6e6b-4d74-a29c-abe483189b81"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection",ExpressionUUID->"ac82bc88-3baf-415e-bdc5-72d839cc202c"],
+
+Cell[TextData[ButtonBox["RLC Series Circuit",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://demonstrations.wolfram.com/RLCSeriesCircuit/"], None},
+ ButtonNote->
+  "https://demonstrations.wolfram.com/RLCSeriesCircuit/"]], "RelatedLinks",
+ CellChangeTimes->{{3.8587812233105392`*^9, 3.8587812233105392`*^9}, {
+  3.8589397694448466`*^9, 3.8589397917176857`*^9}},
+ CellID->12455964,ExpressionUUID->"4c31294b-0847-4440-8047-1da2af06fae8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection",ExpressionUUID->"e0a30c69-2ce0-4d14-8c8c-7afaa34f7dc1"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Alexander Frank",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Alexander+\
+Frank"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Alexander+Frank"],
+ ", ",
+ ButtonBox["Alec Jamosmos",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Alec+Jamosmos"]\
+, None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Alec+Jamosmos"],
+ ", ",
+ ButtonBox["Christian Garcia",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Christian+\
+Garcia"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Christian+Garcia"],
+ ", ",
+ ButtonBox["Christopher Spezzano",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Christopher+\
+Spezzano"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Christopher+\
+Spezzano"],
+ ", ",
+ ButtonBox["Miguel Borquez",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Miguel+\
+Borquez"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Miguel+Borquez"],
+ ", ",
+ ButtonBox["Nicholas Clark",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Nicholas+\
+Clark"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Nicholas+Clark"],
+ " and ",
+ ButtonBox["Joshua Paul Steimel",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Joshua+Paul+\
+Steimel"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Joshua+Paul+\
+Steimel"],
+ " "
+}], "Author",
+ CellChangeTimes->{{3.35332404745022*^9, 3.35332404993458*^9}, {
+   3.36434516804688*^9, 3.36434517198438*^9}, 3.36924285448438*^9, {
+   3.836316662536532*^9, 3.836316669054365*^9}, {3.840885471304302*^9, 
+   3.840885477214856*^9}, 3.8410625779348755`*^9, {3.858768746774166*^9, 
+   3.8587688141942415`*^9}, 3.8587807618568535`*^9, 3.864473981106369*^9, {
+   3.864474116204854*^9, 3.8644741474969587`*^9}},
+ CellID->95413255,ExpressionUUID->"6c74a29f-faaa-438d-bb6e-2b7c8414b575"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{965, 846},
+WindowMargins->{{122, Automatic}, {Automatic, 43}},
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"d81c537c-78b3-4285-8802-01fcae2d82b5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[96772, 2012, 489, 10, 24, "ControlSuggestions",ExpressionUUID->"0a7f7880-4330-4bf3-b2e3-33a5ff92d398",
+   CellTags->"ResizeImages",
+   CellID->249688850]},
+ "RotateAndZoomIn3D"->{
+  Cell[97264, 2024, 800, 19, 24, "ControlSuggestions",ExpressionUUID->"5cd35f91-ae43-4925-baf7-adbe0f0c9662",
+   CellTags->"RotateAndZoomIn3D",
+   CellID->337455712]},
+ "DragLocators"->{
+  Cell[98067, 2045, 452, 12, 24, "ControlSuggestions",ExpressionUUID->"2e60a582-745f-4bfc-8b8c-e0662f014af1",
+   CellTags->"DragLocators",
+   CellID->113839857]},
+ "CreateAndDeleteLocators"->{
+  Cell[98522, 2059, 755, 17, 24, "ControlSuggestions",ExpressionUUID->"04c8b8ab-49fe-4947-b3c2-1fa8f913287f",
+   CellTags->"CreateAndDeleteLocators",
+   CellID->2046030769]},
+ "SliderZoom"->{
+  Cell[99280, 2078, 1027, 24, 24, "ControlSuggestions",ExpressionUUID->"65c06632-bce1-4dd4-9740-d071706aa110",
+   CellTags->"SliderZoom",
+   CellID->2130978819]},
+ "GamepadControls"->{
+  Cell[100310, 2104, 539, 13, 24, "ControlSuggestions",ExpressionUUID->"7eaa0ec4-f06a-43f4-a9ee-4ec166cc8745",
+   CellTags->"GamepadControls",
+   CellID->1776229914]},
+ "AutomaticAnimation"->{
+  Cell[100852, 2119, 1646, 34, 24, "ControlSuggestions",ExpressionUUID->"7bba0eaf-b368-4d64-8496-c81947df3ba1",
+   CellTags->"AutomaticAnimation",
+   CellID->925987651]},
+ "BookmarkAnimation"->{
+  Cell[102501, 2155, 1025, 23, 24, "ControlSuggestions",ExpressionUUID->"c1a4c536-fa17-4804-9ce5-5d64bb71fae8",
+   CellTags->"BookmarkAnimation",
+   CellID->260460548]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 109220, 2332},
+ {"RotateAndZoomIn3D", 109407, 2336},
+ {"DragLocators", 109594, 2340},
+ {"CreateAndDeleteLocators", 109787, 2344},
+ {"SliderZoom", 109979, 2348},
+ {"GamepadControls", 110164, 2352},
+ {"AutomaticAnimation", 110357, 2356},
+ {"BookmarkAnimation", 110552, 2360}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 313, 5, 76, "DemoTitle",ExpressionUUID->"e2e3a7c8-dca4-4379-9d43-5ce59f433596",
+ CellID->700863240],
+Cell[CellGroupData[{
+Cell[918, 31, 88, 0, 301, "InitializationSection",ExpressionUUID->"0e3ed8f2-dbfd-45a8-b2e8-4773b511b866"],
+Cell[1009, 33, 6560, 114, 112, "Input",ExpressionUUID->"cd01739b-eb83-40e5-b2b1-1a4547acece4",
+ InitializationCell->True,
+ CellID->89211482],
+Cell[7572, 149, 591, 13, 43, "Input",ExpressionUUID->"9b50d3df-ece5-4233-a1ed-5501a5bc02e5",
+ InitializationCell->True,
+ CellID->165909917],
+Cell[8166, 164, 1223, 29, 43, "Input",ExpressionUUID->"99a67c4e-f536-4ae8-8b6d-7c5c2047b894",
+ InitializationCell->True,
+ CellID->129628749],
+Cell[9392, 195, 1268, 32, 63, "Input",ExpressionUUID->"63a80d70-d799-41c3-ba2d-a3e8a6a87a10",
+ InitializationCell->True,
+ CellID->269455930],
+Cell[10663, 229, 1021, 27, 63, "Input",ExpressionUUID->"58d9a0e8-8901-4df3-9f9b-0406a3ace5ce",
+ InitializationCell->True,
+ CellID->22390043],
+Cell[11687, 258, 4341, 97, 196, "Input",ExpressionUUID->"1770f929-fcc2-4255-a9e8-9a5b6f8f04e2",
+ InitializationCell->True,
+ CellID->107556074]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16065, 360, 84, 0, 205, "ManipulateSection",ExpressionUUID->"0164ee94-855f-4453-8dd7-57b07d54f6eb"],
+Cell[CellGroupData[{
+Cell[16174, 364, 4975, 113, 199, "Input",ExpressionUUID->"4429a835-97e3-41eb-bc7e-7002c4fd9bca",
+ CellID->29913164],
+Cell[21152, 479, 14136, 280, 503, "Output",ExpressionUUID->"912f5f1d-ad68-4096-9cdb-f05e983fced2",
+ CellID->1725607562]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35337, 765, 91, 0, 174, "ManipulateCaptionSection",ExpressionUUID->"2648530a-63b7-4b8a-a967-b2e0e65d9ccd"],
+Cell[35431, 767, 1047, 22, 41, "ManipulateCaption",ExpressionUUID->"66b2e6d6-9771-4bbb-8c70-530069ced4d4",
+ CellID->51853694],
+Cell[36481, 791, 399, 7, 40, "ManipulateCaption",ExpressionUUID->"9b4ba20a-12ea-4641-bd44-67d55b88fcad",
+ CellID->117774054],
+Cell[36883, 800, 1288, 36, 35, "ManipulateCaption",ExpressionUUID->"4a7dd1c2-5780-46aa-b279-24013e2e970b",
+ CellID->684994449],
+Cell[38174, 838, 575, 9, 23, "ManipulateCaption",ExpressionUUID->"5be171f6-aef9-4323-af92-883d88763431",
+ InitializationCell->True,
+ CellID->2065711277],
+Cell[38752, 849, 760, 12, 56, "ManipulateCaption",ExpressionUUID->"8a677621-b774-42de-9bf9-c5de5edbbc72",
+ InitializationCell->True,
+ CellID->77311505]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39549, 866, 83, 0, 176, "ThumbnailSection",ExpressionUUID->"6eda749e-8090-4330-b03b-12dbb8ba7925"],
+Cell[39635, 868, 14193, 280, 509, "Output",ExpressionUUID->"bfa52e46-bd6c-48d9-88ae-1970c3b7abb5",
+ CellID->519641799]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53865, 1153, 83, 0, 147, "SnapshotsSection",ExpressionUUID->"1caef6f7-5544-4d92-a04e-599b6e27efd5"],
+Cell[53951, 1155, 14219, 282, 509, "Output",ExpressionUUID->"4ae3e7d7-d778-4689-8926-93c947447958",
+ CellID->1951207091],
+Cell[68173, 1439, 14152, 280, 502, "Output",ExpressionUUID->"5601fe9d-99ee-401d-839c-0eb4a9b85d90",
+ CellID->1862288747],
+Cell[82328, 1721, 14209, 281, 502, "Output",ExpressionUUID->"aefb2d2a-5c44-4360-aaa0-1929084087a0",
+ CellID->2060299451]
+}, Open  ]],
+Cell[96552, 2005, 81, 0, 344, "DetailsSection",ExpressionUUID->"7afa3296-1362-4d95-999f-70b11bbc812d"],
+Cell[CellGroupData[{
+Cell[96658, 2009, 111, 1, 111, "ControlSuggestionsSection",ExpressionUUID->"db7b6cad-6527-4d6e-af49-2657ede46b17",
+ CellID->46779836],
+Cell[96772, 2012, 489, 10, 24, "ControlSuggestions",ExpressionUUID->"0a7f7880-4330-4bf3-b2e3-33a5ff92d398",
+ CellTags->"ResizeImages",
+ CellID->249688850],
+Cell[97264, 2024, 800, 19, 24, "ControlSuggestions",ExpressionUUID->"5cd35f91-ae43-4925-baf7-adbe0f0c9662",
+ CellTags->"RotateAndZoomIn3D",
+ CellID->337455712],
+Cell[98067, 2045, 452, 12, 24, "ControlSuggestions",ExpressionUUID->"2e60a582-745f-4bfc-8b8c-e0662f014af1",
+ CellTags->"DragLocators",
+ CellID->113839857],
+Cell[98522, 2059, 755, 17, 24, "ControlSuggestions",ExpressionUUID->"04c8b8ab-49fe-4947-b3c2-1fa8f913287f",
+ CellTags->"CreateAndDeleteLocators",
+ CellID->2046030769],
+Cell[99280, 2078, 1027, 24, 24, "ControlSuggestions",ExpressionUUID->"65c06632-bce1-4dd4-9740-d071706aa110",
+ CellTags->"SliderZoom",
+ CellID->2130978819],
+Cell[100310, 2104, 539, 13, 24, "ControlSuggestions",ExpressionUUID->"7eaa0ec4-f06a-43f4-a9ee-4ec166cc8745",
+ CellTags->"GamepadControls",
+ CellID->1776229914],
+Cell[100852, 2119, 1646, 34, 24, "ControlSuggestions",ExpressionUUID->"7bba0eaf-b368-4d64-8496-c81947df3ba1",
+ CellTags->"AutomaticAnimation",
+ CellID->925987651],
+Cell[102501, 2155, 1025, 23, 24, "ControlSuggestions",ExpressionUUID->"c1a4c536-fa17-4804-9ce5-5d64bb71fae8",
+ CellTags->"BookmarkAnimation",
+ CellID->260460548]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103563, 2183, 85, 0, 158, "SearchTermsSection",ExpressionUUID->"70de995b-2d75-42b3-bf3f-e8474026a5d0"],
+Cell[103651, 2185, 175, 2, 23, "SearchTerms",ExpressionUUID->"7cec456a-aff0-4ac3-a452-73f8507f917f",
+ CellID->188831110],
+Cell[103829, 2189, 174, 2, 23, "SearchTerms",ExpressionUUID->"4bfc8555-27ef-4a9b-9e78-7188649af472",
+ CellID->705723916],
+Cell[104006, 2193, 284, 4, 23, "SearchTerms",ExpressionUUID->"0114a5b4-a70f-4072-8571-d9f3d00dd043",
+ CellID->46966917],
+Cell[104293, 2199, 284, 4, 23, "SearchTerms",ExpressionUUID->"46679dc9-c7fa-4776-8fde-64ac338bf74f",
+ CellID->332232842],
+Cell[104580, 2205, 273, 4, 23, "SearchTerms",ExpressionUUID->"304fa87a-6937-45f9-8ce5-9d92a4b8e7c5",
+ CellID->286674908],
+Cell[104856, 2211, 276, 4, 23, "SearchTerms",ExpressionUUID->"8119b241-2a57-4d12-90e7-425552f74133",
+ CellID->245949951],
+Cell[105135, 2217, 276, 4, 23, "SearchTerms",ExpressionUUID->"079a6aae-32a2-4827-9cc4-eb843efd0cc4",
+ CellID->148242829],
+Cell[105414, 2223, 279, 4, 23, "SearchTerms",ExpressionUUID->"d35cbfed-6e6b-4d74-a29c-abe483189b81",
+ CellID->185929063]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[105730, 2232, 86, 0, 149, "RelatedLinksSection",ExpressionUUID->"ac82bc88-3baf-415e-bdc5-72d839cc202c"],
+Cell[105819, 2234, 443, 8, 23, "RelatedLinks",ExpressionUUID->"4c31294b-0847-4440-8047-1da2af06fae8",
+ CellID->12455964]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[106299, 2247, 80, 0, 149, "AuthorSection",ExpressionUUID->"e0a30c69-2ce0-4d14-8c8c-7afaa34f7dc1"],
+Cell[106382, 2249, 2388, 67, 39, "Author",ExpressionUUID->"6c74a29f-faaa-438d-bb6e-2b7c8414b575",
+ CellID->95413255]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

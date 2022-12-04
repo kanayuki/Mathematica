@@ -1,0 +1,1976 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.1'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     65182,       1690]*)
+(*NotebookOutlinePosition[     65880,       1714]*)
+(*  CellTagsIndexPosition[     65836,       1710]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+  "Solving ",
+  "Sudoku",
+  " Problems in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"]
+}], "Title"],
+
+Cell["\<\
+Jon McLoone
+Wolfram Research\
+\>", "Subtitle"],
+
+Cell["June 2005", "Subsubtitle"],
+
+Cell[CellGroupData[{
+
+Cell["Summary", "Section",
+  ShowGroupOpenCloseIcon->True],
+
+Cell[TextData[{
+  "Sudoku is a popular number puzzle.  Its rules are easily stated: \nA 9\
+\[Times]9 grid is presented, containing some pre-defined numbers. The players \
+task is to fill in the grid so that every row, every column, and every 3x3 \
+box contains the digits 1 through 9. \n\nFor example\n\n",
+  Cell[BoxData[GridBox[{
+          {" ", " ", "8", "1", "7", "6", " ", "2", " "},
+          {" ", "4", " ", " ", " ", "9", "7", " ", " "},
+          {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+          {" ", "7", "1", "8", " ", " ", " ", " ", " "},
+          {" ", " ", " ", " ", " ", " ", "6", "7", "9"},
+          {" ", " ", " ", "5", "9", "7", " ", "8", "1"},
+          {" ", " ", " ", " ", "2", " ", " ", " ", " "},
+          {" ", "5", "9", " ", " ", " ", " ", "1", " "},
+          {" ", "1", "4", "6", "5", " ", "3", " ", " "}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True]]],
+  "\n\nhas a solution\n\n",
+  Cell[BoxData[GridBox[{
+          {"5", "3", "8", "1", "7", "6", "9", "2", "4"},
+          {"1", "4", "2", "3", "8", "9", "7", "5", "6"},
+          {"7", "9", "6", "2", "4", "5", "1", "3", "8"},
+          {"9", "7", "1", "8", "6", "2", "5", "4", "3"},
+          {"8", "2", "5", "4", "1", "3", "6", "7", "9"},
+          {"4", "6", "3", "5", "9", "7", "2", "8", "1"},
+          {"3", "8", "7", "9", "2", "1", "4", "6", "5"},
+          {"6", "5", "9", "7", "3", "4", "8", "1", "2"},
+          {"2", "1", "4", "6", "5", "8", "3", "9", "7"}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True]]],
+  "\n\nEasy and moderate Sudoku puzzles can typically be solved with just two \
+rules:\nIf a value is known for a particular square, then it can be \
+eliminated as a possible value for each of the other squares in the \
+dimension.\nIf only one square in a dimension has a particular number as a \
+possibility, then it is known to be that squares value.\n\nThese two rules \
+must be applied repeatedly in each of three dimensions: rows, columns and 3\
+\[Times]3 sub-grids until nothing changes.\n\nIn under specified problems, or \
+problems where these rules are insufficient, you can also do a systematic \
+search. Pick the first value out of the remaining possible and solve from \
+there. If a contradiction is reached, go back and try the next possible \
+value. The existing logic is applied wherever possible to limit the size of \
+search required. This search must be recursively applied as the problem may \
+still be underspecified after a guess, whether or not that guess is correct.\n\
+\nThis notebook presents a short program for applying those rules using the \
+following template: "
+}], "Text"],
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "InputOnly"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+  ShowGroupOpenCloseIcon->True],
+
+Cell[BoxData[{
+    \(\(Off[General::"\<spell\>"];\)\), "\[IndentingNewLine]", 
+    \(<< Statistics`\)}], "InputOnly"],
+
+Cell[BoxData[
+    \(\(LineSimplify[data_List] := 
+        Module[{known, d2}, \[IndentingNewLine]\t\t\tknown = 
+            Cases[data, {n_} \[Rule] 
+                n]; \[IndentingNewLine]\t\t\t\t (*Find\ all\ positions\ with\ \
+only\ one\ possible\ value*) \[IndentingNewLine]\t\t\tIf[
+            Length[Union[known]] < 
+                Length[known] || \((Count[data, {}] > 0)\), 
+            Throw[Contradiction]]; \[IndentingNewLine]\t\t\t\t (*If\ the\ \
+same\ number\ is\ known\ twice, \ 
+            then\ we\ have\ a\ conflict*) \ \[IndentingNewLine]\t\t\t\t (*If\ \
+there\ are\ no\ remaining\ possible\ values\ for\ a\ position\ then\ we\ have\
+\ an\ error*) \[IndentingNewLine]\t\t\td2 = 
+            Map[If[Length[#] === 1, #, Complement[#, known]] &, 
+              data]; \[IndentingNewLine]\t\t\t\t (*Eliminate\ the\ known\ \
+values\ from\ each\ position, \ 
+            except\ those\ positions\ that\ are\ length\ 1\ and\ thus\ known\
+*) \[IndentingNewLine]\t\t\td2 /. 
+            Map[{___, #, ___} \[Rule] {#} &, 
+              Cases[Frequencies[Flatten[d2]], {1, n_} \[Rule] 
+                  n]]\[IndentingNewLine]\t\t\t\t (*If\ a\ value\ only\ occurs\
+\ in\ once\ place\ on\ a\ line\ then\ all\ other\ possibilities\ can\ be\ \
+removed\ from\ that\ \(\(entry\)\(.\)\)*) \[IndentingNewLine]\t\t\t\t \
+(*Repeat\ for\ all\ \(\(numbers\)\(.\)\)*) \[IndentingNewLine]\t\t\t\t\t\t\t\
+];\)\)], "InputOnly"],
+
+Cell["\<\
+A function to apply all logic currently supported for a single line in \
+isolation. 
+1) Eliminate values that are known from other positions 
+2) Search for numbers that occur only once and set them as known\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(SudokuProcess[data_] := 
+        FixedPoint[\[IndentingNewLine]\t\t\t\t\t\tModule[{workingdata = #}, \
+\[IndentingNewLine]\t\t\t\t\t\t\tworkingdata = 
+                Map[LineSimplify, 
+                  workingdata]; \[IndentingNewLine]\t\t\t\t\t\t\tworkingdata \
+= Transpose[Map[LineSimplify, 
+                    Transpose[
+                      workingdata]]]; \[IndentingNewLine]\t\t\t\t\t\t\t\
+workingdata = FromSubMatrices[
+                  Map[LineSimplify, 
+                    FromSubMatrices[
+                      workingdata]]]] &, \[IndentingNewLine]\t\t\t\t\t\t\t\
+data];\)\)], "InputOnly"],
+
+Cell["\<\
+Apply the line simplification function to all rows, columns and sub-grids \
+(rearranged into lines and back again).\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(ApplySudokuLogic[data_, opts___Rule] := 
+        Module[{firstunsolved, firstunsolvedposition, 
+            step, \[IndentingNewLine]\t\t\t\t\t\t\t\t\t\t\tshowsteps = 
+              TrueQ[\(ShowSteps /. {opts}\) /. 
+                  Options[
+                    SudokuSolve]], \[IndentingNewLine]\t\t\t\t\t\t\t\t\t\t\t \
+(*Check\ for\ verbose\ message\ option*) \[IndentingNewLine]\t\t\t\t\t\t\t\t\t\
+\t\tworkingdata = 
+              Catch[FixedPoint[SudokuProcess, 
+                  data]]\[IndentingNewLine]\t\t\t\t\t\t\t\t\t\t\t (*Apply\ \
+the\ logic\ steps\ until\ no\ more\ progres\ is\ made*) \[IndentingNewLine]\t\
+\t\t\t\t\t\t\t\t\t\t}, \[IndentingNewLine]\[IndentingNewLine]\t\t\t\tIf[
+            workingdata === Contradiction, 
+            Throw[Contradiction]]; \[IndentingNewLine]\t\t\t\t (*If\ a\ \
+contradiction\ is\ arrived\ at, \ 
+            throw\ the\ error\ state\ up\ a\ level\ in\ the\ recursion\
+*) \[IndentingNewLine]\[IndentingNewLine]\t\t\t\tIf[
+            SudokuSolvedQ[workingdata], 
+            workingdata, \[IndentingNewLine]\t\t\t\t\t (*If\ the\ problem\ is\
+\ solved, \ 
+              stop*) \[IndentingNewLine]\[IndentingNewLine]\t\t\t\t\t\
+firstunsolved = 
+              First[Cases[
+                  workingdata, {n_Integer, 
+                    m__Integer}, {2}]]; \[IndentingNewLine]\t\t\t\t\t \
+(*Otherwise\ find\ the\ first\ unsolved\ position\ possible\ values\
+*) \[IndentingNewLine]\[IndentingNewLine]\t\t\t\t\tIf[firstunsolved === {}, 
+              Throw[Contradiction]]; \[IndentingNewLine]\t\t\t\t\t (*\ 
+              If\ there\ are\ no\ possible\ values, \ 
+              throw\ an\ error*) \[IndentingNewLine]\t\t\t\t\t\t\t\
+firstunsolvedposition = 
+              First[Position[workingdata, 
+                  firstunsolved]]; \[IndentingNewLine]\t\t\t\t\tIf[showsteps, 
+              Print["\<Guessing \>", First[firstunsolved], "\< at \>", 
+                firstunsolvedposition]]; \[IndentingNewLine]\t\t\t\t\tstep = 
+              Catch[ApplySudokuLogic[
+                  ReplacePart[workingdata, \ Take[firstunsolved, 1], \ 
+                    firstunsolvedposition], 
+                  opts]]; \[IndentingNewLine]\t\t\t\t\t (*\ 
+              Choose\ the\ first\ of\ the\ possible\ values\ and\ attempt\ to\
+\ solve\ again*) \[IndentingNewLine]\[IndentingNewLine]\t\t\t\t\tIf[
+              step === Contradiction, \[IndentingNewLine]\t\t\t\t\t\tIf[
+                showsteps, \[IndentingNewLine]\t\t\t\t\t\t\tPrint["\<Guess \
+\>", First[firstunsolved], "\< at \>", 
+                  firstunsolvedposition, \ "\< failed. Must be one of \>", 
+                  Rest[firstunsolved]]]; \[IndentingNewLine]\t\t\t\t\t\tCatch[
+                ApplySudokuLogic[
+                  ReplacePart[workingdata, \ Rest[firstunsolved], \ 
+                    firstunsolvedposition], 
+                  opts]], \[IndentingNewLine]\t\t\t\t\t\t (*If\ a\ \
+contradiction\ results\ from\ the\ guess, \ 
+                eliminate\ this\ possibility\ and\ try\ to\ solve\ again\
+*) \[IndentingNewLine]\[IndentingNewLine]\t\t\t\t\t\tstep\[IndentingNewLine]\t\
+\t\t\t\t\t (*Otherwise\ return\ the\ result*) \[IndentingNewLine]\t\t\t\t\t\t\
+\[IndentingNewLine]\t\t\t\t\t]\[IndentingNewLine]\t\t\t\t]\[IndentingNewLine]\
+\[IndentingNewLine]\t\t\t];\)\)], "InputOnly"],
+
+Cell[BoxData[{
+    \(\(SudokuSolve[data_, opts___Rule] := 
+        SudokuForm[
+          Catch[ApplySudokuLogic[Initialize[data], opts]]];\)\), "\n", 
+    \(\(Options[SudokuSolve] = {ShowSteps \[Rule] False};\)\)}], "InputOnly"],
+
+Cell[CellGroupData[{
+
+Cell["Tools", "Subsection"],
+
+Cell[BoxData[
+    \(\(SudokuSolvedQ[data_] := 
+        Dimensions[data] === {9, 9, 1};\)\)], "InputOnly"],
+
+Cell["\<\
+A test to see if we have completed the problem. If all 9\[Times]9 positions \
+are of length 1, it is solved.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(SubMatrix3[data_, {i_, j_}] := 
+      Table[data[\([i + m - 1, j + n - 1]\)], {m, 3}, {n, 3}]\)], "InputOnly"],
+
+Cell[BoxData[
+    \(FromSubMatrices[data_List] := 
+      Flatten[Table[
+          Flatten[SubMatrix3[data, {i, j}], 1], {i, 1, 7, 3}, {j, 1, 7, 3}], 
+        1]\)], "InputOnly"],
+
+Cell["\<\
+Commands to convert the 3\[Times]3 sub-grids into a matrix of 9 element rows \
+and back again. This allows us to use the same code for cleaning and deducing \
+from rows on the sub-grids. It can also be used on columns by using Transpose \
+and then Transposing back again.\
+\>", "Text"],
+
+Cell[BoxData[
+    \(Initialize[data_] := 
+      Map[If[Head[#] === Integer, {#}, Range[9]] &, data, {2}]\)], "InputOnly"],
+
+Cell["\<\
+A command to initialize all the unspecified positions with a list of all \
+possible values. Called only once at the start of the solver.\
+\>", "Text"],
+
+Cell[BoxData[{
+    \(\(MakeBoxes[SudokuForm[data_List], form_] := 
+        GridBox[data /. {List[n__Integer] /; 
+                  Length[{n}] > 1 -> "\<\>", {n_Integer} :> ToString[n]}, 
+          RowLines \[Rule] {1, 1, 2, 1, 1, 2, 1}, 
+          ColumnLines \[Rule] {1, 1, 2, 1, 1, 2, 1}, GridFrame \[Rule] True, 
+          RowsEqual \[Rule] True, 
+          ColumnsEqual \[Rule] True];\)\), "\[IndentingNewLine]", 
+    \(\(MakeBoxes[SudokuForm[other_], form_] := 
+        MakeBoxes[other, form];\)\)}], "InputOnly"],
+
+Cell["\<\
+A formatting command for printing the problem out as a grid with the \
+sub-grids highlighted\
+\>", "Text"],
+
+Cell[BoxData[
+    \(\(ShowSteps[msg___] := If[$ShowSteps, Print[msg]];\)\)], "InputOnly"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Work to do", "Section",
+  ShowGroupOpenCloseIcon->True],
+
+Cell[CellGroupData[{
+
+Cell["Higher level logic:", "Subsection"],
+
+Cell["\<\
+LineSimplify uses a \"level 1\" logic, in that it can eliminate values once a \
+value is found to be one value in one place.
+LineSimplify could be extended to eliminate when two values are known in two \
+places eg {1,2},{1,2} allows us to  remove 1 and 2 from other entries.
+And {1,2,3},{1,2,3},{1,2,3}, eliminates 1,2,3 from others. etc\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cross dimensional logic", "Subsection"],
+
+Cell["\<\
+The logic used in this code considers each row, column and sub-grid in \
+isolation. The more interesting rules to apply, as a human solving the \
+problems, combine information between these three dimensions.
+Consider the following, part-solved, example. In the 1,2 sub-grid, there are \
+only two places for \"2\" to appear. So it must appear in one them, but since \
+they are both in the same line in another dimension (column in this case), we \
+can eliminate all other \"2\"s in the column such as the one at 5,4 (in the \
+2,2 sub-grid).\
+\>", "Text"],
+
+Cell[BoxData[
+    TagBox[
+      RowBox[{"\[NoBreak]", GridBox[{
+            {\({4, 
+                5}\), \({3}\), \({8}\), \({1}\), \({7}\), \({6}\), \({9}\), \
+\({2}\), \({4, 5}\)},
+            {\({1}\), \({2, 4, 6}\), \({2, 5, 6}\), 
+              StyleBox[\({2, 3, 4}\),
+                FontWeight->"Bold"], \({3, 4, 8}\), \({9}\), \({7}\), \({3, 
+                4, 5, 6}\), \({3, 4, 5, 6, 8}\)},
+            {\({2, 4, 6, 7}\), \({9}\), \({2, 6, 7}\), 
+              StyleBox[\({2, 3, 4}\),
+                FontWeight->"Bold"], \({3, 4, 8}\), \({5}\), \({1}\), \({3, 
+                4, 6}\), \({3, 4, 6, 8}\)},
+            {\({9}\), \({7}\), \({1}\), \({8}\), \({6}\), \({2, 3, 
+                4}\), \({2, 4, 5}\), \({3, 4, 5}\), \({2, 3, 4, 5}\)},
+            {\({2, 3, 4, 5, 8}\), \({2, 4, 8}\), \({2, 3, 5}\), 
+              StyleBox[\({2, 3, 4}\),
+                FontWeight->"Bold"], \({1}\), \({2, 3, 
+                4}\), \({6}\), \({7}\), \({9}\)},
+            {\({2, 3, 4, 6}\), \({2, 4, 6}\), \({2, 3, 
+                6}\), \({5}\), \({9}\), \({7}\), \({2, 
+                4}\), \({8}\), \({1}\)},
+            {\({3, 6, 7, 8}\), \({6, 8}\), \({3, 6, 
+                7}\), \({9}\), \({2}\), \({1}\), \({4, 5, 8}\), \({4, 5, 
+                6}\), \({4, 5, 6, 7, 8}\)},
+            {\({2, 3, 6, 8}\), \({5}\), \({9}\), \({7}\), \({3, 4}\), \({3, 
+                4}\), \({2, 4, 8}\), \({1}\), \({2, 4, 6, 8}\)},
+            {\({2, 
+                7}\), \({1}\), \({4}\), \({6}\), \({5}\), \({8}\), \({3}\), \
+\({9}\), \({2, 7}\)}
+            },
+          GridFrame->True,
+          RowLines->{True, True, 2, True, True, 2, True},
+          ColumnLines->{True, True, 2, True, True, 2, True},
+          RowsEqual->True,
+          ColumnsEqual->True], "\[NoBreak]"}],
+      Function[ BoxForm`e$, 
+        MatrixForm[ BoxForm`e$]]]], "InputOnly",
+  CellFrame->False,
+  Evaluatable->False,
+  FontWeight->"Plain",
+  Background->None],
+
+Cell["\<\
+Generalizing,-if within a particular dimension, all possible positions for a \
+value lie in the same (other) dimension, then you can eliminate all \
+occurrences in the rest of that other dimension. 
+This is true for a single value case too and would replace the current \
+LineEliminate which is just a special case of this.\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Super Sudoku", "Subsection"],
+
+Cell["\<\
+The code could easily be extended to cover the hexadecimal version of the \
+problem with 16\[Times]16 grid and 4\[Times]4 sub-grids  or even higher order \
+puzzles.\
+\>", "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Section",
+  ShowGroupOpenCloseIcon->True],
+
+Cell[CellGroupData[{
+
+Cell["Intermediate", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {" ", "6", " ", "1", " ", "4", " ", "5", " "},
+          {" ", " ", "8", "3", " ", "5", "6", " ", " "},
+          {"2", " ", " ", " ", " ", " ", " ", " ", "1"},
+          {"8", " ", " ", "4", " ", "7", " ", " ", "6"},
+          {" ", " ", "6", " ", " ", " ", "3", " ", " "},
+          {"7", " ", " ", "9", " ", "1", " ", " ", "4"},
+          {"5", " ", " ", " ", " ", " ", " ", " ", "2"},
+          {" ", " ", "7", "2", " ", "6", "9", " ", " "},
+          {" ", "4", " ", "5", " ", "8", " ", "7", " "}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "Input"],
+
+Cell[BoxData[GridBox[{
+        {"9", "6", "3", "1", "7", "4", "2", "5", "8"},
+        {"1", "7", "8", "3", "2", "5", "6", "4", "9"},
+        {"2", "5", "4", "6", "8", "9", "7", "3", "1"},
+        {"8", "2", "1", "4", "3", "7", "5", "9", "6"},
+        {"4", "9", "6", "8", "5", "2", "3", "1", "7"},
+        {"7", "3", "5", "9", "6", "1", "8", "2", "4"},
+        {"5", "8", "9", "7", "1", "3", "4", "6", "2"},
+        {"3", "1", "7", "2", "4", "6", "9", "8", "5"},
+        {"6", "4", "2", "5", "9", "8", "1", "7", "3"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {" ", " ", "6", " ", "1", "3", " ", " ", " "},
+          {"3", "9", " ", " ", " ", " ", " ", "1", " "},
+          {"2", "1", "8", " ", " ", " ", "4", " ", " "},
+          {"8", "7", " ", "2", " ", " ", " ", " ", " "},
+          {" ", " ", " ", "8", "6", "1", " ", " ", " "},
+          {" ", " ", " ", " ", " ", "7", " ", "4", "9"},
+          {" ", " ", "3", " ", " ", " ", "7", " ", "8"},
+          {" ", "4", " ", " ", " ", " ", " ", "2", "5"},
+          {" ", " ", " ", "9", "2", " ", "3", " ", " "}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "Input"],
+
+Cell[BoxData[GridBox[{
+        {"4", "5", "6", "7", "1", "3", "9", "8", "2"},
+        {"3", "9", "7", "4", "8", "2", "5", "1", "6"},
+        {"2", "1", "8", "6", "5", "9", "4", "7", "3"},
+        {"8", "7", "5", "2", "9", "4", "6", "3", "1"},
+        {"9", "3", "4", "8", "6", "1", "2", "5", "7"},
+        {"1", "6", "2", "5", "3", "7", "8", "4", "9"},
+        {"5", "2", "3", "1", "4", "6", "7", "9", "8"},
+        {"6", "4", "9", "3", "7", "8", "1", "2", "5"},
+        {"7", "8", "1", "9", "2", "5", "3", "6", "4"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {" ", "3", " ", " ", " ", " ", " ", "7", " "},
+          {" ", "1", " ", "8", " ", "6", " ", "2", " "},
+          {" ", " ", "9", "1", "7", "5", "4", " ", " "},
+          {" ", " ", "7", " ", " ", " ", "6", " ", " "},
+          {"2", " ", " ", "4", " ", "9", " ", " ", "3"},
+          {" ", " ", "3", " ", " ", " ", "1", " ", " "},
+          {" ", " ", "1", "5", "4", "8", "2", " ", " "},
+          {" ", "6", " ", "3", " ", "2", " ", "1", " "},
+          {" ", "5", " ", " ", " ", " ", " ", "4", " "}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "Input"],
+
+Cell[BoxData[GridBox[{
+        {"6", "3", "5", "9", "2", "4", "8", "7", "1"},
+        {"7", "1", "4", "8", "3", "6", "9", "2", "5"},
+        {"8", "2", "9", "1", "7", "5", "4", "3", "6"},
+        {"1", "9", "7", "2", "5", "3", "6", "8", "4"},
+        {"2", "8", "6", "4", "1", "9", "7", "5", "3"},
+        {"5", "4", "3", "6", "8", "7", "1", "9", "2"},
+        {"3", "7", "1", "5", "4", "8", "2", "6", "9"},
+        {"4", "6", "8", "3", "9", "2", "5", "1", "7"},
+        {"9", "5", "2", "7", "6", "1", "3", "4", "8"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Expert", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {" ", " ", "8", "1", "7", "6", " ", "2", " "},
+          {" ", "4", " ", " ", " ", "9", "7", " ", " "},
+          {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+          {" ", "7", "1", "8", " ", " ", " ", " ", " "},
+          {" ", " ", " ", " ", " ", " ", "6", "7", "9"},
+          {" ", " ", " ", "5", "9", "7", " ", "8", "1"},
+          {" ", " ", " ", " ", "2", " ", " ", " ", " "},
+          {" ", "5", "9", " ", " ", " ", " ", "1", " "},
+          {" ", "1", "4", "6", "5", " ", "3", " ", " "}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "Input"],
+
+Cell[BoxData[GridBox[{
+        {"5", "3", "8", "1", "7", "6", "9", "2", "4"},
+        {"1", "4", "2", "3", "8", "9", "7", "5", "6"},
+        {"7", "9", "6", "2", "4", "5", "1", "3", "8"},
+        {"9", "7", "1", "8", "6", "2", "5", "4", "3"},
+        {"8", "2", "5", "4", "1", "3", "6", "7", "9"},
+        {"4", "6", "3", "5", "9", "7", "2", "8", "1"},
+        {"3", "8", "7", "9", "2", "1", "4", "6", "5"},
+        {"6", "5", "9", "7", "3", "4", "8", "1", "2"},
+        {"2", "1", "4", "6", "5", "8", "3", "9", "7"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", 
+      RowBox[{GridBox[{
+            {"5", "3", "8", "1", "7", "6", " ", "2", " "},
+            {" ", " ", " ", " ", " ", "9", "7", " ", " "},
+            {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+            {" ", "7", "1", "8", " ", " ", " ", " ", " "},
+            {" ", " ", " ", " ", " ", " ", "6", "7", "9"},
+            {" ", " ", " ", "5", "9", "7", " ", "8", "1"},
+            {" ", " ", " ", " ", "2", " ", " ", " ", " "},
+            {" ", "5", "9", " ", " ", " ", " ", "1", " "},
+            {" ", "1", "4", "6", "5", " ", "3", " ", " "}
+            },
+          GridFrame->True,
+          RowLines->{True, True, 2, True, True, 2, True},
+          ColumnLines->{True, True, 2, True, True, 2, True},
+          RowsEqual->True,
+          ColumnsEqual->True], ",", \(ShowSteps \[Rule] True\)}], 
+      "]"}]], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 2}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 3, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 1}\),
+      SequenceForm[ "Guessing ", 6, " at ", {7, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[GridBox[{
+        {"5", "3", "8", "1", "7", "6", "9", "2", "4"},
+        {"1", "2", "6", "4", "3", "9", "7", "5", "8"},
+        {"4", "9", "7", "2", "8", "5", "1", "6", "3"},
+        {"9", "7", "1", "8", "6", "4", "2", "3", "5"},
+        {"8", "4", "5", "3", "1", "2", "6", "7", "9"},
+        {"3", "6", "2", "5", "9", "7", "4", "8", "1"},
+        {"6", "8", "3", "9", "2", "1", "5", "4", "7"},
+        {"2", "5", "9", "7", "4", "3", "8", "1", "6"},
+        {"7", "1", "4", "6", "5", "8", "3", "9", "2"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", 
+      RowBox[{GridBox[{
+            {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"},
+            {"\[Placeholder]", "6", "8", "4", "\[Placeholder]", "1", 
+              "\[Placeholder]", "7", "\[Placeholder]"},
+            {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]", "8", "5", "\[Placeholder]", "3", 
+              "\[Placeholder]"},
+            {"\[Placeholder]", "2", "6", "8", "\[Placeholder]", "9", 
+              "\[Placeholder]", "4", "\[Placeholder]"},
+            {"\[Placeholder]", "\[Placeholder]", "7", "\[Placeholder]", 
+              "\[Placeholder]", "\[Placeholder]", "9", "\[Placeholder]", 
+              "\[Placeholder]"},
+            {"\[Placeholder]", "5", "\[Placeholder]", "1", "\[Placeholder]", 
+              "6", "3", "2", "\[Placeholder]"},
+            {"\[Placeholder]", "4", "\[Placeholder]", "6", "1", 
+              "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]"},
+            {"\[Placeholder]", "3", "\[Placeholder]", "2", "\[Placeholder]", 
+              "7", "6", "9", "\[Placeholder]"},
+            {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+              "\[Placeholder]", "\[Placeholder]", "\[Placeholder]"}
+            },
+          GridFrame->True,
+          RowLines->{True, True, 2, True, True, 2, True},
+          ColumnLines->{True, True, 2, True, True, 2, True},
+          RowsEqual->True,
+          ColumnsEqual->True], ",", \(ShowSteps \[Rule] True\)}], 
+      "]"}]], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 1}\),
+      SequenceForm[ "Guessing ", 1, " at ", {1, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          1}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{4, 
+          5, 7, 9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {1, 1}, " failed. Must be one of ", {4, 5, 7, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 1}\),
+      SequenceForm[ "Guessing ", 4, " at ", {1, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          1}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{5, 
+          7, 9}\),
+      SequenceForm[ 
+      "Guess ", 4, " at ", {1, 1}, " failed. Must be one of ", {5, 7, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 1}\),
+      SequenceForm[ "Guessing ", 5, " at ", {1, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 2}\),
+      SequenceForm[ "Guessing ", 1, " at ", {1, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          2}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7, 
+          9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {1, 2}, " failed. Must be one of ", {7, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 2}\),
+      SequenceForm[ "Guessing ", 7, " at ", {1, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          2}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{9}\),
+      
+      SequenceForm[ 
+      "Guess ", 7, " at ", {1, 2}, " failed. Must be one of ", {9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {1, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{4, 
+          8}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {1, 7}, " failed. Must be one of ", {4, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 7}\),
+      SequenceForm[ "Guessing ", 4, " at ", {1, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 8}\),
+      SequenceForm[ "Guessing ", 1, " at ", {1, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          8}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {1, 8}, " failed. Must be one of ", {8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 1}\),
+      SequenceForm[ "Guessing ", 1, " at ", {3, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 
+          1}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{4, 
+          7}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {3, 1}, " failed. Must be one of ", {4, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 1}\),
+      SequenceForm[ "Guessing ", 4, " at ", {3, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 
+          1}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7}\),
+      
+      SequenceForm[ 
+      "Guess ", 4, " at ", {3, 1}, " failed. Must be one of ", {7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8}\),
+      
+      SequenceForm[ 
+      "Guess ", 4, " at ", {1, 7}, " failed. Must be one of ", {8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[GridBox[{
+        {"5", "9", "3", "7", "6", "2", "8", "1", "4"},
+        {"2", "6", "8", "4", "3", "1", "5", "7", "9"},
+        {"7", "1", "4", "9", "8", "5", "2", "3", "6"},
+        {"3", "2", "6", "8", "5", "9", "1", "4", "7"},
+        {"1", "8", "7", "3", "2", "4", "9", "6", "5"},
+        {"4", "5", "9", "1", "7", "6", "3", "2", "8"},
+        {"9", "4", "2", "6", "1", "8", "7", "5", "3"},
+        {"8", "3", "5", "2", "4", "7", "6", "9", "1"},
+        {"6", "7", "1", "5", "9", "3", "4", "8", "2"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{GridBox[{
+          {"", "", "3", "", "6", "2", "", "", ""},
+          {"", "6", "8", "4", "3", "1", "", "7", ""},
+          {"", "", "", "", "8", "5", "", "3", "6"},
+          {"3", "2", "6", "8", "", "9", "", "4", ""},
+          {"", "", "7", "", "2", "", "9", "6", ""},
+          {"", "5", "", "1", "7", "6", "3", "2", ""},
+          {"", "4", "", "6", "1", "", "", "", ""},
+          {"", "3", "", "2", "", "7", "6", "9", ""},
+          {"6", "", "", "", "9", "", "", "", ""}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "//", "SudokuSolve"}]], "Input"],
+
+Cell[BoxData[GridBox[{
+        {"5", "9", "3", "7", "6", "2", "8", "1", "4"},
+        {"2", "6", "8", "4", "3", "1", "5", "7", "9"},
+        {"7", "1", "4", "9", "8", "5", "2", "3", "6"},
+        {"3", "2", "6", "8", "5", "9", "1", "4", "7"},
+        {"1", "8", "7", "3", "2", "4", "9", "6", "5"},
+        {"4", "5", "9", "1", "7", "6", "3", "2", "8"},
+        {"9", "4", "2", "6", "1", "8", "7", "5", "3"},
+        {"8", "3", "5", "2", "4", "7", "6", "9", "1"},
+        {"6", "7", "1", "5", "9", "3", "4", "8", "2"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Seventeen hints", "Subsection"],
+
+Cell["\<\
+Seventeen hints seems to be the minimum to produce a unique solution. The \
+Minimal Sudoku page maintains the known progress for this problem.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{"SudokuSolve", "[", GridBox[{
+          {"\[Placeholder]", "3", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "9", "\[Placeholder]", 
+            "\[Placeholder]"},
+          {"6", "\[Placeholder]", "\[Placeholder]", "4", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", "7", 
+            "\[Placeholder]", "\[Placeholder]"},
+          {"\[Placeholder]", "7", "\[Placeholder]", "2", "9", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", "3", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", "6", 
+            "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "4", "\[Placeholder]"},
+          {"4", "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "5", "\[Placeholder]", "8", "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "7", "\[Placeholder]", "3", "\[Placeholder]", 
+            "\[Placeholder]"},
+          {"\[Placeholder]", "\[Placeholder]", "1", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]", "\[Placeholder]", 
+            "\[Placeholder]", "\[Placeholder]"}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "]"}]], "InputOnly"],
+
+Cell[BoxData[GridBox[{
+        {"7", "3", "8", "5", "6", "2", "9", "1", "4"},
+        {"6", "2", "9", "4", "1", "7", "8", "5", "3"},
+        {"1", "4", "5", "9", "8", "3", "7", "2", "6"},
+        {"5", "7", "4", "2", "9", "6", "1", "3", "8"},
+        {"9", "1", "2", "3", "4", "8", "5", "6", "7"},
+        {"8", "6", "3", "7", "5", "1", "2", "4", "9"},
+        {"4", "9", "7", "1", "3", "5", "6", "8", "2"},
+        {"2", "5", "6", "8", "7", "4", "3", "9", "1"},
+        {"3", "8", "1", "6", "2", "9", "4", "7", "5"}
+        },
+      GridFrame->True,
+      RowLines->{True, True, 2, True, True, 2, True},
+      ColumnLines->{True, True, 2, True, True, 2, True},
+      RowsEqual->True,
+      ColumnsEqual->True]], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Unsolvable problems", "Subsection"],
+
+Cell["Some problems are contradictory and have no solution", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{GridBox[{
+          {"4", "", "3", "7", "6", "2", "8", "", ""},
+          {"", "6", "8", "4", "3", "1", "", "7", ""},
+          {"", "", "", "", "8", "5", "", "3", "6"},
+          {"3", "2", "6", "8", "", "9", "", "4", ""},
+          {"", "", "7", "", "2", "", "9", "6", ""},
+          {"", "5", "", "1", "", "6", "3", "2", ""},
+          {"", "4", "", "6", "1", "", "", "", ""},
+          {"", "3", "", "2", "", "7", "6", "9", ""},
+          {"6", "", "", "", "9", "", "", "", ""}
+          },
+        GridFrame->True,
+        RowLines->{True, True, 2, True, True, 2, True},
+        ColumnLines->{True, True, 2, True, True, 2, True},
+        RowsEqual->True,
+        ColumnsEqual->True], "//", "SudokuSolve"}]], "Input"],
+
+Cell[BoxData[
+    \(Contradiction\)], "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Highly under specified problems", "Subsection"],
+
+Cell["\<\
+Some problems have more than one solution as they are under-specified. An \
+extreme example of this is the empty problem. A solution is found, but it is \
+only one of a vast number of solutions\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    RowBox[{
+      RowBox[{"SudokuSolve", "[", 
+        RowBox[{GridBox[{
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", " ", " ", " "},
+              {" ", " ", " ", " ", " ", " ", "  ", " ", " "},
+              {" ", "  ", " ", " ", "  ", " ", " ", " ", " "}
+              },
+            GridFrame->True,
+            RowLines->{True, True, 2, True, True, 2, True},
+            ColumnLines->{True, True, 2, True, True, 2, True},
+            RowsEqual->True,
+            ColumnsEqual->True], ",", \(ShowSteps \[Rule] True\)}], "]"}], "//",
+       "Timing"}]], "Input"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 1}\),
+      SequenceForm[ "Guessing ", 1, " at ", {1, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 2}\),
+      SequenceForm[ "Guessing ", 2, " at ", {1, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 3}\),
+      SequenceForm[ "Guessing ", 3, " at ", {1, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 4}\),
+      SequenceForm[ "Guessing ", 4, " at ", {1, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 5}\),
+      SequenceForm[ "Guessing ", 5, " at ", {1, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 6}\),
+      SequenceForm[ "Guessing ", 6, " at ", {1, 6}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 7}\),
+      SequenceForm[ "Guessing ", 7, " at ", {1, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{1, 8}\),
+      SequenceForm[ "Guessing ", 8, " at ", {1, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 1}\),
+      SequenceForm[ "Guessing ", 4, " at ", {2, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 2}\),
+      SequenceForm[ "Guessing ", 5, " at ", {2, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 3}\),
+      SequenceForm[ "Guessing ", 6, " at ", {2, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 4}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3, 
+          7, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 5}, " failed. Must be one of ", {3, 7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 3, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7, 
+          8, 9}\),
+      SequenceForm[ 
+      "Guess ", 3, " at ", {2, 5}, " failed. Must be one of ", {7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 7, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8, 
+          9}\),
+      SequenceForm[ 
+      "Guess ", 7, " at ", {2, 5}, " failed. Must be one of ", {8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          4}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2, 
+          3, 7, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 4}, " failed. Must be one of ", {2, 3, 7, 8, 
+        9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 4}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3, 
+          7, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 5}, " failed. Must be one of ", {3, 7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 3, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7, 
+          8, 9}\),
+      SequenceForm[ 
+      "Guess ", 3, " at ", {2, 5}, " failed. Must be one of ", {7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 7, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8, 
+          9}\),
+      SequenceForm[ 
+      "Guess ", 7, " at ", {2, 5}, " failed. Must be one of ", {8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          4}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3, 
+          7, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 4}, " failed. Must be one of ", {3, 7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 4}\),
+      SequenceForm[ "Guessing ", 3, " at ", {2, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2, 
+          7, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 5}, " failed. Must be one of ", {2, 7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7, 
+          8, 9}\),
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 5}, " failed. Must be one of ", {7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 7, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8, 
+          9}\),
+      SequenceForm[ 
+      "Guess ", 7, " at ", {2, 5}, " failed. Must be one of ", {8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          4}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{7, 
+          8, 9}\),
+      SequenceForm[ 
+      "Guess ", 3, " at ", {2, 4}, " failed. Must be one of ", {7, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 4}\),
+      SequenceForm[ "Guessing ", 7, " at ", {2, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2, 
+          3, 8, 9}\),
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 5}, " failed. Must be one of ", {2, 3, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{3, 
+          8, 9}\),
+      SequenceForm[ 
+      "Guess ", 2, " at ", {2, 5}, " failed. Must be one of ", {3, 8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 3, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          7}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{2}\),
+      
+      SequenceForm[ 
+      "Guess ", 1, " at ", {2, 7}, " failed. Must be one of ", {2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guess "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 
+          5}\[InvisibleSpace]" failed. Must be one of "\[InvisibleSpace]{8, 
+          9}\),
+      SequenceForm[ 
+      "Guess ", 3, " at ", {2, 5}, " failed. Must be one of ", {8, 9}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 5}\),
+      SequenceForm[ "Guessing ", 8, " at ", {2, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 7}\),
+      SequenceForm[ "Guessing ", 1, " at ", {2, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{2, 8}\),
+      SequenceForm[ "Guessing ", 2, " at ", {2, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]7\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 1}\),
+      SequenceForm[ "Guessing ", 7, " at ", {3, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 2}\),
+      SequenceForm[ "Guessing ", 8, " at ", {3, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 4}\),
+      SequenceForm[ "Guessing ", 1, " at ", {3, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 5}\),
+      SequenceForm[ "Guessing ", 2, " at ", {3, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 7}\),
+      SequenceForm[ "Guessing ", 4, " at ", {3, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{3, 8}\),
+      SequenceForm[ "Guessing ", 5, " at ", {3, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 1}\),
+      SequenceForm[ "Guessing ", 2, " at ", {4, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 2}\),
+      SequenceForm[ "Guessing ", 1, " at ", {4, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 3}\),
+      SequenceForm[ "Guessing ", 4, " at ", {4, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 4}\),
+      SequenceForm[ "Guessing ", 3, " at ", {4, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 5}\),
+      SequenceForm[ "Guessing ", 6, " at ", {4, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 6}\),
+      SequenceForm[ "Guessing ", 5, " at ", {4, 6}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{4, 7}\),
+      SequenceForm[ "Guessing ", 8, " at ", {4, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{5, 1}\),
+      SequenceForm[ "Guessing ", 3, " at ", {5, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{5, 2}\),
+      SequenceForm[ "Guessing ", 6, " at ", {5, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{5, 3}\),
+      SequenceForm[ "Guessing ", 5, " at ", {5, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{5, 4}\),
+      SequenceForm[ "Guessing ", 8, " at ", {5, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{5, 8}\),
+      SequenceForm[ "Guessing ", 1, " at ", {5, 8}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]8\[InvisibleSpace]" at "\
+\[InvisibleSpace]{6, 1}\),
+      SequenceForm[ "Guessing ", 8, " at ", {6, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{6, 5}\),
+      SequenceForm[ "Guessing ", 1, " at ", {6, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{6, 7}\),
+      SequenceForm[ "Guessing ", 3, " at ", {6, 7}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]5\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 1}\),
+      SequenceForm[ "Guessing ", 5, " at ", {7, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]3\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 2}\),
+      SequenceForm[ "Guessing ", 3, " at ", {7, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]1\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 3}\),
+      SequenceForm[ "Guessing ", 1, " at ", {7, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 4}\),
+      SequenceForm[ "Guessing ", 6, " at ", {7, 4}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 5}\),
+      SequenceForm[ "Guessing ", 4, " at ", {7, 5}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{7, 6}\),
+      SequenceForm[ "Guessing ", 2, " at ", {7, 6}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]6\[InvisibleSpace]" at "\
+\[InvisibleSpace]{8, 1}\),
+      SequenceForm[ "Guessing ", 6, " at ", {8, 1}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]4\[InvisibleSpace]" at "\
+\[InvisibleSpace]{8, 2}\),
+      SequenceForm[ "Guessing ", 4, " at ", {8, 2}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    InterpretationBox[\("Guessing "\[InvisibleSpace]2\[InvisibleSpace]" at "\
+\[InvisibleSpace]{8, 3}\),
+      SequenceForm[ "Guessing ", 2, " at ", {8, 3}],
+      Editable->False]], "Print"],
+
+Cell[BoxData[
+    RowBox[{"{", 
+      RowBox[{\(1.162`\ Second\), ",", GridBox[{
+            {"1", "2", "3", "4", "5", "6", "7", "8", "9"},
+            {"4", "5", "6", "7", "8", "9", "1", "2", "3"},
+            {"7", "8", "9", "1", "2", "3", "4", "5", "6"},
+            {"2", "1", "4", "3", "6", "5", "8", "9", "7"},
+            {"3", "6", "5", "8", "9", "7", "2", "1", "4"},
+            {"8", "9", "7", "2", "1", "4", "3", "6", "5"},
+            {"5", "3", "1", "6", "4", "2", "9", "7", "8"},
+            {"6", "4", "2", "9", "7", "8", "5", "3", "1"},
+            {"9", "7", "8", "5", "3", "1", "6", "4", "2"}
+            },
+          GridFrame->True,
+          RowLines->{True, True, 2, True, True, 2, True},
+          ColumnLines->{True, True, 2, True, True, 2, True},
+          RowsEqual->True,
+          ColumnsEqual->True]}], "}"}]], "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+},
+FrontEndVersion->"5.1 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 723}},
+WindowSize->{479, 504},
+WindowMargins->{{11, Automatic}, {Automatic, 6}},
+ShowSelection->True,
+StyleDefinitions -> "Report.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 124, 6, 189, "Title"],
+Cell[1903, 61, 56, 3, 66, "Subtitle"],
+Cell[1962, 66, 32, 0, 30, "Subsubtitle"],
+
+Cell[CellGroupData[{
+Cell[2019, 70, 58, 1, 67, "Section"],
+Cell[2080, 73, 2931, 53, 853, "Text"],
+Cell[5014, 128, 2082, 34, 192, "InputOnly"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7133, 167, 59, 1, 67, "Section"],
+Cell[7195, 170, 117, 2, 71, "InputOnly"],
+Cell[7315, 174, 1422, 24, 331, "InputOnly"],
+Cell[8740, 200, 230, 5, 63, "Text"],
+Cell[8973, 207, 628, 13, 171, "InputOnly"],
+Cell[9604, 222, 139, 3, 29, "Text"],
+Cell[9746, 227, 3328, 56, 951, "InputOnly"],
+Cell[13077, 285, 228, 4, 71, "InputOnly"],
+
+Cell[CellGroupData[{
+Cell[13330, 293, 27, 0, 41, "Subsection"],
+Cell[13360, 295, 105, 2, 51, "InputOnly"],
+Cell[13468, 299, 132, 3, 29, "Text"],
+Cell[13603, 304, 130, 2, 51, "InputOnly"],
+Cell[13736, 308, 177, 4, 71, "InputOnly"],
+Cell[13916, 314, 295, 5, 46, "Text"],
+Cell[14214, 321, 121, 2, 51, "InputOnly"],
+Cell[14338, 325, 160, 3, 29, "Text"],
+Cell[14501, 330, 519, 9, 131, "InputOnly"],
+Cell[15023, 341, 116, 3, 29, "Text"],
+Cell[15142, 346, 89, 1, 51, "InputOnly"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15280, 353, 61, 1, 41, "Section"],
+
+Cell[CellGroupData[{
+Cell[15366, 358, 41, 0, 41, "Subsection"],
+Cell[15410, 360, 361, 6, 63, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[15808, 371, 45, 0, 41, "Subsection"],
+Cell[15856, 373, 563, 9, 97, "Text"],
+Cell[16422, 384, 1947, 42, 174, "InputOnly",
+  Evaluatable->False],
+Cell[18372, 428, 347, 6, 63, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[18756, 439, 34, 0, 41, "Subsection"],
+Cell[18793, 441, 188, 4, 29, "Text"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[19030, 451, 59, 1, 41, "Section"],
+
+Cell[CellGroupData[{
+Cell[19114, 456, 34, 0, 41, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[19173, 460, 791, 16, 176, "Input"],
+Cell[19967, 478, 722, 15, 191, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[20726, 498, 791, 16, 176, "Input"],
+Cell[21520, 516, 722, 15, 191, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[22279, 536, 791, 16, 176, "Input"],
+Cell[23073, 554, 722, 15, 191, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[23844, 575, 28, 0, 25, "Subsection"],
+
+Cell[CellGroupData[{
+Cell[23897, 579, 791, 16, 176, "Input"],
+Cell[24691, 597, 722, 15, 191, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[25450, 617, 878, 18, 176, "Input"],
+Cell[26331, 637, 205, 4, 40, "Print"],
+Cell[26539, 643, 205, 4, 40, "Print"],
+Cell[26747, 649, 205, 4, 40, "Print"],
+Cell[26955, 655, 722, 15, 191, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[27714, 675, 1777, 32, 176, "Input"],
+Cell[29494, 709, 205, 4, 40, "Print"],
+Cell[29702, 715, 342, 7, 40, "Print"],
+Cell[30047, 724, 205, 4, 40, "Print"],
+Cell[30255, 730, 336, 7, 40, "Print"],
+Cell[30594, 739, 205, 4, 40, "Print"],
+Cell[30802, 745, 205, 4, 40, "Print"],
+Cell[31010, 751, 330, 7, 40, "Print"],
+Cell[31343, 760, 205, 4, 40, "Print"],
+Cell[31551, 766, 320, 7, 40, "Print"],
+Cell[31874, 775, 205, 4, 40, "Print"],
+Cell[32082, 781, 330, 7, 40, "Print"],
+Cell[32415, 790, 205, 4, 40, "Print"],
+Cell[32623, 796, 205, 4, 40, "Print"],
+Cell[32831, 802, 320, 7, 40, "Print"],
+Cell[33154, 811, 205, 4, 40, "Print"],
+Cell[33362, 817, 330, 7, 40, "Print"],
+Cell[33695, 826, 205, 4, 40, "Print"],
+Cell[33903, 832, 320, 7, 40, "Print"],
+Cell[34226, 841, 320, 7, 40, "Print"],
+Cell[34549, 850, 722, 15, 191, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[35308, 870, 745, 16, 176, "Input"],
+Cell[36056, 888, 722, 15, 191, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[36827, 909, 37, 0, 25, "Subsection"],
+Cell[36867, 911, 166, 3, 46, "Text"],
+
+Cell[CellGroupData[{
+Cell[37058, 918, 1848, 33, 192, "InputOnly"],
+Cell[38909, 953, 722, 15, 191, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[39680, 974, 41, 0, 25, "Subsection"],
+Cell[39724, 976, 68, 0, 29, "Text"],
+
+Cell[CellGroupData[{
+Cell[39817, 980, 747, 16, 176, "Input"],
+Cell[40567, 998, 47, 1, 49, "Output"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[40663, 1005, 53, 0, 25, "Subsection"],
+Cell[40719, 1007, 217, 4, 46, "Text"],
+
+Cell[CellGroupData[{
+Cell[40961, 1015, 946, 19, 176, "Input"],
+Cell[41910, 1036, 205, 4, 40, "Print"],
+Cell[42118, 1042, 205, 4, 40, "Print"],
+Cell[42326, 1048, 205, 4, 40, "Print"],
+Cell[42534, 1054, 205, 4, 40, "Print"],
+Cell[42742, 1060, 205, 4, 40, "Print"],
+Cell[42950, 1066, 205, 4, 40, "Print"],
+Cell[43158, 1072, 205, 4, 40, "Print"],
+Cell[43366, 1078, 205, 4, 40, "Print"],
+Cell[43574, 1084, 205, 4, 40, "Print"],
+Cell[43782, 1090, 205, 4, 40, "Print"],
+Cell[43990, 1096, 205, 4, 40, "Print"],
+Cell[44198, 1102, 205, 4, 40, "Print"],
+Cell[44406, 1108, 205, 4, 40, "Print"],
+Cell[44614, 1114, 342, 7, 40, "Print"],
+Cell[44959, 1123, 205, 4, 40, "Print"],
+Cell[45167, 1129, 336, 7, 40, "Print"],
+Cell[45506, 1138, 205, 4, 40, "Print"],
+Cell[45714, 1144, 205, 4, 40, "Print"],
+Cell[45922, 1150, 320, 7, 40, "Print"],
+Cell[46245, 1159, 330, 7, 40, "Print"],
+Cell[46578, 1168, 205, 4, 40, "Print"],
+Cell[46786, 1174, 320, 7, 40, "Print"],
+Cell[47109, 1183, 357, 8, 40, "Print"],
+Cell[47469, 1193, 205, 4, 40, "Print"],
+Cell[47677, 1199, 205, 4, 40, "Print"],
+Cell[47885, 1205, 342, 7, 40, "Print"],
+Cell[48230, 1214, 205, 4, 40, "Print"],
+Cell[48438, 1220, 336, 7, 40, "Print"],
+Cell[48777, 1229, 205, 4, 40, "Print"],
+Cell[48985, 1235, 205, 4, 40, "Print"],
+Cell[49193, 1241, 320, 7, 40, "Print"],
+Cell[49516, 1250, 330, 7, 40, "Print"],
+Cell[49849, 1259, 205, 4, 40, "Print"],
+Cell[50057, 1265, 320, 7, 40, "Print"],
+Cell[50380, 1274, 342, 7, 40, "Print"],
+Cell[50725, 1283, 205, 4, 40, "Print"],
+Cell[50933, 1289, 205, 4, 40, "Print"],
+Cell[51141, 1295, 342, 7, 40, "Print"],
+Cell[51486, 1304, 205, 4, 40, "Print"],
+Cell[51694, 1310, 336, 7, 40, "Print"],
+Cell[52033, 1319, 205, 4, 40, "Print"],
+Cell[52241, 1325, 205, 4, 40, "Print"],
+Cell[52449, 1331, 320, 7, 40, "Print"],
+Cell[52772, 1340, 330, 7, 40, "Print"],
+Cell[53105, 1349, 205, 4, 40, "Print"],
+Cell[53313, 1355, 320, 7, 40, "Print"],
+Cell[53636, 1364, 336, 7, 40, "Print"],
+Cell[53975, 1373, 205, 4, 40, "Print"],
+Cell[54183, 1379, 205, 4, 40, "Print"],
+Cell[54391, 1385, 205, 4, 40, "Print"],
+Cell[54599, 1391, 320, 7, 40, "Print"],
+Cell[54922, 1400, 342, 7, 40, "Print"],
+Cell[55267, 1409, 205, 4, 40, "Print"],
+Cell[55475, 1415, 205, 4, 40, "Print"],
+Cell[55683, 1421, 320, 7, 40, "Print"],
+Cell[56006, 1430, 336, 7, 40, "Print"],
+Cell[56345, 1439, 205, 4, 40, "Print"],
+Cell[56553, 1445, 205, 4, 40, "Print"],
+Cell[56761, 1451, 320, 7, 40, "Print"],
+Cell[57084, 1460, 330, 7, 40, "Print"],
+Cell[57417, 1469, 205, 4, 40, "Print"],
+Cell[57625, 1475, 205, 4, 40, "Print"],
+Cell[57833, 1481, 205, 4, 40, "Print"],
+Cell[58041, 1487, 205, 4, 40, "Print"],
+Cell[58249, 1493, 205, 4, 40, "Print"],
+Cell[58457, 1499, 205, 4, 40, "Print"],
+Cell[58665, 1505, 205, 4, 40, "Print"],
+Cell[58873, 1511, 205, 4, 40, "Print"],
+Cell[59081, 1517, 205, 4, 40, "Print"],
+Cell[59289, 1523, 205, 4, 40, "Print"],
+Cell[59497, 1529, 205, 4, 40, "Print"],
+Cell[59705, 1535, 205, 4, 40, "Print"],
+Cell[59913, 1541, 205, 4, 40, "Print"],
+Cell[60121, 1547, 205, 4, 40, "Print"],
+Cell[60329, 1553, 205, 4, 40, "Print"],
+Cell[60537, 1559, 205, 4, 40, "Print"],
+Cell[60745, 1565, 205, 4, 40, "Print"],
+Cell[60953, 1571, 205, 4, 40, "Print"],
+Cell[61161, 1577, 205, 4, 40, "Print"],
+Cell[61369, 1583, 205, 4, 40, "Print"],
+Cell[61577, 1589, 205, 4, 40, "Print"],
+Cell[61785, 1595, 205, 4, 40, "Print"],
+Cell[61993, 1601, 205, 4, 40, "Print"],
+Cell[62201, 1607, 205, 4, 40, "Print"],
+Cell[62409, 1613, 205, 4, 40, "Print"],
+Cell[62617, 1619, 205, 4, 40, "Print"],
+Cell[62825, 1625, 205, 4, 40, "Print"],
+Cell[63033, 1631, 205, 4, 40, "Print"],
+Cell[63241, 1637, 205, 4, 40, "Print"],
+Cell[63449, 1643, 205, 4, 40, "Print"],
+Cell[63657, 1649, 205, 4, 40, "Print"],
+Cell[63865, 1655, 205, 4, 40, "Print"],
+Cell[64073, 1661, 205, 4, 40, "Print"],
+Cell[64281, 1667, 849, 17, 191, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

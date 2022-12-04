@@ -1,0 +1,2331 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    106145,       2323]
+NotebookOptionsPosition[     96478,       2128]
+NotebookOutlinePosition[    100895,       2227]
+CellTagsIndexPosition[    100240,       2205]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Distance between Two Points Based on a Triangle", "Title",
+ CellChangeTimes->{{3.8605092933139024`*^9, 3.860509327015498*^9}, {
+   3.8614552509951057`*^9, 3.861455251451324*^9}, 3.862286779266823*^9, {
+   3.8622868131534843`*^9, 3.862286853767941*^9}, 3.862286891900497*^9, {
+   3.862316946727227*^9, 3.8623169665729856`*^9}, {3.862317107486133*^9, 
+   3.8623171102938375`*^9}, {3.86241452713734*^9, 3.862414550438581*^9}, {
+   3.862490258532175*^9, 
+   3.862490297749378*^9}},ExpressionUUID->"b9e6fe14-67c5-4f7d-9ec0-\
+13c361826e91"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Initialization Code",
+ StyleBox[" (optional) ", "SectionGloss"],
+ Cell[BoxData[
+  TemplateBox[{"Initialization Code", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{"Provide any code that must be evaluated before the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          ". This will automatically be built into the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " in the final notebook version. Never use a package that is not \
+included in the default distribution of ", 
+          StyleBox["Mathematica", FontSlant -> "Italic"], 
+          ". To use a package, use the ", 
+          StyleBox["Initialization", "MRbig"], " option (with ", 
+          StyleBox["Get", "MRbig"], ", not ", 
+          StyleBox["Needs", "MRbig"], ") in the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " itself, and use the full name of the function from the package. \
+For example:\n", 
+          StyleBox[
+          "  Manipulate[\n  ...\n  ComputationalGeometry`ConvexHull[...]...\n \
+ ...\n  Initialization :> Get[\"ComputationalGeometry`\"],\n  ...\n  ]", 
+           "MR"], "\nIf you provide initialization code, include a ", 
+          StyleBox["SaveDefinitions->True", "MRbig"], " option in the ", 
+          StyleBox["Manipulate", "MRbig"], ".", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "81fde376-e763-44cf-83ed-5c52ec315067"]
+}], "InitializationSection",
+ CellTags->
+  "Initialization \
+Code",ExpressionUUID->"1d34a731-8c48-4189-8b6f-89ef5777db9f"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", Cell["Author Index TXM2", "DetailNotes",
+   CellChangeTimes->{{3.860509538214019*^9, 3.8605095534478393`*^9}},
+   ExpressionUUID->"3530dcca-12ba-4efb-9314-79652416b00e"], " ", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.861449158095047*^9, 3.861449198057743*^9}, {
+  3.862286929734367*^9, 3.862286929734414*^9}},
+ CellID->1153918545,ExpressionUUID->"c0e06805-352f-45a6-8a5a-3d4b4119f06a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetLine", "[", 
+   RowBox[{"p1_", ",", "p2_", ",", "p3_", ",", "p4_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Line", "[", 
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "p2"}], "}"}], "]"}], ",", 
+    RowBox[{"Line", "[", 
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "p3"}], "}"}], "]"}], ",", 
+    RowBox[{"Line", "[", 
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "p4"}], "}"}], "]"}]}], "}"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.862289622430328*^9},
+ CellLabel->"In[1]:=",
+ CellID->99666838,ExpressionUUID->"7433e8a3-67bd-4727-b40b-04d37e2cdf39"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Manipulate",
+ Cell[BoxData[
+  TemplateBox[{"Manipulate", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{"This section contains the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " input cell and its evaluated output cell. Make all control labels \
+or labels in the output as descriptive as possible, with only proper nouns \
+and proper adjectives capitalized. More description of the controls can be \
+provided in the Details section below, if necessary. If you change this ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " after creating screenshots and/or thumbnails, use ", 
+          StyleBox["Update Thumbnail & Snapshots", FontWeight -> "Bold"], 
+          " in the toolbar to update any copies in later sections. You can \
+control the Flash preview for the Demonstration with the ", 
+          StyleBox["AutorunSequencing", "MRbig"], " option. Use ", 
+          StyleBox["SaveDefinitions->True", "MRbig"], 
+          " if you provided initialization code in the previous section."}], 
+        "MoreInfoText"], Background -> GrayLevel[0.95], FrameMargins -> 20, 
+       FrameStyle -> GrayLevel[0.9], RoundingRadius -> 5]], "MoreInfoText", 
+     Deletable -> True, CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "d12d57a6-93e6-4518-8a9c-9df2eb688354"]
+}], "ManipulateSection",
+ CellTags->
+  "Manipulate",ExpressionUUID->"b7acceb9-ca4b-4965-b319-bd8a6214a587"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "a", ",", " ", "b", " ", ",", "c", ",", "AA", ",", "BB", ",", "CC", ",",
+        "SA", ",", "SB", ",", "SC", ",", "S", ",", "EE", ",", "FF", ",", "EA",
+        ",", "EB", ",", "EC", ",", "FA", ",", "FB", ",", "FC", ",", "x", ",", 
+       "y", ",", "z"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"AA", "=", "ptAA"}], ";", 
+      RowBox[{"BB", "=", "ptBB"}], ";", 
+      RowBox[{"CC", "=", "ptCC"}], ";", 
+      RowBox[{"a", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"BB", ",", "CC"}], "]"}]}], ";", 
+      RowBox[{"b", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"CC", ",", "AA"}], "]"}]}], ";", 
+      RowBox[{"c", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"BB", ",", "AA"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"SA", "=", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["b", "2"], "+", 
+         SuperscriptBox["c", "2"], "-", 
+         SuperscriptBox["a", "2"]}], "2"]}], ";", 
+      RowBox[{"SB", "=", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["c", "2"], "+", 
+         SuperscriptBox["a", "2"], "-", 
+         SuperscriptBox["b", "2"]}], "2"]}], ";", 
+      RowBox[{"SC", "=", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["a", "2"], "+", 
+         SuperscriptBox["b", "2"], "-", 
+         SuperscriptBox["c", "2"]}], "2"]}], ";", 
+      RowBox[{"S", "=", 
+       SqrtBox[
+        RowBox[{
+         RowBox[{"SA", " ", "SB"}], "+", 
+         RowBox[{"SB", " ", "SC"}], "+", 
+         RowBox[{"SC", " ", "SA"}]}]]}], ";", 
+      RowBox[{"EE", "=", "ptEE"}], ";", 
+      RowBox[{"FF", "=", "ptFF"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"EA", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"EE", ",", "AA"}], "]"}]}], ";", 
+      RowBox[{"EB", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"EE", ",", "BB"}], "]"}]}], ";", 
+      RowBox[{"EC", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"EE", ",", "CC"}], "]"}]}], ";", 
+      RowBox[{"FA", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"FF", ",", "AA"}], "]"}]}], ";", 
+      RowBox[{"FB", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"FF", ",", "BB"}], "]"}]}], ";", 
+      RowBox[{"FC", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"FF", ",", "CC"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"x", "=", 
+       RowBox[{"N", "[", 
+        RowBox[{
+         SuperscriptBox["EB", "2"], "+", 
+         SuperscriptBox["FC", "2"], "-", 
+         SuperscriptBox["EC", "2"], "-", 
+         SuperscriptBox["FB", "2"]}], "]"}]}], ";", 
+      RowBox[{"y", "=", 
+       RowBox[{"N", "[", 
+        RowBox[{
+         SuperscriptBox["EC", "2"], "+", 
+         SuperscriptBox["FA", "2"], "-", 
+         SuperscriptBox["EA", "2"], "-", 
+         SuperscriptBox["FC", "2"]}], "]"}]}], ";", 
+      RowBox[{"z", "=", 
+       RowBox[{"N", "[", 
+        RowBox[{
+         SuperscriptBox["EA", "2"], "+", 
+         SuperscriptBox["FB", "2"], "-", 
+         SuperscriptBox["EB", "2"], "-", 
+         SuperscriptBox["FA", "2"]}], "]"}]}], ";", 
+      RowBox[{"Column", "[", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Text", "@", 
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)\>\"", ",", 
+                 RowBox[{
+                  FractionBox["1", 
+                   SuperscriptBox[
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"4", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<S\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                    "]"}], "2"]], 
+                  RowBox[{"Row", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<S\>\"", ",", "Italic"}], "]"}], "\"\<A\>\""],
+                     ",", 
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+                    "\"\< + \>\"", ",", 
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<S\>\"", ",", "Italic"}], "]"}], "\"\<B\>\""],
+                     ",", 
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+                    "\"\< + \>\"", ",", 
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<S\>\"", ",", "Italic"}], "]"}], "\"\<C\>\""],
+                     ",", 
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<z\>\"", ",", "Italic"}], "]"}], "2"]}], 
+                    "}"}], "]"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"EuclideanDistance", "[", 
+                   RowBox[{"EE", ",", "FF"}], "]"}], "2"], ",", 
+                 FractionBox[
+                  RowBox[{
+                   RowBox[{"SA", " ", 
+                    SuperscriptBox["x", "2"]}], "+", 
+                   RowBox[{"SB", " ", 
+                    SuperscriptBox["y", "2"]}], "+", 
+                   RowBox[{"SC", " ", 
+                    SuperscriptBox["z", "2"]}]}], 
+                  RowBox[{"4", " ", 
+                   SuperscriptBox["S", "2"]}]]}], "}"}]}], "}"}], ",", 
+             RowBox[{"Frame", "->", " ", "All"}], ",", 
+             RowBox[{"FrameStyle", "->", 
+              RowBox[{"Hue", "[", 
+               RowBox[{".6", ",", ".4", ",", ".8"}], "]"}]}], ",", 
+             RowBox[{"Background", "->", 
+              RowBox[{"{", 
+               RowBox[{"None", ",", 
+                RowBox[{"{", 
+                 RowBox[{"{", 
+                  RowBox[{"None", ",", 
+                   RowBox[{"GrayLevel", "[", ".9", "]"}]}], "}"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}], "->", 
+                   RowBox[{"Hue", "[", 
+                    RowBox[{".6", ",", ".2", ",", "1"}], "]"}]}], ",", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], "->", 
+                   RowBox[{"Hue", "[", 
+                    RowBox[{".6", ",", ".2", ",", "1"}], "]"}]}]}], "}"}]}], 
+               "}"}]}], ",", 
+             RowBox[{"BaseStyle", "->", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"FontSize", "->", "15"}], ",", 
+                RowBox[{"FontFamily", "\[Rule]", "Times"}]}], "}"}]}], ",", 
+             RowBox[{"ItemSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"5", ",", "All"}], "}"}], ",", "1"}], "}"}]}]}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"FontSize", "->", "14"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Triangle", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"AA", ",", "BB", ",", "CC"}], "}"}], "]"}], ",", 
+                RowBox[{"Opacity", "[", ".2`", "]"}], ",", 
+                RowBox[{"Hue", "[", 
+                 RowBox[{"x", ",", "y", ",", "x"}], "]"}], ",", 
+                RowBox[{"EdgeForm", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"Thick", ",", "Blue"}], "}"}], "]"}]}], "]"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"EE", ",", "FF"}], "}"}], "]"}], ",", "Thick", ",", 
+                "Black"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"SetLine", "[", 
+                 RowBox[{"EE", ",", "AA", ",", "BB", ",", "CC"}], "]"}], ",", 
+                RowBox[{"Opacity", "[", ".5`", "]"}], ",", "Red", ",", 
+                "Thick", ",", "Dashed"}], "]"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"SetLine", "[", 
+                 RowBox[{"FF", ",", "AA", ",", "BB", ",", "CC"}], "]"}], ",", 
+                RowBox[{"Blend", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"Purple", ",", "Green", ",", "Red"}], "}"}], ",", 
+                  RowBox[{
+                   RowBox[{"3", "/", "4"}], "/", "2"}]}], "]"}], ",", "Thick",
+                 ",", "Dashed"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<A\>\"", ",", "AA", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1.5"}], ",", 
+                  RowBox[{"-", "1.5"}]}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<B\>\"", ",", "BB", ",", 
+                RowBox[{"{", 
+                 RowBox[{"1.5", ",", "1.5"}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<C\>\"", ",", "CC", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1.5"}], ",", "1.5"}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<E\>\"", ",", "EE", ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"-", "1.5"}]}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\<F\>\"", ",", "FF", ",", 
+                RowBox[{"{", 
+                 RowBox[{"1.5", ",", "0"}], "}"}]}], "]"}], ",", 
+              RowBox[{"PointSize", "[", "0.012", "]"}], ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"{", 
+                RowBox[{"AA", ",", "BB", ",", "CC", ",", "EE", ",", "FF"}], 
+                "}"}], "]"}]}], "}"}], "\[IndentingNewLine]", ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"1.125", 
+              RowBox[{"{", 
+               RowBox[{"520", ",", "375"}], "}"}]}]}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "8.5"}], ",", "8.5"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "6.5"}], ",", "6.5"}], "}"}]}], "}"}]}]}], 
+           "]"}]}], "}"}], ",", 
+        RowBox[{"Alignment", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"Center", ",", "Top"}], "}"}]}]}], "]"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ptAA", ",", 
+       RowBox[{"2", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "3"}], "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "8"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6"}], "}"}], ",", "Locator", ",", 
+     RowBox[{"Appearance", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ptBB", ",", 
+       RowBox[{"2", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "3"}], ",", 
+          RowBox[{"-", "1"}]}], "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "8"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6"}], "}"}], ",", "Locator", ",", 
+     RowBox[{"Appearance", "->", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ptCC", ",", 
+       RowBox[{"2", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "8"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6"}], "}"}], ",", "Locator", ",", 
+     RowBox[{"Appearance", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ptEE", ",", 
+       RowBox[{"2", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "2.5"}], "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "8"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6"}], "}"}], ",", "Locator", ",", 
+     RowBox[{"Appearance", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ptFF", ",", 
+       RowBox[{"2", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "2.65"}], ",", "1.15"}], "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "8"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6"}], "}"}], ",", "Locator", ",", 
+     RowBox[{"Appearance", "->", "None"}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "->", "True"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"ptAA", ",", "ptBB", ",", "ptCC", ",", "ptEE", ",", "ptFF"}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.860509343632289*^9, 3.860509743377765*^9, {3.860509776729945*^9, 
+   3.860509777632018*^9}, {3.8605102490405817`*^9, 3.8605103277857423`*^9}, {
+   3.860510378428257*^9, 3.8605103804749784`*^9}, {3.8605110108176785`*^9, 
+   3.860511013553235*^9}, {3.860511776148305*^9, 3.8605119186288757`*^9}, {
+   3.8605151794985795`*^9, 3.860515422768242*^9}, {3.860558520598023*^9, 
+   3.8605586419735527`*^9}, {3.8605587146602373`*^9, 3.8605587269112997`*^9}, 
+   3.86055879806214*^9, 3.8605717535677624`*^9, {3.8605731849296556`*^9, 
+   3.860573187125626*^9}, {3.8605735083284464`*^9, 3.860573581878186*^9}, {
+   3.8605740994634256`*^9, 3.86057430772263*^9}, {3.860574346419595*^9, 
+   3.8605743534349327`*^9}, {3.8605744051920958`*^9, 3.860574433634514*^9}, {
+   3.8605744909998837`*^9, 3.8605745207664647`*^9}, {3.8605745817160845`*^9, 
+   3.860574582249368*^9}, {3.8605746135877237`*^9, 3.8605746720319295`*^9}, 
+   3.8605747583153067`*^9, {3.8605750634399357`*^9, 3.860575125485095*^9}, {
+   3.860577791978065*^9, 3.860577985442174*^9}, 3.8605780191772118`*^9, {
+   3.860578063616067*^9, 3.860578065127637*^9}, {3.860578097851985*^9, 
+   3.860578100088541*^9}, {3.860763710195203*^9, 3.860763715015037*^9}, {
+   3.86076379862064*^9, 3.860763799350876*^9}, 3.860763831290127*^9, {
+   3.860763928548933*^9, 3.860763970405547*^9}, {3.860764043088612*^9, 
+   3.860764107372736*^9}, {3.860764149470399*^9, 3.8607641739716883`*^9}, {
+   3.8607642287336197`*^9, 3.860764322993623*^9}, {3.86076436109698*^9, 
+   3.860764429993388*^9}, {3.860764475703703*^9, 3.860764519218397*^9}, {
+   3.86076458016346*^9, 3.86076458948779*^9}, {3.860764658336515*^9, 
+   3.8607646979846373`*^9}, {3.86076474245798*^9, 3.860764780213087*^9}, {
+   3.8607648779759903`*^9, 3.8607648941656103`*^9}, {3.8607649253980494`*^9, 
+   3.860764968987516*^9}, 3.860765534398774*^9, 3.8607655971339006`*^9, {
+   3.860765663717862*^9, 3.860765709003162*^9}, {3.860765817351397*^9, 
+   3.8607658175800323`*^9}, {3.860766005850477*^9, 3.86076601145691*^9}, {
+   3.860766079129155*^9, 3.86076608124284*^9}, {3.86076612395198*^9, 
+   3.8607661580157757`*^9}, {3.8607661921618853`*^9, 3.860766194106423*^9}, {
+   3.860766274651952*^9, 3.860766499640983*^9}, {3.861454829937088*^9, 
+   3.861455166810278*^9}, {3.861455223938119*^9, 3.861455225335866*^9}, {
+   3.862287120481139*^9, 3.862287155304634*^9}, {3.862287193936603*^9, 
+   3.8622872071504908`*^9}, {3.862287257198606*^9, 3.8622872581890173`*^9}, {
+   3.8622872995571613`*^9, 3.862287433989134*^9}, {3.862287470522894*^9, 
+   3.86228768235207*^9}, {3.86228773047311*^9, 3.862287856577303*^9}, {
+   3.862288173668141*^9, 3.862288318244648*^9}, 3.862288828560357*^9, {
+   3.8622888762134123`*^9, 3.862288942046607*^9}, {3.862289259962236*^9, 
+   3.86228926843489*^9}, {3.8622893834416933`*^9, 3.8622894115095*^9}, {
+   3.8622894435447397`*^9, 3.8622895690192347`*^9}, 3.862289706692148*^9, {
+   3.862289758408167*^9, 3.8622898179023647`*^9}, {3.86228985507056*^9, 
+   3.8622898886986437`*^9}, {3.862292478353119*^9, 3.8622924976936207`*^9}, {
+   3.862292560848164*^9, 3.862292604505784*^9}, {3.862292648845481*^9, 
+   3.862292751277688*^9}, {3.862292811754223*^9, 3.862292858123742*^9}, {
+   3.862292919046118*^9, 3.862292925517046*^9}, {3.862292979745945*^9, 
+   3.862292989029557*^9}, {3.862293021175102*^9, 3.862293046494462*^9}, {
+   3.8622931660965776`*^9, 3.862293231053706*^9}, {3.8622932679126453`*^9, 
+   3.862293291280355*^9}, {3.8622933218012867`*^9, 3.862293440849963*^9}, {
+   3.862293508155181*^9, 3.8622935234952*^9}, {3.8622935598808193`*^9, 
+   3.8622935924857264`*^9}, {3.862293631951507*^9, 3.862293764954904*^9}, {
+   3.862293828052033*^9, 3.862293832429154*^9}, {3.8622939263054447`*^9, 
+   3.8622939413194323`*^9}, 3.862294013890739*^9, 3.862413027260277*^9, {
+   3.862413087406201*^9, 3.862413090656763*^9}, {3.862413125197977*^9, 
+   3.862413132285507*^9}, {3.86241319989294*^9, 3.862413206237805*^9}, {
+   3.862489771189502*^9, 3.862489771941223*^9}, {3.8624898139769487`*^9, 
+   3.8624898298004427`*^9}, {3.8624898922188272`*^9, 3.862489909218752*^9}, {
+   3.862489969317713*^9, 3.862490121682963*^9}, {3.862490159598971*^9, 
+   3.862490243501717*^9}, {3.862567467341178*^9, 3.862567537916574*^9}, {
+   3.862567587587002*^9, 3.862567608993416*^9}, {3.86256785412146*^9, 
+   3.862567899813251*^9}, {3.862569388765921*^9, 3.862569470107293*^9}, {
+   3.862569508406776*^9, 3.862569584507564*^9}, {3.862569634231287*^9, 
+   3.8625697105891237`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"1c8a51fe-61b3-446f-b3f3-b27c622b6763"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ptAA$$ = {2, 
+    6}, $CellContext`ptBB$$ = {-6, -2}, $CellContext`ptCC$$ = {
+    4, -2}, $CellContext`ptEE$$ = {-2, 5.}, $CellContext`ptFF$$ = {-5.3, 2.3},
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ptAA$$], {2, 6}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptBB$$], {-6, -2}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptCC$$], {4, -2}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptEE$$], {-2, 5.}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptFF$$], {-5.3, 2.3}}, {-8, -6}, {8, 6}}}, 
+    Typeset`size$$ = {585., {240.8544921875, 246.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ptAA$$ = {2, 
+         6}, $CellContext`ptBB$$ = {-6, -2}, $CellContext`ptCC$$ = {
+         4, -2}, $CellContext`ptEE$$ = {-2, 5.}, $CellContext`ptFF$$ = {-5.3, 
+         2.3}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, $CellContext`SA$, \
+$CellContext`SB$, $CellContext`SC$, $CellContext`S$, $CellContext`EE$, \
+$CellContext`FF$, $CellContext`EA$, $CellContext`EB$, $CellContext`EC$, \
+$CellContext`FA$, $CellContext`FB$, $CellContext`FC$, $CellContext`x$, \
+$CellContext`y$, $CellContext`z$}, $CellContext`AA$ = $CellContext`ptAA$$; \
+$CellContext`BB$ = $CellContext`ptBB$$; $CellContext`CC$ = \
+$CellContext`ptCC$$; $CellContext`a$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`CC$]; \
+$CellContext`b$ = 
+         EuclideanDistance[$CellContext`CC$, $CellContext`AA$]; \
+$CellContext`c$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`AA$]; \
+$CellContext`SA$ = ($CellContext`b$^2 + $CellContext`c$^2 - \
+$CellContext`a$^2)/
+          2; $CellContext`SB$ = ($CellContext`c$^2 + $CellContext`a$^2 - \
+$CellContext`b$^2)/
+          2; $CellContext`SC$ = ($CellContext`a$^2 + $CellContext`b$^2 - \
+$CellContext`c$^2)/2; $CellContext`S$ = 
+         Sqrt[$CellContext`SA$ $CellContext`SB$ + $CellContext`SB$ \
+$CellContext`SC$ + $CellContext`SC$ $CellContext`SA$]; $CellContext`EE$ = \
+$CellContext`ptEE$$; $CellContext`FF$ = $CellContext`ptFF$$; $CellContext`EA$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`AA$]; \
+$CellContext`EB$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`BB$]; \
+$CellContext`EC$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`CC$]; \
+$CellContext`FA$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`AA$]; \
+$CellContext`FB$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`BB$]; \
+$CellContext`FC$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`CC$]; \
+$CellContext`x$ = 
+         N[$CellContext`EB$^2 + $CellContext`FC$^2 - $CellContext`EC$^2 - \
+$CellContext`FB$^2]; $CellContext`y$ = 
+         N[$CellContext`EC$^2 + $CellContext`FA$^2 - $CellContext`EA$^2 - \
+$CellContext`FC$^2]; $CellContext`z$ = 
+         N[$CellContext`EA$^2 + $CellContext`FB$^2 - $CellContext`EB$^2 - \
+$CellContext`FA$^2]; Column[{
+           Text[
+            
+            Grid[{{"\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)", (1/Row[{4, 
+                   Style["S", Italic]}]^2) Row[{
+                  Subscript[
+                   Style["S", Italic], "A"], Style["x", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "B"], Style["y", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "C"], Style["z", Italic]^2}]}, {
+              EuclideanDistance[$CellContext`EE$, $CellContext`FF$]^2, \
+($CellContext`SA$ $CellContext`x$^2 + $CellContext`SB$ $CellContext`y$^2 + \
+$CellContext`SC$ $CellContext`z$^2)/(4 $CellContext`S$^2)}}, Frame -> All, 
+             FrameStyle -> Hue[0.6, 0.4, 0.8], Background -> {None, {{None, 
+                 GrayLevel[0.9]}}, {{1, 1} -> Hue[0.6, 0.2, 1], {1, 2} -> 
+                Hue[0.6, 0.2, 1]}}, 
+             BaseStyle -> {FontSize -> 15, FontFamily -> Times}, 
+             ItemSize -> {{5, All}, 1}]], 
+           Graphics[{FontSize -> 14, 
+             Style[
+              
+              Triangle[{$CellContext`AA$, $CellContext`BB$, \
+$CellContext`CC$}], 
+              Opacity[0.2], 
+              Hue[$CellContext`x$, $CellContext`y$, $CellContext`x$], 
+              EdgeForm[{Thick, Blue}]], 
+             Style[
+              Line[{$CellContext`EE$, $CellContext`FF$}], Thick, Black], 
+             Style[
+              $CellContext`SetLine[$CellContext`EE$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Opacity[0.5], Red, Thick, Dashed], 
+             Style[
+              $CellContext`SetLine[$CellContext`FF$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Blend[{Purple, Green, Red}, (3/4)/2], Thick, Dashed], 
+             Text["A", $CellContext`AA$, {-1.5, -1.5}], 
+             Text["B", $CellContext`BB$, {1.5, 1.5}], 
+             Text["C", $CellContext`CC$, {-1.5, 1.5}], 
+             Text["E", $CellContext`EE$, {0, -1.5}], 
+             Text["F", $CellContext`FF$, {1.5, 0}], 
+             PointSize[0.012], 
+             
+             Point[{$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, \
+$CellContext`EE$, $CellContext`FF$}]}, ImageSize -> 1.125 {520, 375}, 
+            PlotRange -> {{-8.5, 8.5}, {-6.5, 6.5}}]}, 
+          Alignment -> {Center, Top}]], 
+      "Specifications" :> {{{$CellContext`ptAA$$, {2, 6}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptBB$$, {-6, -2}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptCC$$, {4, -2}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptEE$$, {-2, 5.}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptFF$$, {-5.3, 2.3}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> None}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`ptAA$$, $CellContext`ptBB$$, \
+$CellContext`ptCC$$, $CellContext`ptEE$$, $CellContext`ptFF$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{633., {272., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({
+      Attributes[Subscript] = {NHoldRest}, Subscript[2, 1] = 21, 
+       Subscript[2, 2] = -4, Subscript[2, 3] = 6, Subscript[2, 4] = 141, 
+       Subscript[2, 5] = -99, Subscript[2, 6] = 96, Subscript[2, 7] = -54, 
+       Subscript[2, 8] = -24, Subscript[2, 9] = 66, 
+       Subscript[3.141592653589793, 1] = 102.53587379717017`, 
+       Subscript[3.141592653589793, 2] = -1.718281828459045, 
+       Subscript[3.141592653589793, 3] = 3.718281828459045, 
+       Subscript[3.141592653589793, 4] = 394.24411617277855`, 
+       Subscript[3.141592653589793, 5] = -189.17236857843824`, 
+       Subscript[3.141592653589793, 6] = 130.63879026232047`, 
+       Subscript[3.141592653589793, 7] = 74.43295733201988, 
+       Subscript[3.141592653589793, 8] = -161.06945211328792`, 
+       Subscript[3.141592653589793, 9] = 
+       366.14119970762823`, $CellContext`SetLine[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]], 
+         Pattern[$CellContext`p3, 
+          Blank[]], 
+         Pattern[$CellContext`p4, 
+          Blank[]]] := {
+         Line[{$CellContext`p1, $CellContext`p2}], 
+         Line[{$CellContext`p1, $CellContext`p3}], 
+         Line[{$CellContext`p1, $CellContext`p4}]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->595877848,ExpressionUUID->"a50431a9-50b3-41bf-af53-832c91b5aede"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Caption",
+ Cell[BoxData[
+  TemplateBox[{"Caption", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "The caption provides all the information needed to understand the \
+Demonstration. It should be between three and five sentences long, but \
+clarity is more important than length. Include only text in this section \
+\[LongDash] no code, graphics, etc. Do not change the cell style or copy \
+cells from other sections. Do not copy text from books or the web. Write your \
+ideas in your own words. If you want to refer to something on the web, link \
+to it in the Details.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "a97b5d36-1c59-4018-b3f0-6bfc71662d3d"]
+}], "ManipulateCaptionSection",
+ CellTags->"Caption",ExpressionUUID->"3ed78bfd-4459-4d2a-906f-3e9e6aba33a4"],
+
+Cell[TextData[{
+ "Given a triangle ",
+ Cell[BoxData[
+  FormBox["ABC", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "85d1c35e-6f56-45f4-8148-2c7c39b953a1"],
+ " and two arbitrary points ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["E",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "9a787d8f-a5a9-474b-8322-3b41c6b76fb5"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["F",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "57926203-54e6-4584-a6cf-b46f8fd43103"],
+ ", let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"S", "=", 
+    RowBox[{"2", 
+     RowBox[{"\[LeftBracketingBar]", "ABC", "\[RightBracketingBar]"}]}]}], 
+   TraditionalForm]], "InlineMath",ExpressionUUID->
+  "28b6a973-684b-4e39-93e4-f6c158d8bae0"],
+ " and ",
+ Cell[BoxData[Cell[TextData[Cell[BoxData[
+   FormBox[
+    SubscriptBox["S", 
+     StyleBox["A",
+      FontSlant->"Plain"]], TraditionalForm]], "InlineMath",ExpressionUUID->
+   "c0f6396d-3c38-4aeb-bca6-0977f5e0363e"]],ExpressionUUID->
+   "2246336f-8158-4567-9051-fd6dfafbaaa6"]],
+  CellChangeTimes->{
+   3.8605094332416663`*^9, 3.860510637786821*^9, {3.860510872507431*^9, 
+    3.8605109138849716`*^9}, 3.8605109451929474`*^9, {3.860574719596184*^9, 
+    3.860574724758402*^9}, {3.860579461811905*^9, 3.860579470437003*^9}, {
+    3.860579608157233*^9, 3.860579649040558*^9}, 3.860765225991692*^9, {
+    3.860765281351551*^9, 3.86076539156709*^9}, {3.860766716032629*^9, 
+    3.860766744715033*^9}, {3.860766838451831*^9, 3.860766895738039*^9}},
+  ExpressionUUID->"4ba263ec-bfb6-4cbc-8189-8574674bb991"],
+ ", ",
+ Cell[BoxData[Cell[TextData[Cell[BoxData[
+   FormBox[
+    SubscriptBox["S", 
+     StyleBox["B",
+      FontSlant->"Plain"]], TraditionalForm]], "InlineMath",ExpressionUUID->
+   "4d955742-fda7-4729-b858-58f1b678aed4"]],ExpressionUUID->
+   "f36eb099-e5bb-40bd-aa2b-99b4b817255f"]],
+  CellChangeTimes->{
+   3.8605094332416663`*^9, 3.860510637786821*^9, {3.860510872507431*^9, 
+    3.8605109138849716`*^9}, 3.8605109451929474`*^9, {3.860574719596184*^9, 
+    3.860574724758402*^9}, {3.860579461811905*^9, 3.860579470437003*^9}, {
+    3.860579608157233*^9, 3.860579649040558*^9}, 3.860765225991692*^9, {
+    3.860765281351551*^9, 3.86076539156709*^9}, {3.860766716032629*^9, 
+    3.860766744715033*^9}, {3.860766838451831*^9, 3.860766895738039*^9}},
+  ExpressionUUID->"4645b9b9-6ec8-4166-996a-f8c30a3e6299"],
+ ", ",
+ Cell[BoxData[Cell[TextData[Cell[BoxData[
+   FormBox[
+    SubscriptBox["S", 
+     StyleBox["C",
+      FontSlant->"Plain"]], TraditionalForm]], "InlineMath",ExpressionUUID->
+   "42f0f745-a82d-4e4b-ad9b-dff8f75a6a21"]],ExpressionUUID->
+   "0d9708dc-6c2e-415a-b4e6-da7b6b635133"]],
+  CellChangeTimes->{
+   3.8605094332416663`*^9, 3.860510637786821*^9, {3.860510872507431*^9, 
+    3.8605109138849716`*^9}, 3.8605109451929474`*^9, {3.860574719596184*^9, 
+    3.860574724758402*^9}, {3.860579461811905*^9, 3.860579470437003*^9}, {
+    3.860579608157233*^9, 3.860579649040558*^9}, 3.860765225991692*^9, {
+    3.860765281351551*^9, 3.86076539156709*^9}, {3.860766716032629*^9, 
+    3.860766744715033*^9}, {3.860766838451831*^9, 3.860766895738039*^9}},
+  ExpressionUUID->"117732eb-3444-4a8f-b6d9-0bfba9ecf244"],
+ " be the Conway parameters for the triangle ",
+ Cell[BoxData[
+  FormBox["ABC", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "ef278327-1f54-48ab-b55b-92b4d0b71dd0"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.8605105051820965`*^9, 3.860510518656048*^9}, {
+   3.860510560437084*^9, 3.8605105821286645`*^9}, {3.860765080665159*^9, 
+   3.8607650905212183`*^9}, {3.862294190451234*^9, 3.8622942491411858`*^9}, {
+   3.862294567417883*^9, 3.862294616645732*^9}, {3.862294658269217*^9, 
+   3.862294659325378*^9}, {3.8622947129548264`*^9, 3.862294720124404*^9}, {
+   3.862294750696636*^9, 3.862294764746331*^9}, {3.862294931785306*^9, 
+   3.8622949318011723`*^9}, {3.862413254405736*^9, 3.8624132772259274`*^9}, 
+   3.862413320579026*^9, {3.862572087042738*^9, 3.862572089257695*^9}},
+ CellID->392731175,ExpressionUUID->"3f29f692-abd0-4656-9692-992f357c1cea"],
+
+Cell["Define", "ManipulateCaption",
+ CellChangeTimes->{{3.8605106050510516`*^9, 3.860510627888691*^9}, {
+   3.860510695808831*^9, 3.8605107112822933`*^9}, {3.860765096264997*^9, 
+   3.860765102433044*^9}, 3.861448591052416*^9, {3.862294292417193*^9, 
+   3.862294292977215*^9}, 3.862413347420092*^9},
+ CellID->45256918,ExpressionUUID->"319d7703-cead-4362-907e-af72ed2db687"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EB", "\[RightBracketingBar]"}], "2"], 
+     "+", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FC", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EC", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FB", "\[RightBracketingBar]"}], 
+      "2"]}]}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "0aebffab-7f59-4e3e-9c40-108fc5100655"],
+ ","
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.8605108153039775`*^9, 3.8605108174405155`*^9}, {
+  3.860510850160759*^9, 3.8605108525111847`*^9}, {3.860765111445291*^9, 
+  3.860765159911097*^9}, {3.861455330920609*^9, 3.861455348544639*^9}, {
+  3.861455429768195*^9, 3.8614554446731358`*^9}},
+ CellID->1676568,ExpressionUUID->"287e6416-8996-404a-b000-e74ca267a635"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EC", "\[RightBracketingBar]"}], "2"], 
+     "+", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FA", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EA", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FC", "\[RightBracketingBar]"}], 
+      "2"]}]}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "c4258ad2-bc24-4b60-a55d-421ba6abe3fd"],
+ ","
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.8605108153039775`*^9, 3.8605108174405155`*^9}, {
+  3.860510850160759*^9, 3.8605108525111847`*^9}, {3.860765111445291*^9, 
+  3.860765164017514*^9}, {3.861455353672923*^9, 3.861455363121599*^9}, {
+  3.861455448665269*^9, 3.861455455833578*^9}},
+ CellID->801486672,ExpressionUUID->"feb45f12-7686-4b43-94bb-36b31649cf98"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"z", "=", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EA", "\[RightBracketingBar]"}], "2"], 
+     "+", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FB", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "EB", "\[RightBracketingBar]"}], "2"], 
+     "-", 
+     SuperscriptBox[
+      RowBox[{"\[LeftBracketingBar]", "FA", "\[RightBracketingBar]"}], 
+      "2"]}]}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "d12860c3-2ca4-46d8-8928-142b797f7d76"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.8605108153039775`*^9, 3.8605108174405155`*^9}, {
+  3.860510850160759*^9, 3.8605108525111847`*^9}, {3.860765111445291*^9, 
+  3.860765165907421*^9}, {3.861455366248027*^9, 3.861455375785894*^9}, {
+  3.86145545964989*^9, 3.8614554689864683`*^9}},
+ CellID->1967642629,ExpressionUUID->"c8a784de-2754-4ee3-9402-6314264f292c"],
+
+Cell["Then ", "ManipulateCaption",
+ CellChangeTimes->{{3.8605108964400473`*^9, 3.860510900313575*^9}, {
+  3.860767323965501*^9, 3.860767324291589*^9}, {3.861448613977786*^9, 
+  3.861448615255557*^9}, {3.861455558924611*^9, 3.861455559682179*^9}, {
+  3.86248971440597*^9, 3.862489715381062*^9}},
+ CellID->706513569,ExpressionUUID->"207a114b-c65c-41bd-badc-8ce841941785"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"\[LeftBracketingBar]", "EF", "\[RightBracketingBar]"}], "2"], 
+    "=", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       SubscriptBox["S", 
+        StyleBox["A",
+         FontSlant->"Plain"]], " ", 
+       SuperscriptBox["x", "2"]}], " ", "+", " ", 
+      RowBox[{
+       SubscriptBox["S", 
+        StyleBox["B",
+         FontSlant->"Plain"]], " ", 
+       SuperscriptBox["y", "2"]}], " ", "+", " ", 
+      RowBox[{
+       SubscriptBox["S", 
+        StyleBox["C",
+         FontSlant->"Plain"]], " ", 
+       SuperscriptBox["z", "2"]}]}], 
+     RowBox[{"4", " ", 
+      SuperscriptBox["S", "2"]}]]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"a4de9f4b-7969-4d45-b8a6-4188dd349243"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.8605109039289775`*^9, 3.860510938633476*^9}, {
+   3.860765214813921*^9, 3.8607652173110657`*^9}, 3.860767312310265*^9, {
+   3.861448794718701*^9, 3.861448796062307*^9}, {3.862294082004084*^9, 
+   3.8622941766123734`*^9}, {3.8624133888798532`*^9, 3.8624134036310797`*^9}},
+ CellID->451064498,ExpressionUUID->"64942f26-4673-49cc-8eeb-e28e24717051"],
+
+Cell["You can drag the points.", "ManipulateCaption",
+ CellChangeTimes->{{3.860765403278603*^9, 3.860765421695541*^9}, {
+  3.8607667073196583`*^9, 3.8607667091537037`*^9}, {3.861448667040036*^9, 
+  3.861448667040133*^9}, {3.861449011032392*^9, 3.861449072770444*^9}, {
+  3.861455637367313*^9, 3.861455660656434*^9}},
+ CellID->209519266,ExpressionUUID->"9cea2ac6-9642-4e8f-8ad4-29dcdfbd0e9b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Thumbnail",
+ Cell[BoxData[
+  TemplateBox[{"Thumbnail", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "To create the thumbnail, copy and paste the output cell from the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " section and adjust the controls to the most visually appealing \
+setting. Do not convert it to a bitmap. The thumbnail is what visitors see \
+when browsing the Demonstrations site and while the Flash preview loads.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "5363174b-397a-4e31-b8e5-95e1af887bc9"]
+}], "ThumbnailSection",
+ CellTags->"Thumbnail",ExpressionUUID->"401cc3c4-8319-4e19-82e7-df5fcb711a42"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ptAA$$ = {
+    5.390000000000001, -0.9900000000000002}, $CellContext`ptBB$$ = {
+    0.870000000000001, 
+    5.66}, $CellContext`ptCC$$ = {-5.95, -5.54}, $CellContext`ptEE$$ = {
+    2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+    3.8900000000000006`}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ptAA$$], {
+       5.390000000000001, -0.9900000000000002}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptBB$$], {0.870000000000001, 5.66}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptCC$$], {-5.95, -5.54}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptEE$$], {2.785, -0.73}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptFF$$], {-1.2199999999999998`, 
+       3.8900000000000006`}}, {-8, -6}, {8, 6}}}, Typeset`size$$ = {
+    585., {240.8544921875, 246.1455078125}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ptAA$$ = {
+         5.390000000000001, -0.9900000000000002}, $CellContext`ptBB$$ = {
+         0.870000000000001, 
+         5.66}, $CellContext`ptCC$$ = {-5.95, -5.54}, $CellContext`ptEE$$ = {
+         2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+         3.8900000000000006`}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, $CellContext`SA$, \
+$CellContext`SB$, $CellContext`SC$, $CellContext`S$, $CellContext`EE$, \
+$CellContext`FF$, $CellContext`EA$, $CellContext`EB$, $CellContext`EC$, \
+$CellContext`FA$, $CellContext`FB$, $CellContext`FC$, $CellContext`x$, \
+$CellContext`y$, $CellContext`z$}, $CellContext`AA$ = $CellContext`ptAA$$; \
+$CellContext`BB$ = $CellContext`ptBB$$; $CellContext`CC$ = \
+$CellContext`ptCC$$; $CellContext`a$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`CC$]; \
+$CellContext`b$ = 
+         EuclideanDistance[$CellContext`CC$, $CellContext`AA$]; \
+$CellContext`c$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`AA$]; \
+$CellContext`SA$ = ($CellContext`b$^2 + $CellContext`c$^2 - \
+$CellContext`a$^2)/
+          2; $CellContext`SB$ = ($CellContext`c$^2 + $CellContext`a$^2 - \
+$CellContext`b$^2)/
+          2; $CellContext`SC$ = ($CellContext`a$^2 + $CellContext`b$^2 - \
+$CellContext`c$^2)/2; $CellContext`S$ = 
+         Sqrt[$CellContext`SA$ $CellContext`SB$ + $CellContext`SB$ \
+$CellContext`SC$ + $CellContext`SC$ $CellContext`SA$]; $CellContext`EE$ = \
+$CellContext`ptEE$$; $CellContext`FF$ = $CellContext`ptFF$$; $CellContext`EA$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`AA$]; \
+$CellContext`EB$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`BB$]; \
+$CellContext`EC$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`CC$]; \
+$CellContext`FA$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`AA$]; \
+$CellContext`FB$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`BB$]; \
+$CellContext`FC$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`CC$]; \
+$CellContext`x$ = 
+         N[$CellContext`EB$^2 + $CellContext`FC$^2 - $CellContext`EC$^2 - \
+$CellContext`FB$^2]; $CellContext`y$ = 
+         N[$CellContext`EC$^2 + $CellContext`FA$^2 - $CellContext`EA$^2 - \
+$CellContext`FC$^2]; $CellContext`z$ = 
+         N[$CellContext`EA$^2 + $CellContext`FB$^2 - $CellContext`EB$^2 - \
+$CellContext`FA$^2]; Column[{
+           Text[
+            
+            Grid[{{"\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)", (1/Row[{4, 
+                   Style["S", Italic]}]^2) Row[{
+                  Subscript[
+                   Style["S", Italic], "A"], Style["x", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "B"], Style["y", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "C"], Style["z", Italic]^2}]}, {
+              EuclideanDistance[$CellContext`EE$, $CellContext`FF$]^2, \
+($CellContext`SA$ $CellContext`x$^2 + $CellContext`SB$ $CellContext`y$^2 + \
+$CellContext`SC$ $CellContext`z$^2)/(4 $CellContext`S$^2)}}, Frame -> All, 
+             FrameStyle -> Hue[0.6, 0.4, 0.8], Background -> {None, {{None, 
+                 GrayLevel[0.9]}}, {{1, 1} -> Hue[0.6, 0.2, 1], {1, 2} -> 
+                Hue[0.6, 0.2, 1]}}, 
+             BaseStyle -> {FontSize -> 15, FontFamily -> Times}, 
+             ItemSize -> {{5, All}, 1}]], 
+           Graphics[{FontSize -> 14, 
+             Style[
+              
+              Triangle[{$CellContext`AA$, $CellContext`BB$, \
+$CellContext`CC$}], 
+              Opacity[0.2], 
+              Hue[$CellContext`x$, $CellContext`y$, $CellContext`x$], 
+              EdgeForm[{Thick, Blue}]], 
+             Style[
+              Line[{$CellContext`EE$, $CellContext`FF$}], Thick, Black], 
+             Style[
+              $CellContext`SetLine[$CellContext`EE$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Opacity[0.5], Red, Thick, Dashed], 
+             Style[
+              $CellContext`SetLine[$CellContext`FF$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Blend[{Purple, Green, Red}, (3/4)/2], Thick, Dashed], 
+             Text["A", $CellContext`AA$, {-1.5, -1.5}], 
+             Text["B", $CellContext`BB$, {1.5, 1.5}], 
+             Text["C", $CellContext`CC$, {-1.5, 1.5}], 
+             Text["E", $CellContext`EE$, {0, -1.5}], 
+             Text["F", $CellContext`FF$, {1.5, 0}], 
+             PointSize[0.012], 
+             
+             Point[{$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, \
+$CellContext`EE$, $CellContext`FF$}]}, ImageSize -> 1.125 {520, 375}, 
+            PlotRange -> {{-8.5, 8.5}, {-6.5, 6.5}}]}, 
+          Alignment -> {Center, Top}]], 
+      "Specifications" :> {{{$CellContext`ptAA$$, {
+          5.390000000000001, -0.9900000000000002}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptBB$$, {0.870000000000001, 5.66}}, {-8, -6}, {
+         8, 6}, ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptCC$$, {-5.95, -5.54}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptEE$$, {2.785, -0.73}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptFF$$, {-1.2199999999999998`, 
+          3.8900000000000006`}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> None}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`ptAA$$, $CellContext`ptBB$$, \
+$CellContext`ptCC$$, $CellContext`ptEE$$, $CellContext`ptFF$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{633., {272., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({
+      Attributes[Subscript] = {NHoldRest}, Subscript[2, 1] = 21, 
+       Subscript[2, 2] = -4, Subscript[2, 3] = 6, Subscript[2, 4] = 141, 
+       Subscript[2, 5] = -99, Subscript[2, 6] = 96, Subscript[2, 7] = -54, 
+       Subscript[2, 8] = -24, Subscript[2, 9] = 66, 
+       Subscript[3.141592653589793, 1] = 102.53587379717017`, 
+       Subscript[3.141592653589793, 2] = -1.718281828459045, 
+       Subscript[3.141592653589793, 3] = 3.718281828459045, 
+       Subscript[3.141592653589793, 4] = 394.24411617277855`, 
+       Subscript[3.141592653589793, 5] = -189.17236857843824`, 
+       Subscript[3.141592653589793, 6] = 130.63879026232047`, 
+       Subscript[3.141592653589793, 7] = 74.43295733201988, 
+       Subscript[3.141592653589793, 8] = -161.06945211328792`, 
+       Subscript[3.141592653589793, 9] = 
+       366.14119970762823`, $CellContext`SetLine[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]], 
+         Pattern[$CellContext`p3, 
+          Blank[]], 
+         Pattern[$CellContext`p4, 
+          Blank[]]] := {
+         Line[{$CellContext`p1, $CellContext`p2}], 
+         Line[{$CellContext`p1, $CellContext`p3}], 
+         Line[{$CellContext`p1, $CellContext`p4}]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1202745375,ExpressionUUID->"228e287b-4e31-436b-90d8-fe6658ead2a0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Snapshots",
+ Cell[BoxData[
+  TemplateBox[{"Snapshots", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{"To create snapshots, paste the output cell from the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " section in this section at least three times, and adjust the \
+controls of each copy to show a range of interesting settings. Do not convert \
+the screenshots to bitmaps. Optional captions for the screenshots may be \
+included in the Details section.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "d854de0f-efbb-449a-8b04-a7b3ca5773d5"]
+}], "SnapshotsSection",
+ CellTags->"Snapshots",ExpressionUUID->"96bb7a68-4496-4362-86d3-c2a0812907f2"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ptAA$$ = {2.76, 
+    5.120000000000001}, $CellContext`ptBB$$ = {
+    7.42, -3.33}, $CellContext`ptCC$$ = {-6.92, -3.17}, $CellContext`ptEE$$ = \
+{2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+    3.8900000000000006`}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ptAA$$], {2.76, 5.120000000000001}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptBB$$], {7.42, -3.33}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptCC$$], {-6.92, -3.17}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptEE$$], {2.785, -0.73}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptFF$$], {-1.2199999999999998`, 
+       3.8900000000000006`}}, {-8, -6}, {8, 6}}}, Typeset`size$$ = {
+    585., {240.8544921875, 246.1455078125}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ptAA$$ = {2.76, 
+         5.120000000000001}, $CellContext`ptBB$$ = {
+         7.42, -3.33}, $CellContext`ptCC$$ = {-6.92, -3.17}, \
+$CellContext`ptEE$$ = {
+         2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+         3.8900000000000006`}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, $CellContext`SA$, \
+$CellContext`SB$, $CellContext`SC$, $CellContext`S$, $CellContext`EE$, \
+$CellContext`FF$, $CellContext`EA$, $CellContext`EB$, $CellContext`EC$, \
+$CellContext`FA$, $CellContext`FB$, $CellContext`FC$, $CellContext`x$, \
+$CellContext`y$, $CellContext`z$}, $CellContext`AA$ = $CellContext`ptAA$$; \
+$CellContext`BB$ = $CellContext`ptBB$$; $CellContext`CC$ = \
+$CellContext`ptCC$$; $CellContext`a$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`CC$]; \
+$CellContext`b$ = 
+         EuclideanDistance[$CellContext`CC$, $CellContext`AA$]; \
+$CellContext`c$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`AA$]; \
+$CellContext`SA$ = ($CellContext`b$^2 + $CellContext`c$^2 - \
+$CellContext`a$^2)/
+          2; $CellContext`SB$ = ($CellContext`c$^2 + $CellContext`a$^2 - \
+$CellContext`b$^2)/
+          2; $CellContext`SC$ = ($CellContext`a$^2 + $CellContext`b$^2 - \
+$CellContext`c$^2)/2; $CellContext`S$ = 
+         Sqrt[$CellContext`SA$ $CellContext`SB$ + $CellContext`SB$ \
+$CellContext`SC$ + $CellContext`SC$ $CellContext`SA$]; $CellContext`EE$ = \
+$CellContext`ptEE$$; $CellContext`FF$ = $CellContext`ptFF$$; $CellContext`EA$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`AA$]; \
+$CellContext`EB$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`BB$]; \
+$CellContext`EC$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`CC$]; \
+$CellContext`FA$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`AA$]; \
+$CellContext`FB$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`BB$]; \
+$CellContext`FC$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`CC$]; \
+$CellContext`x$ = 
+         N[$CellContext`EB$^2 + $CellContext`FC$^2 - $CellContext`EC$^2 - \
+$CellContext`FB$^2]; $CellContext`y$ = 
+         N[$CellContext`EC$^2 + $CellContext`FA$^2 - $CellContext`EA$^2 - \
+$CellContext`FC$^2]; $CellContext`z$ = 
+         N[$CellContext`EA$^2 + $CellContext`FB$^2 - $CellContext`EB$^2 - \
+$CellContext`FA$^2]; Column[{
+           Text[
+            
+            Grid[{{"\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)", (1/Row[{4, 
+                   Style["S", Italic]}]^2) Row[{
+                  Subscript[
+                   Style["S", Italic], "A"], Style["x", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "B"], Style["y", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "C"], Style["z", Italic]^2}]}, {
+              EuclideanDistance[$CellContext`EE$, $CellContext`FF$]^2, \
+($CellContext`SA$ $CellContext`x$^2 + $CellContext`SB$ $CellContext`y$^2 + \
+$CellContext`SC$ $CellContext`z$^2)/(4 $CellContext`S$^2)}}, Frame -> All, 
+             FrameStyle -> Hue[0.6, 0.4, 0.8], Background -> {None, {{None, 
+                 GrayLevel[0.9]}}, {{1, 1} -> Hue[0.6, 0.2, 1], {1, 2} -> 
+                Hue[0.6, 0.2, 1]}}, 
+             BaseStyle -> {FontSize -> 15, FontFamily -> Times}, 
+             ItemSize -> {{5, All}, 1}]], 
+           Graphics[{FontSize -> 14, 
+             Style[
+              
+              Triangle[{$CellContext`AA$, $CellContext`BB$, \
+$CellContext`CC$}], 
+              Opacity[0.2], 
+              Hue[$CellContext`x$, $CellContext`y$, $CellContext`x$], 
+              EdgeForm[{Thick, Blue}]], 
+             Style[
+              Line[{$CellContext`EE$, $CellContext`FF$}], Thick, Black], 
+             Style[
+              $CellContext`SetLine[$CellContext`EE$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Opacity[0.5], Red, Thick, Dashed], 
+             Style[
+              $CellContext`SetLine[$CellContext`FF$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Blend[{Purple, Green, Red}, (3/4)/2], Thick, Dashed], 
+             Text["A", $CellContext`AA$, {-1.5, -1.5}], 
+             Text["B", $CellContext`BB$, {1.5, 1.5}], 
+             Text["C", $CellContext`CC$, {-1.5, 1.5}], 
+             Text["E", $CellContext`EE$, {0, -1.5}], 
+             Text["F", $CellContext`FF$, {1.5, 0}], 
+             PointSize[0.012], 
+             
+             Point[{$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, \
+$CellContext`EE$, $CellContext`FF$}]}, ImageSize -> 1.125 {520, 375}, 
+            PlotRange -> {{-8.5, 8.5}, {-6.5, 6.5}}]}, 
+          Alignment -> {Center, Top}]], 
+      "Specifications" :> {{{$CellContext`ptAA$$, {2.76, 
+          5.120000000000001}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> 
+         None}, {{$CellContext`ptBB$$, {7.42, -3.33}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptCC$$, {-6.92, -3.17}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptEE$$, {2.785, -0.73}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptFF$$, {-1.2199999999999998`, 
+          3.8900000000000006`}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> None}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`ptAA$$, $CellContext`ptBB$$, \
+$CellContext`ptCC$$, $CellContext`ptEE$$, $CellContext`ptFF$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{633., {272., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({
+      Attributes[Subscript] = {NHoldRest}, Subscript[2, 1] = 21, 
+       Subscript[2, 2] = -4, Subscript[2, 3] = 6, Subscript[2, 4] = 141, 
+       Subscript[2, 5] = -99, Subscript[2, 6] = 96, Subscript[2, 7] = -54, 
+       Subscript[2, 8] = -24, Subscript[2, 9] = 66, 
+       Subscript[3.141592653589793, 1] = 102.53587379717017`, 
+       Subscript[3.141592653589793, 2] = -1.718281828459045, 
+       Subscript[3.141592653589793, 3] = 3.718281828459045, 
+       Subscript[3.141592653589793, 4] = 394.24411617277855`, 
+       Subscript[3.141592653589793, 5] = -189.17236857843824`, 
+       Subscript[3.141592653589793, 6] = 130.63879026232047`, 
+       Subscript[3.141592653589793, 7] = 74.43295733201988, 
+       Subscript[3.141592653589793, 8] = -161.06945211328792`, 
+       Subscript[3.141592653589793, 9] = 
+       366.14119970762823`, $CellContext`SetLine[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]], 
+         Pattern[$CellContext`p3, 
+          Blank[]], 
+         Pattern[$CellContext`p4, 
+          Blank[]]] := {
+         Line[{$CellContext`p1, $CellContext`p2}], 
+         Line[{$CellContext`p1, $CellContext`p3}], 
+         Line[{$CellContext`p1, $CellContext`p4}]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->277948414,ExpressionUUID->"1ead2b18-1d07-4a9d-b2ae-135f3b07fc1d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ptAA$$ = {2.6400000000000006`, 
+    6.}, $CellContext`ptBB$$ = {
+    1.040000000000001, -5.7}, $CellContext`ptCC$$ = {-8, -1.25}, \
+$CellContext`ptEE$$ = {
+    2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+    3.8900000000000006`}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ptAA$$], {2.6400000000000006`, 6.}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptBB$$], {1.040000000000001, -5.7}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptCC$$], {-8, -1.25}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptEE$$], {2.785, -0.73}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptFF$$], {-1.2199999999999998`, 
+       3.8900000000000006`}}, {-8, -6}, {8, 6}}}, Typeset`size$$ = {
+    585., {240.8544921875, 246.1455078125}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ptAA$$ = {2.6400000000000006`, 
+         6.}, $CellContext`ptBB$$ = {
+         1.040000000000001, -5.7}, $CellContext`ptCC$$ = {-8, -1.25}, \
+$CellContext`ptEE$$ = {
+         2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+         3.8900000000000006`}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, $CellContext`SA$, \
+$CellContext`SB$, $CellContext`SC$, $CellContext`S$, $CellContext`EE$, \
+$CellContext`FF$, $CellContext`EA$, $CellContext`EB$, $CellContext`EC$, \
+$CellContext`FA$, $CellContext`FB$, $CellContext`FC$, $CellContext`x$, \
+$CellContext`y$, $CellContext`z$}, $CellContext`AA$ = $CellContext`ptAA$$; \
+$CellContext`BB$ = $CellContext`ptBB$$; $CellContext`CC$ = \
+$CellContext`ptCC$$; $CellContext`a$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`CC$]; \
+$CellContext`b$ = 
+         EuclideanDistance[$CellContext`CC$, $CellContext`AA$]; \
+$CellContext`c$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`AA$]; \
+$CellContext`SA$ = ($CellContext`b$^2 + $CellContext`c$^2 - \
+$CellContext`a$^2)/
+          2; $CellContext`SB$ = ($CellContext`c$^2 + $CellContext`a$^2 - \
+$CellContext`b$^2)/
+          2; $CellContext`SC$ = ($CellContext`a$^2 + $CellContext`b$^2 - \
+$CellContext`c$^2)/2; $CellContext`S$ = 
+         Sqrt[$CellContext`SA$ $CellContext`SB$ + $CellContext`SB$ \
+$CellContext`SC$ + $CellContext`SC$ $CellContext`SA$]; $CellContext`EE$ = \
+$CellContext`ptEE$$; $CellContext`FF$ = $CellContext`ptFF$$; $CellContext`EA$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`AA$]; \
+$CellContext`EB$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`BB$]; \
+$CellContext`EC$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`CC$]; \
+$CellContext`FA$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`AA$]; \
+$CellContext`FB$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`BB$]; \
+$CellContext`FC$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`CC$]; \
+$CellContext`x$ = 
+         N[$CellContext`EB$^2 + $CellContext`FC$^2 - $CellContext`EC$^2 - \
+$CellContext`FB$^2]; $CellContext`y$ = 
+         N[$CellContext`EC$^2 + $CellContext`FA$^2 - $CellContext`EA$^2 - \
+$CellContext`FC$^2]; $CellContext`z$ = 
+         N[$CellContext`EA$^2 + $CellContext`FB$^2 - $CellContext`EB$^2 - \
+$CellContext`FA$^2]; Column[{
+           Text[
+            
+            Grid[{{"\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)", (1/Row[{4, 
+                   Style["S", Italic]}]^2) Row[{
+                  Subscript[
+                   Style["S", Italic], "A"], Style["x", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "B"], Style["y", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "C"], Style["z", Italic]^2}]}, {
+              EuclideanDistance[$CellContext`EE$, $CellContext`FF$]^2, \
+($CellContext`SA$ $CellContext`x$^2 + $CellContext`SB$ $CellContext`y$^2 + \
+$CellContext`SC$ $CellContext`z$^2)/(4 $CellContext`S$^2)}}, Frame -> All, 
+             FrameStyle -> Hue[0.6, 0.4, 0.8], Background -> {None, {{None, 
+                 GrayLevel[0.9]}}, {{1, 1} -> Hue[0.6, 0.2, 1], {1, 2} -> 
+                Hue[0.6, 0.2, 1]}}, 
+             BaseStyle -> {FontSize -> 15, FontFamily -> Times}, 
+             ItemSize -> {{5, All}, 1}]], 
+           Graphics[{FontSize -> 14, 
+             Style[
+              
+              Triangle[{$CellContext`AA$, $CellContext`BB$, \
+$CellContext`CC$}], 
+              Opacity[0.2], 
+              Hue[$CellContext`x$, $CellContext`y$, $CellContext`x$], 
+              EdgeForm[{Thick, Blue}]], 
+             Style[
+              Line[{$CellContext`EE$, $CellContext`FF$}], Thick, Black], 
+             Style[
+              $CellContext`SetLine[$CellContext`EE$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Opacity[0.5], Red, Thick, Dashed], 
+             Style[
+              $CellContext`SetLine[$CellContext`FF$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Blend[{Purple, Green, Red}, (3/4)/2], Thick, Dashed], 
+             Text["A", $CellContext`AA$, {-1.5, -1.5}], 
+             Text["B", $CellContext`BB$, {1.5, 1.5}], 
+             Text["C", $CellContext`CC$, {-1.5, 1.5}], 
+             Text["E", $CellContext`EE$, {0, -1.5}], 
+             Text["F", $CellContext`FF$, {1.5, 0}], 
+             PointSize[0.012], 
+             
+             Point[{$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, \
+$CellContext`EE$, $CellContext`FF$}]}, ImageSize -> 1.125 {520, 375}, 
+            PlotRange -> {{-8.5, 8.5}, {-6.5, 6.5}}]}, 
+          Alignment -> {Center, Top}]], 
+      "Specifications" :> {{{$CellContext`ptAA$$, {2.6400000000000006`, 
+          6.}}, {-8, -6}, {8, 6}, ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptBB$$, {1.040000000000001, -5.7}}, {-8, -6}, {
+         8, 6}, ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptCC$$, {-8, -1.25}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptEE$$, {2.785, -0.73}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptFF$$, {-1.2199999999999998`, 
+          3.8900000000000006`}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> None}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`ptAA$$, $CellContext`ptBB$$, \
+$CellContext`ptCC$$, $CellContext`ptEE$$, $CellContext`ptFF$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{633., {272., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({
+      Attributes[Subscript] = {NHoldRest}, Subscript[2, 1] = 21, 
+       Subscript[2, 2] = -4, Subscript[2, 3] = 6, Subscript[2, 4] = 141, 
+       Subscript[2, 5] = -99, Subscript[2, 6] = 96, Subscript[2, 7] = -54, 
+       Subscript[2, 8] = -24, Subscript[2, 9] = 66, 
+       Subscript[3.141592653589793, 1] = 102.53587379717017`, 
+       Subscript[3.141592653589793, 2] = -1.718281828459045, 
+       Subscript[3.141592653589793, 3] = 3.718281828459045, 
+       Subscript[3.141592653589793, 4] = 394.24411617277855`, 
+       Subscript[3.141592653589793, 5] = -189.17236857843824`, 
+       Subscript[3.141592653589793, 6] = 130.63879026232047`, 
+       Subscript[3.141592653589793, 7] = 74.43295733201988, 
+       Subscript[3.141592653589793, 8] = -161.06945211328792`, 
+       Subscript[3.141592653589793, 9] = 
+       366.14119970762823`, $CellContext`SetLine[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]], 
+         Pattern[$CellContext`p3, 
+          Blank[]], 
+         Pattern[$CellContext`p4, 
+          Blank[]]] := {
+         Line[{$CellContext`p1, $CellContext`p2}], 
+         Line[{$CellContext`p1, $CellContext`p3}], 
+         Line[{$CellContext`p1, $CellContext`p4}]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->702061873,ExpressionUUID->"9c2a59c7-11ef-4cae-af3a-9d435412bb2a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ptAA$$ = {7.34, 
+    2.460000000000001}, $CellContext`ptBB$$ = {0.75, 
+    2.950000000000001}, $CellContext`ptCC$$ = {-5.95, -5.54}, \
+$CellContext`ptEE$$ = {
+    2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+    3.8900000000000006`}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ptAA$$], {7.34, 2.460000000000001}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptBB$$], {0.75, 2.950000000000001}}, {-8, -6}, {8, 
+      6}}, {{
+       Hold[$CellContext`ptCC$$], {-5.95, -5.54}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptEE$$], {2.785, -0.73}}, {-8, -6}, {8, 6}}, {{
+       Hold[$CellContext`ptFF$$], {-1.2199999999999998`, 
+       3.8900000000000006`}}, {-8, -6}, {8, 6}}}, Typeset`size$$ = {
+    585., {240.8544921875, 246.1455078125}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ptAA$$ = {7.34, 
+         2.460000000000001}, $CellContext`ptBB$$ = {0.75, 
+         2.950000000000001}, $CellContext`ptCC$$ = {-5.95, -5.54}, \
+$CellContext`ptEE$$ = {
+         2.785, -0.73}, $CellContext`ptFF$$ = {-1.2199999999999998`, 
+         3.8900000000000006`}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, $CellContext`SA$, \
+$CellContext`SB$, $CellContext`SC$, $CellContext`S$, $CellContext`EE$, \
+$CellContext`FF$, $CellContext`EA$, $CellContext`EB$, $CellContext`EC$, \
+$CellContext`FA$, $CellContext`FB$, $CellContext`FC$, $CellContext`x$, \
+$CellContext`y$, $CellContext`z$}, $CellContext`AA$ = $CellContext`ptAA$$; \
+$CellContext`BB$ = $CellContext`ptBB$$; $CellContext`CC$ = \
+$CellContext`ptCC$$; $CellContext`a$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`CC$]; \
+$CellContext`b$ = 
+         EuclideanDistance[$CellContext`CC$, $CellContext`AA$]; \
+$CellContext`c$ = 
+         EuclideanDistance[$CellContext`BB$, $CellContext`AA$]; \
+$CellContext`SA$ = ($CellContext`b$^2 + $CellContext`c$^2 - \
+$CellContext`a$^2)/
+          2; $CellContext`SB$ = ($CellContext`c$^2 + $CellContext`a$^2 - \
+$CellContext`b$^2)/
+          2; $CellContext`SC$ = ($CellContext`a$^2 + $CellContext`b$^2 - \
+$CellContext`c$^2)/2; $CellContext`S$ = 
+         Sqrt[$CellContext`SA$ $CellContext`SB$ + $CellContext`SB$ \
+$CellContext`SC$ + $CellContext`SC$ $CellContext`SA$]; $CellContext`EE$ = \
+$CellContext`ptEE$$; $CellContext`FF$ = $CellContext`ptFF$$; $CellContext`EA$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`AA$]; \
+$CellContext`EB$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`BB$]; \
+$CellContext`EC$ = 
+         EuclideanDistance[$CellContext`EE$, $CellContext`CC$]; \
+$CellContext`FA$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`AA$]; \
+$CellContext`FB$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`BB$]; \
+$CellContext`FC$ = 
+         EuclideanDistance[$CellContext`FF$, $CellContext`CC$]; \
+$CellContext`x$ = 
+         N[$CellContext`EB$^2 + $CellContext`FC$^2 - $CellContext`EC$^2 - \
+$CellContext`FB$^2]; $CellContext`y$ = 
+         N[$CellContext`EC$^2 + $CellContext`FA$^2 - $CellContext`EA$^2 - \
+$CellContext`FC$^2]; $CellContext`z$ = 
+         N[$CellContext`EA$^2 + $CellContext`FB$^2 - $CellContext`EB$^2 - \
+$CellContext`FA$^2]; Column[{
+           Text[
+            
+            Grid[{{"\[LeftBracketingBar]EF\!\(\*SuperscriptBox[\(\
+\[RightBracketingBar]\), \(2\)]\)", (1/Row[{4, 
+                   Style["S", Italic]}]^2) Row[{
+                  Subscript[
+                   Style["S", Italic], "A"], Style["x", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "B"], Style["y", Italic]^2, " + ", 
+                  Subscript[
+                   Style["S", Italic], "C"], Style["z", Italic]^2}]}, {
+              EuclideanDistance[$CellContext`EE$, $CellContext`FF$]^2, \
+($CellContext`SA$ $CellContext`x$^2 + $CellContext`SB$ $CellContext`y$^2 + \
+$CellContext`SC$ $CellContext`z$^2)/(4 $CellContext`S$^2)}}, Frame -> All, 
+             FrameStyle -> Hue[0.6, 0.4, 0.8], Background -> {None, {{None, 
+                 GrayLevel[0.9]}}, {{1, 1} -> Hue[0.6, 0.2, 1], {1, 2} -> 
+                Hue[0.6, 0.2, 1]}}, 
+             BaseStyle -> {FontSize -> 15, FontFamily -> Times}, 
+             ItemSize -> {{5, All}, 1}]], 
+           Graphics[{FontSize -> 14, 
+             Style[
+              
+              Triangle[{$CellContext`AA$, $CellContext`BB$, \
+$CellContext`CC$}], 
+              Opacity[0.2], 
+              Hue[$CellContext`x$, $CellContext`y$, $CellContext`x$], 
+              EdgeForm[{Thick, Blue}]], 
+             Style[
+              Line[{$CellContext`EE$, $CellContext`FF$}], Thick, Black], 
+             Style[
+              $CellContext`SetLine[$CellContext`EE$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Opacity[0.5], Red, Thick, Dashed], 
+             Style[
+              $CellContext`SetLine[$CellContext`FF$, $CellContext`AA$, \
+$CellContext`BB$, $CellContext`CC$], 
+              Blend[{Purple, Green, Red}, (3/4)/2], Thick, Dashed], 
+             Text["A", $CellContext`AA$, {-1.5, -1.5}], 
+             Text["B", $CellContext`BB$, {1.5, 1.5}], 
+             Text["C", $CellContext`CC$, {-1.5, 1.5}], 
+             Text["E", $CellContext`EE$, {0, -1.5}], 
+             Text["F", $CellContext`FF$, {1.5, 0}], 
+             PointSize[0.012], 
+             
+             Point[{$CellContext`AA$, $CellContext`BB$, $CellContext`CC$, \
+$CellContext`EE$, $CellContext`FF$}]}, ImageSize -> 1.125 {520, 375}, 
+            PlotRange -> {{-8.5, 8.5}, {-6.5, 6.5}}]}, 
+          Alignment -> {Center, Top}]], 
+      "Specifications" :> {{{$CellContext`ptAA$$, {7.34, 
+          2.460000000000001}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> 
+         None}, {{$CellContext`ptBB$$, {0.75, 2.950000000000001}}, {-8, -6}, {
+         8, 6}, ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptCC$$, {-5.95, -5.54}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptEE$$, {2.785, -0.73}}, {-8, -6}, {8, 6}, 
+         ControlType -> Locator, Appearance -> 
+         None}, {{$CellContext`ptFF$$, {-1.2199999999999998`, 
+          3.8900000000000006`}}, {-8, -6}, {8, 6}, ControlType -> Locator, 
+         Appearance -> None}}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`ptAA$$, $CellContext`ptBB$$, \
+$CellContext`ptCC$$, $CellContext`ptEE$$, $CellContext`ptFF$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{633., {272., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({
+      Attributes[Subscript] = {NHoldRest}, Subscript[2, 1] = 21, 
+       Subscript[2, 2] = -4, Subscript[2, 3] = 6, Subscript[2, 4] = 141, 
+       Subscript[2, 5] = -99, Subscript[2, 6] = 96, Subscript[2, 7] = -54, 
+       Subscript[2, 8] = -24, Subscript[2, 9] = 66, 
+       Subscript[3.141592653589793, 1] = 102.53587379717017`, 
+       Subscript[3.141592653589793, 2] = -1.718281828459045, 
+       Subscript[3.141592653589793, 3] = 3.718281828459045, 
+       Subscript[3.141592653589793, 4] = 394.24411617277855`, 
+       Subscript[3.141592653589793, 5] = -189.17236857843824`, 
+       Subscript[3.141592653589793, 6] = 130.63879026232047`, 
+       Subscript[3.141592653589793, 7] = 74.43295733201988, 
+       Subscript[3.141592653589793, 8] = -161.06945211328792`, 
+       Subscript[3.141592653589793, 9] = 
+       366.14119970762823`, $CellContext`SetLine[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]], 
+         Pattern[$CellContext`p3, 
+          Blank[]], 
+         Pattern[$CellContext`p4, 
+          Blank[]]] := {
+         Line[{$CellContext`p1, $CellContext`p2}], 
+         Line[{$CellContext`p1, $CellContext`p3}], 
+         Line[{$CellContext`p1, $CellContext`p4}]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1278742893,ExpressionUUID->"bc589eb0-22f1-4ca5-84a7-2b244a508c00"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Details",
+ StyleBox[" (optional) ", "SectionGloss"],
+ Cell[BoxData[
+  TemplateBox[{"Details", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "This optional section is for a more detailed description of the \
+Demonstration than the caption, but it should still be as concise as \
+possible. This section may also include numbered snapshot captions (e.g., \
+Snapshot 1: phrase or sentence without an initial capital and without a \
+period, unless more than one sentence is used) and explanations of the ", 
+          StyleBox["Manipulate", "MRbig"], 
+          " control labels. Define any symbols undefined so far. Include only \
+text in this section \[LongDash] no code, graphics, etc. Do not change the \
+cell style or copy cells from other sections. \n\nA book reference uses this \
+format: \n    L. D. Schmidt, ", 
+          StyleBox[
+          "The Engineering of Chemical Reactions", FontSlant -> "Italic"], 
+          ", New York: Oxford University Press, 1998. \n\nAn article \
+reference uses this format: \n    D. Pearson, \"A Polynomial-Time Algorithm \
+for the Change-Making Problem,\" ", 
+          StyleBox["Operations Research Letters", FontSlant -> "Italic"], 
+          ", ", 
+          StyleBox["33", FontWeight -> "Bold"], 
+          "(3), 2005 pp. 231\[Dash]234."}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b42cafa3-93cc-45b2-9bce-00512b05ae14"]
+}], "DetailsSection",
+ CellTags->"Details",ExpressionUUID->"b9971572-9357-4ce2-a011-62ff9eede7fa"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Control Suggestions",
+ StyleBox[" (optional) ", "SectionGloss"],
+ Cell[BoxData[
+  TemplateBox[{"Control Suggestions", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "Check the boxes beside items that are appropriate control \
+suggestions for this Demonstration. For more information, see the ", 
+          ButtonBox[
+          "guidelines", 
+           BaseStyle -> {"Hyperlink", FontColor -> RGBColor[0.4, 0.45, 0.5]}, 
+           ButtonData -> {
+             URL["http://demonstrations.wolfram.com/guidelines.php"], None}], 
+          " page.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "f1fe398c-f37e-4aca-9161-633bae63965a"]
+}], "ControlSuggestionsSection",
+ CellTags->
+  "Control Suggestions",ExpressionUUID->"af8a4061-fdd4-44d0-82cc-\
+9fec786547ab"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Resize Images",ExpressionUUID->"fcee1195-e255-4dbd-8863-4af840debdbd"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\""]], "ControlSuggestions",
+ CellChangeTimes->{{3.8605111414535017`*^9, 3.8605111415509663`*^9}, {
+  3.860765463994795*^9, 3.860765464133161*^9}},
+ FontFamily->"Verdana",
+ CellTags->
+  "ResizeImages",ExpressionUUID->"ac542041-3d26-42bf-920d-b54a74785eef"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Rotate and Zoom in 3D",ExpressionUUID->
+    "df0b52c8-7325-4803-bb1e-958545cedfd1"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" on Mac) and drag up and down to zoom.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "RotateAndZoomIn3D",ExpressionUUID->"e14e98ed-7514-4081-99ea-c2ffb624df9b"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Drag Locators",ExpressionUUID->"61b2b2a8-69c4-4012-b6da-8923112012e2"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{{3.86051113940441*^9, 3.860511139519438*^9}},
+ FontFamily->"Verdana",
+ CellTags->
+  "DragLocators",ExpressionUUID->"384b79dc-c11a-492d-87e1-2c4b84403891"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Create and Delete Locators",ExpressionUUID->
+    "8e06b60e-3149-4a23-ab31-0a8ab2f5ceaf"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "CreateAndDeleteLocators",ExpressionUUID->"98a81657-e34e-4dab-ac86-\
+717d7eff050a"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Slider Zoom",ExpressionUUID->"c8d377e3-56fc-4adc-88e3-cf7642fb3181"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" to make ever finer adjustments.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{{3.8622948486164503`*^9, 3.86229484874093*^9}, {
+  3.8624134538451567`*^9, 3.8624134539899817`*^9}},
+ FontFamily->"Verdana",
+ CellTags->
+  "SliderZoom",ExpressionUUID->"b84ac2ce-e422-4d4d-953e-073d63c15a9e"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Gamepad Controls",ExpressionUUID->
+    "1fbb5ded-9a1c-4ba0-a087-0d1c0be219ce"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\""]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->
+  "GamepadControls",ExpressionUUID->"b4dbde82-29d9-4853-88cd-e053ae8d181c"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Automatic Animation",ExpressionUUID->
+    "ec8a5240-77b9-42a0-8b9e-365efb47dfeb"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{{3.862294845690854*^9, 3.862294845796547*^9}},
+ FontFamily->"Verdana",
+ CellTags->
+  "AutomaticAnimation",ExpressionUUID->"6e84bbe0-7d8e-44ab-aac1-048973c18d4f"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Bookmark Animation",ExpressionUUID->
+    "5bdb2812-7da3-4bb1-a7fc-436054c40542"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "BookmarkAnimation",ExpressionUUID->"0cf5a50d-6c0e-4089-a29f-941bc4ca8891"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Search Terms",
+ StyleBox[" (optional) ", "SectionGloss"],
+ Cell[BoxData[
+  TemplateBox[{"Search Terms", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "Provide words and phrases that people might search for, with each \
+one in a separate cell. Categories are added after the Demonstration is \
+submitted, so the best things to enter here are terms (including any \
+synonyms) that refer to specific parts of the Demonstration. Do not \
+capitalize words unless they are proper names or proper adjectives.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b8b4550c-a7c1-4c5e-acf4-64f68ac8ea51"]
+}], "SearchTermsSection",
+ CellTags->
+  "Search Terms",ExpressionUUID->"a3a3a6a7-7876-4115-a51a-6d092bee139b"],
+
+Cell["Distance Geometry", "DemoNotes",
+ CellChangeTimes->{{3.8622949589003572`*^9, 3.862294968399477*^9}},
+ CellID->1318333306,ExpressionUUID->"5a976bf0-e39a-4cc7-8709-85c4d86a4286"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Related Links",
+ StyleBox[" (optional) ", "SectionGloss"],
+ Cell[BoxData[
+  TemplateBox[{"Related Links", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "Provide hyperlinks (not just bare URLs) to any relevant wolfram.com \
+pages, with the page title as the linked text. Links to ", 
+          ButtonBox[
+          "NKS | Online", 
+           BaseStyle -> {"Hyperlink", FontColor -> RGBColor[0.4, 0.45, 0.5]}, 
+           ButtonData -> {
+             URL["http://www.wolframscience.com/nks"], None}], 
+          " should use the section title, not a page number. Links to \
+non-Wolfram sites go in the Details section.", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "d5b26c0d-c135-41cd-9d97-dc9003b05c57"]
+}], "RelatedLinksSection",
+ CellTags->
+  "Related Links",ExpressionUUID->"83b0243b-b7e3-4afb-8a4e-185fec8161fe"],
+
+Cell[TextData[ButtonBox["An Angle Invariant for Arbitrary Triangles",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://demonstrations.wolfram.com/\
+AnAngleInvariantForArbitraryTriangles/"], None},
+ ButtonNote->
+  "https://demonstrations.wolfram.com/AnAngleInvariantForArbitraryTriangles/"]\
+], "RelatedLinks",
+ CellChangeTimes->{{3.86229499817454*^9, 3.8622950198172913`*^9}},
+ CellID->1274723124,ExpressionUUID->"b4df781b-695c-4743-a6d2-41d4384ec393"],
+
+Cell[TextData[ButtonBox["A Vertex Distance Relation for Two Triangles",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://demonstrations.wolfram.com/\
+AVertexDistanceRelationForTwoTriangles/"], None},
+ ButtonNote->
+  "https://demonstrations.wolfram.com/AVertexDistanceRelationForTwoTriangles/\
+"]], "RelatedLinks",
+ CellChangeTimes->{{3.86229499817454*^9, 3.862295056040533*^9}},
+ CellID->216622903,ExpressionUUID->"d0420784-3464-4b9c-a6f4-a6cf4d07e254"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Authoring Information",
+ Cell[BoxData[
+  TemplateBox[{"Authoring Information", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+        TextData[{
+         "'Contributed by: John Smith' for single authors; 'Contributed by: \
+John Smith, Robert Ford, and Jane Doe' for multiple authors. To credit people \
+other than Demonstrations authors, please see the detailed ", 
+          ButtonBox[
+          "guidelines", 
+           BaseStyle -> {"Hyperlink", FontColor -> RGBColor[0.4, 0.45, 0.5]}, 
+           ButtonData -> {
+             URL["http://demonstrations.wolfram.com/guidelines.php"], None}], 
+          ".", 
+          StyleBox["\n", FontSize -> 4]}], "MoreInfoText"], Background -> 
+       GrayLevel[0.95], FrameMargins -> 20, FrameStyle -> GrayLevel[0.9], 
+       RoundingRadius -> 5]], "MoreInfoText", Deletable -> True, 
+     CellTags -> {"SectionMoreInfoDefinition"}, 
+     CellMargins -> {{66, 66}, {15, 15}}]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "990970f3-a922-4bea-919a-d6fa2da1f6d5"]
+}], "AuthorSection",
+ CellTags->
+  "Authoring \
+Information",ExpressionUUID->"c2736cdb-c24c-4dd4-9a22-5bbef1a7a20a"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Minh Trinh Xuan",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://demonstrations.wolfram.com/author.html?author=Minh+Trinh+\
+Xuan"], None},
+  ButtonNote->
+   "https://demonstrations.wolfram.com/author.html?author=Minh+Trinh+Xuan"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.432333043774981*^9, 3.432333045441087*^9}, {
+   3.8590303458091593`*^9, 3.8590303661897435`*^9}},
+ CellID->592704591,ExpressionUUID->"d4355a75-c679-44b9-aea1-57f5f892e733"]
+}, Open  ]]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"DemonstrationSource",
+WindowSize->{1002, 783},
+WindowMargins->{{259, Automatic}, {Automatic, 11}},
+TaggingRules->{
+ "Terminated" -> True, "QuestionState" -> "Timeup", 
+  "AttachedCells" -> {
+   "Initialization Code" -> None, "Manipulate" -> None, "Caption" -> None, 
+    "Snapshots" -> None, "Details" -> None, "Control Suggestions" -> None, 
+    "Thumbnail" -> None, "Authoring Information" -> None}, "TryRealOnly" -> 
+  False},
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"a5fc6651-a51b-4d2c-9e08-baf8bca015f9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Initialization Code"->{
+  Cell[1145, 34, 1833, 39, 68, "InitializationSection",ExpressionUUID->"1d34a731-8c48-4189-8b6f-89ef5777db9f",
+   CellTags->"Initialization Code"]},
+ "Manipulate"->{
+  Cell[4065, 107, 1524, 30, 68, "ManipulateSection",ExpressionUUID->"b7acceb9-ca4b-4965-b319-bd8a6214a587",
+   CellTags->"Manipulate"]},
+ "Caption"->{
+  Cell[32910, 737, 1138, 24, 68, "ManipulateCaptionSection",ExpressionUUID->"3ed78bfd-4459-4d2a-906f-3e9e6aba33a4",
+   CellTags->"Caption"]},
+ "Thumbnail"->{
+  Cell[43425, 989, 1005, 22, 68, "ThumbnailSection",ExpressionUUID->"401cc3c4-8319-4e19-82e7-df5fcb711a42",
+   CellTags->"Thumbnail"]},
+ "Snapshots"->{
+  Cell[53564, 1194, 1018, 22, 68, "SnapshotsSection",ExpressionUUID->"96bb7a68-4496-4362-86d3-c2a0812907f2",
+   CellTags->"Snapshots"]},
+ "Details"->{
+  Cell[81588, 1750, 1796, 36, 68, "DetailsSection",ExpressionUUID->"b9971572-9357-4ce2-a011-62ff9eede7fa",
+   CellTags->"Details"]},
+ "Control Suggestions"->{
+  Cell[83409, 1790, 1131, 28, 68, "ControlSuggestionsSection",ExpressionUUID->"af8a4061-fdd4-44d0-82cc-9fec786547ab",
+   CellTags->"Control Suggestions"]},
+ "ResizeImages"->{
+  Cell[84543, 1820, 526, 11, 28, "ControlSuggestions",ExpressionUUID->"ac542041-3d26-42bf-920d-b54a74785eef",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[85072, 1833, 783, 19, 28, "ControlSuggestions",ExpressionUUID->"e14e98ed-7514-4081-99ea-c2ffb624df9b",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[85858, 1854, 499, 13, 28, "ControlSuggestions",ExpressionUUID->"384b79dc-c11a-492d-87e1-2c4b84403891",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[86360, 1869, 739, 18, 28, "ControlSuggestions",ExpressionUUID->"98a81657-e34e-4dab-ac86-717d7eff050a",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[87102, 1889, 1064, 25, 28, "ControlSuggestions",ExpressionUUID->"b84ac2ce-e422-4d4d-953e-073d63c15a9e",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[88169, 1916, 469, 11, 28, "ControlSuggestions",ExpressionUUID->"b4dbde82-29d9-4853-88cd-e053ae8d181c",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[88641, 1929, 1629, 34, 28, "ControlSuggestions",ExpressionUUID->"6e84bbe0-7d8e-44ab-aac1-048973c18d4f",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[90273, 1965, 1008, 23, 28, "ControlSuggestions",ExpressionUUID->"0cf5a50d-6c0e-4089-a29f-941bc4ca8891",
+   CellTags->"BookmarkAnimation"]},
+ "Search Terms"->{
+  Cell[91318, 1993, 1073, 24, 68, "SearchTermsSection",ExpressionUUID->"a3a3a6a7-7876-4115-a51a-6d092bee139b",
+   CellTags->"Search Terms"]},
+ "Related Links"->{
+  Cell[92613, 2026, 1191, 28, 68, "RelatedLinksSection",ExpressionUUID->"83b0243b-b7e3-4afb-8a4e-185fec8161fe",
+   CellTags->"Related Links"]},
+ "Authoring Information"->{
+  Cell[94766, 2081, 1158, 28, 68, "AuthorSection",ExpressionUUID->"c2736cdb-c24c-4dd4-9a22-5bbef1a7a20a",
+   CellTags->"Authoring Information"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Initialization Code", 97286, 2148},
+ {"Manipulate", 97452, 2151},
+ {"Caption", 97603, 2154},
+ {"Thumbnail", 97761, 2157},
+ {"Snapshots", 97913, 2160},
+ {"Details", 98064, 2163},
+ {"Control Suggestions", 98223, 2166},
+ {"ResizeImages", 98398, 2169},
+ {"RotateAndZoomIn3D", 98563, 2172},
+ {"DragLocators", 98728, 2175},
+ {"CreateAndDeleteLocators", 98899, 2178},
+ {"SliderZoom", 99068, 2181},
+ {"GamepadControls", 99230, 2184},
+ {"AutomaticAnimation", 99399, 2187},
+ {"BookmarkAnimation", 99571, 2190},
+ {"Search Terms", 99737, 2193},
+ {"Related Links", 99899, 2196},
+ {"Authoring Information", 100071, 2199}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 540, 8, 98, "Title",ExpressionUUID->"b9e6fe14-67c5-4f7d-9ec0-13c361826e91"],
+Cell[CellGroupData[{
+Cell[1145, 34, 1833, 39, 68, "InitializationSection",ExpressionUUID->"1d34a731-8c48-4189-8b6f-89ef5777db9f",
+ CellTags->"Initialization Code"],
+Cell[2981, 75, 421, 7, 26, "Input",ExpressionUUID->"c0e06805-352f-45a6-8a5a-3d4b4119f06a",
+ CellID->1153918545],
+Cell[3405, 84, 623, 18, 58, "Input",ExpressionUUID->"7433e8a3-67bd-4727-b40b-04d37e2cdf39",
+ InitializationCell->True,
+ CellID->99666838]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4065, 107, 1524, 30, 68, "ManipulateSection",ExpressionUUID->"b7acceb9-ca4b-4965-b319-bd8a6214a587",
+ CellTags->"Manipulate"],
+Cell[CellGroupData[{
+Cell[5614, 141, 18610, 421, 814, "Input",ExpressionUUID->"1c8a51fe-61b3-446f-b3f3-b27c622b6763"],
+Cell[24227, 564, 8634, 167, 562, "Output",ExpressionUUID->"a50431a9-50b3-41bf-af53-832c91b5aede",
+ CellID->595877848]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32910, 737, 1138, 24, 68, "ManipulateCaptionSection",ExpressionUUID->"3ed78bfd-4459-4d2a-906f-3e9e6aba33a4",
+ CellTags->"Caption"],
+Cell[34051, 763, 4067, 87, 23, "ManipulateCaption",ExpressionUUID->"3f29f692-abd0-4656-9692-992f357c1cea",
+ CellID->392731175],
+Cell[38121, 852, 373, 5, 23, "ManipulateCaption",ExpressionUUID->"319d7703-cead-4362-907e-af72ed2db687",
+ CellID->45256918],
+Cell[38497, 859, 977, 24, 24, "ManipulateCaption",ExpressionUUID->"287e6416-8996-404a-b000-e74ca267a635",
+ CellID->1676568],
+Cell[39477, 885, 977, 24, 24, "ManipulateCaption",ExpressionUUID->"feb45f12-7686-4b43-94bb-36b31649cf98",
+ CellID->801486672],
+Cell[40457, 911, 979, 24, 24, "ManipulateCaption",ExpressionUUID->"c8a784de-2754-4ee3-9402-6314264f292c",
+ CellID->1967642629],
+Cell[41439, 937, 369, 5, 23, "ManipulateCaption",ExpressionUUID->"207a114b-c65c-41bd-badc-8ce841941785",
+ CellID->706513569],
+Cell[41811, 944, 1183, 33, 38, "ManipulateCaption",ExpressionUUID->"64942f26-4673-49cc-8eeb-e28e24717051",
+ CellID->451064498],
+Cell[42997, 979, 391, 5, 23, "ManipulateCaption",ExpressionUUID->"9cea2ac6-9642-4e8f-8ad4-29dcdfbd0e9b",
+ CellID->209519266]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43425, 989, 1005, 22, 68, "ThumbnailSection",ExpressionUUID->"401cc3c4-8319-4e19-82e7-df5fcb711a42",
+ CellTags->"Thumbnail"],
+Cell[44433, 1013, 9094, 176, 562, "Output",ExpressionUUID->"228e287b-4e31-436b-90d8-fe6658ead2a0",
+ CellID->1202745375]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53564, 1194, 1018, 22, 68, "SnapshotsSection",ExpressionUUID->"96bb7a68-4496-4362-86d3-c2a0812907f2",
+ CellTags->"Snapshots"],
+Cell[54585, 1218, 8961, 174, 562, "Output",ExpressionUUID->"1ead2b18-1d07-4a9d-b2ae-135f3b07fc1d",
+ CellID->277948414],
+Cell[63549, 1394, 8999, 175, 562, "Output",ExpressionUUID->"9c2a59c7-11ef-4cae-af3a-9d435412bb2a",
+ CellID->702061873],
+Cell[72551, 1571, 9022, 176, 562, "Output",ExpressionUUID->"bc589eb0-22f1-4ca5-84a7-2b244a508c00",
+ CellID->1278742893]
+}, Open  ]],
+Cell[81588, 1750, 1796, 36, 68, "DetailsSection",ExpressionUUID->"b9971572-9357-4ce2-a011-62ff9eede7fa",
+ CellTags->"Details"],
+Cell[CellGroupData[{
+Cell[83409, 1790, 1131, 28, 68, "ControlSuggestionsSection",ExpressionUUID->"af8a4061-fdd4-44d0-82cc-9fec786547ab",
+ CellTags->"Control Suggestions"],
+Cell[84543, 1820, 526, 11, 28, "ControlSuggestions",ExpressionUUID->"ac542041-3d26-42bf-920d-b54a74785eef",
+ CellTags->"ResizeImages"],
+Cell[85072, 1833, 783, 19, 28, "ControlSuggestions",ExpressionUUID->"e14e98ed-7514-4081-99ea-c2ffb624df9b",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[85858, 1854, 499, 13, 28, "ControlSuggestions",ExpressionUUID->"384b79dc-c11a-492d-87e1-2c4b84403891",
+ CellTags->"DragLocators"],
+Cell[86360, 1869, 739, 18, 28, "ControlSuggestions",ExpressionUUID->"98a81657-e34e-4dab-ac86-717d7eff050a",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[87102, 1889, 1064, 25, 28, "ControlSuggestions",ExpressionUUID->"b84ac2ce-e422-4d4d-953e-073d63c15a9e",
+ CellTags->"SliderZoom"],
+Cell[88169, 1916, 469, 11, 28, "ControlSuggestions",ExpressionUUID->"b4dbde82-29d9-4853-88cd-e053ae8d181c",
+ CellTags->"GamepadControls"],
+Cell[88641, 1929, 1629, 34, 28, "ControlSuggestions",ExpressionUUID->"6e84bbe0-7d8e-44ab-aac1-048973c18d4f",
+ CellTags->"AutomaticAnimation"],
+Cell[90273, 1965, 1008, 23, 28, "ControlSuggestions",ExpressionUUID->"0cf5a50d-6c0e-4089-a29f-941bc4ca8891",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91318, 1993, 1073, 24, 68, "SearchTermsSection",ExpressionUUID->"a3a3a6a7-7876-4115-a51a-6d092bee139b",
+ CellTags->"Search Terms"],
+Cell[92394, 2019, 182, 2, 23, "DemoNotes",ExpressionUUID->"5a976bf0-e39a-4cc7-8709-85c4d86a4286",
+ CellID->1318333306]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92613, 2026, 1191, 28, 68, "RelatedLinksSection",ExpressionUUID->"83b0243b-b7e3-4afb-8a4e-185fec8161fe",
+ CellTags->"Related Links"],
+Cell[93807, 2056, 459, 9, 23, "RelatedLinks",ExpressionUUID->"b4df781b-695c-4743-a6d2-41d4384ec393",
+ CellID->1274723124],
+Cell[94269, 2067, 460, 9, 23, "RelatedLinks",ExpressionUUID->"d0420784-3464-4b9c-a6f4-a6cf4d07e254",
+ CellID->216622903]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[94766, 2081, 1158, 28, 68, "AuthorSection",ExpressionUUID->"c2736cdb-c24c-4dd4-9a22-5bbef1a7a20a",
+ CellTags->"Authoring Information"],
+Cell[95927, 2111, 523, 13, 23, "Author",ExpressionUUID->"d4355a75-c679-44b9-aea1-57f5f892e733",
+ CellID->592704591]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

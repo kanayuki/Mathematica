@@ -1,0 +1,4577 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    177612,       4568]
+NotebookOptionsPosition[    173046,       4428]
+NotebookOutlinePosition[    174661,       4478]
+CellTagsIndexPosition[    174325,       4466]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["A Tessellation from a Square Twist Fold", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427186807663599*^9, 3.4271868140588017`*^9}, {
+   3.42718794351683*^9, 3.427187944746497*^9}, {3.4385420053625956`*^9, 
+   3.4385420153001595`*^9}, 3.438544763596018*^9}],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a1", "=", 
+   RowBox[{"3", 
+    RowBox[{"Pi", "/", "4"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a2", "=", 
+   RowBox[{"Pi", "/", "2"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Sind4", "[", "d1_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Sin", "[", "d1", "]"}], ")"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"Cos", "[", "a1", "]"}]}], "+", 
+       RowBox[{"Cos", "[", "a2", "]"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{
+        RowBox[{"Cos", "[", "a1", "]"}], 
+        RowBox[{"Cos", "[", "a2", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"Sin", "[", "a1", "]"}], 
+        RowBox[{"Sin", "[", "a2", "]"}], 
+        RowBox[{"Cos", "[", "d1", "]"}]}]}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"d4", "[", "d1_", "]"}], ":=", 
+   RowBox[{"Piecewise", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Pi", "+", 
+         RowBox[{"ArcSin", "[", 
+          RowBox[{"Sind4", "[", "d1", "]"}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "Pi"}], "/", "4"}], "\[LessEqual]", "d1"}], "&&", 
+         RowBox[{"d1", "<=", 
+          RowBox[{"Pi", "/", "4"}]}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"2", "Pi"}], "-", 
+         RowBox[{"ArcSin", "[", 
+          RowBox[{"Sind4", "[", "d1", "]"}], "]"}]}], ",", 
+        RowBox[{"d1", ">", 
+         RowBox[{"Pi", "/", "4"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"ArcSin", "[", 
+          RowBox[{"Sind4", "[", "d1", "]"}], "]"}]}], ",", 
+        RowBox[{"d1", "<", 
+         RowBox[{
+          RowBox[{"-", "Pi"}], "/", "4"}]}]}], "}"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"d2", "[", "d1_", "]"}], ":=", 
+    RowBox[{"-", 
+     RowBox[{"d4", "[", "d1", "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RotMatX", "[", 
+    RowBox[{"matrix_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"Cos", "[", "x", "]"}], ",", 
+         RowBox[{"-", 
+          RowBox[{"Sin", "[", "x", "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"Sin", "[", "x", "]"}], ",", 
+         RowBox[{"Cos", "[", "x", "]"}]}], "}"}]}], "}"}], ".", 
+     RowBox[{"Transpose", "[", "matrix", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RotMatZ", "[", 
+    RowBox[{"matrix_", ",", "z_"}], "]"}], ":=", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Cos", "[", "z", "]"}], ",", 
+         RowBox[{"-", 
+          RowBox[{"Sin", "[", "z", "]"}]}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Sin", "[", "z", "]"}], ",", 
+         RowBox[{"Cos", "[", "z", "]"}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ".", 
+     RowBox[{"Transpose", "[", "matrix", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TMat", "[", 
+    RowBox[{"matrix_", ",", "xx_", ",", "yy_", ",", "zz_"}], "]"}], ":=", 
+   RowBox[{"matrix", "+", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"xx", ",", "yy", ",", "zz"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Total", "[", 
+         RowBox[{"Dimensions", "[", 
+          RowBox[{"matrix", ",", "1"}], "]"}], "]"}]}], "}"}]}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RotMatTh", "[", 
+    RowBox[{"matrix_", ",", "th1_", ",", "th2_"}], "]"}], ":=", 
+   RowBox[{"RotMatZ", "[", 
+    RowBox[{
+     RowBox[{"RotMatX", "[", 
+      RowBox[{
+       RowBox[{"RotMatZ", "[", 
+        RowBox[{"matrix", ",", 
+         RowBox[{"-", "th1"}]}], "]"}], ",", "th2"}], "]"}], ",", "th1"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"RotMatGen", "[", 
+     RowBox[{
+     "matrix_", ",", "th1_", ",", "th2_", ",", "xx_", ",", "yy_", ",", 
+      "zz_"}], "]"}], ":=", 
+    RowBox[{"TMat", "[", 
+     RowBox[{
+      RowBox[{"RotMatTh", "[", 
+       RowBox[{
+        RowBox[{"TMat", "[", 
+         RowBox[{"matrix", ",", 
+          RowBox[{"-", "xx"}], ",", 
+          RowBox[{"-", "yy"}], ",", 
+          RowBox[{"-", "zz"}]}], "]"}], ",", "th1", ",", "th2"}], "]"}], ",", 
+      "xx", ",", "yy", ",", "zz"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF1", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{"Pi", "/", "2"}], ",", 
+     RowBox[{"-", 
+      RowBox[{"d4", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"4", "n"}], "+", "1"}], ",", "0", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF2", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", "Pi", ",", 
+     RowBox[{"Pi", "+", "t"}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"4", "k"}], "+", "2"}], ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF3", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{"3", 
+      RowBox[{"Pi", "/", "4"}]}], ",", 
+     RowBox[{"Pi", "+", "t"}], ",", 
+     RowBox[{
+      RowBox[{"4", 
+       RowBox[{"(", 
+        RowBox[{"n", "+", "k"}], ")"}]}], "-", "5"}], ",", "0", ",", "0"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF3x", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{"3", 
+      RowBox[{"Pi", "/", "4"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"d4", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"4", 
+       RowBox[{"(", 
+        RowBox[{"n", "+", "k"}], ")"}]}], "-", "5"}], ",", "0", ",", "0"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF4", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", "Pi", ",", 
+     RowBox[{"Pi", "-", "t"}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"4", "k"}], "+", "3"}], ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF5", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{"Pi", "/", "2"}], ",", 
+     RowBox[{"d4", "[", "t", "]"}], ",", 
+     RowBox[{
+      RowBox[{"4", "n"}], "+", "2"}], ",", "0", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF6", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", "0", ",", 
+     RowBox[{"Pi", "-", "t"}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"4", "k"}], "-", "2"}], ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF7", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{
+      RowBox[{"-", "Pi"}], "/", "2"}], ",", 
+     RowBox[{"d4", "[", "t", "]"}], ",", 
+     RowBox[{
+      RowBox[{"4", "n"}], "-", "1"}], ",", "0", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF8", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", 
+     RowBox[{"3", 
+      RowBox[{"Pi", "/", "4"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"d4", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"4", "n"}], "+", "1"}], ",", "0", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SF9", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"RotMatGen", "[", 
+    RowBox[{"matrix", ",", "0", ",", 
+     RowBox[{"Pi", "+", "t"}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"4", "k"}], "-", "3"}], ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"SF10", "[", 
+     RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+    RowBox[{"RotMatGen", "[", 
+     RowBox[{"matrix", ",", 
+      RowBox[{
+       RowBox[{"-", "Pi"}], "/", "2"}], ",", 
+      RowBox[{"-", 
+       RowBox[{"d4", "[", "t", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"4", "n"}], "-", "2"}], ",", "0", ",", "0"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MX1", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"n", "==", "0"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"k", "\[Equal]", "0"}], ",", "matrix", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"Divisible", "[", 
+          RowBox[{"n", ",", "2"}], "]"}], ",", 
+         RowBox[{"SF9", "[", 
+          RowBox[{
+           RowBox[{"SF6", "[", 
+            RowBox[{
+             RowBox[{"MX4", "[", 
+              RowBox[{"matrix", ",", "n", ",", 
+               RowBox[{"k", "-", "1"}], ",", "t"}], "]"}], ",", "n", ",", "k",
+              ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], "]"}], ",", 
+         RowBox[{"SF9", "[", 
+          RowBox[{
+           RowBox[{"SF6", "[", 
+            RowBox[{
+             RowBox[{"MX4", "[", 
+              RowBox[{"matrix", ",", "n", ",", 
+               RowBox[{"k", "-", "1"}], ",", "t"}], "]"}], ",", "n", ",", "k",
+              ",", 
+             RowBox[{"-", "t"}]}], "]"}], ",", "n", ",", "k", ",", 
+           RowBox[{"-", "t"}]}], "]"}]}], "]"}]}], "]"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Divisible", "[", 
+        RowBox[{"n", ",", "2"}], "]"}], ",", 
+       RowBox[{"SF10", "[", 
+        RowBox[{
+         RowBox[{"SF7", "[", 
+          RowBox[{
+           RowBox[{"MX4", "[", 
+            RowBox[{"matrix", ",", 
+             RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", "n", 
+           ",", "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], "]"}],
+        ",", 
+       RowBox[{"SF10", "[", 
+        RowBox[{
+         RowBox[{"SF7", "[", 
+          RowBox[{
+           RowBox[{"MX4", "[", 
+            RowBox[{"matrix", ",", 
+             RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", "n", 
+           ",", "k", ",", 
+           RowBox[{"-", "t"}]}], "]"}], ",", "n", ",", "k", ",", 
+         RowBox[{"-", "t"}]}], "]"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MX4", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"n", "==", "0"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Divisible", "[", 
+        RowBox[{"n", ",", "2"}], "]"}], ",", 
+       RowBox[{"SF2", "[", 
+        RowBox[{
+         RowBox[{"SF4", "[", 
+          RowBox[{
+           RowBox[{"MX1", "[", 
+            RowBox[{"matrix", ",", "n", ",", 
+             RowBox[{"k", "-", "1"}], ",", "t"}], "]"}], ",", "n", ",", "k", 
+           ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], "]"}], ",", 
+       RowBox[{"SF2", "[", 
+        RowBox[{
+         RowBox[{"SF4", "[", 
+          RowBox[{
+           RowBox[{"MX1", "[", 
+            RowBox[{"matrix", ",", "n", ",", 
+             RowBox[{"k", "-", "1"}], ",", "t"}], "]"}], ",", "n", ",", "k", 
+           ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], "]"}]}], "]"}], 
+     ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Divisible", "[", 
+        RowBox[{"n", ",", "2"}], "]"}], ",", 
+       RowBox[{"SF1", "[", 
+        RowBox[{
+         RowBox[{"SF5", "[", 
+          RowBox[{
+           RowBox[{"MX1", "[", 
+            RowBox[{"matrix", ",", 
+             RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", "n", 
+           ",", "k", ",", 
+           RowBox[{"-", "t"}]}], "]"}], ",", "n", ",", "k", ",", 
+         RowBox[{"-", "t"}]}], "]"}], ",", 
+       RowBox[{"SF1", "[", 
+        RowBox[{
+         RowBox[{"SF5", "[", 
+          RowBox[{
+           RowBox[{"MX1", "[", 
+            RowBox[{"matrix", ",", 
+             RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", "n", 
+           ",", "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], 
+        "]"}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ML2", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"Divisible", "[", 
+      RowBox[{"n", ",", "2"}], "]"}], ",", 
+     RowBox[{"SF5", "[", 
+      RowBox[{"matrix", ",", 
+       RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", 
+     RowBox[{"SF5", "[", 
+      RowBox[{"matrix", ",", 
+       RowBox[{"n", "-", "1"}], ",", "k", ",", 
+       RowBox[{"-", "t"}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MR2", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"Divisible", "[", 
+      RowBox[{"n", ",", "2"}], "]"}], ",", 
+     RowBox[{"SF10", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", "t"}], "]"}], ",", 
+     RowBox[{"SF10", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", 
+       RowBox[{"-", "t"}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MB3", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"Divisible", "[", 
+      RowBox[{"k", ",", "2"}], "]"}], ",", 
+     RowBox[{"SF6", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", 
+       RowBox[{"-", "t"}]}], "]"}], ",", 
+     RowBox[{"SF6", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", "t"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MT3", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"Divisible", "[", 
+      RowBox[{"k", ",", "2"}], "]"}], ",", 
+     RowBox[{"SF2", "[", 
+      RowBox[{"matrix", ",", "n", ",", 
+       RowBox[{"k", "-", "1"}], ",", 
+       RowBox[{"-", "t"}]}], "]"}], ",", 
+     RowBox[{"SF2", "[", 
+      RowBox[{"matrix", ",", "n", ",", 
+       RowBox[{"k", "-", "1"}], ",", "t"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MX5", "[", 
+    RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"Divisible", "[", 
+      RowBox[{"k", ",", "2"}], "]"}], ",", 
+     RowBox[{"SF3", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", 
+       RowBox[{"-", "t"}]}], "]"}], ",", 
+     RowBox[{"SF3", "[", 
+      RowBox[{"matrix", ",", "n", ",", "k", ",", "t"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"MX5x", "[", 
+     RowBox[{"matrix_", ",", "n_", ",", "k_", ",", "t_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"Divisible", "[", 
+       RowBox[{"k", ",", "2"}], "]"}], ",", 
+      RowBox[{"SF3x", "[", 
+       RowBox[{"matrix", ",", "n", ",", "k", ",", 
+        RowBox[{"-", "t"}]}], "]"}], ",", 
+      RowBox[{"SF3x", "[", 
+       RowBox[{"matrix", ",", "n", ",", "k", ",", "t"}], "]"}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"X1", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "1"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "2"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"X4", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "2"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"X5", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "3"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "3"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"L2", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "3"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "3"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "2"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"R2", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "+", "2"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T3", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "3"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "3"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"B3", "[", 
+    RowBox[{"n_", ",", "k_", ",", "size_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "-", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "1"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "2"}]}], "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Min", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"4", "size"}], "+", "4"}], ",", 
+         RowBox[{
+          RowBox[{"4", "n"}], "+", "2"}]}], "]"}], ",", 
+       RowBox[{"Max", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{
+          RowBox[{"4", "k"}], "-", "1"}]}], "]"}], ",", "0"}], "}"}]}], 
+    "}"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.427190032763165*^9, {3.429786535453125*^9, 
+   3.429786545484375*^9}, {3.429789735640625*^9, 3.429789739765625*^9}, {
+   3.429789829109375*^9, 3.42978982953125*^9}, {3.42979035765625*^9, 
+   3.42979037221875*^9}, {3.429790846796875*^9, 3.429791009671875*^9}, {
+   3.4336262603125*^9, 3.43362627778125*^9}, 3.43362666934375*^9, {
+   3.433626725171875*^9, 3.43362675321875*^9}, {3.438520694507984*^9, 
+   3.438520736796212*^9}, 3.4385208791734486`*^9},
+ CellID->350184975]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"Divisible", "[", 
+           RowBox[{
+            RowBox[{"n", "+", "k"}], ",", "2"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"Polygon", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"MX1", "[", 
+               RowBox[{
+                RowBox[{"X1", "[", 
+                 RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",", 
+                "k", ",", "t"}], "]"}], ",", 
+              RowBox[{"MX4", "[", 
+               RowBox[{
+                RowBox[{"MR2", "[", 
+                 RowBox[{
+                  RowBox[{"R2", "[", 
+                   RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",",
+                   "k", ",", "t"}], "]"}], ",", 
+                RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}], ",", 
+              RowBox[{"MX1", "[", 
+               RowBox[{
+                RowBox[{"MT3", "[", 
+                 RowBox[{
+                  RowBox[{"T3", "[", 
+                   RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",",
+                   "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], 
+               "]"}], ",", 
+              RowBox[{"MX4", "[", 
+               RowBox[{
+                RowBox[{"ML2", "[", 
+                 RowBox[{
+                  RowBox[{"MX5", "[", 
+                   RowBox[{
+                    RowBox[{"X5", "[", 
+                    RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", 
+                    ",", "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", 
+                  "t"}], "]"}], ",", "n", ",", 
+                RowBox[{"k", "-", "1"}], ",", "t"}], "]"}]}], "}"}], "]"}], 
+           "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"Polygon", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"MX4", "[", 
+               RowBox[{
+                RowBox[{"X4", "[", 
+                 RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",", 
+                "k", ",", "t"}], "]"}], ",", 
+              RowBox[{"MX4", "[", 
+               RowBox[{
+                RowBox[{"ML2", "[", 
+                 RowBox[{
+                  RowBox[{"L2", "[", 
+                   RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",",
+                   "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", "t"}], 
+               "]"}], ",", 
+              RowBox[{"MX1", "[", 
+               RowBox[{
+                RowBox[{"MB3", "[", 
+                 RowBox[{
+                  RowBox[{"B3", "[", 
+                   RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", ",",
+                   "k", ",", "t"}], "]"}], ",", "n", ",", 
+                RowBox[{"k", "-", "1"}], ",", "t"}], "]"}], ",", 
+              RowBox[{"MX1", "[", 
+               RowBox[{
+                RowBox[{"MB3", "[", 
+                 RowBox[{
+                  RowBox[{"MX5x", "[", 
+                   RowBox[{
+                    RowBox[{"X5", "[", 
+                    RowBox[{"n", ",", "k", ",", "size"}], "]"}], ",", "n", 
+                    ",", "k", ",", "t"}], "]"}], ",", "n", ",", "k", ",", 
+                  "t"}], "]"}], ",", 
+                RowBox[{"n", "-", "1"}], ",", "k", ",", "t"}], "]"}]}], "}"}],
+             "]"}], "}"}]}], "]"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", 
+         RowBox[{"size", "+", "1"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{"size", "+", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"580", ",", "400"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{
+           RowBox[{"4", "size"}], "+", "6"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{
+           RowBox[{"4", "size"}], "+", "6"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"size", ",", "3"}], "}"}], ",", "1", ",", "5", ",", "1"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "Pi", ",", "\"\<dihedral angle\>\""}], "}"}], ",", 
+     "Pi", ",", 
+     RowBox[{"-", "Pi"}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.42718747787435*^9, 3.427189244737554*^9, {
+   3.427189343195846*^9, 3.4271893444053717`*^9}, {3.429787016265625*^9, 
+   3.429787017890625*^9}, {3.42978905015625*^9, 3.429789060109375*^9}, {
+   3.429790052015625*^9, 3.42979007103125*^9}, {3.429790281984375*^9, 
+   3.42979031828125*^9}, {3.438520902247756*^9, 3.4385209730548363`*^9}, {
+   3.4385418989400396`*^9, 3.4385419051900797`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 3, $CellContext`t$$ = Pi, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 3}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], Pi, "dihedral angle"}, Pi, -Pi}}, 
+    Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19047$$ = 0, $CellContext`t$19048$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 3, $CellContext`t$$ = Pi}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19047$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19048$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 3}, 1, 5, 
+         1}, {{$CellContext`t$$, Pi, "dihedral angle"}, Pi, -Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->127800273]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+This Demonstration models an origami fold called a square twist. The square \
+twist folds flat rigidly (the paper is always flat as it folds). It can \
+tessellate the plane and still fold flat rigidly.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427187497366639*^9, 3.427187575239043*^9}, {
+   3.427187891607314*^9, 3.4271879050979443`*^9}, {3.427188061138117*^9, 
+   3.427188077869237*^9}, 3.429786385046875*^9, {3.438520985268057*^9, 
+   3.4385209901705475`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 5, $CellContext`t$$ = 
+    1.4953981031087418`, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 5}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], 1.4953981031087418`, "dihedral angle"}, Pi, -
+      Pi}}, Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19103$$ = 0, $CellContext`t$19104$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 5, $CellContext`t$$ = 
+        1.4953981031087418`}, "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19103$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19104$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 5}, 1, 5, 
+         1}, {{$CellContext`t$$, 1.4953981031087418`, "dihedral angle"}, Pi, -
+         Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->178260574]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 5, $CellContext`t$$ = Pi, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 5}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], Pi, "dihedral angle"}, Pi, -Pi}}, 
+    Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19159$$ = 0, $CellContext`t$19160$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 5, $CellContext`t$$ = Pi}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19159$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19160$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 5}, 1, 5, 
+         1}, {{$CellContext`t$$, Pi, "dihedral angle"}, Pi, -Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->29032983],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 3, $CellContext`t$$ = 
+    1.4953981031087418`, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 3}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], 1.4953981031087418`, "dihedral angle"}, Pi, -
+      Pi}}, Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19215$$ = 0, $CellContext`t$19216$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 3, $CellContext`t$$ = 
+        1.4953981031087418`}, "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19215$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19216$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 3}, 1, 5, 
+         1}, {{$CellContext`t$$, 1.4953981031087418`, "dihedral angle"}, Pi, -
+         Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->554371945],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 1, $CellContext`t$$ = 
+    0.8670795723907831, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 1}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], 0.8670795723907831, "dihedral angle"}, Pi, -
+      Pi}}, Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19271$$ = 0, $CellContext`t$19272$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 1, $CellContext`t$$ = 
+        0.8670795723907831}, "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19271$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19272$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 1}, 1, 5, 
+         1}, {{$CellContext`t$$, 0.8670795723907831, "dihedral angle"}, Pi, -
+         Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->879511131],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`size$$ = 5, $CellContext`t$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`size$$], 5}, 1, 5, 1}, {{
+       Hold[$CellContext`t$$], 0, "dihedral angle"}, Pi, -Pi}}, 
+    Typeset`size$$ = {580., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`size$19327$$ = 0, $CellContext`t$19328$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`size$$ = 5, $CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`size$$, $CellContext`size$19327$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$19328$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Table[{
+          If[
+           Divisible[$CellContext`n + $CellContext`k, 2], {
+            Polygon[{
+              $CellContext`MX1[
+               $CellContext`X1[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`MR2[
+                $CellContext`R2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n - 1, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MT3[
+                $CellContext`T3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`MX5[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n, \
+$CellContext`k - 1, $CellContext`t$$]}]}, {
+            Polygon[{
+              $CellContext`MX4[
+               $CellContext`X4[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX4[
+               $CellContext`ML2[
+                $CellContext`L2[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`B3[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k - 1, $CellContext`t$$], 
+              $CellContext`MX1[
+               $CellContext`MB3[
+                $CellContext`MX5x[
+                 $CellContext`X5[$CellContext`n, $CellContext`k, \
+$CellContext`size$$], $CellContext`n, $CellContext`k, $CellContext`t$$], \
+$CellContext`n, $CellContext`k, $CellContext`t$$], $CellContext`n - 
+               1, $CellContext`k, $CellContext`t$$]}]}]}, {$CellContext`n, 
+          1, $CellContext`size$$ + 1}, {$CellContext`k, 
+          1, $CellContext`size$$ + 1}], ImageSize -> {580, 400}, Boxed -> 
+        False, PlotRange -> {{2, 4 $CellContext`size$$ + 6}, {
+          2, 4 $CellContext`size$$ + 6}, {-2, 2}}], 
+      "Specifications" :> {{{$CellContext`size$$, 5}, 1, 5, 
+         1}, {{$CellContext`t$$, 0, "dihedral angle"}, Pi, -Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`MX1[
+         Pattern[$CellContext`M, 
+          Blank[]], 0, 0, 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`M, $CellContext`MX1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[$CellContext`k == 0, $CellContext`matrix, 
+          If[
+           Divisible[$CellContext`n, 2], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+           $CellContext`SF9[
+            $CellContext`SF6[
+             $CellContext`MX4[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+              1, $CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], $CellContext`n, $CellContext`k, -$CellContext`t]]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], 
+          $CellContext`SF10[
+           $CellContext`SF7[
+            $CellContext`MX4[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t]]], $CellContext`SF9[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k - 3, 
+         0], $CellContext`RotMatGen[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`TMat[
+         $CellContext`RotMatTh[
+          $CellContext`TMat[$CellContext`matrix, -$CellContext`xx, \
+-$CellContext`yy, -$CellContext`zz], $CellContext`th1, $CellContext`th2], \
+$CellContext`xx, $CellContext`yy, $CellContext`zz], $CellContext`TMat[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`xx, 
+          Blank[]], 
+         Pattern[$CellContext`yy, 
+          Blank[]], 
+         Pattern[$CellContext`zz, 
+          Blank[]]] := $CellContext`matrix + 
+        Table[{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`i, 1, 
+           Total[
+            Dimensions[$CellContext`matrix, 1]]}], $CellContext`RotMatTh[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`th1, 
+          Blank[]], 
+         Pattern[$CellContext`th2, 
+          Blank[]]] := $CellContext`RotMatZ[
+         $CellContext`RotMatX[
+          $CellContext`RotMatZ[$CellContext`matrix, -$CellContext`th1], \
+$CellContext`th2], $CellContext`th1], $CellContext`RotMatZ[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]]] := Transpose[
+         Dot[{{
+            Cos[$CellContext`z], -Sin[$CellContext`z], 0}, {
+            Sin[$CellContext`z], 
+            Cos[$CellContext`z], 0}, {0, 0, 1}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`RotMatX[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := Transpose[
+         Dot[{{1, 0, 0}, {0, 
+            Cos[$CellContext`x], -Sin[$CellContext`x]}, {0, 
+            Sin[$CellContext`x], 
+            Cos[$CellContext`x]}}, 
+          Transpose[$CellContext`matrix]]], $CellContext`SF6[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 0, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k - 2, 0], $CellContext`MX4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[$CellContext`n == 0, 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t], 
+          $CellContext`SF2[
+           $CellContext`SF4[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n, \
+$CellContext`k - 
+             1, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t], $CellContext`n, $CellContext`k, $CellContext`t]], 
+         If[
+          Divisible[$CellContext`n, 2], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, -$CellContext`t], $CellContext`n, $CellContext`k, \
+-$CellContext`t], 
+          $CellContext`SF1[
+           $CellContext`SF5[
+            $CellContext`MX1[$CellContext`matrix, $CellContext`n - 
+             1, $CellContext`k, $CellContext`t], $CellContext`n, \
+$CellContext`k, $CellContext`t], $CellContext`n, $CellContext`k, \
+$CellContext`t]]], $CellContext`SF2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi + $CellContext`t, 0, 4 $CellContext`k + 2, 0], $CellContext`SF4[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi, 
+         Pi - $CellContext`t, 0, 4 $CellContext`k + 3, 0], $CellContext`SF1[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/
+         2, -$CellContext`d4[$CellContext`t], 4 $CellContext`n + 1, 0, 
+         0], $CellContext`d4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := Piecewise[{{Pi + ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], 
+           And[-(Pi/4) <= $CellContext`d1, $CellContext`d1 <= Pi/4]}, {
+          2 Pi - ArcSin[
+            $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 > Pi/4}, {-
+           ArcSin[
+             $CellContext`Sind4[$CellContext`d1]], $CellContext`d1 < -(Pi/
+             4)}}], $CellContext`Sind4[
+         Pattern[$CellContext`d1, 
+          Blank[]]] := 
+       Sin[$CellContext`d1] ((-Cos[$CellContext`a1] + Cos[$CellContext`a2])/(
+         1 - Cos[$CellContext`a1] 
+         Cos[$CellContext`a2] - (Sin[$CellContext`a1] Sin[$CellContext`a2]) 
+         Cos[$CellContext`d1])), $CellContext`a1 = (3 Pi)/4, $CellContext`a2 = 
+       Pi/2, $CellContext`SF5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, Pi/2, 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n + 2, 0, 
+         0], $CellContext`SF10[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/
+          2), -$CellContext`d4[$CellContext`t], 4 $CellContext`n - 2, 0, 
+         0], $CellContext`SF7[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, -(Pi/2), 
+         $CellContext`d4[$CellContext`t], 4 $CellContext`n - 1, 0, 
+         0], $CellContext`X1[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MR2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t], 
+         $CellContext`SF10[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t]], $CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MT3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, -$CellContext`t], 
+         $CellContext`SF2[$CellContext`matrix, $CellContext`n, $CellContext`k - 
+          1, $CellContext`t]], $CellContext`T3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 3], 0}}, $CellContext`ML2[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`n, 2], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, $CellContext`t], 
+         $CellContext`SF5[$CellContext`matrix, $CellContext`n - 
+          1, $CellContext`k, -$CellContext`t]], $CellContext`MX5[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 3 (Pi/4), 
+         Pi + $CellContext`t, 4 ($CellContext`n + $CellContext`k) - 5, 0, 
+         0], $CellContext`X5[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 3], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`X4[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`L2[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 3], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 2], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 1], 0}, {
+          Max[4, 4 $CellContext`n - 3], 
+          Min[4 $CellContext`size + 4, 4 $CellContext`k + 2], 
+          0}}, $CellContext`MB3[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF6[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`B3[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`size, 
+          Blank[]]] := {{
+          Max[4, 4 $CellContext`n - 2], 
+          Max[4, 4 $CellContext`k - 1], 0}, {
+          Max[4, 4 $CellContext`n - 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 1], 
+          Max[4, 4 $CellContext`k - 2], 0}, {
+          Min[4 $CellContext`size + 4, 4 $CellContext`n + 2], 
+          Max[4, 4 $CellContext`k - 1], 0}}, $CellContext`MX5x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := If[
+         Divisible[$CellContext`k, 2], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, -$CellContext`t], 
+         $CellContext`SF3x[$CellContext`matrix, $CellContext`n, \
+$CellContext`k, $CellContext`t]], $CellContext`SF3x[
+         Pattern[$CellContext`matrix, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`t, 
+          Blank[]]] := $CellContext`RotMatGen[$CellContext`matrix, 
+         3 (Pi/4), -$CellContext`d4[$CellContext`t], 
+         4 ($CellContext`n + $CellContext`k) - 5, 0, 0], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->241011234]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "\"Size\" is the number of square twists repeated in each direction. \
+\"Dihedral angle\" is the angle formed by a specific crease in the square \
+twist. It ranges from ",
+ Cell[BoxData[
+  FormBox["\[Pi]", TraditionalForm]], "InlineMath"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"-", "\[Pi]"}], TraditionalForm]], "InlineMath"],
+ " and determines all of the other crease angles. At zero, the square twist \
+folds \"through\" itself, then repeats the same folding process to unfold in \
+the other direction. The snapshots show the original crease pattern, folding \
+up to the completely folded form at dihedral angle 0, in several different \
+sizes."
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.429786801203125*^9, 3.42978681384375*^9}, {
+   3.42978693721875*^9, 3.4297869885625*^9}, {3.429787124140625*^9, 
+   3.4297872821875*^9}, {3.4297891971875*^9, 3.429789213875*^9}, {
+   3.438520990842614*^9, 3.4385209990894394`*^9}, {3.4387048412331657`*^9, 
+   3.4387048437424173`*^9}},
+ CellID->1007997457]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.438521005149045*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.427189670895664*^9},
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["origami", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188270399612*^9, 3.4271882715416822`*^9}},
+ CellID->2049182734],
+
+Cell["square", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188276463233*^9, 3.4271882840295057`*^9}},
+ CellID->1418963399],
+
+Cell["twist", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188285944907*^9, 3.4271882868772917`*^9}},
+ CellID->711947058],
+
+Cell["fold", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4271882882610207`*^9, 3.427188288765033*^9}},
+ CellID->2062806369],
+
+Cell["tessellation", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188289889474*^9, 3.427188291956851*^9}, 
+   3.429786415875*^9},
+ CellID->610646615],
+
+Cell["tessellate", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188293323675*^9, 3.427188296188758*^9}, 
+   3.429786399921875*^9},
+ CellID->313309292],
+
+Cell["folding", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188300267467*^9, 3.427188301364541*^9}},
+ CellID->159368200]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Folding",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Folding.html"], None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.438521096047134*^9, 3.4385211021547446`*^9}},
+ CellID->17648197],
+
+Cell[TextData[ButtonBox["Origami",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Origami.html"], None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4385210416096907`*^9, 3.4385210476862984`*^9}},
+ CellID->80570957],
+
+Cell[TextData[ButtonBox["Tesselation",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Tessellation.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.43852107560209*^9, 3.43852108260279*^9}},
+ CellID->812735277]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Ben Kraft",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Ben+Kraft"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Ben+Kraft"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.427188506776787*^9, 3.427188508725402*^9}, {
+   3.429786155375*^9, 3.429786155375*^9}, {3.429786343921875*^9, 
+   3.429786343921875*^9}, {3.429787324359375*^9, 3.429787329421875*^9}}],
+
+Cell[TextData[{
+ "Suggested by: ",
+ ButtonBox["Thomas C. Hull",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Thomas+C.+Hull"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Thomas+C.+Hull"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.429786347859375*^9, {3.438521009888519*^9, 
+   3.438521011161646*^9}},
+ CellID->79749531]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{762, 681},
+WindowMargins->{{166, Automatic}, {Automatic, 44}},
+FrontEndVersion->"6.0 for Microsoft Windows (64-bit) (May 21, 2008)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[164382, 4169, 373, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[164758, 4180, 739, 17, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[165500, 4199, 339, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[165842, 4212, 636, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[166481, 4229, 843, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[167327, 4252, 368, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[167698, 4263, 1411, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[169112, 4296, 881, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 173418, 4439},
+ {"RotateAndZoomIn3D", 173528, 4442},
+ {"DragLocators", 173639, 4445},
+ {"CreateAndDeleteLocators", 173756, 4448},
+ {"SliderZoom", 173871, 4451},
+ {"GamepadControls", 173978, 4454},
+ {"AutomaticAnimation", 174092, 4457},
+ {"BookmarkAnimation", 174210, 4460}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 277, 4, 74, "DemoTitle"],
+Cell[CellGroupData[{
+Cell[892, 31, 33, 0, 156, "InitializationSection"],
+Cell[928, 33, 27698, 853, 1568, "Input",
+ InitializationCell->True,
+ CellID->350184975]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28663, 891, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[28717, 895, 5260, 130, 248, "Input"],
+Cell[33980, 1027, 21374, 511, 529, "Output",
+ CellID->127800273]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55400, 1544, 36, 0, 136, "ManipulateCaptionSection"],
+Cell[55439, 1546, 504, 9, 37, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55980, 1560, 28, 0, 168, "ThumbnailSection"],
+Cell[56011, 1562, 21456, 512, 529, "Output",
+ CellID->178260574]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77504, 2079, 28, 0, 138, "SnapshotsSection"],
+Cell[77535, 2081, 21373, 511, 529, "Output",
+ CellID->29032983],
+Cell[98911, 2594, 21456, 512, 529, "Output",
+ CellID->554371945],
+Cell[120370, 3108, 21452, 512, 529, "Output",
+ CellID->879511131],
+Cell[141825, 3622, 21370, 511, 529, "Output",
+ CellID->241011234]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[163232, 4138, 26, 0, 232, "DetailsSection"],
+Cell[163261, 4140, 1044, 22, 83, "DetailNotes",
+ CellID->1007997457]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[164342, 4167, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[164382, 4169, 373, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[164758, 4180, 739, 17, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[165500, 4199, 339, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[165842, 4212, 636, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[166481, 4229, 843, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[167327, 4252, 368, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[167698, 4263, 1411, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[169112, 4296, 881, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[170030, 4322, 30, 0, 152, "SearchTermsSection"],
+Cell[170063, 4324, 143, 3, 22, "SearchTerms",
+ CellID->2049182734],
+Cell[170209, 4329, 142, 3, 22, "SearchTerms",
+ CellID->1418963399],
+Cell[170354, 4334, 140, 3, 22, "SearchTerms",
+ CellID->711947058],
+Cell[170497, 4339, 140, 3, 22, "SearchTerms",
+ CellID->2062806369],
+Cell[170640, 4344, 168, 4, 22, "SearchTerms",
+ CellID->610646615],
+Cell[170811, 4350, 169, 4, 22, "SearchTerms",
+ CellID->313309292],
+Cell[170983, 4356, 140, 3, 22, "SearchTerms",
+ CellID->159368200]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[171160, 4364, 31, 0, 138, "RelatedLinksSection"],
+Cell[171194, 4366, 263, 6, 22, "RelatedLinks",
+ CellID->17648197],
+Cell[171460, 4374, 265, 6, 22, "RelatedLinks",
+ CellID->80570957],
+Cell[171728, 4382, 273, 7, 22, "RelatedLinks",
+ CellID->812735277]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[172038, 4394, 25, 0, 136, "AuthorSection"],
+Cell[172066, 4396, 517, 13, 22, "Author"],
+Cell[172586, 4411, 432, 13, 22, "Author",
+ CellID->79749531]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

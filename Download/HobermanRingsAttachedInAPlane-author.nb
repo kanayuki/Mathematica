@@ -1,0 +1,1449 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     64556,       1440]
+NotebookOptionsPosition[     60834,       1325]
+NotebookOutlinePosition[     62433,       1375]
+CellTagsIndexPosition[     62105,       1363]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Hoberman Rings Attached in a Plane", "DemoTitle",
+ CellChangeTimes->{3.35696210375764*^9, 3.3848796919413986`*^9}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"no", ">", "polygon"}], ",", 
+      RowBox[{"no", "=", "polygon"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"lift", ">", 
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"Pi", "/", "polygon"}], "]"}], "/", 
+        RowBox[{"Tan", "[", 
+         RowBox[{"Pi", "/", "polygon"}], "]"}]}]}], ",", 
+      RowBox[{"lift", "=", 
+       RowBox[{
+        RowBox[{"N", "@", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"Pi", "/", "polygon"}], "]"}]}], "/", 
+        RowBox[{"Tan", "[", 
+         RowBox[{"Pi", "/", "polygon"}], "]"}]}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalDelta]", "=", 
+     RowBox[{"Pi", "/", "polygon"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"By", "=", "lift"}], ";", 
+    RowBox[{"Bx", "=", 
+     RowBox[{"By", " ", 
+      RowBox[{"Tan", "[", "\[CapitalDelta]", "]"}]}]}], ";", 
+    RowBox[{"Bz", " ", "=", "0"}], ";", 
+    RowBox[{"vB1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "Bx"}], ",", "By", ",", "Bz"}], "}"}]}], ";", 
+    RowBox[{"vB2", "=", 
+     RowBox[{"{", 
+      RowBox[{"Bx", ",", "By", ",", "Bz"}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Ay", "=", 
+     RowBox[{"By", "+", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"1", "-", 
+        RowBox[{"Bx", "^", "2"}]}], "]"}]}]}], ";", 
+    RowBox[{"Ax", "=", "0"}], ";", 
+    RowBox[{"Az", "=", "0"}], ";", 
+    RowBox[{"vA", "=", 
+     RowBox[{"{", 
+      RowBox[{"Ax", ",", "Ay", ",", "Az"}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Px", "=", 
+     RowBox[{"Py", " ", 
+      RowBox[{"Tan", "[", "\[CapitalDelta]", "]"}]}]}], ";", 
+    RowBox[{"Py", "=", "4"}], ";", 
+    RowBox[{"Pz", "=", "0"}], ";", 
+    RowBox[{"vP", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "Px"}], ",", "Py", ",", "Pz"}], "}"}]}], ";", 
+    RowBox[{"vQ", "=", 
+     RowBox[{"{", 
+      RowBox[{"Px", ",", "Py", ",", "Pz"}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"w", "=", 
+     RowBox[{"Ay", " ", 
+      RowBox[{"Sin", "[", "\[CapitalDelta]", "]"}]}]}], ";", 
+    RowBox[{"v", "=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"1", "-", 
+       RowBox[{"w", "^", "2"}]}], "]"}]}], ";", 
+    RowBox[{"u", "=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{"Bx", "^", "2"}], "+", 
+       RowBox[{"By", "^", "2"}]}], "]"}]}], ";", 
+    RowBox[{"Cx", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", "v"}], "+", "u"}], ")"}], 
+      RowBox[{"Sin", "[", "\[CapitalDelta]", "]"}]}]}], ";", " ", 
+    RowBox[{"Cy", "=", 
+     RowBox[{"Cx", "/", 
+      RowBox[{"Tan", "[", "\[CapitalDelta]", "]"}]}]}], ";", 
+    RowBox[{"Cz", "=", "0"}], ";", 
+    RowBox[{"vC1", "=", 
+     RowBox[{"{", 
+      RowBox[{"Cx", ",", "Cy", ",", "Cz"}], "}"}]}], ";", 
+    RowBox[{"vC2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "Cx"}], ",", "Cy", ",", "Cz"}], "}"}]}], ";", 
+    RowBox[{"vAn", "=", 
+     RowBox[{"{", 
+      RowBox[{"Ax", ",", "Ay", ",", "0.05"}], "}"}]}], ";", 
+    RowBox[{"vC1n", "=", 
+     RowBox[{"{", 
+      RowBox[{"Cx", ",", "Cy", ",", 
+       RowBox[{"Cz", "+", "0.05"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"vB1n", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "Bx"}], ",", "By", ",", 
+       RowBox[{"Bz", "+", "0.05"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"p1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FaceForm", "[", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{".24", ",", ".39", ",", ".77"}], "]"}], "]"}], ",", 
+       RowBox[{"Polygon", "[", 
+        RowBox[{"{", 
+         RowBox[{"vAn", ",", "vC1n", ",", "vB1n"}], "}"}], "]"}]}], "}"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"p2", "=", 
+     RowBox[{"Polygon", "[", 
+      RowBox[{"{", 
+       RowBox[{"vA", ",", "vC2", ",", "vB2"}], "}"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"pivot", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", ".47", ",", "0"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "Ay", ",", 
+             RowBox[{"-", "0.1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "Ay", ",", "0.1"}], "}"}]}], "}"}], ",", 
+         "size"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pivott", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", ".71", ",", "0"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "Cx"}], ",", "Cy", ",", 
+             RowBox[{"-", "0.2"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "Cx"}], ",", "Cy", ",", "0.2"}], "}"}]}], "}"}], 
+         ",", "size1"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"cross1", "=", 
+     RowBox[{"{", 
+      RowBox[{"pivot", ",", "pivott", ",", "p1", ",", "p2"}], "}"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"cross2", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Scale", "[", 
+        RowBox[{"cross1", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Cy", "/", "By"}], ")"}], "^", "i"}], 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "ro"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"hober", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Rotate", "[", 
+        RowBox[{"cross2", ",", 
+         RowBox[{"i", " ", "2", "  ", "\[CapitalDelta]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "no"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{"hober", ",", 
+      RowBox[{"SphericalRegion", "\[Rule]", "True"}], ",", 
+      RowBox[{"ViewPoint", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "5"}], "}"}]}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "375"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"lift", ",", "1.3", ",", "\"\<lift\>\""}], "}"}], ",", "0.1", 
+     ",", 
+     RowBox[{
+      RowBox[{"Cos", "[", 
+       RowBox[{"Pi", "/", "polygon"}], "]"}], "/", 
+      RowBox[{"Tan", "[", 
+       RowBox[{"Pi", "/", "polygon"}], "]"}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"polygon", ",", "10", ",", "\"\<polygon\>\""}], "}"}], ",", "6",
+      ",", "14", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"no", ",", "10", ",", "\"\<scissors around\>\""}], "}"}], ",", 
+     "1", ",", "polygon", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ro", ",", "3", ",", "\"\<scissors radially\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<1\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<2\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<3\>\""}], ",", 
+       RowBox[{"4", "\[Rule]", "\"\<4\>\""}]}], "}"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"size", ",", "0.12", ",", "\"\<pivot sizes\>\""}], "}"}], ",", 
+     "0.05", ",", "0.4", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"size1", ",", "0.1", ",", "\"\<node sizes\>\""}], "}"}], ",", 
+     "0.05", ",", "0.4", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "polygon", ",", "no", ",", "ro", ",", "lift", ",", "size", ",", 
+      "size1"}], "}"}]}], ",", 
+   RowBox[{"ContinuousAction", "\[Rule]", "False"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.38034751490625*^9, 3.380347533890625*^9}, {
+   3.38034771503125*^9, 3.380347724953125*^9}, {3.380347817765625*^9, 
+   3.380347820046875*^9}, {3.380347888640625*^9, 3.3803479053125*^9}, 
+   3.380347977015625*^9, {3.38034806321875*^9, 3.380348107328125*^9}, {
+   3.380348148125*^9, 3.380348186421875*^9}, {3.380348242578125*^9, 
+   3.380348292390625*^9}, {3.3803483450625*^9, 3.380348372875*^9}, {
+   3.380348417453125*^9, 3.38034845603125*^9}, {3.380348493015625*^9, 
+   3.380348498703125*^9}, {3.38034853821875*^9, 3.380348558703125*^9}, 
+   3.380349238328125*^9, {3.3803493004375*^9, 3.38034932259375*^9}, {
+   3.38034940684375*^9, 3.380349479578125*^9}, {3.380350179*^9, 
+   3.380350204984375*^9}, 3.38035033478125*^9, {3.380350919328125*^9, 
+   3.38035104140625*^9}, {3.380351073953125*^9, 3.38035108109375*^9}, {
+   3.38035121665625*^9, 3.380351247703125*^9}, {3.38035129275*^9, 
+   3.38035132846875*^9}, {3.38035141840625*^9, 3.380351420984375*^9}, {
+   3.38035146646875*^9, 3.380351502296875*^9}, {3.380351606796875*^9, 
+   3.38035164071875*^9}, {3.380351699609375*^9, 3.3803517005625*^9}, 
+   3.38035180090625*^9, 3.3803518431875*^9, {3.38035203746875*^9, 
+   3.380352077828125*^9}, {3.3803521179375*^9, 3.380352146359375*^9}, {
+   3.3803522736875*^9, 3.380352282796875*^9}, {3.380352315703125*^9, 
+   3.38035233503125*^9}, 3.380352408578125*^9, {3.380352609515625*^9, 
+   3.380352619984375*^9}, {3.380352650625*^9, 3.380352656109375*^9}, {
+   3.380352746625*^9, 3.380352765734375*^9}, {3.380352798234375*^9, 
+   3.380352843234375*^9}, {3.3803528848125*^9, 3.380352907953125*^9}, {
+   3.380352989546875*^9, 3.38035300359375*^9}, {3.380353046640625*^9, 
+   3.380353094828125*^9}, {3.380353161109375*^9, 3.380353162140625*^9}, {
+   3.38035320590625*^9, 3.380353231578125*^9}, {3.380353306984375*^9, 
+   3.38035334940625*^9}, {3.38035339190625*^9, 3.38035342728125*^9}, {
+   3.38035350840625*^9, 3.380353516125*^9}, {3.38035355153125*^9, 
+   3.380353555875*^9}, {3.3803535888125*^9, 3.380353618953125*^9}, {
+   3.38035365775*^9, 3.380353670546875*^9}, {3.380353725828125*^9, 
+   3.38035373071875*^9}, {3.38035378309375*^9, 3.38035384603125*^9}, {
+   3.380353903859375*^9, 3.3803539068125*^9}, {3.38035396546875*^9, 
+   3.38035398228125*^9}, 3.380354018171875*^9, {3.3803540581875*^9, 
+   3.38035406809375*^9}, {3.380354144140625*^9, 3.380354145140625*^9}, {
+   3.38035419675*^9, 3.3803542301875*^9}, 3.3803542615625*^9, {
+   3.380354364078125*^9, 3.380354375*^9}, {3.38035445221875*^9, 
+   3.380354487171875*^9}, {3.3803545214375*^9, 3.380354534640625*^9}, {
+   3.3803545836875*^9, 3.380354647296875*^9}, {3.380354715265625*^9, 
+   3.380354849671875*^9}, {3.380355169375*^9, 3.38035517503125*^9}, {
+   3.38035529659375*^9, 3.380355297734375*^9}, {3.38035534034375*^9, 
+   3.3803553806875*^9}, {3.380355421578125*^9, 3.380355429578125*^9}, {
+   3.380355461640625*^9, 3.380355462328125*^9}, {3.3803554966875*^9, 
+   3.38035552178125*^9}, {3.380355747984375*^9, 3.38035576728125*^9}, {
+   3.380355905734375*^9, 3.3803559095625*^9}, {3.3803641539375*^9, 
+   3.380364154765625*^9}, 3.38036423084375*^9, {3.38036427559375*^9, 
+   3.380364383296875*^9}, {3.380364502390625*^9, 3.380364577734375*^9}, {
+   3.3803646726875*^9, 3.380364758296875*^9}, 3.38036485184375*^9, {
+   3.380364934546875*^9, 3.380364979640625*^9}, {3.380365015140625*^9, 
+   3.3803650391875*^9}, {3.380365164546875*^9, 3.380365270890625*^9}, {
+   3.38036538*^9, 3.380365402421875*^9}, {3.3803654393125*^9, 
+   3.380365481515625*^9}, {3.3803655196875*^9, 3.380365526875*^9}, {
+   3.380365576421875*^9, 3.380365581*^9}, {3.380365686609375*^9, 
+   3.380365689296875*^9}, {3.380365737328125*^9, 3.380365742421875*^9}, {
+   3.38036577509375*^9, 3.380365807578125*^9}, {3.380365841921875*^9, 
+   3.3803658435625*^9}, {3.380365922921875*^9, 3.38036593996875*^9}, {
+   3.380367252140625*^9, 3.38036727828125*^9}, {3.380367357296875*^9, 
+   3.38036735825*^9}, {3.380367749265625*^9, 3.380367765765625*^9}, 
+   3.380367807359375*^9, {3.380367842953125*^9, 3.38036804465625*^9}, {
+   3.380368151171875*^9, 3.38036819859375*^9}, {3.380368237984375*^9, 
+   3.380368266546875*^9}, {3.38036839409375*^9, 3.380368435078125*^9}, {
+   3.3803684655*^9, 3.380368466296875*^9}, {3.3803697823125*^9, 
+   3.380369814828125*^9}, {3.38036985178125*^9, 3.38036999140625*^9}, {
+   3.38037002696875*^9, 3.3803700908125*^9}, {3.380370124609375*^9, 
+   3.3803701543125*^9}, {3.380370192671875*^9, 3.380370221609375*^9}, {
+   3.380370255875*^9, 3.380370266671875*^9}, {3.38037030184375*^9, 
+   3.38037030578125*^9}, {3.3803703375625*^9, 3.380370490359375*^9}, {
+   3.3803705209375*^9, 3.380370557390625*^9}, {3.380371079296875*^9, 
+   3.38037111215625*^9}, {3.380371164640625*^9, 3.380371260859375*^9}, {
+   3.380371298828125*^9, 3.380371308140625*^9}, {3.380371342421875*^9, 
+   3.38037137303125*^9}, {3.38037140903125*^9, 3.3803715641875*^9}, {
+   3.38037160140625*^9, 3.38037161609375*^9}, {3.380371892265625*^9, 
+   3.380371896796875*^9}, {3.380783900453125*^9, 3.3807842004375*^9}, {
+   3.3807844944375*^9, 3.380784561234375*^9}, {3.38078460665625*^9, 
+   3.3807846119375*^9}, {3.380871186546875*^9, 3.380871218609375*^9}, {
+   3.3808712576875*^9, 3.38087129978125*^9}, {3.3808713396875*^9, 
+   3.380871346375*^9}, {3.3808715253125*^9, 3.380871526375*^9}, {
+   3.38087156571875*^9, 3.380871593796875*^9}, {3.380871912015625*^9, 
+   3.38087191565625*^9}, {3.38087195984375*^9, 3.38087199884375*^9}, {
+   3.3808720329375*^9, 3.380872155109375*^9}, {3.380872292421875*^9, 
+   3.3808722939375*^9}, {3.380872349078125*^9, 3.380872353921875*^9}, {
+   3.380872407484375*^9, 3.38087245646875*^9}, {3.380872526828125*^9, 
+   3.380872527953125*^9}, {3.380872560640625*^9, 3.380872599234375*^9}, {
+   3.3808726331875*^9, 3.380872685953125*^9}, {3.380872718875*^9, 
+   3.380872741671875*^9}, {3.380872835375*^9, 3.380872842890625*^9}, {
+   3.380872942625*^9, 3.3808729969375*^9}, {3.3808730711875*^9, 
+   3.380873107140625*^9}, {3.380873171609375*^9, 3.380873236375*^9}, {
+   3.380873307796875*^9, 3.3808733100625*^9}, {3.38087343565625*^9, 
+   3.380873462921875*^9}, {3.380873533546875*^9, 3.380873541453125*^9}, {
+   3.380873665453125*^9, 3.3808737359375*^9}, {3.3808737986875*^9, 
+   3.380873840578125*^9}, {3.38087387678125*^9, 3.380873935484375*^9}, {
+   3.3808740079375*^9, 3.380874078765625*^9}, {3.380874125109375*^9, 
+   3.380874211078125*^9}, {3.38336662340625*^9, 3.383366673453125*^9}, {
+   3.383366776015625*^9, 3.383366890359375*^9}, {3.383366925125*^9, 
+   3.383366931515625*^9}, {3.383367061*^9, 3.383367064734375*^9}, {
+   3.383367105609375*^9, 3.383367110984375*^9}, {3.383367220140625*^9, 
+   3.3833672345*^9}, {3.383367284546875*^9, 3.3833673065625*^9}, {
+   3.383367523453125*^9, 3.383367541390625*^9}, {3.3833676418125*^9, 
+   3.38336765184375*^9}, {3.383367872578125*^9, 3.383367887515625*^9}, {
+   3.3833679329375*^9, 3.383368010765625*^9}, {3.383368072203125*^9, 
+   3.38336807375*^9}, {3.383368118625*^9, 3.383368122109375*^9}, {
+   3.38336844140625*^9, 3.38336849515625*^9}, {3.38337042790625*^9, 
+   3.383370437484375*^9}, {3.383370672828125*^9, 3.38337068884375*^9}, 
+   3.383370969578125*^9, {3.383371019765625*^9, 3.383371052734375*^9}, {
+   3.3833919512908497`*^9, 3.3833919594314747`*^9}, {3.38374521696875*^9, 
+   3.383745271609375*^9}, 3.383745314421875*^9, {3.384194779173772*^9, 
+   3.3841948275838265`*^9}, {3.384268366448888*^9, 3.384268371573002*^9}, {
+   3.3848796463169823`*^9, 3.3848796654417377`*^9}},
+ CellID->173070274],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lift$$ = 1.3, $CellContext`no$$ = 
+    10, $CellContext`polygon$$ = 10, $CellContext`ro$$ = 
+    3, $CellContext`size$$ = 0.12, $CellContext`size1$$ = 0.1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`lift$$], 1.3, "lift"}, 0.1, 
+      Dynamic[
+      Cos[Pi/$CellContext`polygon$$]/Tan[Pi/$CellContext`polygon$$]]}, {{
+       Hold[$CellContext`polygon$$], 10, "polygon"}, 6, 14, 1}, {{
+       Hold[$CellContext`no$$], 10, "scissors around"}, 1, 
+      Dynamic[$CellContext`polygon$$], 1}, {{
+       Hold[$CellContext`ro$$], 3, "scissors radially"}, {
+      1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}}, {{
+       Hold[$CellContext`size$$], 0.12, "pivot sizes"}, 0.05, 0.4}, {{
+       Hold[$CellContext`size1$$], 0.1, "node sizes"}, 0.05, 0.4}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`lift$110699$$ = 0, $CellContext`polygon$110700$$ = 
+    0, $CellContext`no$110701$$ = 0, $CellContext`ro$110702$$ = 
+    False, $CellContext`size$110703$$ = 0, $CellContext`size1$110704$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lift$$ = 1.3, $CellContext`no$$ = 
+        10, $CellContext`polygon$$ = 10, $CellContext`ro$$ = 
+        3, $CellContext`size$$ = 0.12, $CellContext`size1$$ = 0.1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`lift$$, $CellContext`lift$110699$$, 0], 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$110700$$, 0], 
+        Hold[$CellContext`no$$, $CellContext`no$110701$$, 0], 
+        Hold[$CellContext`ro$$, $CellContext`ro$110702$$, False], 
+        Hold[$CellContext`size$$, $CellContext`size$110703$$, 0], 
+        Hold[$CellContext`size1$$, $CellContext`size1$110704$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`no$$ > $CellContext`polygon$$, $CellContext`no$$ = \
+$CellContext`polygon$$]; 
+       If[$CellContext`lift$$ > 
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$], $CellContext`lift$$ = N[
+            Cos[Pi/$CellContext`polygon$$]]/Tan[
+          Pi/$CellContext`polygon$$]]; $CellContext`\[CapitalDelta] = 
+        Pi/$CellContext`polygon$$; $CellContext`By = $CellContext`lift$$; \
+$CellContext`Bx = $CellContext`By 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Bz = 
+        0; $CellContext`vB1 = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`vB2 = {$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`Ay = $CellContext`By + 
+         Sqrt[1 - $CellContext`Bx^2]; $CellContext`Ax = 0; $CellContext`Az = 
+        0; $CellContext`vA = {$CellContext`Ax, $CellContext`Ay, \
+$CellContext`Az}; $CellContext`Px = $CellContext`Py 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Py = 
+        4; $CellContext`Pz = 
+        0; $CellContext`vP = {-$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`vQ = {$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`w = $CellContext`Ay 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`v = 
+        Sqrt[1 - $CellContext`w^2]; $CellContext`u = 
+        Sqrt[$CellContext`Bx^2 + $CellContext`By^2]; $CellContext`Cx = (
+          2 $CellContext`v + $CellContext`u) 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`Cy = $CellContext`Cx/
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Cz = 
+        0; $CellContext`vC1 = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vC2 = {-$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vAn = {$CellContext`Ax, $CellContext`Ay, 
+          
+          0.05}; $CellContext`vC1n = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz + 
+          0.05}; $CellContext`vB1n = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz + 0.05}; $CellContext`p1 = {
+          FaceForm[
+           RGBColor[0.24, 0.39, 0.77]], 
+          
+          Polygon[{$CellContext`vAn, $CellContext`vC1n, $CellContext`vB1n}]}; \
+$CellContext`p2 = 
+        Polygon[{$CellContext`vA, $CellContext`vC2, $CellContext`vB2}]; \
+$CellContext`pivot = {
+          RGBColor[1, 0.47, 0], 
+          
+          Cylinder[{{0, $CellContext`Ay, -0.1}, {
+            0, $CellContext`Ay, 
+             0.1}}, $CellContext`size$$]}; $CellContext`pivott = {
+          RGBColor[1, 0.71, 0], 
+          
+          Cylinder[{{-$CellContext`Cx, $CellContext`Cy, -0.2}, \
+{-$CellContext`Cx, $CellContext`Cy, 
+             0.2}}, $CellContext`size1$$]}; $CellContext`cross1 = \
+{$CellContext`pivot, $CellContext`pivott, $CellContext`p1, $CellContext`p2}; \
+$CellContext`cross2 = Table[
+          
+          Scale[$CellContext`cross1, \
+($CellContext`Cy/$CellContext`By)^$CellContext`i {1, 1, 1}, {0, 0, 
+           0}], {$CellContext`i, $CellContext`ro$$}]; $CellContext`hober = 
+        Table[
+          
+          Rotate[$CellContext`cross2, ($CellContext`i 
+            2) $CellContext`\[CapitalDelta], {0, 0, 
+           1}], {$CellContext`i, $CellContext`no$$}]; 
+       Graphics3D[$CellContext`hober, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 5}, Boxed -> False, ImageSize -> 375, PlotRange -> 
+         All]), "Specifications" :> {{{$CellContext`lift$$, 1.3, "lift"}, 0.1, 
+         Dynamic[
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$]]}, {{$CellContext`polygon$$, 10, 
+          "polygon"}, 6, 14, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`no$$, 10, "scissors around"}, 1, 
+         Dynamic[$CellContext`polygon$$], 1, Appearance -> 
+         "Labeled"}, {{$CellContext`ro$$, 3, "scissors radially"}, {
+         1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}, ImageSize -> Tiny, 
+         ControlPlacement -> 
+         Left}, {{$CellContext`size$$, 0.12, "pivot sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`size1$$, 0.1, "node sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`polygon$$, $CellContext`no$$, \
+$CellContext`ro$$, $CellContext`lift$$, $CellContext`size$$, \
+$CellContext`size1$$}, ContinuousAction -> False, 
+        AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{578., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->930441461]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+Gradually increasing Hoberman rings are attached to each other in the plane. \
+\>", "ManipulateCaption",
+ CellChangeTimes->{3.35696210375764*^9, 3.384879704784984*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lift$$ = 
+    1.9771618527948953`, $CellContext`no$$ = 10, $CellContext`polygon$$ = 
+    10, $CellContext`ro$$ = 4, $CellContext`size$$ = 
+    0.12, $CellContext`size1$$ = 0.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`lift$$], 1.9771618527948953`, "lift"}, 0.1, 
+      Dynamic[
+      Cos[Pi/$CellContext`polygon$$]/Tan[Pi/$CellContext`polygon$$]]}, {{
+       Hold[$CellContext`polygon$$], 10, "polygon"}, 6, 14, 1}, {{
+       Hold[$CellContext`no$$], 10, "scissors around"}, 1, 
+      Dynamic[$CellContext`polygon$$], 1}, {{
+       Hold[$CellContext`ro$$], 4, "scissors radially"}, {
+      1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}}, {{
+       Hold[$CellContext`size$$], 0.12, "pivot sizes"}, 0.05, 0.4}, {{
+       Hold[$CellContext`size1$$], 0.1, "node sizes"}, 0.05, 0.4}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`lift$110782$$ = 0, $CellContext`polygon$110783$$ = 
+    0, $CellContext`no$110784$$ = 0, $CellContext`ro$110785$$ = 
+    False, $CellContext`size$110786$$ = 0, $CellContext`size1$110787$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lift$$ = 
+        1.9771618527948953`, $CellContext`no$$ = 10, $CellContext`polygon$$ = 
+        10, $CellContext`ro$$ = 4, $CellContext`size$$ = 
+        0.12, $CellContext`size1$$ = 0.1}, "ControllerVariables" :> {
+        Hold[$CellContext`lift$$, $CellContext`lift$110782$$, 0], 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$110783$$, 0], 
+        Hold[$CellContext`no$$, $CellContext`no$110784$$, 0], 
+        Hold[$CellContext`ro$$, $CellContext`ro$110785$$, False], 
+        Hold[$CellContext`size$$, $CellContext`size$110786$$, 0], 
+        Hold[$CellContext`size1$$, $CellContext`size1$110787$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`no$$ > $CellContext`polygon$$, $CellContext`no$$ = \
+$CellContext`polygon$$]; 
+       If[$CellContext`lift$$ > 
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$], $CellContext`lift$$ = N[
+            Cos[Pi/$CellContext`polygon$$]]/Tan[
+          Pi/$CellContext`polygon$$]]; $CellContext`\[CapitalDelta] = 
+        Pi/$CellContext`polygon$$; $CellContext`By = $CellContext`lift$$; \
+$CellContext`Bx = $CellContext`By 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Bz = 
+        0; $CellContext`vB1 = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`vB2 = {$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`Ay = $CellContext`By + 
+         Sqrt[1 - $CellContext`Bx^2]; $CellContext`Ax = 0; $CellContext`Az = 
+        0; $CellContext`vA = {$CellContext`Ax, $CellContext`Ay, \
+$CellContext`Az}; $CellContext`Px = $CellContext`Py 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Py = 
+        4; $CellContext`Pz = 
+        0; $CellContext`vP = {-$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`vQ = {$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`w = $CellContext`Ay 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`v = 
+        Sqrt[1 - $CellContext`w^2]; $CellContext`u = 
+        Sqrt[$CellContext`Bx^2 + $CellContext`By^2]; $CellContext`Cx = (
+          2 $CellContext`v + $CellContext`u) 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`Cy = $CellContext`Cx/
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Cz = 
+        0; $CellContext`vC1 = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vC2 = {-$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vAn = {$CellContext`Ax, $CellContext`Ay, 
+          0.05}; $CellContext`vC1n = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz + 
+          0.05}; $CellContext`vB1n = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz + 0.05}; $CellContext`p1 = {
+          FaceForm[
+           RGBColor[0.24, 0.39, 0.77]], 
+          
+          Polygon[{$CellContext`vAn, $CellContext`vC1n, $CellContext`vB1n}]}; \
+$CellContext`p2 = 
+        Polygon[{$CellContext`vA, $CellContext`vC2, $CellContext`vB2}]; \
+$CellContext`pivot = {
+          RGBColor[1, 0.47, 0], 
+          
+          Cylinder[{{0, $CellContext`Ay, -0.1}, {
+            0, $CellContext`Ay, 
+             0.1}}, $CellContext`size$$]}; $CellContext`pivott = {
+          RGBColor[1, 0.71, 0], 
+          
+          Cylinder[{{-$CellContext`Cx, $CellContext`Cy, -0.2}, \
+{-$CellContext`Cx, $CellContext`Cy, 
+             0.2}}, $CellContext`size1$$]}; $CellContext`cross1 = \
+{$CellContext`pivot, $CellContext`pivott, $CellContext`p1, $CellContext`p2}; \
+$CellContext`cross2 = Table[
+          
+          Scale[$CellContext`cross1, \
+($CellContext`Cy/$CellContext`By)^$CellContext`i {1, 1, 1}, {0, 0, 
+           0}], {$CellContext`i, $CellContext`ro$$}]; $CellContext`hober = 
+        Table[
+          
+          Rotate[$CellContext`cross2, ($CellContext`i 
+            2) $CellContext`\[CapitalDelta], {0, 0, 
+           1}], {$CellContext`i, $CellContext`no$$}]; 
+       Graphics3D[$CellContext`hober, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 5}, Boxed -> False, ImageSize -> 375, PlotRange -> 
+         All]), "Specifications" :> {{{$CellContext`lift$$, 
+          1.9771618527948953`, "lift"}, 0.1, 
+         Dynamic[
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$]]}, {{$CellContext`polygon$$, 10, 
+          "polygon"}, 6, 14, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`no$$, 10, "scissors around"}, 1, 
+         Dynamic[$CellContext`polygon$$], 1, Appearance -> 
+         "Labeled"}, {{$CellContext`ro$$, 4, "scissors radially"}, {
+         1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}, ImageSize -> Tiny, 
+         ControlPlacement -> 
+         Left}, {{$CellContext`size$$, 0.12, "pivot sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`size1$$, 0.1, "node sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`polygon$$, $CellContext`no$$, \
+$CellContext`ro$$, $CellContext`lift$$, $CellContext`size$$, \
+$CellContext`size1$$}, ContinuousAction -> False, 
+        AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{578., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->6959064]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lift$$ = 
+    1.1960356097108065`, $CellContext`no$$ = 7, $CellContext`polygon$$ = 
+    11, $CellContext`ro$$ = 3, $CellContext`size$$ = 
+    0.12, $CellContext`size1$$ = 0.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`lift$$], 1.1960356097108065`, "lift"}, 0.1, 
+      Dynamic[
+      Cos[Pi/$CellContext`polygon$$]/Tan[Pi/$CellContext`polygon$$]]}, {{
+       Hold[$CellContext`polygon$$], 11, "polygon"}, 6, 14, 1}, {{
+       Hold[$CellContext`no$$], 7, "scissors around"}, 1, 
+      Dynamic[$CellContext`polygon$$], 1}, {{
+       Hold[$CellContext`ro$$], 3, "scissors radially"}, {
+      1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}}, {{
+       Hold[$CellContext`size$$], 0.12, "pivot sizes"}, 0.05, 0.4}, {{
+       Hold[$CellContext`size1$$], 0.1, "node sizes"}, 0.05, 0.4}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`lift$110865$$ = 0, $CellContext`polygon$110866$$ = 
+    0, $CellContext`no$110867$$ = 0, $CellContext`ro$110868$$ = 
+    False, $CellContext`size$110869$$ = 0, $CellContext`size1$110870$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lift$$ = 
+        1.1960356097108065`, $CellContext`no$$ = 7, $CellContext`polygon$$ = 
+        11, $CellContext`ro$$ = 3, $CellContext`size$$ = 
+        0.12, $CellContext`size1$$ = 0.1}, "ControllerVariables" :> {
+        Hold[$CellContext`lift$$, $CellContext`lift$110865$$, 0], 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$110866$$, 0], 
+        Hold[$CellContext`no$$, $CellContext`no$110867$$, 0], 
+        Hold[$CellContext`ro$$, $CellContext`ro$110868$$, False], 
+        Hold[$CellContext`size$$, $CellContext`size$110869$$, 0], 
+        Hold[$CellContext`size1$$, $CellContext`size1$110870$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`no$$ > $CellContext`polygon$$, $CellContext`no$$ = \
+$CellContext`polygon$$]; 
+       If[$CellContext`lift$$ > 
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$], $CellContext`lift$$ = N[
+            Cos[Pi/$CellContext`polygon$$]]/Tan[
+          Pi/$CellContext`polygon$$]]; $CellContext`\[CapitalDelta] = 
+        Pi/$CellContext`polygon$$; $CellContext`By = $CellContext`lift$$; \
+$CellContext`Bx = $CellContext`By 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Bz = 
+        0; $CellContext`vB1 = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`vB2 = {$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`Ay = $CellContext`By + 
+         Sqrt[1 - $CellContext`Bx^2]; $CellContext`Ax = 0; $CellContext`Az = 
+        0; $CellContext`vA = {$CellContext`Ax, $CellContext`Ay, \
+$CellContext`Az}; $CellContext`Px = $CellContext`Py 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Py = 
+        4; $CellContext`Pz = 
+        0; $CellContext`vP = {-$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`vQ = {$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`w = $CellContext`Ay 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`v = 
+        Sqrt[1 - $CellContext`w^2]; $CellContext`u = 
+        Sqrt[$CellContext`Bx^2 + $CellContext`By^2]; $CellContext`Cx = (
+          2 $CellContext`v + $CellContext`u) 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`Cy = $CellContext`Cx/
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Cz = 
+        0; $CellContext`vC1 = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vC2 = {-$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vAn = {$CellContext`Ax, $CellContext`Ay, 
+          0.05}; $CellContext`vC1n = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz + 
+          0.05}; $CellContext`vB1n = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz + 0.05}; $CellContext`p1 = {
+          FaceForm[
+           RGBColor[0.24, 0.39, 0.77]], 
+          
+          Polygon[{$CellContext`vAn, $CellContext`vC1n, $CellContext`vB1n}]}; \
+$CellContext`p2 = 
+        Polygon[{$CellContext`vA, $CellContext`vC2, $CellContext`vB2}]; \
+$CellContext`pivot = {
+          RGBColor[1, 0.47, 0], 
+          
+          Cylinder[{{0, $CellContext`Ay, -0.1}, {
+            0, $CellContext`Ay, 
+             0.1}}, $CellContext`size$$]}; $CellContext`pivott = {
+          RGBColor[1, 0.71, 0], 
+          
+          Cylinder[{{-$CellContext`Cx, $CellContext`Cy, -0.2}, \
+{-$CellContext`Cx, $CellContext`Cy, 
+             0.2}}, $CellContext`size1$$]}; $CellContext`cross1 = \
+{$CellContext`pivot, $CellContext`pivott, $CellContext`p1, $CellContext`p2}; \
+$CellContext`cross2 = Table[
+          
+          Scale[$CellContext`cross1, \
+($CellContext`Cy/$CellContext`By)^$CellContext`i {1, 1, 1}, {0, 0, 
+           0}], {$CellContext`i, $CellContext`ro$$}]; $CellContext`hober = 
+        Table[
+          
+          Rotate[$CellContext`cross2, ($CellContext`i 
+            2) $CellContext`\[CapitalDelta], {0, 0, 
+           1}], {$CellContext`i, $CellContext`no$$}]; 
+       Graphics3D[$CellContext`hober, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 5}, Boxed -> False, ImageSize -> 375, PlotRange -> 
+         All]), "Specifications" :> {{{$CellContext`lift$$, 
+          1.1960356097108065`, "lift"}, 0.1, 
+         Dynamic[
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$]]}, {{$CellContext`polygon$$, 11, 
+          "polygon"}, 6, 14, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`no$$, 7, "scissors around"}, 1, 
+         Dynamic[$CellContext`polygon$$], 1, Appearance -> 
+         "Labeled"}, {{$CellContext`ro$$, 3, "scissors radially"}, {
+         1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}, ImageSize -> Tiny, 
+         ControlPlacement -> 
+         Left}, {{$CellContext`size$$, 0.12, "pivot sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`size1$$, 0.1, "node sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`polygon$$, $CellContext`no$$, \
+$CellContext`ro$$, $CellContext`lift$$, $CellContext`size$$, \
+$CellContext`size1$$}, ContinuousAction -> False, 
+        AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{578., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->811160305],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lift$$ = 
+    1.6138883966708255`, $CellContext`no$$ = 1, $CellContext`polygon$$ = 
+    9, $CellContext`ro$$ = 4, $CellContext`size$$ = 
+    0.12, $CellContext`size1$$ = 0.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`lift$$], 1.6138883966708255`, "lift"}, 0.1, 
+      Dynamic[
+      Cos[Pi/$CellContext`polygon$$]/Tan[Pi/$CellContext`polygon$$]]}, {{
+       Hold[$CellContext`polygon$$], 9, "polygon"}, 6, 14, 1}, {{
+       Hold[$CellContext`no$$], 1, "scissors around"}, 1, 
+      Dynamic[$CellContext`polygon$$], 1}, {{
+       Hold[$CellContext`ro$$], 4, "scissors radially"}, {
+      1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}}, {{
+       Hold[$CellContext`size$$], 0.12, "pivot sizes"}, 0.05, 0.4}, {{
+       Hold[$CellContext`size1$$], 0.1, "node sizes"}, 0.05, 0.4}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`lift$110948$$ = 0, $CellContext`polygon$110949$$ = 
+    0, $CellContext`no$110950$$ = 0, $CellContext`ro$110951$$ = 
+    False, $CellContext`size$110952$$ = 0, $CellContext`size1$110953$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lift$$ = 
+        1.6138883966708255`, $CellContext`no$$ = 1, $CellContext`polygon$$ = 
+        9, $CellContext`ro$$ = 4, $CellContext`size$$ = 
+        0.12, $CellContext`size1$$ = 0.1}, "ControllerVariables" :> {
+        Hold[$CellContext`lift$$, $CellContext`lift$110948$$, 0], 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$110949$$, 0], 
+        Hold[$CellContext`no$$, $CellContext`no$110950$$, 0], 
+        Hold[$CellContext`ro$$, $CellContext`ro$110951$$, False], 
+        Hold[$CellContext`size$$, $CellContext`size$110952$$, 0], 
+        Hold[$CellContext`size1$$, $CellContext`size1$110953$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`no$$ > $CellContext`polygon$$, $CellContext`no$$ = \
+$CellContext`polygon$$]; 
+       If[$CellContext`lift$$ > 
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$], $CellContext`lift$$ = N[
+            Cos[Pi/$CellContext`polygon$$]]/Tan[
+          Pi/$CellContext`polygon$$]]; $CellContext`\[CapitalDelta] = 
+        Pi/$CellContext`polygon$$; $CellContext`By = $CellContext`lift$$; \
+$CellContext`Bx = $CellContext`By 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Bz = 
+        0; $CellContext`vB1 = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`vB2 = {$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`Ay = $CellContext`By + 
+         Sqrt[1 - $CellContext`Bx^2]; $CellContext`Ax = 0; $CellContext`Az = 
+        0; $CellContext`vA = {$CellContext`Ax, $CellContext`Ay, \
+$CellContext`Az}; $CellContext`Px = $CellContext`Py 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Py = 
+        4; $CellContext`Pz = 
+        0; $CellContext`vP = {-$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`vQ = {$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`w = $CellContext`Ay 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`v = 
+        Sqrt[1 - $CellContext`w^2]; $CellContext`u = 
+        Sqrt[$CellContext`Bx^2 + $CellContext`By^2]; $CellContext`Cx = (
+          2 $CellContext`v + $CellContext`u) 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`Cy = $CellContext`Cx/
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Cz = 
+        0; $CellContext`vC1 = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vC2 = {-$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vAn = {$CellContext`Ax, $CellContext`Ay, 
+          0.05}; $CellContext`vC1n = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz + 
+          0.05}; $CellContext`vB1n = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz + 0.05}; $CellContext`p1 = {
+          FaceForm[
+           RGBColor[0.24, 0.39, 0.77]], 
+          
+          Polygon[{$CellContext`vAn, $CellContext`vC1n, $CellContext`vB1n}]}; \
+$CellContext`p2 = 
+        Polygon[{$CellContext`vA, $CellContext`vC2, $CellContext`vB2}]; \
+$CellContext`pivot = {
+          RGBColor[1, 0.47, 0], 
+          
+          Cylinder[{{0, $CellContext`Ay, -0.1}, {
+            0, $CellContext`Ay, 
+             0.1}}, $CellContext`size$$]}; $CellContext`pivott = {
+          RGBColor[1, 0.71, 0], 
+          
+          Cylinder[{{-$CellContext`Cx, $CellContext`Cy, -0.2}, \
+{-$CellContext`Cx, $CellContext`Cy, 
+             0.2}}, $CellContext`size1$$]}; $CellContext`cross1 = \
+{$CellContext`pivot, $CellContext`pivott, $CellContext`p1, $CellContext`p2}; \
+$CellContext`cross2 = Table[
+          
+          Scale[$CellContext`cross1, \
+($CellContext`Cy/$CellContext`By)^$CellContext`i {1, 1, 1}, {0, 0, 
+           0}], {$CellContext`i, $CellContext`ro$$}]; $CellContext`hober = 
+        Table[
+          
+          Rotate[$CellContext`cross2, ($CellContext`i 
+            2) $CellContext`\[CapitalDelta], {0, 0, 
+           1}], {$CellContext`i, $CellContext`no$$}]; 
+       Graphics3D[$CellContext`hober, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 5}, Boxed -> False, ImageSize -> 375, PlotRange -> 
+         All]), "Specifications" :> {{{$CellContext`lift$$, 
+          1.6138883966708255`, "lift"}, 0.1, 
+         Dynamic[
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$]]}, {{$CellContext`polygon$$, 9, 
+          "polygon"}, 6, 14, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`no$$, 1, "scissors around"}, 1, 
+         Dynamic[$CellContext`polygon$$], 1, Appearance -> 
+         "Labeled"}, {{$CellContext`ro$$, 4, "scissors radially"}, {
+         1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}, ImageSize -> Tiny, 
+         ControlPlacement -> 
+         Left}, {{$CellContext`size$$, 0.12, "pivot sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`size1$$, 0.1, "node sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`polygon$$, $CellContext`no$$, \
+$CellContext`ro$$, $CellContext`lift$$, $CellContext`size$$, \
+$CellContext`size1$$}, ContinuousAction -> False, 
+        AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{578., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->425810254],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lift$$ = 
+    0.9926877905244246, $CellContext`no$$ = 14, $CellContext`polygon$$ = 
+    14, $CellContext`ro$$ = 3, $CellContext`size$$ = 
+    0.12, $CellContext`size1$$ = 0.1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`lift$$], 0.9926877905244246, "lift"}, 0.1, 
+      Dynamic[
+      Cos[Pi/$CellContext`polygon$$]/Tan[Pi/$CellContext`polygon$$]]}, {{
+       Hold[$CellContext`polygon$$], 14, "polygon"}, 6, 14, 1}, {{
+       Hold[$CellContext`no$$], 14, "scissors around"}, 1, 
+      Dynamic[$CellContext`polygon$$], 1}, {{
+       Hold[$CellContext`ro$$], 3, "scissors radially"}, {
+      1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}}, {{
+       Hold[$CellContext`size$$], 0.12, "pivot sizes"}, 0.05, 0.4}, {{
+       Hold[$CellContext`size1$$], 0.1, "node sizes"}, 0.05, 0.4}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`lift$111031$$ = 0, $CellContext`polygon$111032$$ = 
+    0, $CellContext`no$111033$$ = 0, $CellContext`ro$111034$$ = 
+    False, $CellContext`size$111035$$ = 0, $CellContext`size1$111036$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lift$$ = 
+        0.9926877905244246, $CellContext`no$$ = 14, $CellContext`polygon$$ = 
+        14, $CellContext`ro$$ = 3, $CellContext`size$$ = 
+        0.12, $CellContext`size1$$ = 0.1}, "ControllerVariables" :> {
+        Hold[$CellContext`lift$$, $CellContext`lift$111031$$, 0], 
+        Hold[$CellContext`polygon$$, $CellContext`polygon$111032$$, 0], 
+        Hold[$CellContext`no$$, $CellContext`no$111033$$, 0], 
+        Hold[$CellContext`ro$$, $CellContext`ro$111034$$, False], 
+        Hold[$CellContext`size$$, $CellContext`size$111035$$, 0], 
+        Hold[$CellContext`size1$$, $CellContext`size1$111036$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`no$$ > $CellContext`polygon$$, $CellContext`no$$ = \
+$CellContext`polygon$$]; 
+       If[$CellContext`lift$$ > 
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$], $CellContext`lift$$ = N[
+            Cos[Pi/$CellContext`polygon$$]]/Tan[
+          Pi/$CellContext`polygon$$]]; $CellContext`\[CapitalDelta] = 
+        Pi/$CellContext`polygon$$; $CellContext`By = $CellContext`lift$$; \
+$CellContext`Bx = $CellContext`By 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Bz = 
+        0; $CellContext`vB1 = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`vB2 = {$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz}; $CellContext`Ay = $CellContext`By + 
+         Sqrt[1 - $CellContext`Bx^2]; $CellContext`Ax = 0; $CellContext`Az = 
+        0; $CellContext`vA = {$CellContext`Ax, $CellContext`Ay, \
+$CellContext`Az}; $CellContext`Px = $CellContext`Py 
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Py = 
+        4; $CellContext`Pz = 
+        0; $CellContext`vP = {-$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`vQ = {$CellContext`Px, $CellContext`Py, \
+$CellContext`Pz}; $CellContext`w = $CellContext`Ay 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`v = 
+        Sqrt[1 - $CellContext`w^2]; $CellContext`u = 
+        Sqrt[$CellContext`Bx^2 + $CellContext`By^2]; $CellContext`Cx = (
+          2 $CellContext`v + $CellContext`u) 
+         Sin[$CellContext`\[CapitalDelta]]; $CellContext`Cy = $CellContext`Cx/
+         Tan[$CellContext`\[CapitalDelta]]; $CellContext`Cz = 
+        0; $CellContext`vC1 = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vC2 = {-$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz}; $CellContext`vAn = {$CellContext`Ax, $CellContext`Ay, 
+          0.05}; $CellContext`vC1n = {$CellContext`Cx, $CellContext`Cy, \
+$CellContext`Cz + 
+          0.05}; $CellContext`vB1n = {-$CellContext`Bx, $CellContext`By, \
+$CellContext`Bz + 0.05}; $CellContext`p1 = {
+          FaceForm[
+           RGBColor[0.24, 0.39, 0.77]], 
+          
+          Polygon[{$CellContext`vAn, $CellContext`vC1n, $CellContext`vB1n}]}; \
+$CellContext`p2 = 
+        Polygon[{$CellContext`vA, $CellContext`vC2, $CellContext`vB2}]; \
+$CellContext`pivot = {
+          RGBColor[1, 0.47, 0], 
+          
+          Cylinder[{{0, $CellContext`Ay, -0.1}, {
+            0, $CellContext`Ay, 
+             0.1}}, $CellContext`size$$]}; $CellContext`pivott = {
+          RGBColor[1, 0.71, 0], 
+          
+          Cylinder[{{-$CellContext`Cx, $CellContext`Cy, -0.2}, \
+{-$CellContext`Cx, $CellContext`Cy, 
+             0.2}}, $CellContext`size1$$]}; $CellContext`cross1 = \
+{$CellContext`pivot, $CellContext`pivott, $CellContext`p1, $CellContext`p2}; \
+$CellContext`cross2 = Table[
+          
+          Scale[$CellContext`cross1, \
+($CellContext`Cy/$CellContext`By)^$CellContext`i {1, 1, 1}, {0, 0, 
+           0}], {$CellContext`i, $CellContext`ro$$}]; $CellContext`hober = 
+        Table[
+          
+          Rotate[$CellContext`cross2, ($CellContext`i 
+            2) $CellContext`\[CapitalDelta], {0, 0, 
+           1}], {$CellContext`i, $CellContext`no$$}]; 
+       Graphics3D[$CellContext`hober, SphericalRegion -> True, 
+         ViewPoint -> {0, 0, 5}, Boxed -> False, ImageSize -> 375, PlotRange -> 
+         All]), "Specifications" :> {{{$CellContext`lift$$, 
+          0.9926877905244246, "lift"}, 0.1, 
+         Dynamic[
+         Cos[Pi/$CellContext`polygon$$]/Tan[
+          Pi/$CellContext`polygon$$]]}, {{$CellContext`polygon$$, 14, 
+          "polygon"}, 6, 14, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`no$$, 14, "scissors around"}, 1, 
+         Dynamic[$CellContext`polygon$$], 1, Appearance -> 
+         "Labeled"}, {{$CellContext`ro$$, 3, "scissors radially"}, {
+         1 -> "1", 2 -> "2", 3 -> "3", 4 -> "4"}, ImageSize -> Tiny, 
+         ControlPlacement -> 
+         Left}, {{$CellContext`size$$, 0.12, "pivot sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> 
+         Left}, {{$CellContext`size1$$, 0.1, "node sizes"}, 0.05, 0.4, 
+         ImageSize -> Tiny, ControlPlacement -> Left}}, 
+      "Options" :> {
+       TrackedSymbols -> {$CellContext`polygon$$, $CellContext`no$$, \
+$CellContext`ro$$, $CellContext`lift$$, $CellContext`size$$, \
+$CellContext`size1$$}, ContinuousAction -> False, 
+        AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{578., {255., 260.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->69017721]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["Hoberman structures", "SearchTerms",
+ CellID->495563063]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Rotate",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://reference.wolfram.com/mathematica/ref/Rotate.html?q=Rotate"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3848797574405603`*^9, 3.384879758393673*^9}, {
+   3.384879822611601*^9, 3.384879822611601*^9}},
+ CellID->17805486],
+
+Cell[TextData[ButtonBox["Scale",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://reference.wolfram.com/mathematica/ref/Scale.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3848797600499015`*^9, 3.3848797606905184`*^9}, {
+   3.3848798442050743`*^9, 3.3848798442050743`*^9}},
+ CellID->63034950]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["S\[AAcute]ndor Kabai",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+\
+Kabai"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+Kabai"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3800404018125*^9, 3.380040407265625*^9}},
+ CellID->245863265]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, Automatic},
+WindowMargins->{{10, Automatic}, {0, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (October 12, 2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[54013, 1124, 311, 8, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[54327, 1134, 677, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[55007, 1152, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[55350, 1165, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[55990, 1182, 844, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[56837, 1205, 304, 8, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[57144, 1215, 1412, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[58559, 1248, 882, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 61206, 1336},
+ {"RotateAndZoomIn3D", 61315, 1339},
+ {"DragLocators", 61425, 1342},
+ {"CreateAndDeleteLocators", 61541, 1345},
+ {"SliderZoom", 61655, 1348},
+ {"GamepadControls", 61761, 1351},
+ {"AutomaticAnimation", 61874, 1354},
+ {"BookmarkAnimation", 61991, 1357}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 120, 1, 74, "DemoTitle"],
+Cell[690, 25, 33, 0, 287, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[748, 29, 29, 0, 194, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[802, 33, 16608, 362, 70, "Input",
+ CellID->173070274],
+Cell[17413, 397, 7165, 137, 527, "Output",
+ CellID->930441461]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24624, 540, 36, 0, 169, "ManipulateCaptionSection"],
+Cell[24663, 542, 177, 3, 22, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24877, 550, 28, 0, 173, "ThumbnailSection"],
+Cell[24908, 552, 7234, 138, 527, "Output",
+ CellID->6959064]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32179, 695, 28, 0, 143, "SnapshotsSection"],
+Cell[32210, 697, 7232, 138, 527, "Output",
+ CellID->811160305],
+Cell[39445, 837, 7228, 138, 527, "Output",
+ CellID->425810254],
+Cell[46676, 977, 7231, 138, 527, "Output",
+ CellID->69017721]
+}, Open  ]],
+Cell[53922, 1118, 26, 0, 336, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[53973, 1122, 37, 0, 114, "ControlSuggestionsSection"],
+Cell[54013, 1124, 311, 8, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[54327, 1134, 677, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[55007, 1152, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[55350, 1165, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[55990, 1182, 844, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[56837, 1205, 304, 8, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[57144, 1215, 1412, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[58559, 1248, 882, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59478, 1274, 30, 0, 155, "SearchTermsSection"],
+Cell[59511, 1276, 62, 1, 22, "SearchTerms",
+ CellID->495563063]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59610, 1282, 31, 0, 141, "RelatedLinksSection"],
+Cell[59644, 1284, 340, 8, 22, "RelatedLinks",
+ CellID->17805486],
+Cell[59987, 1294, 335, 8, 22, "RelatedLinks",
+ CellID->63034950]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60359, 1307, 25, 0, 141, "AuthorSection"],
+Cell[60387, 1309, 419, 12, 22, "Author",
+ CellID->245863265]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

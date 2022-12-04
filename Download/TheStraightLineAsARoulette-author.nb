@@ -1,0 +1,1718 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     78203,       1710]
+NotebookOptionsPosition[     72506,       1597]
+NotebookOutlinePosition[     74540,       1647]
+CellTagsIndexPosition[     74212,       1635]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The Straight Line as a Roulette", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4060510406129313`*^9, 3.4060510486044226`*^9}, {
+   3.406066071168248*^9, 
+   3.4060660771370363`*^9}},ExpressionUUID->"1c3b9bd9-6bd3-4275-8811-\
+b4814165f42f"],
+
+Cell["", "InitializationSection",ExpressionUUID->"8870ca85-1abc-4f6f-a874-4631d1fbe20e"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection",ExpressionUUID->"04cddc06-2ff9-4110-832b-dbed42c91cfa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"r", "=", 
+     RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"par", "=", 
+     RowBox[{
+      RowBox[{"ParametricPlot3D", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "x", "]"}], "+", 
+           RowBox[{"r", " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"-", " ", "x"}], "]"}]}]}], ",", "0", ",", 
+          RowBox[{
+           RowBox[{"Cos", "[", "x", "]"}], "+", 
+           RowBox[{"r", " ", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"-", " ", "x"}], "]"}]}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"-", "Pi"}], ",", "Pi"}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", "Dashed"}]}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"planet", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.2", ",", "0.8", ",", "9"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+             RowBox[{"-", "0.66"}], ",", 
+             RowBox[{
+              RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", "0", ",", 
+             RowBox[{
+              RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}]}], "}"}], 
+         ",", "0.15"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"planeta", "=", 
+     RowBox[{"Cylinder", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+           RowBox[{"-", "0.2"}], ",", 
+           RowBox[{
+            RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", "0.0", ",", 
+           RowBox[{
+            RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}]}], "}"}], 
+       ",", "0.22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"base", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.3", ",", "0.7", ",", "0.9"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0.35", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0.7", ",", "0"}], "}"}]}], "}"}], ",", "1.1"}],
+         "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"shaft", "=", 
+     RowBox[{"Cylinder", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0.2", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "0"}], "}"}]}], "}"}], ",", "0.2"}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"disk", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.6", ",", "0.8", ",", "9"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", "0.1", ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", "0.09", ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}]}], "}"}], ",", 
+         RowBox[{"Abs", "[", "r", "]"}]}], "]"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"pivot", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.6", ",", "1", ",", "1"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", 
+             RowBox[{"-", "0.23"}], ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", "0.3", ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}]}], "}"}], ",", 
+         "0.1"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pivota", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", "0.7", ",", "0.9"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", 
+             RowBox[{"-", "0.2"}], ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", "0", ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}]}], "}"}], ",", 
+         "0.16"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"line1", "=", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0.35", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", "0.35", ",", 
+             RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}]}], "}"}], ",", 
+         "0.06"}], "]"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"line2", "=", 
+     RowBox[{"Cylinder", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Alpha]", "]"}], ",", 
+           RowBox[{"-", "0.1"}], ",", 
+           RowBox[{"Cos", "[", "\[Alpha]", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+           RowBox[{"-", "0.1"}], ",", 
+           RowBox[{
+            RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+            RowBox[{"r", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}]}], "}"}], 
+       ",", "0.07"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"piston", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", "0.4", ",", "0.6"}], "]"}], ",", 
+       RowBox[{"Cylinder", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+             RowBox[{"-", "0.5"}], ",", 
+             RowBox[{
+              RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+             RowBox[{"-", "0.5"}], ",", 
+             RowBox[{
+              RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+              RowBox[{"r", " ", 
+               RowBox[{"Cos", "[", 
+                RowBox[{"-", " ", "\[Alpha]"}], "]"}]}], "+", "2"}]}], 
+            "}"}]}], "}"}], ",", "0.1"}], "]"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"slide", "=", 
+     RowBox[{"Cuboid", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "1.4"}], "+", 
+          RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+          RowBox[{"r", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+         RowBox[{"-", "0.2"}], ",", 
+         RowBox[{
+          RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+          RowBox[{"r", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"-", " ", "\[Alpha]"}], "]"}]}], "+", "2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1.4", "+", 
+          RowBox[{"Sin", "[", "\[Alpha]", "]"}], "+", 
+          RowBox[{"r", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"-", " ", "\[Alpha]"}], "]"}]}]}], ",", 
+         RowBox[{"-", "0.8"}], ",", 
+         RowBox[{
+          RowBox[{"Cos", "[", "\[Alpha]", "]"}], "+", 
+          RowBox[{"r", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"-", " ", "\[Alpha]"}], "]"}]}], "+", "2.3"}]}], "}"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"g1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", "0.8", ",", "0.8"}], "]"}], ",", 
+       RowBox[{"Cuboid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", 
+           RowBox[{"-", "1"}], ",", "1.9"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.6", ",", 
+           RowBox[{"-", "0.65"}], ",", "2"}], "}"}]}], "]"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"g2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", "0.8", ",", "0.8"}], "]"}], ",", 
+       RowBox[{"Cuboid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", 
+           RowBox[{"-", "0.35"}], ",", "1.9"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.6", ",", "0", ",", "2"}], "}"}]}], "]"}]}], "}"}]}], ";",
+     "\[IndentingNewLine]", 
+    RowBox[{"g3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"1", ",", "0.8", ",", "0.6"}], "]"}], ",", 
+       RowBox[{"Cuboid", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", 
+           RowBox[{"-", "0.5"}], ",", "2.3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.6", ",", "0", ",", "2.4"}], "}"}]}], "]"}]}], "}"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"roll", "=", 
+     RowBox[{
+      RowBox[{"ParametricPlot3D", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Sin", "[", "x", "]"}], "-", "1"}], ",", "0", ",", 
+          RowBox[{"Cos", "[", "x", "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", 
+          RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"roll1", "=", 
+     RowBox[{"Rotate", "[", 
+      RowBox[{"roll", ",", 
+       RowBox[{
+        RowBox[{"-", "\[Alpha]"}], "-", 
+        RowBox[{"Pi", "/", "2"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"circle", "=", 
+     RowBox[{
+      RowBox[{"ParametricPlot3D", "[", 
+       RowBox[{
+        RowBox[{"2", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Sin", "[", "x", "]"}], ",", "0.05", ",", 
+           RowBox[{"Cos", "[", "x", "]"}]}], "}"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", 
+          RowBox[{"2", "Pi"}]}], "}"}]}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"par", ",", "g1", ",", "g2", ",", "g3", ",", 
+        RowBox[{"If", "[", 
+         RowBox[{"generate", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Opacity", "[", "0.2", "]"}], ",", "disk"}], "}"}], ",",
+             "circle"}], "}"}], ",", 
+          RowBox[{"{", "}"}]}], "]"}], ",", "slide", ",", "piston", ",", 
+        "line1", ",", "line2", ",", "base", ",", "planet", ",", "planeta", 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"Yellow", ",", "shaft"}], "}"}], ",", "pivot", ",", 
+        "pivota"}], "}"}], ",", 
+      RowBox[{"ViewAngle", "\[Rule]", 
+       RowBox[{"Pi", "/", "40"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"425", ",", "425"}], "}"}]}], ",", 
+      RowBox[{"SphericalRegion", "\[Rule]", "True"}], ",", 
+      RowBox[{"ViewPoint", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "6"}], ",", 
+         RowBox[{"-", "6"}], ",", "2"}], "}"}]}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"4", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "0.9"}], ",", "1.2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "0.5"}], ",", "0.7"}], "}"}]}], "}"}]}]}]}], "]"}]}],
+    ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", "1", ",", "\"\<rotate\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], "Pi"}], ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "generate", ",", "False", ",", "\"\<show generating circles\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "Manipulate"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.402382358578125*^9, 3.402382418125*^9}, {
+   3.402382462671875*^9, 3.40238252378125*^9}, {3.40238255825*^9, 
+   3.40238257275*^9}, {3.4023844741875*^9, 3.402384539875*^9}, {
+   3.4023846395625*^9, 3.402384694609375*^9}, {3.40238475140625*^9, 
+   3.402384753046875*^9}, {3.402384879015625*^9, 3.402384915125*^9}, {
+   3.402384956703125*^9, 3.402385009078125*^9}, {3.402385056921875*^9, 
+   3.40238505840625*^9}, {3.4023851481875*^9, 3.402385181453125*^9}, {
+   3.40238521753125*^9, 3.402385239375*^9}, {3.402385272484375*^9, 
+   3.402385279734375*^9}, {3.40238531171875*^9, 3.402385335859375*^9}, {
+   3.40238537303125*^9, 3.40238545234375*^9}, {3.402385664640625*^9, 
+   3.402385686734375*^9}, 3.402386046546875*^9, 3.402386427765625*^9, {
+   3.40238650421875*^9, 3.402386695359375*^9}, {3.402386752921875*^9, 
+   3.4023869921875*^9}, {3.40238702353125*^9, 3.40238715990625*^9}, {
+   3.402388175265625*^9, 3.402388246984375*^9}, {3.402388293328125*^9, 
+   3.40238835225*^9}, {3.402388410375*^9, 3.402388526671875*^9}, {
+   3.402388862734375*^9, 3.402388926734375*^9}, {3.402389022875*^9, 
+   3.4023890468125*^9}, {3.402389109046875*^9, 3.402389147140625*^9}, {
+   3.4023892056875*^9, 3.4023892319375*^9}, {3.402389304140625*^9, 
+   3.402389508671875*^9}, {3.402389547640625*^9, 3.402389651109375*^9}, {
+   3.4023899408125*^9, 3.402389948484375*^9}, {3.402390607421875*^9, 
+   3.40239060828125*^9}, {3.402390647921875*^9, 3.40239068734375*^9}, {
+   3.402390769734375*^9, 3.402390827640625*^9}, {3.402390863828125*^9, 
+   3.402391110265625*^9}, {3.402391154546875*^9, 3.402391155125*^9}, {
+   3.402391232640625*^9, 3.402391280828125*^9}, {3.40239137925*^9, 
+   3.402391380171875*^9}, {3.402391428359375*^9, 3.40239146640625*^9}, 
+   3.4023915113125*^9, {3.402391550203125*^9, 3.40239156815625*^9}, {
+   3.402391611890625*^9, 3.402391620046875*^9}, {3.402391694890625*^9, 
+   3.40239169553125*^9}, {3.402393950390625*^9, 3.402393984421875*^9}, {
+   3.402394104171875*^9, 3.402394277765625*^9}, {3.402394338359375*^9, 
+   3.402394352734375*^9}, {3.402394393484375*^9, 3.40239440834375*^9}, {
+   3.402394464140625*^9, 3.40239448003125*^9}, {3.402394511203125*^9, 
+   3.4023945145625*^9}, {3.4023945930625*^9, 3.402394593984375*^9}, {
+   3.402394724*^9, 3.40239474690625*^9}, 3.40239477825*^9, {
+   3.40239480896875*^9, 3.402394822625*^9}, {3.4023948914375*^9, 
+   3.40239495990625*^9}, {3.40239499165625*^9, 3.402395039125*^9}, {
+   3.4023951164375*^9, 3.402395117234375*^9}, {3.402396885515625*^9, 
+   3.4023968865*^9}, {3.402396936984375*^9, 3.402396965953125*^9}, {
+   3.4023970896875*^9, 3.4023970938125*^9}, {3.402397127984375*^9, 
+   3.402397128265625*^9}, {3.4023973003125*^9, 3.402397301046875*^9}, {
+   3.40239734059375*^9, 3.402397363890625*^9}, {3.40246281246875*^9, 
+   3.402462813140625*^9}, {3.4024639965625*^9, 3.402463997375*^9}, {
+   3.402464063109375*^9, 3.40246408521875*^9}, {3.40255358096875*^9, 
+   3.402553621734375*^9}, {3.402553732171875*^9, 3.402553761875*^9}, {
+   3.402553928890625*^9, 3.40255393128125*^9}, {3.4025539745625*^9, 
+   3.402553975296875*^9}, {3.40255400675*^9, 3.402554011171875*^9}, {
+   3.402554076078125*^9, 3.402554086890625*^9}, {3.402554129234375*^9, 
+   3.402554198421875*^9}, {3.402554231453125*^9, 3.40255423234375*^9}, 
+   3.40255433659375*^9, {3.40255443759375*^9, 3.40255445284375*^9}, {
+   3.40255449046875*^9, 3.402554569203125*^9}, {3.402554620359375*^9, 
+   3.40255462559375*^9}, {3.402554768328125*^9, 3.40255480471875*^9}, {
+   3.402555056296875*^9, 3.402555066015625*^9}, {3.402555203453125*^9, 
+   3.402555228046875*^9}, {3.402556611875*^9, 3.402556735625*^9}, {
+   3.402556783171875*^9, 3.40255678496875*^9}, {3.40255682015625*^9, 
+   3.402556843578125*^9}, {3.402556893890625*^9, 3.402556903828125*^9}, {
+   3.4025569946875*^9, 3.402556995921875*^9}, {3.402557051796875*^9, 
+   3.4025570524375*^9}, {3.402557169828125*^9, 3.40255717059375*^9}, 
+   3.402557340203125*^9, {3.402557447375*^9, 3.402557448171875*^9}, {
+   3.40255755128125*^9, 3.4025575663125*^9}, 3.4047116556633344`*^9, {
+   3.4047117165809298`*^9, 3.404711776597229*^9}, {3.4047118524462943`*^9, 
+   3.4047118981520157`*^9}, {3.4047119632956877`*^9, 3.404711963986682*^9}, {
+   3.404711999267413*^9, 3.404711999778147*^9}, {3.4060225730769553`*^9, 
+   3.4060225895005713`*^9}, {3.4060226864700065`*^9, 
+   3.4060227225518894`*^9}, {3.4060227532360115`*^9, 3.406022756410576*^9}, {
+   3.406022817518445*^9, 3.406022818930475*^9}, {3.4060230387064977`*^9, 
+   3.4060230824794397`*^9}, {3.406023114605635*^9, 3.40602318772077*^9}, {
+   3.406023229260501*^9, 3.406023268076315*^9}, {3.406023316085349*^9, 
+   3.406023318118272*^9}, {3.40602435471883*^9, 3.406024372264059*^9}, {
+   3.406024426692323*^9, 3.406024520897784*^9}, {3.4060246052791185`*^9, 
+   3.406024630835867*^9}, 3.4060247140555315`*^9, {3.4060249413022957`*^9, 
+   3.4060249424138947`*^9}, {3.4060250318725295`*^9, 3.406025045251768*^9}, {
+   3.406025119007824*^9, 3.4060251194584723`*^9}, {3.406025159385885*^9, 
+   3.4060251625904927`*^9}, 3.406025248694304*^9, {3.406025286999384*^9, 
+   3.4060253387838464`*^9}, {3.406025435392763*^9, 3.406025553913187*^9}, {
+   3.406025608251322*^9, 3.4060256501115136`*^9}, {3.406025681666888*^9, 
+   3.4060257817407875`*^9}, {3.406025819815536*^9, 3.4060258201760545`*^9}, {
+   3.406025962320448*^9, 3.4060259887484493`*^9}, {3.4060260932687426`*^9, 
+   3.4060260948209743`*^9}, {3.406026148988864*^9, 3.406026149860117*^9}, {
+   3.4060261929821234`*^9, 3.4060262141425505`*^9}, {3.4060262599083586`*^9, 
+   3.406026260749568*^9}, {3.406026568041432*^9, 3.406026574320461*^9}, {
+   3.4060266263552833`*^9, 3.406026627396781*^9}, {3.406026666452941*^9, 
+   3.4060266696275053`*^9}, {3.4060267284721203`*^9, 3.406026776020491*^9}, {
+   3.4060268352156096`*^9, 3.4060268888327074`*^9}, {3.406026996677781*^9, 
+   3.4060270062315187`*^9}, {3.40602706896172*^9, 3.4060270822908864`*^9}, {
+   3.4060271516706495`*^9, 3.4060271709784126`*^9}, {3.4060272056682944`*^9, 
+   3.406027208542427*^9}, {3.4060273236078835`*^9, 3.406027341273285*^9}, {
+   3.406027391856019*^9, 3.406027432374282*^9}, {3.406027492971416*^9, 
+   3.406027495374872*^9}, {3.4060275677489405`*^9, 3.4060276228281407`*^9}, {
+   3.4060277312941074`*^9, 3.406027772733694*^9}, {3.406027804869904*^9, 
+   3.406027917712163*^9}, {3.406028060657709*^9, 3.4060282056662207`*^9}, {
+   3.406028286612616*^9, 3.4060283379864883`*^9}, {3.4060283798366656`*^9, 
+   3.4060284041416144`*^9}, {3.406028446312253*^9, 3.4060285608269167`*^9}, {
+   3.406028627502792*^9, 3.406028628404088*^9}, {3.4060286920355854`*^9, 
+   3.4060287125350623`*^9}, {3.4060288190682497`*^9, 
+   3.4060288206905823`*^9}, {3.406028853217354*^9, 3.4060289372581987`*^9}, {
+   3.406028978427397*^9, 3.4060290053461037`*^9}, {3.4060290816958895`*^9, 
+   3.406029131827976*^9}, {3.406029217250808*^9, 3.406029228797411*^9}, {
+   3.4060292590308847`*^9, 3.406029260462944*^9}, {3.406029297265864*^9, 
+   3.406029321620885*^9}, {3.406029352915885*^9, 3.406029397439907*^9}, {
+   3.4060294538510227`*^9, 3.4060294546621885`*^9}, 3.4060295319933853`*^9, {
+   3.406033249468853*^9, 3.406033256979653*^9}, {3.4060332925508013`*^9, 
+   3.4060333190088463`*^9}, {3.4060334087879424`*^9, 
+   3.4060334099496126`*^9}, {3.4060474495292063`*^9, 3.406047561079608*^9}, {
+   3.4060475920841904`*^9, 3.4060476233291187`*^9}, {3.40604765952116*^9, 
+   3.4060476721693473`*^9}, {3.4060477093327856`*^9, 
+   3.4060478460994463`*^9}, {3.40604803364913*^9, 3.406048098552456*^9}, {
+   3.4060481402724466`*^9, 3.4060481458805103`*^9}, {3.4060485194076157`*^9, 
+   3.4060485211701508`*^9}, {3.406048688951408*^9, 3.4060486903934813`*^9}, {
+   3.406048722830123*^9, 3.4060487237514477`*^9}, {3.4060488371444993`*^9, 
+   3.4060488439843345`*^9}, {3.4060488934855137`*^9, 3.406048895648624*^9}, {
+   3.406048931029499*^9, 3.4060489865693617`*^9}, {3.406049086993765*^9, 
+   3.4060491126706867`*^9}, {3.4060491950591555`*^9, 
+   3.4060492422570224`*^9}, {3.4060496601979923`*^9, 
+   3.4060497711875873`*^9}, {3.4060498562599154`*^9, 3.40604992953528*^9}, 
+   3.4060500435291953`*^9, {3.4060500827656145`*^9, 3.4060501115870576`*^9}, {
+   3.4060501811871376`*^9, 3.406050189178629*^9}, {3.406050278336832*^9, 
+   3.4060503394547153`*^9}, {3.406050414783032*^9, 3.406050417757309*^9}, {
+   3.406050492945424*^9, 3.406050503760976*^9}, {3.406050583305355*^9, 
+   3.406050586309675*^9}, {3.4060506308737555`*^9, 3.406050661037128*^9}, {
+   3.40605069313328*^9, 3.406050713182109*^9}, 3.4060509730457745`*^9, {
+   3.406051112956957*^9, 3.4060511571905613`*^9}, {3.4060528142266736`*^9, 
+   3.4060528302579236`*^9}, {3.77178484561665*^9, 3.7717848630144567`*^9}},
+ CellLabel->"In[1]:=",
+ CellID->366675041,ExpressionUUID->"4836a5b2-fbdf-416e-9fab-bf9a5b5cd36a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generate$$ = 
+    False, $CellContext`\[Alpha]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], 1, "rotate"}, (-2) Pi, 2 Pi}, {{
+       Hold[$CellContext`generate$$], False, "show generating circles"}, {
+      True, False}}}, Typeset`size$$ = {425., {210., 215.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$340033$$ = 0, $CellContext`generate$340034$$ =
+     False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generate$$ = 
+        False, $CellContext`\[Alpha]$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$340033$$, 0], 
+        Hold[$CellContext`generate$$, $CellContext`generate$340034$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`r = -1; $CellContext`par = Part[
+          
+          ParametricPlot3D[{
+           Sin[$CellContext`x] + $CellContext`r Sin[-$CellContext`x], 0, 
+            Cos[$CellContext`x] + $CellContext`r 
+             Cos[-$CellContext`x]}, {$CellContext`x, -Pi, Pi}, PlotStyle -> 
+           Dashed], 1]; $CellContext`planet = {
+          RGBColor[0.2, 0.8, 9], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.66, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}}, 0.15]}; $CellContext`planeta = 
+        Cylinder[{{
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.2, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], 0., 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.22]; $CellContext`base = {
+          RGBColor[0.3, 0.7, 0.9], 
+          Cylinder[{{0, 0.35, 0}, {0, 0.7, 0}}, 1.1]}; $CellContext`shaft = 
+        Cylinder[{{0, 0.2, 0}, {0, 3, 0}}, 0.2]; $CellContext`disk = {
+          RGBColor[0.6, 0.8, 9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], 0.1, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.09, 
+             Cos[$CellContext`\[Alpha]$$]}}, 
+           Abs[$CellContext`r]]}; $CellContext`pivot = {
+          RGBColor[0.6, 1, 1], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.23, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.3, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.1]}; $CellContext`pivota = {
+          RGBColor[1, 0.7, 0.9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.2, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.16]}; $CellContext`line1 = {
+         Green, 
+          Cylinder[{{0, 0.35, 0}, {
+             Sin[$CellContext`\[Alpha]$$], 0.35, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.06]}; $CellContext`line2 = 
+        Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.07]; $CellContext`piston = {
+          RGBColor[1, 0.4, 0.6], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$] + 2}}, 0.1]}; $CellContext`slide = 
+        Cuboid[{-1.4 + 
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.2, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2}, {
+          1.4 + Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.8, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2.3}]; $CellContext`g1 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -1, 1.9}, {2.6, -0.65, 2}]}; $CellContext`g2 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -0.35, 1.9}, {2.6, 0, 2}]}; $CellContext`g3 = {
+          RGBColor[1, 0.8, 0.6], 
+          Cuboid[{-2, -0.5, 2.3}, {2.6, 0, 2.4}]}; $CellContext`roll = Part[
+          ParametricPlot3D[{Sin[$CellContext`x] - 1, 0, 
+            Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 
+          1]; $CellContext`roll1 = 
+        Rotate[$CellContext`roll, -$CellContext`\[Alpha]$$ - Pi/2, {0, 1, 
+          0}]; $CellContext`circle = Part[
+          ParametricPlot3D[2 {
+             Sin[$CellContext`x], 0.05, 
+             Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 1]; 
+       Graphics3D[{$CellContext`par, $CellContext`g1, $CellContext`g2, \
+$CellContext`g3, 
+          If[$CellContext`generate$$, {{
+             Opacity[
+             0.2], $CellContext`disk}, $CellContext`circle}, {}], \
+$CellContext`slide, $CellContext`piston, $CellContext`line1, \
+$CellContext`line2, $CellContext`base, $CellContext`planet, \
+$CellContext`planeta, {
+          Yellow, $CellContext`shaft}, $CellContext`pivot, \
+$CellContext`pivota}, ViewAngle -> Pi/40, ImageSize -> {425, 425}, 
+         SphericalRegion -> True, ViewPoint -> {-6, -6, 2}, Boxed -> False, 
+         PlotRange -> 4 {{-0.9, 1.2}, {-1, 1}, {-0.5, 0.7}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, 1, "rotate"}, (-2) Pi, 
+         2 Pi}, {{$CellContext`generate$$, False, 
+          "show generating circles"}, {True, False}}}, 
+      "Options" :> {TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{474., {264., 270.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->454180476,ExpressionUUID->"e7bccfbb-3c09-4776-92c5-5199c79b240f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection",ExpressionUUID->"4287a28d-bcab-4ca0-8c7d-9ea55f5af2b9"],
+
+Cell["\<\
+A roulette is the path that a point attached to a circle follows when the \
+circle rolls around another circle. A straight line is a special roulette, \
+when the rolling circle is half as large as the other circle. This phenomenon \
+can be used to convert rotary motion to linear motion.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4060514328869934`*^9, 3.406051548663472*^9}, {
+   3.406052868242298*^9, 3.406052868586048*^9}, {3.406065544758629*^9, 
+   3.4060655754619503`*^9}, {3.406065621227868*^9, 3.4060656576187263`*^9}, {
+   3.4060657032596436`*^9, 
+   3.4060657511505747`*^9}},ExpressionUUID->"eafc05bb-356b-427c-aa70-\
+339dcf4f4bf3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection",ExpressionUUID->"3737a595-0a3f-404c-882b-673db027a3b5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generate$$ = 
+    False, $CellContext`\[Alpha]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], 1, "rotate"}, (-2) Pi, 2 Pi}, {{
+       Hold[$CellContext`generate$$], False, "show generating circles"}, {
+      True, False}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$340055$$ = 0, $CellContext`generate$340056$$ =
+     False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generate$$ = 
+        False, $CellContext`\[Alpha]$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$340055$$, 0], 
+        Hold[$CellContext`generate$$, $CellContext`generate$340056$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`r = -1; $CellContext`par = Part[
+          
+          ParametricPlot3D[{
+           Sin[$CellContext`x] + $CellContext`r Sin[-$CellContext`x], 0, 
+            Cos[$CellContext`x] + $CellContext`r 
+             Cos[-$CellContext`x]}, {$CellContext`x, -Pi, Pi}, PlotStyle -> 
+           Dashed], 1]; $CellContext`planet = {
+          RGBColor[0.2, 0.8, 9], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.66, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}}, 0.15]}; $CellContext`planeta = 
+        Cylinder[{{
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.2, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], 0., 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.22]; $CellContext`base = {
+          RGBColor[0.3, 0.7, 0.9], 
+          Cylinder[{{0, 0.35, 0}, {0, 0.7, 0}}, 1.1]}; $CellContext`shaft = 
+        Cylinder[{{0, 0.2, 0}, {0, 3, 0}}, 0.2]; $CellContext`disk = {
+          RGBColor[0.6, 0.8, 9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], 0.1, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.09, 
+             Cos[$CellContext`\[Alpha]$$]}}, 
+           Abs[$CellContext`r]]}; $CellContext`pivot = {
+          RGBColor[0.6, 1, 1], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.23, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.3, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.1]}; $CellContext`pivota = {
+          RGBColor[1, 0.7, 0.9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.2, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.16]}; $CellContext`line1 = {
+         Green, 
+          Cylinder[{{0, 0.35, 0}, {
+             Sin[$CellContext`\[Alpha]$$], 0.35, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.06]}; $CellContext`line2 = 
+        Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.07]; $CellContext`piston = {
+          RGBColor[1, 0.4, 0.6], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$] + 2}}, 0.1]}; $CellContext`slide = 
+        Cuboid[{-1.4 + 
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.2, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2}, {
+          1.4 + Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.8, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2.3}]; $CellContext`g1 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -1, 1.9}, {2.6, -0.65, 2}]}; $CellContext`g2 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -0.35, 1.9}, {2.6, 0, 2}]}; $CellContext`g3 = {
+          RGBColor[1, 0.8, 0.6], 
+          Cuboid[{-2, -0.5, 2.3}, {2.6, 0, 2.4}]}; $CellContext`roll = Part[
+          ParametricPlot3D[{Sin[$CellContext`x] - 1, 0, 
+            Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 
+          1]; $CellContext`roll1 = 
+        Rotate[$CellContext`roll, -$CellContext`\[Alpha]$$ - Pi/2, {0, 1, 
+          0}]; $CellContext`circle = Part[
+          ParametricPlot3D[2 {
+             Sin[$CellContext`x], 0.05, 
+             Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 1]; 
+       Graphics3D[{$CellContext`par, $CellContext`g1, $CellContext`g2, \
+$CellContext`g3, 
+          If[$CellContext`generate$$, {{
+             Opacity[
+             0.2], $CellContext`disk}, $CellContext`circle}, {}], \
+$CellContext`slide, $CellContext`piston, $CellContext`line1, \
+$CellContext`line2, $CellContext`base, $CellContext`planet, \
+$CellContext`planeta, {
+          Yellow, $CellContext`shaft}, $CellContext`pivot, \
+$CellContext`pivota}, ViewAngle -> Pi/40, ImageSize -> {425, 425}, 
+         SphericalRegion -> True, ViewPoint -> {-6, -6, 2}, Boxed -> False, 
+         PlotRange -> 4 {{-0.9, 1.2}, {-1, 1}, {-0.5, 0.7}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, 1, "rotate"}, (-2) Pi, 
+         2 Pi}, {{$CellContext`generate$$, False, 
+          "show generating circles"}, {True, False}}}, 
+      "Options" :> {TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2421407,ExpressionUUID->"470413ce-1fe0-462a-a65f-665260735b3f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection",ExpressionUUID->"05378a5c-e193-4d01-9921-c5dd01cbba1f"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generate$$ = 
+    False, $CellContext`\[Alpha]$$ = -1.281769802664635, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], -1.281769802664635, "rotate"}, (-2) Pi, 
+      2 Pi}, {{
+       Hold[$CellContext`generate$$], False, "show generating circles"}, {
+      True, False}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$340077$$ = 0, $CellContext`generate$340078$$ =
+     False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generate$$ = 
+        False, $CellContext`\[Alpha]$$ = -1.281769802664635}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$340077$$, 0], 
+        Hold[$CellContext`generate$$, $CellContext`generate$340078$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`r = -1; $CellContext`par = Part[
+          
+          ParametricPlot3D[{
+           Sin[$CellContext`x] + $CellContext`r Sin[-$CellContext`x], 0, 
+            Cos[$CellContext`x] + $CellContext`r 
+             Cos[-$CellContext`x]}, {$CellContext`x, -Pi, Pi}, PlotStyle -> 
+           Dashed], 1]; $CellContext`planet = {
+          RGBColor[0.2, 0.8, 9], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.66, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}}, 0.15]}; $CellContext`planeta = 
+        Cylinder[{{
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.2, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], 0., 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.22]; $CellContext`base = {
+          RGBColor[0.3, 0.7, 0.9], 
+          Cylinder[{{0, 0.35, 0}, {0, 0.7, 0}}, 1.1]}; $CellContext`shaft = 
+        Cylinder[{{0, 0.2, 0}, {0, 3, 0}}, 0.2]; $CellContext`disk = {
+          RGBColor[0.6, 0.8, 9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], 0.1, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.09, 
+             Cos[$CellContext`\[Alpha]$$]}}, 
+           Abs[$CellContext`r]]}; $CellContext`pivot = {
+          RGBColor[0.6, 1, 1], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.23, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.3, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.1]}; $CellContext`pivota = {
+          RGBColor[1, 0.7, 0.9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.2, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.16]}; $CellContext`line1 = {
+         Green, 
+          Cylinder[{{0, 0.35, 0}, {
+             Sin[$CellContext`\[Alpha]$$], 0.35, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.06]}; $CellContext`line2 = 
+        Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.07]; $CellContext`piston = {
+          RGBColor[1, 0.4, 0.6], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$] + 2}}, 0.1]}; $CellContext`slide = 
+        Cuboid[{-1.4 + 
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.2, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2}, {
+          1.4 + Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.8, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2.3}]; $CellContext`g1 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -1, 1.9}, {2.6, -0.65, 2}]}; $CellContext`g2 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -0.35, 1.9}, {2.6, 0, 2}]}; $CellContext`g3 = {
+          RGBColor[1, 0.8, 0.6], 
+          Cuboid[{-2, -0.5, 2.3}, {2.6, 0, 2.4}]}; $CellContext`roll = Part[
+          ParametricPlot3D[{Sin[$CellContext`x] - 1, 0, 
+            Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 
+          1]; $CellContext`roll1 = 
+        Rotate[$CellContext`roll, -$CellContext`\[Alpha]$$ - Pi/2, {0, 1, 
+          0}]; $CellContext`circle = Part[
+          ParametricPlot3D[2 {
+             Sin[$CellContext`x], 0.05, 
+             Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 1]; 
+       Graphics3D[{$CellContext`par, $CellContext`g1, $CellContext`g2, \
+$CellContext`g3, 
+          If[$CellContext`generate$$, {{
+             Opacity[
+             0.2], $CellContext`disk}, $CellContext`circle}, {}], \
+$CellContext`slide, $CellContext`piston, $CellContext`line1, \
+$CellContext`line2, $CellContext`base, $CellContext`planet, \
+$CellContext`planeta, {
+          Yellow, $CellContext`shaft}, $CellContext`pivot, \
+$CellContext`pivota}, ViewAngle -> Pi/40, ImageSize -> {425, 425}, 
+         SphericalRegion -> True, ViewPoint -> {-6, -6, 2}, Boxed -> False, 
+         PlotRange -> 4 {{-0.9, 1.2}, {-1, 1}, {-0.5, 0.7}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, -1.281769802664635, 
+          "rotate"}, (-2) Pi, 2 
+         Pi}, {{$CellContext`generate$$, False, "show generating circles"}, {
+         True, False}}}, "Options" :> {TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->194491069,ExpressionUUID->"34cba861-744c-4e66-a3dd-9332cc050275"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generate$$ = 
+    False, $CellContext`\[Alpha]$$ = 0.9299114254625795, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], 0.9299114254625795, "rotate"}, (-2) Pi, 
+      2 Pi}, {{
+       Hold[$CellContext`generate$$], False, "show generating circles"}, {
+      True, False}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$340099$$ = 0, $CellContext`generate$340100$$ =
+     False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generate$$ = 
+        False, $CellContext`\[Alpha]$$ = 0.9299114254625795}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$340099$$, 0], 
+        Hold[$CellContext`generate$$, $CellContext`generate$340100$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`r = -1; $CellContext`par = Part[
+          
+          ParametricPlot3D[{
+           Sin[$CellContext`x] + $CellContext`r Sin[-$CellContext`x], 0, 
+            Cos[$CellContext`x] + $CellContext`r 
+             Cos[-$CellContext`x]}, {$CellContext`x, -Pi, Pi}, PlotStyle -> 
+           Dashed], 1]; $CellContext`planet = {
+          RGBColor[0.2, 0.8, 9], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.66, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}}, 0.15]}; $CellContext`planeta = 
+        Cylinder[{{
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.2, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], 0., 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.22]; $CellContext`base = {
+          RGBColor[0.3, 0.7, 0.9], 
+          Cylinder[{{0, 0.35, 0}, {0, 0.7, 0}}, 1.1]}; $CellContext`shaft = 
+        Cylinder[{{0, 0.2, 0}, {0, 3, 0}}, 0.2]; $CellContext`disk = {
+          RGBColor[0.6, 0.8, 9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], 0.1, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.09, 
+             Cos[$CellContext`\[Alpha]$$]}}, 
+           Abs[$CellContext`r]]}; $CellContext`pivot = {
+          RGBColor[0.6, 1, 1], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.23, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.3, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.1]}; $CellContext`pivota = {
+          RGBColor[1, 0.7, 0.9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.2, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.16]}; $CellContext`line1 = {
+         Green, 
+          Cylinder[{{0, 0.35, 0}, {
+             Sin[$CellContext`\[Alpha]$$], 0.35, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.06]}; $CellContext`line2 = 
+        Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.07]; $CellContext`piston = {
+          RGBColor[1, 0.4, 0.6], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$] + 2}}, 0.1]}; $CellContext`slide = 
+        Cuboid[{-1.4 + 
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.2, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2}, {
+          1.4 + Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.8, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2.3}]; $CellContext`g1 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -1, 1.9}, {2.6, -0.65, 2}]}; $CellContext`g2 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -0.35, 1.9}, {2.6, 0, 2}]}; $CellContext`g3 = {
+          RGBColor[1, 0.8, 0.6], 
+          Cuboid[{-2, -0.5, 2.3}, {2.6, 0, 2.4}]}; $CellContext`roll = Part[
+          ParametricPlot3D[{Sin[$CellContext`x] - 1, 0, 
+            Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 
+          1]; $CellContext`roll1 = 
+        Rotate[$CellContext`roll, -$CellContext`\[Alpha]$$ - Pi/2, {0, 1, 
+          0}]; $CellContext`circle = Part[
+          ParametricPlot3D[2 {
+             Sin[$CellContext`x], 0.05, 
+             Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 1]; 
+       Graphics3D[{$CellContext`par, $CellContext`g1, $CellContext`g2, \
+$CellContext`g3, 
+          If[$CellContext`generate$$, {{
+             Opacity[
+             0.2], $CellContext`disk}, $CellContext`circle}, {}], \
+$CellContext`slide, $CellContext`piston, $CellContext`line1, \
+$CellContext`line2, $CellContext`base, $CellContext`planet, \
+$CellContext`planeta, {
+          Yellow, $CellContext`shaft}, $CellContext`pivot, \
+$CellContext`pivota}, ViewAngle -> Pi/40, ImageSize -> {425, 425}, 
+         SphericalRegion -> True, ViewPoint -> {-6, -6, 2}, Boxed -> False, 
+         PlotRange -> 4 {{-0.9, 1.2}, {-1, 1}, {-0.5, 0.7}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, 0.9299114254625795, 
+          "rotate"}, (-2) Pi, 2 
+         Pi}, {{$CellContext`generate$$, False, "show generating circles"}, {
+         True, False}}}, "Options" :> {TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->820393336,ExpressionUUID->"9907baad-8ffd-4ae1-bf6d-2713249ad955"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`generate$$ = True, $CellContext`\[Alpha]$$ =
+     2.0608847807549044`, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], 2.0608847807549044`, "rotate"}, (-2) Pi,
+       2 Pi}, {{
+       Hold[$CellContext`generate$$], True, "show generating circles"}, {
+      True, False}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$340121$$ = 0, $CellContext`generate$340122$$ =
+     False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`generate$$ = True, $CellContext`\[Alpha]$$ = 
+        2.0608847807549044`}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$340121$$, 0], 
+        Hold[$CellContext`generate$$, $CellContext`generate$340122$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`r = -1; $CellContext`par = Part[
+          
+          ParametricPlot3D[{
+           Sin[$CellContext`x] + $CellContext`r Sin[-$CellContext`x], 0, 
+            Cos[$CellContext`x] + $CellContext`r 
+             Cos[-$CellContext`x]}, {$CellContext`x, -Pi, Pi}, PlotStyle -> 
+           Dashed], 1]; $CellContext`planet = {
+          RGBColor[0.2, 0.8, 9], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.66, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}}, 0.15]}; $CellContext`planeta = 
+        Cylinder[{{
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.2, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], 0., 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.22]; $CellContext`base = {
+          RGBColor[0.3, 0.7, 0.9], 
+          Cylinder[{{0, 0.35, 0}, {0, 0.7, 0}}, 1.1]}; $CellContext`shaft = 
+        Cylinder[{{0, 0.2, 0}, {0, 3, 0}}, 0.2]; $CellContext`disk = {
+          RGBColor[0.6, 0.8, 9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], 0.1, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.09, 
+             Cos[$CellContext`\[Alpha]$$]}}, 
+           Abs[$CellContext`r]]}; $CellContext`pivot = {
+          RGBColor[0.6, 1, 1], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.23, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0.3, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.1]}; $CellContext`pivota = {
+          RGBColor[1, 0.7, 0.9], 
+          Cylinder[{{
+             Sin[$CellContext`\[Alpha]$$], -0.2, 
+             Cos[$CellContext`\[Alpha]$$]}, {
+             Sin[$CellContext`\[Alpha]$$], 0, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.16]}; $CellContext`line1 = {
+         Green, 
+          Cylinder[{{0, 0.35, 0}, {
+             Sin[$CellContext`\[Alpha]$$], 0.35, 
+             Cos[$CellContext`\[Alpha]$$]}}, 0.06]}; $CellContext`line2 = 
+        Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$]}, {
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Sin[-$CellContext`\[Alpha]$$], -0.1, 
+            Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+             Cos[-$CellContext`\[Alpha]$$]}}, 0.07]; $CellContext`piston = {
+          RGBColor[1, 0.4, 0.6], 
+          
+          Cylinder[{{
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$]}, {
+            Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Sin[-$CellContext`\[Alpha]$$], -0.5, 
+             Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+              Cos[-$CellContext`\[Alpha]$$] + 2}}, 0.1]}; $CellContext`slide = 
+        Cuboid[{-1.4 + 
+           Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.2, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2}, {
+          1.4 + Sin[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Sin[-$CellContext`\[Alpha]$$], -0.8, 
+           Cos[$CellContext`\[Alpha]$$] + $CellContext`r 
+            Cos[-$CellContext`\[Alpha]$$] + 2.3}]; $CellContext`g1 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -1, 1.9}, {2.6, -0.65, 2}]}; $CellContext`g2 = {
+          RGBColor[1, 0.8, 0.8], 
+          Cuboid[{-2, -0.35, 1.9}, {2.6, 0, 2}]}; $CellContext`g3 = {
+          RGBColor[1, 0.8, 0.6], 
+          Cuboid[{-2, -0.5, 2.3}, {2.6, 0, 2.4}]}; $CellContext`roll = Part[
+          ParametricPlot3D[{Sin[$CellContext`x] - 1, 0, 
+            Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 
+          1]; $CellContext`roll1 = 
+        Rotate[$CellContext`roll, -$CellContext`\[Alpha]$$ - Pi/2, {0, 1, 
+          0}]; $CellContext`circle = Part[
+          ParametricPlot3D[2 {
+             Sin[$CellContext`x], 0.05, 
+             Cos[$CellContext`x]}, {$CellContext`x, 0, 2 Pi}], 1]; 
+       Graphics3D[{$CellContext`par, $CellContext`g1, $CellContext`g2, \
+$CellContext`g3, 
+          If[$CellContext`generate$$, {{
+             Opacity[
+             0.2], $CellContext`disk}, $CellContext`circle}, {}], \
+$CellContext`slide, $CellContext`piston, $CellContext`line1, \
+$CellContext`line2, $CellContext`base, $CellContext`planet, \
+$CellContext`planeta, {
+          Yellow, $CellContext`shaft}, $CellContext`pivot, \
+$CellContext`pivota}, ViewAngle -> Pi/40, ImageSize -> {425, 425}, 
+         SphericalRegion -> True, ViewPoint -> {-6, -6, 2}, Boxed -> False, 
+         PlotRange -> 4 {{-0.9, 1.2}, {-1, 1}, {-0.5, 0.7}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, 2.0608847807549044`, 
+          "rotate"}, (-2) Pi, 2 
+         Pi}, {{$CellContext`generate$$, True, "show generating circles"}, {
+         True, False}}}, "Options" :> {TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->221980776,ExpressionUUID->"de3afdc9-55dd-4ec5-896f-5015ac5eb42c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection",ExpressionUUID->"87e36e57-e30a-4ea6-bdcd-fbeefa246eab"],
+
+Cell[TextData[{
+ "A suggested experiment for ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " programmers: make the radius variable, which is now set to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"r", "=", 
+    RowBox[{"-", "1"}]}], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "50e1d734-356d-4513-a586-d11235ec227f"],
+ "in the first line of the program. When you vary the radius, the cylinder \
+(planet) follows a different path. A guide in the shape of the path has to be \
+used to ensure proper operation. A straight guide is used in the basic case. "
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4060516663426867`*^9, 3.4060518327119136`*^9}, {
+   3.4060518632358046`*^9, 3.4060520065318546`*^9}, {3.4060520387882366`*^9, 
+   3.4060520611103344`*^9}, {3.406052878992298*^9, 3.406052883023548*^9}, {
+   3.406065770588199*^9, 3.406065974808256*^9}, {3.406066098574673*^9, 
+   3.406066099996557*^9}, 3.4063746293887887`*^9},
+ CellID->616601448,ExpressionUUID->"e511f976-2ffb-4db9-8274-6fb82d96c92b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection",ExpressionUUID->"8664698b-6ee0-45da-a778-e30c475b005c"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Resize Images",ExpressionUUID->"bd38932c-c167-4695-ac83-4be87a84b02f"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4060528903829236`*^9},
+ FontFamily->"Verdana",
+ CellTags->
+  "ResizeImages",ExpressionUUID->"227b0638-aeb3-4890-bf7c-48e99f9ac6de"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Rotate and Zoom in 3D",ExpressionUUID->
+    "a9a5b376-cc56-4c1b-8f44-34fe72da726f"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4060528910391736`*^9},
+ FontFamily->"Verdana",
+ CellTags->
+  "RotateAndZoomIn3D",ExpressionUUID->"b66af204-e366-480f-95c7-e619b142bc8f"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Drag Locators",ExpressionUUID->"14409ceb-b07e-44dc-a70c-27058cad8e80"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "DragLocators",ExpressionUUID->"aae10f8b-348d-45eb-b20a-eade399210ca"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Create and Delete Locators",ExpressionUUID->
+    "5d505708-ca6d-4bd0-932b-21ea8638cd02"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "CreateAndDeleteLocators",ExpressionUUID->"c484d415-95a8-4d12-8f33-\
+9670da2a65e3"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Slider Zoom",ExpressionUUID->"e3bd118c-fabb-4be6-984f-793d7d57369c"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "SliderZoom",ExpressionUUID->"f4ed5cdd-072d-4c76-89be-c987b1669e7d"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Gamepad Controls",ExpressionUUID->
+    "7207a150-863b-47fb-b83a-70ce12211f13"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->
+  "GamepadControls",ExpressionUUID->"10fae1ba-0d10-4317-8371-8d2e0d38950f"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[
+   " Automatic Animation",ExpressionUUID->
+    "0150c182-54db-466a-93ec-f4422427a0e0"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4060528918516736`*^9},
+ FontFamily->"Verdana",
+ CellTags->
+  "AutomaticAnimation",ExpressionUUID->"7c3e10fb-12f5-4ff6-9b28-7d415de4d8b5"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[
+   " Bookmark Animation",ExpressionUUID->
+    "12095462-d762-4fe4-a644-c16bbe4681b2"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->
+  "BookmarkAnimation",ExpressionUUID->"8b06697f-bcd0-48f7-bce7-4d121c6d2127"]
+}, Open  ]],
+
+Cell["", "SearchTermsSection",ExpressionUUID->"ef34088b-93ad-4950-b752-e5688d889189"],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection",ExpressionUUID->"7029abf8-f817-4961-a190-a6af577b88b0"],
+
+Cell[TextData[ButtonBox["Roulette",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Roulette.html"], None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4060513556759696`*^9, 3.4060513578090367`*^9}, {
+   3.4060514095434275`*^9, 3.4060514095434275`*^9}},
+ CellID->11769576,ExpressionUUID->"e938a120-be55-477f-8c12-f90f56133a8d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection",ExpressionUUID->"8f035fc3-b350-485b-85a3-e62c71439f03"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["S\[AAcute]ndor Kabai",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+\
+Kabai"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S%C3%A1ndor+Kabai"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3800404018125*^9, 3.380040407265625*^9}},
+ CellID->245863265,ExpressionUUID->"51bc86da-bba6-4909-82a5-1bc425487ea4"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, Automatic},
+WindowMargins->{{10, Automatic}, {0, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 22, 2019)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[64644, 1387, 493, 11, 22, "ControlSuggestions",ExpressionUUID->"227b0638-aeb3-4890-bf7c-48e99f9ac6de",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[65140, 1400, 864, 20, 22, "ControlSuggestions",ExpressionUUID->"b66af204-e366-480f-95c7-e619b142bc8f",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[66007, 1422, 457, 13, 22, "ControlSuggestions",ExpressionUUID->"aae10f8b-348d-45eb-b20a-eade399210ca",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[66467, 1437, 761, 19, 22, "ControlSuggestions",ExpressionUUID->"c484d415-95a8-4d12-8f33-9670da2a65e3",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[67231, 1458, 961, 23, 22, "ControlSuggestions",ExpressionUUID->"f4ed5cdd-072d-4c76-89be-c987b1669e7d",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[68195, 1483, 491, 12, 22, "ControlSuggestions",ExpressionUUID->"10fae1ba-0d10-4317-8371-8d2e0d38950f",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[68689, 1497, 1598, 35, 22, "ControlSuggestions",ExpressionUUID->"7c3e10fb-12f5-4ff6-9b28-7d415de4d8b5",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[70290, 1534, 1004, 24, 22, "ControlSuggestions",ExpressionUUID->"8b06697f-bcd0-48f7-bce7-4d121c6d2127",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 72870, 1608},
+ {"RotateAndZoomIn3D", 73035, 1611},
+ {"DragLocators", 73200, 1614},
+ {"CreateAndDeleteLocators", 73371, 1617},
+ {"SliderZoom", 73540, 1620},
+ {"GamepadControls", 73701, 1623},
+ {"AutomaticAnimation", 73870, 1626},
+ {"BookmarkAnimation", 74042, 1629}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 259, 5, 74, "DemoTitle",ExpressionUUID->"1c3b9bd9-6bd3-4275-8811-b4814165f42f"],
+Cell[829, 29, 88, 0, 275, "InitializationSection",ExpressionUUID->"8870ca85-1abc-4f6f-a874-4631d1fbe20e"],
+Cell[CellGroupData[{
+Cell[942, 33, 84, 0, 189, "ManipulateSection",ExpressionUUID->"04cddc06-2ff9-4110-832b-dbed42c91cfa"],
+Cell[CellGroupData[{
+Cell[1051, 37, 23997, 541, 728, "Input",ExpressionUUID->"4836a5b2-fbdf-416e-9fab-bf9a5b5cd36a",
+ CellID->366675041],
+Cell[25051, 580, 7442, 147, 546, "Output",ExpressionUUID->"e7bccfbb-3c09-4776-92c5-5199c79b240f",
+ CellID->454180476]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32542, 733, 91, 0, 169, "ManipulateCaptionSection",ExpressionUUID->"4287a28d-bcab-4ca0-8c7d-9ea55f5af2b9"],
+Cell[32636, 735, 681, 12, 52, "ManipulateCaption",ExpressionUUID->"eafc05bb-356b-427c-aa70-339dcf4f4bf3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33354, 752, 83, 0, 172, "ThumbnailSection",ExpressionUUID->"3737a595-0a3f-404c-882b-673db027a3b5"],
+Cell[33440, 754, 7386, 146, 36, "Output",ExpressionUUID->"470413ce-1fe0-462a-a65f-665260735b3f",
+ CellID->2421407]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40863, 905, 83, 0, 142, "SnapshotsSection",ExpressionUUID->"05378a5c-e193-4d01-9921-c5dd01cbba1f"],
+Cell[40949, 907, 7473, 148, 36, "Output",ExpressionUUID->"34cba861-744c-4e66-a3dd-9332cc050275",
+ CellID->194491069],
+Cell[48425, 1057, 7473, 148, 36, "Output",ExpressionUUID->"9907baad-8ffd-4ae1-bf6d-2713249ad955",
+ CellID->820393336],
+Cell[55901, 1207, 7461, 146, 36, "Output",ExpressionUUID->"de3afdc9-55dd-4ec5-896f-5015ac5eb42c",
+ CellID->221980776]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63399, 1358, 81, 0, 339, "DetailsSection",ExpressionUUID->"87e36e57-e30a-4ea6-bdcd-fbeefa246eab"],
+Cell[63483, 1360, 1029, 20, 68, "DetailNotes",ExpressionUUID->"e511f976-2ffb-4db9-8274-6fb82d96c92b",
+ CellID->616601448]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64549, 1385, 92, 0, 126, "ControlSuggestionsSection",ExpressionUUID->"8664698b-6ee0-45da-a778-e30c475b005c"],
+Cell[64644, 1387, 493, 11, 22, "ControlSuggestions",ExpressionUUID->"227b0638-aeb3-4890-bf7c-48e99f9ac6de",
+ CellTags->"ResizeImages"],
+Cell[65140, 1400, 864, 20, 22, "ControlSuggestions",ExpressionUUID->"b66af204-e366-480f-95c7-e619b142bc8f",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[66007, 1422, 457, 13, 22, "ControlSuggestions",ExpressionUUID->"aae10f8b-348d-45eb-b20a-eade399210ca",
+ CellTags->"DragLocators"],
+Cell[66467, 1437, 761, 19, 22, "ControlSuggestions",ExpressionUUID->"c484d415-95a8-4d12-8f33-9670da2a65e3",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[67231, 1458, 961, 23, 22, "ControlSuggestions",ExpressionUUID->"f4ed5cdd-072d-4c76-89be-c987b1669e7d",
+ CellTags->"SliderZoom"],
+Cell[68195, 1483, 491, 12, 22, "ControlSuggestions",ExpressionUUID->"10fae1ba-0d10-4317-8371-8d2e0d38950f",
+ CellTags->"GamepadControls"],
+Cell[68689, 1497, 1598, 35, 22, "ControlSuggestions",ExpressionUUID->"7c3e10fb-12f5-4ff6-9b28-7d415de4d8b5",
+ CellTags->"AutomaticAnimation"],
+Cell[70290, 1534, 1004, 24, 22, "ControlSuggestions",ExpressionUUID->"8b06697f-bcd0-48f7-bce7-4d121c6d2127",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[71309, 1561, 85, 0, 158, "SearchTermsSection",ExpressionUUID->"ef34088b-93ad-4950-b752-e5688d889189"],
+Cell[CellGroupData[{
+Cell[71419, 1565, 86, 0, 131, "RelatedLinksSection",ExpressionUUID->"7029abf8-f817-4961-a190-a6af577b88b0"],
+Cell[71508, 1567, 376, 7, 22, "RelatedLinks",ExpressionUUID->"e938a120-be55-477f-8c12-f90f56133a8d",
+ CellID->11769576]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71921, 1579, 80, 0, 141, "AuthorSection",ExpressionUUID->"8f035fc3-b350-485b-85a3-e62c71439f03"],
+Cell[72004, 1581, 474, 12, 22, "Author",ExpressionUUID->"51bc86da-bba6-4909-82a5-1bc425487ea4",
+ CellID->245863265]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

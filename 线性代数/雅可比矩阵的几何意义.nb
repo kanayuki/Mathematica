@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1335095,      22466]
-NotebookOptionsPosition[   1333149,      22426]
-NotebookOutlinePosition[   1333565,      22443]
-CellTagsIndexPosition[   1333522,      22440]
+NotebookDataLength[   1358602,      23295]
+NotebookOptionsPosition[   1356414,      23251]
+NotebookOutlinePosition[   1356835,      23268]
+CellTagsIndexPosition[   1356792,      23265]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22217,6 +22217,830 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"r", ",", "pts", ",", "pts2", ",", "vs", ",", "o", ",", "f"}], 
+    "}"}], ",", 
+   RowBox[{
+    RowBox[{"r", "=", "10"}], ";", 
+    RowBox[{"pts", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "r"}], ",", "r"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "r"}], ",", "r"}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"vs", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ";", 
+    RowBox[{"o", "=", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}], ";", 
+    RowBox[{
+     RowBox[{"f", "[", "p_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"p", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "2"], "-", 
+         RowBox[{"p", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+        SuperscriptBox[
+         RowBox[{"p", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "3"]}], "}"}], "/", "5"}]}], ";", 
+    RowBox[{"LocatorPane", "[", 
+     RowBox[{
+      RowBox[{"Dynamic", "[", "vs", "]"}], ",", 
+      RowBox[{"Dynamic", "[", 
+       RowBox[{
+        RowBox[{"pts2", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{"f", ",", "pts", ",", 
+           RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"Line", "[", "pts", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"pts", "\[Transpose]"}], "]"}], ","}], "*)"}], 
+           RowBox[{"Magenta", ",", 
+            RowBox[{"Line", "[", "pts2", "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"pts2", "\[Transpose]"}], "]"}], ",", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{"o", ",", 
+               RowBox[{"vs", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{"o", ",", 
+               RowBox[{"vs", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+          RowBox[{"PlotRange", "->", "r"}], ",", 
+          RowBox[{"GridLines", "->", "Automatic"}], ",", 
+          RowBox[{"GridLinesStyle", "->", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Orange", ",", "Dashed"}], "]"}]}], ",", 
+          RowBox[{"Axes", "->", "True"}]}], "]"}]}], "]"}]}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8790623789152536`*^9, 3.879062378916252*^9}, {
+  3.879062572278966*^9, 3.879062698224102*^9}, {3.87906273089367*^9, 
+  3.8790629026420135`*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"69a38681-baba-4001-9e2e-d0735c96b796"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`r$$ = 10, $CellContext`pts$$ = CompressedData["
+1:eJxN19lt3DAUQFFK3PWfAtJSSkgBSffxzGhhLOBeiAaIY3ihH0i+xT9///31
+J4YQfrDW7/VvjOH6whe+8YM7HnjihQMD+y7o34mYMGPBig07bt8a29e0XvjG
+D+544IkXDgzsu+CKERNmLFixYcc7Ts/O2F7TeuMHdzzwxAsHBvZdcMWICTMW
+rNiw4x2nd+vZGdt7Wh/c8cATLxwY2HfBFSMmzFiwYsOOd5y+Pe/WszO2z7R2
+PPDECwcG9l1wxYgJMxas2LDjHae54dvzbj07Y9undeCJFw4M7LvgihETZixY
+sWHHO05z19zw7Xm3np2xHdM68cKBgX0XXDFiwowFKzbseMdpbTF3zQ3fnnfr
+2RnbOa0LBwb2XXDFiAkzFqzYsOMdp7XP2mLumhu+Pe/WszO2a1oDA/suuGLE
+hBkLVmzY8Y5zjKdGWwOtMeawOeIb9I49Q2P0I7DvgitGTJixYMWGHe847R3W
+ZmuftcXcNTd8e96tZ2dsYfpYcMWICTMWrNiw48Ze9jh7iDXaGmiNMYfNEd+g
+d+wZGqNrxYgJMxas2LDjFp4eb2+zd1ibrX3WFnPX3PDtebeenbGt04qYMGPB
+ig07bvyuM4I92B5nD7FGWwOtMeawOeIb9I6XKbY4rYQZC1Zs2HHjd5xhnBHs
+wfY4e4g12hpojTGHzZEw3a1nZ2xpWhkLVmzYceNnnbGcYZwR7MH2OHuINdoa
+aI0xh0N43p5369kZW55WwYoNO278jDOgM5YzjDOCPdgeZw+xRlsDrTEhPLnh
+2/NuPTtjK9Oq2LDjxvecUZ0BnbGcYZwR7MH2OHuINdoaGMKTu+aGb8+79eyM
+rU6rYceNrzlDO6M6AzpjOcM4I9iD7XH2EGt0CE9tMXfNDd+ed+vZGVubVseN
+z53xnaGdUZ0BnbGcYZwR7MH2OHtICE/ts7aYu+aGb8+79eyMrU9rY83/gzjj
+O0M7ozoDOmM5wzgj2IPtcfYQa7Q10BpjDpsjvkHv2DM0xv+UI41Q
+  "], $CellContext`pts2$$ = {{{22, -200}, {
+     Rational[109, 5], 
+     Rational[-729, 5]}, {
+     Rational[108, 5], 
+     Rational[-512, 5]}, {
+     Rational[107, 5], 
+     Rational[-343, 5]}, {
+     Rational[106, 5], 
+     Rational[-216, 5]}, {21, -25}, {
+     Rational[104, 5], 
+     Rational[-64, 5]}, {
+     Rational[103, 5], 
+     Rational[-27, 5]}, {
+     Rational[102, 5], 
+     Rational[-8, 5]}, {
+     Rational[101, 5], 
+     Rational[-1, 5]}, {20, 0}, {
+     Rational[99, 5], 
+     Rational[1, 5]}, {
+     Rational[98, 5], 
+     Rational[8, 5]}, {
+     Rational[97, 5], 
+     Rational[27, 5]}, {
+     Rational[96, 5], 
+     Rational[64, 5]}, {19, 25}, {
+     Rational[94, 5], 
+     Rational[216, 5]}, {
+     Rational[93, 5], 
+     Rational[343, 5]}, {
+     Rational[92, 5], 
+     Rational[512, 5]}, {
+     Rational[91, 5], 
+     Rational[729, 5]}, {18, 200}}, {{
+     Rational[91, 5], -200}, {18, 
+     Rational[-729, 5]}, {
+     Rational[89, 5], 
+     Rational[-512, 5]}, {
+     Rational[88, 5], 
+     Rational[-343, 5]}, {
+     Rational[87, 5], 
+     Rational[-216, 5]}, {
+     Rational[86, 5], -25}, {17, 
+     Rational[-64, 5]}, {
+     Rational[84, 5], 
+     Rational[-27, 5]}, {
+     Rational[83, 5], 
+     Rational[-8, 5]}, {
+     Rational[82, 5], 
+     Rational[-1, 5]}, {
+     Rational[81, 5], 0}, {16, 
+     Rational[1, 5]}, {
+     Rational[79, 5], 
+     Rational[8, 5]}, {
+     Rational[78, 5], 
+     Rational[27, 5]}, {
+     Rational[77, 5], 
+     Rational[64, 5]}, {
+     Rational[76, 5], 25}, {15, 
+     Rational[216, 5]}, {
+     Rational[74, 5], 
+     Rational[343, 5]}, {
+     Rational[73, 5], 
+     Rational[512, 5]}, {
+     Rational[72, 5], 
+     Rational[729, 5]}, {
+     Rational[71, 5], 200}}, {{
+     Rational[74, 5], -200}, {
+     Rational[73, 5], 
+     Rational[-729, 5]}, {
+     Rational[72, 5], 
+     Rational[-512, 5]}, {
+     Rational[71, 5], 
+     Rational[-343, 5]}, {14, 
+     Rational[-216, 5]}, {
+     Rational[69, 5], -25}, {
+     Rational[68, 5], 
+     Rational[-64, 5]}, {
+     Rational[67, 5], 
+     Rational[-27, 5]}, {
+     Rational[66, 5], 
+     Rational[-8, 5]}, {13, 
+     Rational[-1, 5]}, {
+     Rational[64, 5], 0}, {
+     Rational[63, 5], 
+     Rational[1, 5]}, {
+     Rational[62, 5], 
+     Rational[8, 5]}, {
+     Rational[61, 5], 
+     Rational[27, 5]}, {12, 
+     Rational[64, 5]}, {
+     Rational[59, 5], 25}, {
+     Rational[58, 5], 
+     Rational[216, 5]}, {
+     Rational[57, 5], 
+     Rational[343, 5]}, {
+     Rational[56, 5], 
+     Rational[512, 5]}, {11, 
+     Rational[729, 5]}, {
+     Rational[54, 5], 200}}, {{
+     Rational[59, 5], -200}, {
+     Rational[58, 5], 
+     Rational[-729, 5]}, {
+     Rational[57, 5], 
+     Rational[-512, 5]}, {
+     Rational[56, 5], 
+     Rational[-343, 5]}, {11, 
+     Rational[-216, 5]}, {
+     Rational[54, 5], -25}, {
+     Rational[53, 5], 
+     Rational[-64, 5]}, {
+     Rational[52, 5], 
+     Rational[-27, 5]}, {
+     Rational[51, 5], 
+     Rational[-8, 5]}, {10, 
+     Rational[-1, 5]}, {
+     Rational[49, 5], 0}, {
+     Rational[48, 5], 
+     Rational[1, 5]}, {
+     Rational[47, 5], 
+     Rational[8, 5]}, {
+     Rational[46, 5], 
+     Rational[27, 5]}, {9, 
+     Rational[64, 5]}, {
+     Rational[44, 5], 25}, {
+     Rational[43, 5], 
+     Rational[216, 5]}, {
+     Rational[42, 5], 
+     Rational[343, 5]}, {
+     Rational[41, 5], 
+     Rational[512, 5]}, {8, 
+     Rational[729, 5]}, {
+     Rational[39, 5], 200}}, {{
+     Rational[46, 5], -200}, {9, 
+     Rational[-729, 5]}, {
+     Rational[44, 5], 
+     Rational[-512, 5]}, {
+     Rational[43, 5], 
+     Rational[-343, 5]}, {
+     Rational[42, 5], 
+     Rational[-216, 5]}, {
+     Rational[41, 5], -25}, {8, 
+     Rational[-64, 5]}, {
+     Rational[39, 5], 
+     Rational[-27, 5]}, {
+     Rational[38, 5], 
+     Rational[-8, 5]}, {
+     Rational[37, 5], 
+     Rational[-1, 5]}, {
+     Rational[36, 5], 0}, {7, 
+     Rational[1, 5]}, {
+     Rational[34, 5], 
+     Rational[8, 5]}, {
+     Rational[33, 5], 
+     Rational[27, 5]}, {
+     Rational[32, 5], 
+     Rational[64, 5]}, {
+     Rational[31, 5], 25}, {6, 
+     Rational[216, 5]}, {
+     Rational[29, 5], 
+     Rational[343, 5]}, {
+     Rational[28, 5], 
+     Rational[512, 5]}, {
+     Rational[27, 5], 
+     Rational[729, 5]}, {
+     Rational[26, 5], 200}}, {{7, -200}, {
+     Rational[34, 5], 
+     Rational[-729, 5]}, {
+     Rational[33, 5], 
+     Rational[-512, 5]}, {
+     Rational[32, 5], 
+     Rational[-343, 5]}, {
+     Rational[31, 5], 
+     Rational[-216, 5]}, {6, -25}, {
+     Rational[29, 5], 
+     Rational[-64, 5]}, {
+     Rational[28, 5], 
+     Rational[-27, 5]}, {
+     Rational[27, 5], 
+     Rational[-8, 5]}, {
+     Rational[26, 5], 
+     Rational[-1, 5]}, {5, 0}, {
+     Rational[24, 5], 
+     Rational[1, 5]}, {
+     Rational[23, 5], 
+     Rational[8, 5]}, {
+     Rational[22, 5], 
+     Rational[27, 5]}, {
+     Rational[21, 5], 
+     Rational[64, 5]}, {4, 25}, {
+     Rational[19, 5], 
+     Rational[216, 5]}, {
+     Rational[18, 5], 
+     Rational[343, 5]}, {
+     Rational[17, 5], 
+     Rational[512, 5]}, {
+     Rational[16, 5], 
+     Rational[729, 5]}, {3, 200}}, {{
+     Rational[26, 5], -200}, {5, 
+     Rational[-729, 5]}, {
+     Rational[24, 5], 
+     Rational[-512, 5]}, {
+     Rational[23, 5], 
+     Rational[-343, 5]}, {
+     Rational[22, 5], 
+     Rational[-216, 5]}, {
+     Rational[21, 5], -25}, {4, 
+     Rational[-64, 5]}, {
+     Rational[19, 5], 
+     Rational[-27, 5]}, {
+     Rational[18, 5], 
+     Rational[-8, 5]}, {
+     Rational[17, 5], 
+     Rational[-1, 5]}, {
+     Rational[16, 5], 0}, {3, 
+     Rational[1, 5]}, {
+     Rational[14, 5], 
+     Rational[8, 5]}, {
+     Rational[13, 5], 
+     Rational[27, 5]}, {
+     Rational[12, 5], 
+     Rational[64, 5]}, {
+     Rational[11, 5], 25}, {2, 
+     Rational[216, 5]}, {
+     Rational[9, 5], 
+     Rational[343, 5]}, {
+     Rational[8, 5], 
+     Rational[512, 5]}, {
+     Rational[7, 5], 
+     Rational[729, 5]}, {
+     Rational[6, 5], 200}}, {{
+     Rational[19, 5], -200}, {
+     Rational[18, 5], 
+     Rational[-729, 5]}, {
+     Rational[17, 5], 
+     Rational[-512, 5]}, {
+     Rational[16, 5], 
+     Rational[-343, 5]}, {3, 
+     Rational[-216, 5]}, {
+     Rational[14, 5], -25}, {
+     Rational[13, 5], 
+     Rational[-64, 5]}, {
+     Rational[12, 5], 
+     Rational[-27, 5]}, {
+     Rational[11, 5], 
+     Rational[-8, 5]}, {2, 
+     Rational[-1, 5]}, {
+     Rational[9, 5], 0}, {
+     Rational[8, 5], 
+     Rational[1, 5]}, {
+     Rational[7, 5], 
+     Rational[8, 5]}, {
+     Rational[6, 5], 
+     Rational[27, 5]}, {1, 
+     Rational[64, 5]}, {
+     Rational[4, 5], 25}, {
+     Rational[3, 5], 
+     Rational[216, 5]}, {
+     Rational[2, 5], 
+     Rational[343, 5]}, {
+     Rational[1, 5], 
+     Rational[512, 5]}, {0, 
+     Rational[729, 5]}, {
+     Rational[-1, 5], 200}}, {{
+     Rational[14, 5], -200}, {
+     Rational[13, 5], 
+     Rational[-729, 5]}, {
+     Rational[12, 5], 
+     Rational[-512, 5]}, {
+     Rational[11, 5], 
+     Rational[-343, 5]}, {2, 
+     Rational[-216, 5]}, {
+     Rational[9, 5], -25}, {
+     Rational[8, 5], 
+     Rational[-64, 5]}, {
+     Rational[7, 5], 
+     Rational[-27, 5]}, {
+     Rational[6, 5], 
+     Rational[-8, 5]}, {1, 
+     Rational[-1, 5]}, {
+     Rational[4, 5], 0}, {
+     Rational[3, 5], 
+     Rational[1, 5]}, {
+     Rational[2, 5], 
+     Rational[8, 5]}, {
+     Rational[1, 5], 
+     Rational[27, 5]}, {0, 
+     Rational[64, 5]}, {
+     Rational[-1, 5], 25}, {
+     Rational[-2, 5], 
+     Rational[216, 5]}, {
+     Rational[-3, 5], 
+     Rational[343, 5]}, {
+     Rational[-4, 5], 
+     Rational[512, 5]}, {-1, 
+     Rational[729, 5]}, {
+     Rational[-6, 5], 200}}, {{
+     Rational[11, 5], -200}, {2, 
+     Rational[-729, 5]}, {
+     Rational[9, 5], 
+     Rational[-512, 5]}, {
+     Rational[8, 5], 
+     Rational[-343, 5]}, {
+     Rational[7, 5], 
+     Rational[-216, 5]}, {
+     Rational[6, 5], -25}, {1, 
+     Rational[-64, 5]}, {
+     Rational[4, 5], 
+     Rational[-27, 5]}, {
+     Rational[3, 5], 
+     Rational[-8, 5]}, {
+     Rational[2, 5], 
+     Rational[-1, 5]}, {
+     Rational[1, 5], 0}, {0, 
+     Rational[1, 5]}, {
+     Rational[-1, 5], 
+     Rational[8, 5]}, {
+     Rational[-2, 5], 
+     Rational[27, 5]}, {
+     Rational[-3, 5], 
+     Rational[64, 5]}, {
+     Rational[-4, 5], 25}, {-1, 
+     Rational[216, 5]}, {
+     Rational[-6, 5], 
+     Rational[343, 5]}, {
+     Rational[-7, 5], 
+     Rational[512, 5]}, {
+     Rational[-8, 5], 
+     Rational[729, 5]}, {
+     Rational[-9, 5], 200}}, {{2, -200}, {
+     Rational[9, 5], 
+     Rational[-729, 5]}, {
+     Rational[8, 5], 
+     Rational[-512, 5]}, {
+     Rational[7, 5], 
+     Rational[-343, 5]}, {
+     Rational[6, 5], 
+     Rational[-216, 5]}, {1, -25}, {
+     Rational[4, 5], 
+     Rational[-64, 5]}, {
+     Rational[3, 5], 
+     Rational[-27, 5]}, {
+     Rational[2, 5], 
+     Rational[-8, 5]}, {
+     Rational[1, 5], 
+     Rational[-1, 5]}, {0, 0}, {
+     Rational[-1, 5], 
+     Rational[1, 5]}, {
+     Rational[-2, 5], 
+     Rational[8, 5]}, {
+     Rational[-3, 5], 
+     Rational[27, 5]}, {
+     Rational[-4, 5], 
+     Rational[64, 5]}, {-1, 25}, {
+     Rational[-6, 5], 
+     Rational[216, 5]}, {
+     Rational[-7, 5], 
+     Rational[343, 5]}, {
+     Rational[-8, 5], 
+     Rational[512, 5]}, {
+     Rational[-9, 5], 
+     Rational[729, 5]}, {-2, 200}}, {{
+     Rational[11, 5], -200}, {2, 
+     Rational[-729, 5]}, {
+     Rational[9, 5], 
+     Rational[-512, 5]}, {
+     Rational[8, 5], 
+     Rational[-343, 5]}, {
+     Rational[7, 5], 
+     Rational[-216, 5]}, {
+     Rational[6, 5], -25}, {1, 
+     Rational[-64, 5]}, {
+     Rational[4, 5], 
+     Rational[-27, 5]}, {
+     Rational[3, 5], 
+     Rational[-8, 5]}, {
+     Rational[2, 5], 
+     Rational[-1, 5]}, {
+     Rational[1, 5], 0}, {0, 
+     Rational[1, 5]}, {
+     Rational[-1, 5], 
+     Rational[8, 5]}, {
+     Rational[-2, 5], 
+     Rational[27, 5]}, {
+     Rational[-3, 5], 
+     Rational[64, 5]}, {
+     Rational[-4, 5], 25}, {-1, 
+     Rational[216, 5]}, {
+     Rational[-6, 5], 
+     Rational[343, 5]}, {
+     Rational[-7, 5], 
+     Rational[512, 5]}, {
+     Rational[-8, 5], 
+     Rational[729, 5]}, {
+     Rational[-9, 5], 200}}, {{
+     Rational[14, 5], -200}, {
+     Rational[13, 5], 
+     Rational[-729, 5]}, {
+     Rational[12, 5], 
+     Rational[-512, 5]}, {
+     Rational[11, 5], 
+     Rational[-343, 5]}, {2, 
+     Rational[-216, 5]}, {
+     Rational[9, 5], -25}, {
+     Rational[8, 5], 
+     Rational[-64, 5]}, {
+     Rational[7, 5], 
+     Rational[-27, 5]}, {
+     Rational[6, 5], 
+     Rational[-8, 5]}, {1, 
+     Rational[-1, 5]}, {
+     Rational[4, 5], 0}, {
+     Rational[3, 5], 
+     Rational[1, 5]}, {
+     Rational[2, 5], 
+     Rational[8, 5]}, {
+     Rational[1, 5], 
+     Rational[27, 5]}, {0, 
+     Rational[64, 5]}, {
+     Rational[-1, 5], 25}, {
+     Rational[-2, 5], 
+     Rational[216, 5]}, {
+     Rational[-3, 5], 
+     Rational[343, 5]}, {
+     Rational[-4, 5], 
+     Rational[512, 5]}, {-1, 
+     Rational[729, 5]}, {
+     Rational[-6, 5], 200}}, {{
+     Rational[19, 5], -200}, {
+     Rational[18, 5], 
+     Rational[-729, 5]}, {
+     Rational[17, 5], 
+     Rational[-512, 5]}, {
+     Rational[16, 5], 
+     Rational[-343, 5]}, {3, 
+     Rational[-216, 5]}, {
+     Rational[14, 5], -25}, {
+     Rational[13, 5], 
+     Rational[-64, 5]}, {
+     Rational[12, 5], 
+     Rational[-27, 5]}, {
+     Rational[11, 5], 
+     Rational[-8, 5]}, {2, 
+     Rational[-1, 5]}, {
+     Rational[9, 5], 0}, {
+     Rational[8, 5], 
+     Rational[1, 5]}, {
+     Rational[7, 5], 
+     Rational[8, 5]}, {
+     Rational[6, 5], 
+     Rational[27, 5]}, {1, 
+     Rational[64, 5]}, {
+     Rational[4, 5], 25}, {
+     Rational[3, 5], 
+     Rational[216, 5]}, {
+     Rational[2, 5], 
+     Rational[343, 5]}, {
+     Rational[1, 5], 
+     Rational[512, 5]}, {0, 
+     Rational[729, 5]}, {
+     Rational[-1, 5], 200}}, {{
+     Rational[26, 5], -200}, {5, 
+     Rational[-729, 5]}, {
+     Rational[24, 5], 
+     Rational[-512, 5]}, {
+     Rational[23, 5], 
+     Rational[-343, 5]}, {
+     Rational[22, 5], 
+     Rational[-216, 5]}, {
+     Rational[21, 5], -25}, {4, 
+     Rational[-64, 5]}, {
+     Rational[19, 5], 
+     Rational[-27, 5]}, {
+     Rational[18, 5], 
+     Rational[-8, 5]}, {
+     Rational[17, 5], 
+     Rational[-1, 5]}, {
+     Rational[16, 5], 0}, {3, 
+     Rational[1, 5]}, {
+     Rational[14, 5], 
+     Rational[8, 5]}, {
+     Rational[13, 5], 
+     Rational[27, 5]}, {
+     Rational[12, 5], 
+     Rational[64, 5]}, {
+     Rational[11, 5], 25}, {2, 
+     Rational[216, 5]}, {
+     Rational[9, 5], 
+     Rational[343, 5]}, {
+     Rational[8, 5], 
+     Rational[512, 5]}, {
+     Rational[7, 5], 
+     Rational[729, 5]}, {
+     Rational[6, 5], 200}}, {{7, -200}, {
+     Rational[34, 5], 
+     Rational[-729, 5]}, {
+     Rational[33, 5], 
+     Rational[-512, 5]}, {
+     Rational[32, 5], 
+     Rational[-343, 5]}, {
+     Rational[31, 5], 
+     Rational[-216, 5]}, {6, -25}, {
+     Rational[29, 5], 
+     Rational[-64, 5]}, {
+     Rational[28, 5], 
+     Rational[-27, 5]}, {
+     Rational[27, 5], 
+     Rational[-8, 5]}, {
+     Rational[26, 5], 
+     Rational[-1, 5]}, {5, 0}, {
+     Rational[24, 5], 
+     Rational[1, 5]}, {
+     Rational[23, 5], 
+     Rational[8, 5]}, {
+     Rational[22, 5], 
+     Rational[27, 5]}, {
+     Rational[21, 5], 
+     Rational[64, 5]}, {4, 25}, {
+     Rational[19, 5], 
+     Rational[216, 5]}, {
+     Rational[18, 5], 
+     Rational[343, 5]}, {
+     Rational[17, 5], 
+     Rational[512, 5]}, {
+     Rational[16, 5], 
+     Rational[729, 5]}, {3, 200}}, {{
+     Rational[46, 5], -200}, {9, 
+     Rational[-729, 5]}, {
+     Rational[44, 5], 
+     Rational[-512, 5]}, {
+     Rational[43, 5], 
+     Rational[-343, 5]}, {
+     Rational[42, 5], 
+     Rational[-216, 5]}, {
+     Rational[41, 5], -25}, {8, 
+     Rational[-64, 5]}, {
+     Rational[39, 5], 
+     Rational[-27, 5]}, {
+     Rational[38, 5], 
+     Rational[-8, 5]}, {
+     Rational[37, 5], 
+     Rational[-1, 5]}, {
+     Rational[36, 5], 0}, {7, 
+     Rational[1, 5]}, {
+     Rational[34, 5], 
+     Rational[8, 5]}, {
+     Rational[33, 5], 
+     Rational[27, 5]}, {
+     Rational[32, 5], 
+     Rational[64, 5]}, {
+     Rational[31, 5], 25}, {6, 
+     Rational[216, 5]}, {
+     Rational[29, 5], 
+     Rational[343, 5]}, {
+     Rational[28, 5], 
+     Rational[512, 5]}, {
+     Rational[27, 5], 
+     Rational[729, 5]}, {
+     Rational[26, 5], 200}}, {{
+     Rational[59, 5], -200}, {
+     Rational[58, 5], 
+     Rational[-729, 5]}, {
+     Rational[57, 5], 
+     Rational[-512, 5]}, {
+     Rational[56, 5], 
+     Rational[-343, 5]}, {11, 
+     Rational[-216, 5]}, {
+     Rational[54, 5], -25}, {
+     Rational[53, 5], 
+     Rational[-64, 5]}, {
+     Rational[52, 5], 
+     Rational[-27, 5]}, {
+     Rational[51, 5], 
+     Rational[-8, 5]}, {10, 
+     Rational[-1, 5]}, {
+     Rational[49, 5], 0}, {
+     Rational[48, 5], 
+     Rational[1, 5]}, {
+     Rational[47, 5], 
+     Rational[8, 5]}, {
+     Rational[46, 5], 
+     Rational[27, 5]}, {9, 
+     Rational[64, 5]}, {
+     Rational[44, 5], 25}, {
+     Rational[43, 5], 
+     Rational[216, 5]}, {
+     Rational[42, 5], 
+     Rational[343, 5]}, {
+     Rational[41, 5], 
+     Rational[512, 5]}, {8, 
+     Rational[729, 5]}, {
+     Rational[39, 5], 200}}, {{
+     Rational[74, 5], -200}, {
+     Rational[73, 5], 
+     Rational[-729, 5]}, {
+     Rational[72, 5], 
+     Rational[-512, 5]}, {
+     Rational[71, 5], 
+     Rational[-343, 5]}, {14, 
+     Rational[-216, 5]}, {
+     Rational[69, 5], -25}, {
+     Rational[68, 5], 
+     Rational[-64, 5]}, {
+     Rational[67, 5], 
+     Rational[-27, 5]}, {
+     Rational[66, 5], 
+     Rational[-8, 5]}, {13, 
+     Rational[-1, 5]}, {
+     Rational[64, 5], 0}, {
+     Rational[63, 5], 
+     Rational[1, 5]}, {
+     Rational[62, 5], 
+     Rational[8, 5]}, {
+     Rational[61, 5], 
+     Rational[27, 5]}, {12, 
+     Rational[64, 5]}, {
+     Rational[59, 5], 25}, {
+     Rational[58, 5], 
+     Rational[216, 5]}, {
+     Rational[57, 5], 
+     Rational[343, 5]}, {
+     Rational[56, 5], 
+     Rational[512, 5]}, {11, 
+     Rational[729, 5]}, {
+     Rational[54, 5], 200}}, {{
+     Rational[91, 5], -200}, {18, 
+     Rational[-729, 5]}, {
+     Rational[89, 5], 
+     Rational[-512, 5]}, {
+     Rational[88, 5], 
+     Rational[-343, 5]}, {
+     Rational[87, 5], 
+     Rational[-216, 5]}, {
+     Rational[86, 5], -25}, {17, 
+     Rational[-64, 5]}, {
+     Rational[84, 5], 
+     Rational[-27, 5]}, {
+     Rational[83, 5], 
+     Rational[-8, 5]}, {
+     Rational[82, 5], 
+     Rational[-1, 5]}, {
+     Rational[81, 5], 0}, {16, 
+     Rational[1, 5]}, {
+     Rational[79, 5], 
+     Rational[8, 5]}, {
+     Rational[78, 5], 
+     Rational[27, 5]}, {
+     Rational[77, 5], 
+     Rational[64, 5]}, {
+     Rational[76, 5], 25}, {15, 
+     Rational[216, 5]}, {
+     Rational[74, 5], 
+     Rational[343, 5]}, {
+     Rational[73, 5], 
+     Rational[512, 5]}, {
+     Rational[72, 5], 
+     Rational[729, 5]}, {
+     Rational[71, 5], 200}}, {{22, -200}, {
+     Rational[109, 5], 
+     Rational[-729, 5]}, {
+     Rational[108, 5], 
+     Rational[-512, 5]}, {
+     Rational[107, 5], 
+     Rational[-343, 5]}, {
+     Rational[106, 5], 
+     Rational[-216, 5]}, {21, -25}, {
+     Rational[104, 5], 
+     Rational[-64, 5]}, {
+     Rational[103, 5], 
+     Rational[-27, 5]}, {
+     Rational[102, 5], 
+     Rational[-8, 5]}, {
+     Rational[101, 5], 
+     Rational[-1, 5]}, {20, 0}, {
+     Rational[99, 5], 
+     Rational[1, 5]}, {
+     Rational[98, 5], 
+     Rational[8, 5]}, {
+     Rational[97, 5], 
+     Rational[27, 5]}, {
+     Rational[96, 5], 
+     Rational[64, 5]}, {19, 25}, {
+     Rational[94, 5], 
+     Rational[216, 5]}, {
+     Rational[93, 5], 
+     Rational[343, 5]}, {
+     Rational[92, 5], 
+     Rational[512, 5]}, {
+     Rational[91, 5], 
+     Rational[729, 5]}, {18, 200}}}, $CellContext`vs$$ = {{1, 0}, {0, 
+  1}}, $CellContext`o$$ = {0, 0}, $CellContext`f$$}, 
+  LocatorPaneBox[Dynamic[$CellContext`vs$$], 
+   DynamicBox[
+    ToBoxes[$CellContext`pts2$$ = 
+      Map[$CellContext`f$$, $CellContext`pts$$, {2}]; Graphics[{Magenta, 
+        Line[$CellContext`pts2$$], 
+        Line[
+         Transpose[$CellContext`pts2$$]], 
+        Arrow[{$CellContext`o$$, 
+          Part[$CellContext`vs$$, 1]}], 
+        Arrow[{$CellContext`o$$, 
+          Part[$CellContext`vs$$, 2]}]}, PlotRange -> $CellContext`r$$, 
+       GridLines -> Automatic, GridLinesStyle -> Directive[Orange, Dashed], 
+       Axes -> True], StandardForm],
+    ImageSizeCache->{360., {176., 181.12890684604645`}}]],
+  DynamicModuleValues:>{{DownValues[$CellContext`f$$] = {HoldPattern[
+         $CellContext`f$$[
+          Pattern[$CellContext`p, 
+           Blank[]]]] :> {
+         Part[$CellContext`p, 1]^2 - Part[$CellContext`p, 2], 
+          Part[$CellContext`p, 2]^3}/5}}}]], "Output",
+ CellChangeTimes->{
+  3.8790623858671627`*^9, 3.87906270479039*^9, {3.8790627472166367`*^9, 
+   3.879062794822673*^9}, 3.879062842480397*^9, {3.879062875917137*^9, 
+   3.879062903576816*^9}},
+ CellLabel->"Out[36]=",ExpressionUUID->"293e4f4f-137a-42ca-b871-fd400f809ff9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{"Slider2D", "[", 
@@ -22326,7 +23150,8 @@ Cell[BoxData[
           Dot[$CellContext`J, {-3, -3 + $CellContext`d}], 
           Dot[$CellContext`J, {3, -3 + $CellContext`d}]}, {$CellContext`d, 0, 
           6}]]}]], StandardForm],
-  ImageSizeCache->{360., {178., 181.7705078125}}]], "Output",
+  ImageSizeCache->{
+   159.63476824760437`, {43., 46.855999999999995`}}]], "Output",
  CellChangeTimes->{{3.8772380098396764`*^9, 3.8772380201482115`*^9}, 
    3.8772381090123243`*^9, 3.877238223805745*^9, 3.8772382547334604`*^9, 
    3.877238952482889*^9},
@@ -22424,8 +23249,8 @@ Cell[BoxData[
 96d556207c03"]
 }, Open  ]]
 },
-WindowSize->{960, 478},
-WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+WindowSize->{960., 478.5},
+WindowMargins->{{Automatic, 15.75}, {Automatic, 92.25}},
 FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
 \:65e5)",
 StyleDefinitions->"Default.nb",
@@ -22446,31 +23271,33 @@ Cell[CellGroupData[{
 Cell[580, 22, 203, 3, 98, "Title",ExpressionUUID->"6d1c5520-aef5-4a2e-92d2-3814f247ef6b"],
 Cell[CellGroupData[{
 Cell[808, 29, 561, 15, 45, "Input",ExpressionUUID->"06d8c2b1-2b44-4f8e-bca4-039541b3804f"],
-Cell[1372, 46, 675789, 11259, 376, 407186, 6855, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"938cdeac-7819-40c9-be66-354e478f9552"]
+Cell[1372, 46, 675789, 11259, 377, 407186, 6855, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"938cdeac-7819-40c9-be66-354e478f9552"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[677198, 11310, 953, 27, 64, "Input",ExpressionUUID->"ee62a5cc-4865-4db1-9aed-f82baa61b903"],
-Cell[678154, 11339, 643088, 10748, 376, 412543, 6968, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"ca9d2bc4-e8ff-4d94-9a07-c789a1519807"]
+Cell[678154, 11339, 643088, 10748, 377, 412543, 6968, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"ca9d2bc4-e8ff-4d94-9a07-c789a1519807"]
 }, Open  ]],
 Cell[1321257, 22090, 182, 3, 28, "Input",ExpressionUUID->"68a89a7e-d1f1-402e-9a2c-9afa04230162"],
 Cell[CellGroupData[{
-Cell[1321464, 22097, 1385, 40, 78, "Input",ExpressionUUID->"788c8ddc-47d3-4f69-a735-c38dc306c404"],
+Cell[1321464, 22097, 1385, 40, 43, "Input",ExpressionUUID->"788c8ddc-47d3-4f69-a735-c38dc306c404"],
 Cell[1322852, 22139, 508, 8, 376, "Output",ExpressionUUID->"60ee8a0e-14a4-46b2-abfa-dc8765213583"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1323397, 22152, 1603, 51, 133, "Input",ExpressionUUID->"2208c28a-43df-4164-a48c-bcebfabf33c5"],
+Cell[1323397, 22152, 1603, 51, 97, "Input",ExpressionUUID->"2208c28a-43df-4164-a48c-bcebfabf33c5"],
 Cell[1325003, 22205, 512, 8, 449, "Output",ExpressionUUID->"7b6e86b1-19a8-4753-8740-9da2626dfe75"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1325552, 22218, 3188, 87, 225, "Input",ExpressionUUID->"416b71ba-315a-41ad-81a9-c778e27c011d"],
-Cell[1328743, 22307, 341, 5, 99, "Output",ExpressionUUID->"77449b65-b316-4902-9850-d5796abc48fe"],
-Cell[1329087, 22314, 839, 18, 376, "Output",ExpressionUUID->"acbd1f60-9e9b-4feb-8600-b45b35e19022"]
+Cell[1325552, 22218, 3056, 84, 249, "Input",ExpressionUUID->"69a38681-baba-4001-9e2e-d0735c96b796"],
+Cell[1328611, 22304, 20146, 733, 383, "Output",ExpressionUUID->"293e4f4f-137a-42ca-b871-fd400f809ff9"]
 }, Open  ]],
-Cell[1329941, 22335, 3192, 88, 225, "Input",ExpressionUUID->"a60e4397-d069-47e7-b0d4-96d556207c03"]
+Cell[CellGroupData[{
+Cell[1348794, 23042, 3188, 87, 225, "Input",ExpressionUUID->"416b71ba-315a-41ad-81a9-c778e27c011d"],
+Cell[1351985, 23131, 341, 5, 99, "Output",ExpressionUUID->"77449b65-b316-4902-9850-d5796abc48fe"],
+Cell[1352329, 23138, 862, 19, 108, "Output",ExpressionUUID->"acbd1f60-9e9b-4feb-8600-b45b35e19022"]
+}, Open  ]],
+Cell[1353206, 23160, 3192, 88, 225, "Input",ExpressionUUID->"a60e4397-d069-47e7-b0d4-96d556207c03"]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

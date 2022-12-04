@@ -1,0 +1,1957 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     86729,       1948]
+NotebookOptionsPosition[     82620,       1822]
+NotebookOutlinePosition[     84248,       1873]
+CellTagsIndexPosition[     83920,       1861]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Uns\[ODoubleDot]ld's Theorem", "DemoTitle",
+ CellChangeTimes->{3.35696210375764*^9, 3.4537566698185263`*^9}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"0", ",", "0"}], "]"}], "=", 
+     RowBox[{"Boole", "[", 
+      RowBox[{"l", "\[Equal]", "0"}], "]"}]}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}]}], "]"}], "=", "p0"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"1", ",", "0"}], "]"}], "=", "p1"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"1", ",", "1"}], "]"}], "=", "p2"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"2", ",", 
+       RowBox[{"-", "2"}]}], "]"}], "=", "d0"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"2", ",", 
+       RowBox[{"-", "1"}]}], "]"}], "=", "d1"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"2", ",", "0"}], "]"}], "=", "d2"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"2", ",", "1"}], "]"}], "=", "d3"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"2", ",", "2"}], "]"}], "=", "d4"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "3"}]}], "]"}], "=", "f0"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "2"}]}], "]"}], ":=", "f1"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "1"}]}], "]"}], "=", "f2"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", "0"}], "]"}], "=", "f3"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", "1"}], "]"}], "=", "f4"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", "2"}], "]"}], "=", "f5"}], ";", 
+    RowBox[{
+     RowBox[{"c", "[", 
+      RowBox[{"3", ",", "3"}], "]"}], "=", "f6"}], ";", 
+    RowBox[{"ParametricPlot3D", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+          RowBox[{"Cos", "[", "\[Phi]", "]"}]}], ",", 
+         RowBox[{
+          RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+          RowBox[{"Sin", "[", "\[Phi]", "]"}]}], ",", 
+         RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}], 
+       RowBox[{
+        UnderoverscriptBox["\[Sum]", 
+         RowBox[{"m", "=", 
+          RowBox[{"-", "l"}]}], "l"], 
+        RowBox[{
+         RowBox[{"c", "[", 
+          RowBox[{"l", ",", "m"}], "]"}], 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             SqrtBox["2"], 
+             RowBox[{"Boole", "[", 
+              RowBox[{"m", ">", "0"}], "]"}], "\[IndentingNewLine]", 
+             RowBox[{"Re", "[", 
+              RowBox[{"SphericalHarmonicY", "[", 
+               RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}],
+               "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"Boole", "[", 
+              RowBox[{"m", "\[Equal]", "0"}], "]"}], 
+             RowBox[{"SphericalHarmonicY", "[", 
+              RowBox[{"l", ",", "0", ",", "\[Theta]", ",", "\[Phi]"}], 
+              "]"}]}], "+", 
+            RowBox[{
+             SqrtBox["2"], 
+             RowBox[{"Boole", "[", 
+              RowBox[{"m", "<", "0"}], "]"}], 
+             RowBox[{"Im", "[", 
+              RowBox[{"SphericalHarmonicY", "[", 
+               RowBox[{"l", ",", "m", ",", "\[Theta]", ",", "\[Phi]"}], "]"}],
+               "]"}]}]}], ")"}], "2"]}]}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"\[Phi]", ",", "0", ",", 
+        RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"2", "l"}], "+", "1"}], 
+        RowBox[{"4", "\[Pi]"}]]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Mesh", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ImageSize", " ", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"400", ",", "400"}], "}"}]}], ",", 
+      RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+      RowBox[{"SphericalRegion", "\[Rule]", "True"}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l", ",", "1", ",", "\"\<orbitals\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0", "\[Rule]", "\"\<s\>\""}], ",", 
+       RowBox[{"1", "\[Rule]", "\"\<p\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<d\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<f\>\""}]}], "}"}], ",", "Setter"}], "}"}],
+    ",", "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p0", ",", "1", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<p\>\"", ",", "\"\<y\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "1"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<p\>\"", ",", "\"\<z\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "1"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p2", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<p\>\"", ",", "\"\<x\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "1"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d0", ",", "1", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<d\>\"", ",", "\"\<xy\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "2"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d1", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<d\>\"", ",", "\"\<yz\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "2"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d2", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<d\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(z\), \(2\)]\)\>\""}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "2"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d3", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<d\>\"", ",", "\"\<xz\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "2"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d4", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<d\>\"", ",", 
+         "\"\<\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\)\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "2"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f0", ",", "1", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", 
+         "\"\<y(3\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f1", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", 
+         "\"\<z(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f2", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(xz\), \(2\)]\)\>\""}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f3", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(z\), \(3\)]\)\>\""}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f4", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(yz\), \(2\)]\)\>\""}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f5", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<f\>\"", ",", "\"\<xyz\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f6", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{
+        "\"\<f\>\"", ",", 
+         "\"\<x(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-3\!\(\*SuperscriptBox[\(y\), \(2\)]\))\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "Checkbox", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"Dynamic", "@", 
+       RowBox[{"(", 
+        RowBox[{"l", "\[Equal]", "3"}], ")"}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", "1", "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453676425006811*^9, 3.453676446474277*^9}, {
+   3.453676489405691*^9, 3.4536764984278316`*^9}, {3.4536765406873493`*^9, 
+   3.453676555374028*^9}, {3.453676668514464*^9, 3.453676675674588*^9}, {
+   3.4536767179724007`*^9, 3.4536768675726557`*^9}, {3.453676909814348*^9, 
+   3.453676916077032*^9}, {3.453676948343308*^9, 3.453676966310129*^9}, {
+   3.4536770064095583`*^9, 3.453677016367283*^9}, {3.453677129583633*^9, 
+   3.453677131300438*^9}, 3.4536772502907743`*^9, {3.453677286267187*^9, 
+   3.453677294794888*^9}, {3.453677348797634*^9, 3.453677701636945*^9}, {
+   3.453677806377277*^9, 3.453677873161543*^9}, {3.453677908741033*^9, 
+   3.453677935636249*^9}, 3.4536779762074623`*^9, {3.453678045506486*^9, 
+   3.4536780518158073`*^9}, {3.4536781060077953`*^9, 
+   3.4536781369792643`*^9}, {3.453678208822158*^9, 3.453678248178466*^9}, {
+   3.453678529375832*^9, 3.4536785511733427`*^9}, {3.453678660059469*^9, 
+   3.4536787105565863`*^9}, {3.453678801665082*^9, 3.453678825177326*^9}, {
+   3.4536789146930656`*^9, 3.4536789202839403`*^9}, {3.453678958887807*^9, 
+   3.453678966526716*^9}, 3.4536790303029346`*^9, {3.453679296740685*^9, 
+   3.453679304835371*^9}, {3.4536804803607397`*^9, 3.453680636926036*^9}, 
+   3.4536807412581997`*^9, {3.4536807748225403`*^9, 3.453680780061043*^9}, {
+   3.453681034144815*^9, 3.453681049096006*^9}, {3.453681089203125*^9, 
+   3.453681092594199*^9}, {3.453681213263505*^9, 3.453681252671733*^9}, {
+   3.453681298006905*^9, 3.4536813580519753`*^9}, {3.453681427238542*^9, 
+   3.453681432740958*^9}, {3.453681463285758*^9, 3.453681496889057*^9}, {
+   3.4536815721252947`*^9, 3.453681583828986*^9}, {3.453681660728915*^9, 
+   3.453681702968622*^9}, {3.453681736099896*^9, 3.453681738490093*^9}, {
+   3.453682147603448*^9, 3.4536821766995077`*^9}, {3.4536823475788383`*^9, 
+   3.453682355170981*^9}, {3.453682422466082*^9, 3.4536824413237543`*^9}, {
+   3.453682474558638*^9, 3.4536824787486897`*^9}, {3.4536825313218193`*^9, 
+   3.4536826175476093`*^9}, {3.453682705272208*^9, 3.453682848970133*^9}, {
+   3.4536828848908663`*^9, 3.453683032531659*^9}, {3.4536831885019703`*^9, 
+   3.4536833022609158`*^9}, {3.453683550569113*^9, 3.453683682276417*^9}, 
+   3.453683775527143*^9, {3.453684286414052*^9, 3.45368431606845*^9}, {
+   3.453684350113934*^9, 3.453684455925371*^9}, {3.453684513146195*^9, 
+   3.453684663631042*^9}, {3.453684724681304*^9, 3.45368473028139*^9}, {
+   3.4536848265710487`*^9, 3.453684827059505*^9}, 3.453685081847563*^9, {
+   3.453722935357531*^9, 3.45372299804296*^9}, {3.453723159862915*^9, 
+   3.453723201934846*^9}, {3.453723648519857*^9, 3.453723649695231*^9}, {
+   3.4537237153661633`*^9, 3.453723724787781*^9}, {3.4537238559013243`*^9, 
+   3.4537238784037437`*^9}, {3.453723950752035*^9, 3.453723994271749*^9}, {
+   3.453724071351347*^9, 3.4537240767840014`*^9}, {3.453724112306858*^9, 
+   3.453724123770679*^9}, {3.453724727948484*^9, 3.4537247377938004`*^9}, {
+   3.453724832648458*^9, 3.453724874632132*^9}, {3.4537250706763144`*^9, 
+   3.453725093171876*^9}, {3.453725459890698*^9, 3.453725464890992*^9}, {
+   3.4537255230469112`*^9, 3.453725523629829*^9}, {3.4537257360468397`*^9, 
+   3.453725814588629*^9}, 3.45372586285629*^9, {3.4537263348927517`*^9, 
+   3.4537263507382193`*^9}, {3.4537357803276377`*^9, 
+   3.4537359120818453`*^9}, {3.4537359424541607`*^9, 3.453736087893507*^9}, {
+   3.453736145507506*^9, 3.453736385936399*^9}, {3.453736434258724*^9, 
+   3.4537365505673018`*^9}, 3.453737492483807*^9, {3.453737810893927*^9, 
+   3.453737825602865*^9}, {3.453737986694521*^9, 3.453738075703109*^9}, {
+   3.453738182190217*^9, 3.453738190997916*^9}, {3.453738275439569*^9, 
+   3.453738284471756*^9}, {3.45373859505022*^9, 3.4537386001424313`*^9}, 
+   3.453738803787261*^9, {3.4537420186279497`*^9, 3.453742068278948*^9}, {
+   3.45374212631828*^9, 3.4537421309161453`*^9}, {3.4537421780778522`*^9, 
+   3.453742185468946*^9}, {3.45374241291092*^9, 3.45374242248965*^9}, {
+   3.4537425231870003`*^9, 3.453742623929364*^9}, {3.453742695064816*^9, 
+   3.45374274145359*^9}, {3.453742958864851*^9, 3.453742969915506*^9}, {
+   3.453743178655843*^9, 3.45374318956698*^9}, {3.453743227862916*^9, 
+   3.453743272283595*^9}, {3.4537434770397882`*^9, 3.453743477402589*^9}, {
+   3.453744407399415*^9, 3.453744722398432*^9}, {3.4537460034540987`*^9, 
+   3.453746104594061*^9}, {3.453746136605206*^9, 3.4537461646705008`*^9}, {
+   3.453746235063241*^9, 3.453746249761496*^9}, 3.453746280030099*^9, 
+   3.4537463248449383`*^9, {3.4537487895156507`*^9, 3.453748803607643*^9}, {
+   3.453748870526259*^9, 3.453748929506008*^9}, {3.453749034519227*^9, 
+   3.453749071561998*^9}, {3.4537578460412273`*^9, 3.453757870311879*^9}, {
+   3.453809353348864*^9, 3.453809485458132*^9}, {3.453809524055006*^9, 
+   3.4538095355841455`*^9}, {3.4543376805697827`*^9, 
+   3.4543377209150677`*^9}, {3.454697681661203*^9, 3.4546976825542917`*^9}},
+ CellID->2092299760],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+    0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+    0, $CellContext`f0$$ = 1, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+    0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+    0, $CellContext`f6$$ = 0, $CellContext`l$$ = 1, $CellContext`p0$$ = 
+    1, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`l$$], 1, "orbitals"}, {
+      0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}}, {{
+       Hold[$CellContext`p0$$], 1, 
+       Subscript["p", "y"]}, {0, 1}}, {{
+       Hold[$CellContext`p1$$], 0, 
+       Subscript["p", "z"]}, {0, 1}}, {{
+       Hold[$CellContext`p2$$], 0, 
+       Subscript["p", "x"]}, {0, 1}}, {{
+       Hold[$CellContext`d0$$], 1, 
+       Subscript["d", "xy"]}, {0, 1}}, {{
+       Hold[$CellContext`d1$$], 0, 
+       Subscript["d", "yz"]}, {0, 1}}, {{
+       Hold[$CellContext`d2$$], 0, 
+       Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`d3$$], 0, 
+       Subscript["d", "xz"]}, {0, 1}}, {{
+       Hold[$CellContext`d4$$], 0, 
+       Subscript[
+       "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\), \
+\(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f0$$], 1, 
+       Subscript[
+       "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f1$$], 0, 
+       Subscript[
+       "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f2$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f3$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f4$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f5$$], 0, 
+       Subscript["f", "xyz"]}, {0, 1}}, {{
+       Hold[$CellContext`f6$$], 0, 
+       Subscript[
+       "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`l$74463$$ = False, $CellContext`p0$74464$$ = 
+    False, $CellContext`p1$74465$$ = False, $CellContext`p2$74466$$ = 
+    False, $CellContext`d0$74467$$ = False, $CellContext`d1$74468$$ = 
+    False, $CellContext`d2$74469$$ = False, $CellContext`d3$74470$$ = 
+    False, $CellContext`d4$74471$$ = False, $CellContext`f0$74472$$ = 
+    False, $CellContext`f1$74473$$ = False, $CellContext`f2$74474$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+        0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+        0, $CellContext`f0$$ = 1, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+        0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+        0, $CellContext`f6$$ = 0, $CellContext`l$$ = 1, $CellContext`p0$$ = 
+        1, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`l$$, $CellContext`l$74463$$, False], 
+        Hold[$CellContext`p0$$, $CellContext`p0$74464$$, False], 
+        Hold[$CellContext`p1$$, $CellContext`p1$74465$$, False], 
+        Hold[$CellContext`p2$$, $CellContext`p2$74466$$, False], 
+        Hold[$CellContext`d0$$, $CellContext`d0$74467$$, False], 
+        Hold[$CellContext`d1$$, $CellContext`d1$74468$$, False], 
+        Hold[$CellContext`d2$$, $CellContext`d2$74469$$, False], 
+        Hold[$CellContext`d3$$, $CellContext`d3$74470$$, False], 
+        Hold[$CellContext`d4$$, $CellContext`d4$74471$$, False], 
+        Hold[$CellContext`f0$$, $CellContext`f0$74472$$, False], 
+        Hold[$CellContext`f1$$, $CellContext`f1$74473$$, False], 
+        Hold[$CellContext`f2$$, $CellContext`f2$74474$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c[0, 0] = 
+        Boole[$CellContext`l$$ == 0]; $CellContext`c[
+         1, -1] = $CellContext`p0$$; $CellContext`c[
+         1, 0] = $CellContext`p1$$; $CellContext`c[
+         1, 1] = $CellContext`p2$$; $CellContext`c[
+         2, -2] = $CellContext`d0$$; $CellContext`c[
+         2, -1] = $CellContext`d1$$; $CellContext`c[
+         2, 0] = $CellContext`d2$$; $CellContext`c[
+         2, 1] = $CellContext`d3$$; $CellContext`c[
+         2, 2] = $CellContext`d4$$; $CellContext`c[
+         3, -3] = $CellContext`f0$$; $CellContext`c[
+         3, -2] := $CellContext`f1$$; $CellContext`c[
+         3, -1] = $CellContext`f2$$; $CellContext`c[
+         3, 0] = $CellContext`f3$$; $CellContext`c[
+         3, 1] = $CellContext`f4$$; $CellContext`c[
+         3, 2] = $CellContext`f5$$; $CellContext`c[3, 3] = $CellContext`f6$$; 
+       ParametricPlot3D[{
+          Sin[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]], 
+           Sin[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]], 
+           Cos[$CellContext`\[Theta]]} 
+         Sum[$CellContext`c[$CellContext`l$$, $CellContext`m] (
+             2^Rational[1, 2] Boole[$CellContext`m > 0] Re[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]] + 
+             Boole[$CellContext`m == 0] 
+              SphericalHarmonicY[$CellContext`l$$, 
+                0, $CellContext`\[Theta], $CellContext`\[Phi]] + 
+             2^Rational[1, 2] Boole[$CellContext`m < 0] Im[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]])^2, {$CellContext`m, \
+-$CellContext`l$$, $CellContext`l$$}], {$CellContext`\[Phi], 0, 2 
+          Pi}, {$CellContext`\[Theta], 0, Pi}, 
+         PlotRange -> (2 $CellContext`l$$ + 1)/(4 Pi), Mesh -> False, 
+         ImageSize -> {400, 400}, Axes -> False, SphericalRegion -> True, 
+         Boxed -> False]), 
+      "Specifications" :> {{{$CellContext`l$$, 1, "orbitals"}, {
+         0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}, ControlType -> Setter}, 
+        Delimiter, {{$CellContext`p0$$, 1, 
+          Subscript["p", "y"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p1$$, 0, 
+          Subscript["p", "z"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p2$$, 0, 
+          Subscript["p", "x"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, Delimiter, {{$CellContext`d0$$, 1, 
+          Subscript["d", "xy"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d1$$, 0, 
+          Subscript["d", "yz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d2$$, 0, 
+          Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d3$$, 0, 
+          Subscript["d", "xz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d4$$, 0, 
+          Subscript[
+          "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\)"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, Delimiter, {{$CellContext`f0$$, 1, 
+          Subscript[
+          "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f1$$, 0, 
+          Subscript[
+          "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> 
+         Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f2$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f3$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f4$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f5$$, 0, 
+          Subscript["f", "xyz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f6$$, 0, 
+          Subscript[
+          "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}}, 
+      "Options" :> {
+       TrackedSymbols -> True, ControlPlacement -> Left, 
+        AutorunSequencing -> {1}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{553., {229., 234.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->227457116]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "A theorem due to A. Uns\[ODoubleDot]ld, ",
+ StyleBox["Ann. Physik,",
+  FontSlant->"Italic"],
+ " ",
+ StyleBox["82",
+  FontWeight->"Bold"],
+ ", 1927 pp. 355-365 states that a filled or half-filled subshell of atomic \
+orbitals with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"l", ">", "0"}], TraditionalForm]], "InlineMath"],
+ " is spherically symmetrical and thus contributes an orbital angular \
+momentum of zero. This can be illustrated by evaluating the sum of atomic \
+orbital densities ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", 
+    SubscriptBox["\[Psi]", 
+     RowBox[{"p", " ", "x"}]], 
+    SuperscriptBox["|", "2"], 
+    RowBox[{"+", 
+     RowBox[{"|", 
+      SubscriptBox["\[Psi]", 
+       RowBox[{"p", " ", "y"}]], 
+      SuperscriptBox["|", "2"], 
+      RowBox[{"+", 
+       RowBox[{"|", 
+        SubscriptBox["\[Psi]", 
+         RowBox[{"p", " ", "z"}]], 
+        SuperscriptBox["|", "2"]}]}]}]}]}], TraditionalForm]], "InlineMath"],
+ ", or equivalently ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", 
+    SubscriptBox["\[Psi]", 
+     SubscriptBox[
+      RowBox[{"p", " "}], 
+      RowBox[{"-", "1"}]]], 
+    SuperscriptBox["|", "2"], 
+    RowBox[{"+", 
+     RowBox[{"|", 
+      SubscriptBox["\[Psi]", 
+       SubscriptBox[
+        RowBox[{"p", " "}], "0"]], 
+      SuperscriptBox["|", "2"], 
+      RowBox[{"+", 
+       RowBox[{"|", 
+        SubscriptBox["\[Psi]", 
+         SubscriptBox[
+          RowBox[{"p", " "}], "1"]], 
+        SuperscriptBox["|", "2"]}]}]}]}]}], TraditionalForm]], "InlineMath"],
+ ", giving a spherically symmetrical function (independent of ",
+ Cell[BoxData[
+  FormBox["\[Theta]", TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox["\[Phi]", TraditionalForm]], "InlineMath"],
+ "). The nitrogen atom in its ground state has the configuration \[Ellipsis]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", 
+    SuperscriptBox["p", 
+     RowBox[{"3", "  "}]], " ", 
+    RowBox[{
+     SuperscriptBox["\[InvisiblePrefixScriptBase]", "4"], 
+     StyleBox["S",
+      FontSlant->"Plain"]}]}], TraditionalForm]], "InlineMath"],
+ ", with three electrons of parallel spins singly occupying the three \
+degenerate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", "p"}], TraditionalForm]], "InlineMath"],
+ "-orbitals. Neon has a completely filled subshell with configuration \
+\[Ellipsis]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", 
+    SuperscriptBox["p", 
+     RowBox[{"6", "  "}]], " ", 
+    RowBox[{
+     SuperscriptBox["\[InvisiblePrefixScriptBase]", "1"], 
+     StyleBox["S",
+      FontSlant->"Plain"]}]}], TraditionalForm]], "InlineMath"],
+ ". Likewise, the half-filled ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"3", 
+    SuperscriptBox["d", "5"]}], TraditionalForm]], "InlineMath"],
+ " subshells in Cr and Mn lead to spherically symmetrical ground states. The \
+mathematical proof of Uns\[ODoubleDot]ld's theorem follows from the \
+spherical-harmonic identity"
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453749404287675*^9, 3.453749443905306*^9}, {
+   3.4537497997274437`*^9, 3.453749848623455*^9}, {3.453749893823365*^9, 
+   3.453750082374317*^9}, {3.4537501515297213`*^9, 3.4537506242887373`*^9}, {
+   3.453750740639843*^9, 3.453750742487412*^9}, {3.4537507789359293`*^9, 
+   3.453750904744919*^9}, {3.453751006871633*^9, 3.453751132264268*^9}, {
+   3.4537512059007196`*^9, 3.453751354628756*^9}, {3.453751392457582*^9, 
+   3.45375164091862*^9}, {3.4537516723786297`*^9, 3.453751721013667*^9}, {
+   3.4537517757551107`*^9, 3.45375187242358*^9}, {3.453753114027945*^9, 
+   3.4537531157940893`*^9}, {3.453757467524927*^9, 3.4537575046675386`*^9}, 
+   3.453757621340774*^9, {3.4543378680191736`*^9, 3.4543379371334133`*^9}, {
+   3.4543379859024715`*^9, 3.454337989980884*^9}, {3.4546891478836555`*^9, 
+   3.4546891704149055`*^9}, 3.4546893335399055`*^9},
+ CellID->237346695],
+
+Cell[BoxData[
+ RowBox[{Cell[TextData[Cell[BoxData[
+   FormBox[
+    StyleBox[
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"m", "=", 
+        RowBox[{"-", "l"}]}], "l"], 
+      RowBox[{"|", 
+       RowBox[{
+        SubscriptBox["Y", 
+         RowBox[{"l", " ", "m"}]], "(", 
+        RowBox[{"\[Theta]", ",", "\[Phi]"}], ")"}], 
+       SuperscriptBox["|", "2"], 
+       RowBox[{"=", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"2", " ", "l"}], "+", "1"}], 
+         RowBox[{"4", "\[Pi]"}]]}]}]}],
+     FontWeight->"Plain"], TraditionalForm]], "InlineMath"]], "InlineMath"], 
+  "."}]], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4543407442900653`*^9, 3.454340761712052*^9}},
+ CellID->722133527],
+
+Cell[TextData[{
+ "In this Demonstration, you can add sums of ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]], "InlineMath",
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox["d", TraditionalForm]], "InlineMath",
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[Cell["", "InlineMath"], TraditionalForm]], "InlineMath"],
+ "or ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]], "InlineMath"],
+ " atomic orbital densities to approach a spherical distribution. A filled or \
+half-filled shell missing one orbital behaves like a positive hole with the \
+same angular momentum as the missing electron. Thus the ground state of C \
+\[Ellipsis]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", 
+    SuperscriptBox["p", 
+     RowBox[{"2", "  "}]]}], TraditionalForm]], "InlineMath"],
+ " is a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[InvisiblePrefixScriptBase]", "3"], 
+    StyleBox["P",
+     FontSlant->"Plain"]}], TraditionalForm]], "InlineMath"],
+ " state, constructed, in concept, by removing a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", "p"}], TraditionalForm]], "InlineMath"],
+ " electron from N \[Ellipsis]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", 
+    SuperscriptBox["p", 
+     RowBox[{"3", "  "}]], " ", 
+    RowBox[{
+     SuperscriptBox["\[InvisiblePrefixScriptBase]", "4"], 
+     StyleBox["S",
+      FontSlant->"Plain"]}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453752798858718*^9, 3.4537529928787193`*^9}, {
+   3.45375303585131*^9, 3.453753045814966*^9}, {3.453753156130885*^9, 
+   3.453753206291082*^9}, {3.453753259408554*^9, 3.4537533570041447`*^9}, {
+   3.453753390296132*^9, 3.453753475939472*^9}, 3.453753508519615*^9, {
+   3.4537535593268414`*^9, 3.453753681349001*^9}, {3.453753723704123*^9, 
+   3.4537537648212976`*^9}, {3.4537575702082567`*^9, 3.45375758823144*^9}, {
+   3.4543381001560717`*^9, 3.4543381267973795`*^9}},
+ CellID->2049789256]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d0$$ = 0, $CellContext`d1$$ = 
+    0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+    0, $CellContext`f0$$ = 1, $CellContext`f1$$ = 1, $CellContext`f2$$ = 
+    1, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+    1, $CellContext`f6$$ = 0, $CellContext`l$$ = 3, $CellContext`p0$$ = 
+    1, $CellContext`p1$$ = 1, $CellContext`p2$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`l$$], 3, "orbitals"}, {
+      0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}}, {{
+       Hold[$CellContext`p0$$], 1, 
+       Subscript["p", "y"]}, {0, 1}}, {{
+       Hold[$CellContext`p1$$], 1, 
+       Subscript["p", "z"]}, {0, 1}}, {{
+       Hold[$CellContext`p2$$], 1, 
+       Subscript["p", "x"]}, {0, 1}}, {{
+       Hold[$CellContext`d0$$], 0, 
+       Subscript["d", "xy"]}, {0, 1}}, {{
+       Hold[$CellContext`d1$$], 0, 
+       Subscript["d", "yz"]}, {0, 1}}, {{
+       Hold[$CellContext`d2$$], 0, 
+       Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`d3$$], 0, 
+       Subscript["d", "xz"]}, {0, 1}}, {{
+       Hold[$CellContext`d4$$], 0, 
+       Subscript[
+       "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\), \
+\(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f0$$], 1, 
+       Subscript[
+       "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f1$$], 1, 
+       Subscript[
+       "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f2$$], 1, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f3$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f4$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f5$$], 1, 
+       Subscript["f", "xyz"]}, {0, 1}}, {{
+       Hold[$CellContext`f6$$], 0, 
+       Subscript[
+       "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`l$74600$$ = False, $CellContext`p0$74601$$ = 
+    False, $CellContext`p1$74602$$ = False, $CellContext`p2$74603$$ = 
+    False, $CellContext`d0$74604$$ = False, $CellContext`d1$74605$$ = 
+    False, $CellContext`d2$74606$$ = False, $CellContext`d3$74607$$ = 
+    False, $CellContext`d4$74608$$ = False, $CellContext`f0$74609$$ = 
+    False, $CellContext`f1$74610$$ = False, $CellContext`f2$74611$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d0$$ = 0, $CellContext`d1$$ = 
+        0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+        0, $CellContext`f0$$ = 1, $CellContext`f1$$ = 1, $CellContext`f2$$ = 
+        1, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+        1, $CellContext`f6$$ = 0, $CellContext`l$$ = 3, $CellContext`p0$$ = 
+        1, $CellContext`p1$$ = 1, $CellContext`p2$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`l$$, $CellContext`l$74600$$, False], 
+        Hold[$CellContext`p0$$, $CellContext`p0$74601$$, False], 
+        Hold[$CellContext`p1$$, $CellContext`p1$74602$$, False], 
+        Hold[$CellContext`p2$$, $CellContext`p2$74603$$, False], 
+        Hold[$CellContext`d0$$, $CellContext`d0$74604$$, False], 
+        Hold[$CellContext`d1$$, $CellContext`d1$74605$$, False], 
+        Hold[$CellContext`d2$$, $CellContext`d2$74606$$, False], 
+        Hold[$CellContext`d3$$, $CellContext`d3$74607$$, False], 
+        Hold[$CellContext`d4$$, $CellContext`d4$74608$$, False], 
+        Hold[$CellContext`f0$$, $CellContext`f0$74609$$, False], 
+        Hold[$CellContext`f1$$, $CellContext`f1$74610$$, False], 
+        Hold[$CellContext`f2$$, $CellContext`f2$74611$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c[0, 0] = 
+        Boole[$CellContext`l$$ == 0]; $CellContext`c[
+         1, -1] = $CellContext`p0$$; $CellContext`c[
+         1, 0] = $CellContext`p1$$; $CellContext`c[
+         1, 1] = $CellContext`p2$$; $CellContext`c[
+         2, -2] = $CellContext`d0$$; $CellContext`c[
+         2, -1] = $CellContext`d1$$; $CellContext`c[
+         2, 0] = $CellContext`d2$$; $CellContext`c[
+         2, 1] = $CellContext`d3$$; $CellContext`c[
+         2, 2] = $CellContext`d4$$; $CellContext`c[
+         3, -3] = $CellContext`f0$$; $CellContext`c[
+         3, -2] := $CellContext`f1$$; $CellContext`c[
+         3, -1] = $CellContext`f2$$; $CellContext`c[
+         3, 0] = $CellContext`f3$$; $CellContext`c[
+         3, 1] = $CellContext`f4$$; $CellContext`c[
+         3, 2] = $CellContext`f5$$; $CellContext`c[3, 3] = $CellContext`f6$$; 
+       ParametricPlot3D[{
+          Sin[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]], 
+           Sin[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]], 
+           Cos[$CellContext`\[Theta]]} 
+         Sum[$CellContext`c[$CellContext`l$$, $CellContext`m] (
+             2^Rational[1, 2] Boole[$CellContext`m > 0] Re[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]] + 
+             Boole[$CellContext`m == 0] 
+              SphericalHarmonicY[$CellContext`l$$, 
+                0, $CellContext`\[Theta], $CellContext`\[Phi]] + 
+             2^Rational[1, 2] Boole[$CellContext`m < 0] Im[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]])^2, {$CellContext`m, \
+-$CellContext`l$$, $CellContext`l$$}], {$CellContext`\[Phi], 0, 2 
+          Pi}, {$CellContext`\[Theta], 0, Pi}, 
+         PlotRange -> (2 $CellContext`l$$ + 1)/(4 Pi), Mesh -> False, 
+         ImageSize -> {400, 400}, Axes -> False, SphericalRegion -> True, 
+         Boxed -> False]), 
+      "Specifications" :> {{{$CellContext`l$$, 3, "orbitals"}, {
+         0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}, ControlType -> Setter}, 
+        Delimiter, {{$CellContext`p0$$, 1, 
+          Subscript["p", "y"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p1$$, 1, 
+          Subscript["p", "z"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p2$$, 1, 
+          Subscript["p", "x"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, Delimiter, {{$CellContext`d0$$, 0, 
+          Subscript["d", "xy"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d1$$, 0, 
+          Subscript["d", "yz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d2$$, 0, 
+          Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d3$$, 0, 
+          Subscript["d", "xz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d4$$, 0, 
+          Subscript[
+          "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\)"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, Delimiter, {{$CellContext`f0$$, 1, 
+          Subscript[
+          "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f1$$, 1, 
+          Subscript[
+          "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> 
+         Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f2$$, 1, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f3$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f4$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f5$$, 1, 
+          Subscript["f", "xyz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f6$$, 0, 
+          Subscript[
+          "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}}, 
+      "Options" :> {
+       TrackedSymbols -> True, ControlPlacement -> Left, 
+        AutorunSequencing -> {1}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{553., {229., 234.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->117892087]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d0$$ = 0, $CellContext`d1$$ = 
+    0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+    0, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+    0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+    0, $CellContext`f6$$ = 0, $CellContext`l$$ = 1, $CellContext`p0$$ = 
+    1, $CellContext`p1$$ = 1, $CellContext`p2$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`l$$], 1, "orbitals"}, {
+      0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}}, {{
+       Hold[$CellContext`p0$$], 1, 
+       Subscript["p", "y"]}, {0, 1}}, {{
+       Hold[$CellContext`p1$$], 1, 
+       Subscript["p", "z"]}, {0, 1}}, {{
+       Hold[$CellContext`p2$$], 0, 
+       Subscript["p", "x"]}, {0, 1}}, {{
+       Hold[$CellContext`d0$$], 0, 
+       Subscript["d", "xy"]}, {0, 1}}, {{
+       Hold[$CellContext`d1$$], 0, 
+       Subscript["d", "yz"]}, {0, 1}}, {{
+       Hold[$CellContext`d2$$], 0, 
+       Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`d3$$], 0, 
+       Subscript["d", "xz"]}, {0, 1}}, {{
+       Hold[$CellContext`d4$$], 0, 
+       Subscript[
+       "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\), \
+\(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f0$$], 0, 
+       Subscript[
+       "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f1$$], 0, 
+       Subscript[
+       "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f2$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f3$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f4$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f5$$], 0, 
+       Subscript["f", "xyz"]}, {0, 1}}, {{
+       Hold[$CellContext`f6$$], 0, 
+       Subscript[
+       "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`l$74737$$ = False, $CellContext`p0$74738$$ = 
+    False, $CellContext`p1$74739$$ = False, $CellContext`p2$74740$$ = 
+    False, $CellContext`d0$74741$$ = False, $CellContext`d1$74742$$ = 
+    False, $CellContext`d2$74743$$ = False, $CellContext`d3$74744$$ = 
+    False, $CellContext`d4$74745$$ = False, $CellContext`f0$74746$$ = 
+    False, $CellContext`f1$74747$$ = False, $CellContext`f2$74748$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d0$$ = 0, $CellContext`d1$$ = 
+        0, $CellContext`d2$$ = 0, $CellContext`d3$$ = 0, $CellContext`d4$$ = 
+        0, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+        0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+        0, $CellContext`f6$$ = 0, $CellContext`l$$ = 1, $CellContext`p0$$ = 
+        1, $CellContext`p1$$ = 1, $CellContext`p2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`l$$, $CellContext`l$74737$$, False], 
+        Hold[$CellContext`p0$$, $CellContext`p0$74738$$, False], 
+        Hold[$CellContext`p1$$, $CellContext`p1$74739$$, False], 
+        Hold[$CellContext`p2$$, $CellContext`p2$74740$$, False], 
+        Hold[$CellContext`d0$$, $CellContext`d0$74741$$, False], 
+        Hold[$CellContext`d1$$, $CellContext`d1$74742$$, False], 
+        Hold[$CellContext`d2$$, $CellContext`d2$74743$$, False], 
+        Hold[$CellContext`d3$$, $CellContext`d3$74744$$, False], 
+        Hold[$CellContext`d4$$, $CellContext`d4$74745$$, False], 
+        Hold[$CellContext`f0$$, $CellContext`f0$74746$$, False], 
+        Hold[$CellContext`f1$$, $CellContext`f1$74747$$, False], 
+        Hold[$CellContext`f2$$, $CellContext`f2$74748$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c[0, 0] = 
+        Boole[$CellContext`l$$ == 0]; $CellContext`c[
+         1, -1] = $CellContext`p0$$; $CellContext`c[
+         1, 0] = $CellContext`p1$$; $CellContext`c[
+         1, 1] = $CellContext`p2$$; $CellContext`c[
+         2, -2] = $CellContext`d0$$; $CellContext`c[
+         2, -1] = $CellContext`d1$$; $CellContext`c[
+         2, 0] = $CellContext`d2$$; $CellContext`c[
+         2, 1] = $CellContext`d3$$; $CellContext`c[
+         2, 2] = $CellContext`d4$$; $CellContext`c[
+         3, -3] = $CellContext`f0$$; $CellContext`c[
+         3, -2] := $CellContext`f1$$; $CellContext`c[
+         3, -1] = $CellContext`f2$$; $CellContext`c[
+         3, 0] = $CellContext`f3$$; $CellContext`c[
+         3, 1] = $CellContext`f4$$; $CellContext`c[
+         3, 2] = $CellContext`f5$$; $CellContext`c[3, 3] = $CellContext`f6$$; 
+       ParametricPlot3D[{
+          Sin[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]], 
+           Sin[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]], 
+           Cos[$CellContext`\[Theta]]} 
+         Sum[$CellContext`c[$CellContext`l$$, $CellContext`m] (
+             2^Rational[1, 2] Boole[$CellContext`m > 0] Re[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]] + 
+             Boole[$CellContext`m == 0] 
+              SphericalHarmonicY[$CellContext`l$$, 
+                0, $CellContext`\[Theta], $CellContext`\[Phi]] + 
+             2^Rational[1, 2] Boole[$CellContext`m < 0] Im[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]])^2, {$CellContext`m, \
+-$CellContext`l$$, $CellContext`l$$}], {$CellContext`\[Phi], 0, 2 
+          Pi}, {$CellContext`\[Theta], 0, Pi}, 
+         PlotRange -> (2 $CellContext`l$$ + 1)/(4 Pi), Mesh -> False, 
+         ImageSize -> {400, 400}, Axes -> False, SphericalRegion -> True, 
+         Boxed -> False]), 
+      "Specifications" :> {{{$CellContext`l$$, 1, "orbitals"}, {
+         0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}, ControlType -> Setter}, 
+        Delimiter, {{$CellContext`p0$$, 1, 
+          Subscript["p", "y"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p1$$, 1, 
+          Subscript["p", "z"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p2$$, 0, 
+          Subscript["p", "x"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, Delimiter, {{$CellContext`d0$$, 0, 
+          Subscript["d", "xy"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d1$$, 0, 
+          Subscript["d", "yz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d2$$, 0, 
+          Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d3$$, 0, 
+          Subscript["d", "xz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d4$$, 0, 
+          Subscript[
+          "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\)"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, Delimiter, {{$CellContext`f0$$, 0, 
+          Subscript[
+          "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f1$$, 0, 
+          Subscript[
+          "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> 
+         Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f2$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f3$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f4$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f5$$, 0, 
+          Subscript["f", "xyz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f6$$, 0, 
+          Subscript[
+          "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}}, 
+      "Options" :> {
+       TrackedSymbols -> True, ControlPlacement -> Left, 
+        AutorunSequencing -> {1}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->23163430],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+    1, $CellContext`d2$$ = 1, $CellContext`d3$$ = 1, $CellContext`d4$$ = 
+    1, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+    0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+    0, $CellContext`f6$$ = 0, $CellContext`l$$ = 2, $CellContext`p0$$ = 
+    0, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`l$$], 2, "orbitals"}, {
+      0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}}, {{
+       Hold[$CellContext`p0$$], 0, 
+       Subscript["p", "y"]}, {0, 1}}, {{
+       Hold[$CellContext`p1$$], 0, 
+       Subscript["p", "z"]}, {0, 1}}, {{
+       Hold[$CellContext`p2$$], 0, 
+       Subscript["p", "x"]}, {0, 1}}, {{
+       Hold[$CellContext`d0$$], 1, 
+       Subscript["d", "xy"]}, {0, 1}}, {{
+       Hold[$CellContext`d1$$], 1, 
+       Subscript["d", "yz"]}, {0, 1}}, {{
+       Hold[$CellContext`d2$$], 1, 
+       Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`d3$$], 1, 
+       Subscript["d", "xz"]}, {0, 1}}, {{
+       Hold[$CellContext`d4$$], 1, 
+       Subscript[
+       "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\), \
+\(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f0$$], 0, 
+       Subscript[
+       "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f1$$], 0, 
+       Subscript[
+       "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f2$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f3$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f4$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f5$$], 0, 
+       Subscript["f", "xyz"]}, {0, 1}}, {{
+       Hold[$CellContext`f6$$], 0, 
+       Subscript[
+       "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`l$74874$$ = False, $CellContext`p0$74875$$ = 
+    False, $CellContext`p1$74876$$ = False, $CellContext`p2$74877$$ = 
+    False, $CellContext`d0$74878$$ = False, $CellContext`d1$74879$$ = 
+    False, $CellContext`d2$74880$$ = False, $CellContext`d3$74881$$ = 
+    False, $CellContext`d4$74882$$ = False, $CellContext`f0$74883$$ = 
+    False, $CellContext`f1$74884$$ = False, $CellContext`f2$74885$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+        1, $CellContext`d2$$ = 1, $CellContext`d3$$ = 1, $CellContext`d4$$ = 
+        1, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+        0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+        0, $CellContext`f6$$ = 0, $CellContext`l$$ = 2, $CellContext`p0$$ = 
+        0, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`l$$, $CellContext`l$74874$$, False], 
+        Hold[$CellContext`p0$$, $CellContext`p0$74875$$, False], 
+        Hold[$CellContext`p1$$, $CellContext`p1$74876$$, False], 
+        Hold[$CellContext`p2$$, $CellContext`p2$74877$$, False], 
+        Hold[$CellContext`d0$$, $CellContext`d0$74878$$, False], 
+        Hold[$CellContext`d1$$, $CellContext`d1$74879$$, False], 
+        Hold[$CellContext`d2$$, $CellContext`d2$74880$$, False], 
+        Hold[$CellContext`d3$$, $CellContext`d3$74881$$, False], 
+        Hold[$CellContext`d4$$, $CellContext`d4$74882$$, False], 
+        Hold[$CellContext`f0$$, $CellContext`f0$74883$$, False], 
+        Hold[$CellContext`f1$$, $CellContext`f1$74884$$, False], 
+        Hold[$CellContext`f2$$, $CellContext`f2$74885$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c[0, 0] = 
+        Boole[$CellContext`l$$ == 0]; $CellContext`c[
+         1, -1] = $CellContext`p0$$; $CellContext`c[
+         1, 0] = $CellContext`p1$$; $CellContext`c[
+         1, 1] = $CellContext`p2$$; $CellContext`c[
+         2, -2] = $CellContext`d0$$; $CellContext`c[
+         2, -1] = $CellContext`d1$$; $CellContext`c[
+         2, 0] = $CellContext`d2$$; $CellContext`c[
+         2, 1] = $CellContext`d3$$; $CellContext`c[
+         2, 2] = $CellContext`d4$$; $CellContext`c[
+         3, -3] = $CellContext`f0$$; $CellContext`c[
+         3, -2] := $CellContext`f1$$; $CellContext`c[
+         3, -1] = $CellContext`f2$$; $CellContext`c[
+         3, 0] = $CellContext`f3$$; $CellContext`c[
+         3, 1] = $CellContext`f4$$; $CellContext`c[
+         3, 2] = $CellContext`f5$$; $CellContext`c[3, 3] = $CellContext`f6$$; 
+       ParametricPlot3D[{
+          Sin[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]], 
+           Sin[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]], 
+           Cos[$CellContext`\[Theta]]} 
+         Sum[$CellContext`c[$CellContext`l$$, $CellContext`m] (
+             2^Rational[1, 2] Boole[$CellContext`m > 0] Re[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]] + 
+             Boole[$CellContext`m == 0] 
+              SphericalHarmonicY[$CellContext`l$$, 
+                0, $CellContext`\[Theta], $CellContext`\[Phi]] + 
+             2^Rational[1, 2] Boole[$CellContext`m < 0] Im[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]])^2, {$CellContext`m, \
+-$CellContext`l$$, $CellContext`l$$}], {$CellContext`\[Phi], 0, 2 
+          Pi}, {$CellContext`\[Theta], 0, Pi}, 
+         PlotRange -> (2 $CellContext`l$$ + 1)/(4 Pi), Mesh -> False, 
+         ImageSize -> {400, 400}, Axes -> False, SphericalRegion -> True, 
+         Boxed -> False]), 
+      "Specifications" :> {{{$CellContext`l$$, 2, "orbitals"}, {
+         0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}, ControlType -> Setter}, 
+        Delimiter, {{$CellContext`p0$$, 0, 
+          Subscript["p", "y"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p1$$, 0, 
+          Subscript["p", "z"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p2$$, 0, 
+          Subscript["p", "x"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, Delimiter, {{$CellContext`d0$$, 1, 
+          Subscript["d", "xy"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d1$$, 1, 
+          Subscript["d", "yz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d2$$, 1, 
+          Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d3$$, 1, 
+          Subscript["d", "xz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d4$$, 1, 
+          Subscript[
+          "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\)"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, Delimiter, {{$CellContext`f0$$, 0, 
+          Subscript[
+          "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f1$$, 0, 
+          Subscript[
+          "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> 
+         Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f2$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f3$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f4$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f5$$, 0, 
+          Subscript["f", "xyz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f6$$, 0, 
+          Subscript[
+          "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}}, 
+      "Options" :> {
+       TrackedSymbols -> True, ControlPlacement -> Left, 
+        AutorunSequencing -> {1}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->540554605],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+    1, $CellContext`d2$$ = 1, $CellContext`d3$$ = 1, $CellContext`d4$$ = 
+    0, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+    0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+    0, $CellContext`f6$$ = 0, $CellContext`l$$ = 2, $CellContext`p0$$ = 
+    0, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`l$$], 2, "orbitals"}, {
+      0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}}, {{
+       Hold[$CellContext`p0$$], 0, 
+       Subscript["p", "y"]}, {0, 1}}, {{
+       Hold[$CellContext`p1$$], 0, 
+       Subscript["p", "z"]}, {0, 1}}, {{
+       Hold[$CellContext`p2$$], 0, 
+       Subscript["p", "x"]}, {0, 1}}, {{
+       Hold[$CellContext`d0$$], 1, 
+       Subscript["d", "xy"]}, {0, 1}}, {{
+       Hold[$CellContext`d1$$], 1, 
+       Subscript["d", "yz"]}, {0, 1}}, {{
+       Hold[$CellContext`d2$$], 1, 
+       Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`d3$$], 1, 
+       Subscript["d", "xz"]}, {0, 1}}, {{
+       Hold[$CellContext`d4$$], 0, 
+       Subscript[
+       "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\), \
+\(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f0$$], 0, 
+       Subscript[
+       "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f1$$], 0, 
+       Subscript[
+       "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}}, {{
+       Hold[$CellContext`f2$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f3$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f4$$], 0, 
+       Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}}, {{
+       Hold[$CellContext`f5$$], 0, 
+       Subscript["f", "xyz"]}, {0, 1}}, {{
+       Hold[$CellContext`f6$$], 0, 
+       Subscript[
+       "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\))"]}, {0, 1}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`l$75011$$ = False, $CellContext`p0$75012$$ = 
+    False, $CellContext`p1$75013$$ = False, $CellContext`p2$75014$$ = 
+    False, $CellContext`d0$75015$$ = False, $CellContext`d1$75016$$ = 
+    False, $CellContext`d2$75017$$ = False, $CellContext`d3$75018$$ = 
+    False, $CellContext`d4$75019$$ = False, $CellContext`f0$75020$$ = 
+    False, $CellContext`f1$75021$$ = False, $CellContext`f2$75022$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d0$$ = 1, $CellContext`d1$$ = 
+        1, $CellContext`d2$$ = 1, $CellContext`d3$$ = 1, $CellContext`d4$$ = 
+        0, $CellContext`f0$$ = 0, $CellContext`f1$$ = 0, $CellContext`f2$$ = 
+        0, $CellContext`f3$$ = 0, $CellContext`f4$$ = 0, $CellContext`f5$$ = 
+        0, $CellContext`f6$$ = 0, $CellContext`l$$ = 2, $CellContext`p0$$ = 
+        0, $CellContext`p1$$ = 0, $CellContext`p2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`l$$, $CellContext`l$75011$$, False], 
+        Hold[$CellContext`p0$$, $CellContext`p0$75012$$, False], 
+        Hold[$CellContext`p1$$, $CellContext`p1$75013$$, False], 
+        Hold[$CellContext`p2$$, $CellContext`p2$75014$$, False], 
+        Hold[$CellContext`d0$$, $CellContext`d0$75015$$, False], 
+        Hold[$CellContext`d1$$, $CellContext`d1$75016$$, False], 
+        Hold[$CellContext`d2$$, $CellContext`d2$75017$$, False], 
+        Hold[$CellContext`d3$$, $CellContext`d3$75018$$, False], 
+        Hold[$CellContext`d4$$, $CellContext`d4$75019$$, False], 
+        Hold[$CellContext`f0$$, $CellContext`f0$75020$$, False], 
+        Hold[$CellContext`f1$$, $CellContext`f1$75021$$, False], 
+        Hold[$CellContext`f2$$, $CellContext`f2$75022$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`c[0, 0] = 
+        Boole[$CellContext`l$$ == 0]; $CellContext`c[
+         1, -1] = $CellContext`p0$$; $CellContext`c[
+         1, 0] = $CellContext`p1$$; $CellContext`c[
+         1, 1] = $CellContext`p2$$; $CellContext`c[
+         2, -2] = $CellContext`d0$$; $CellContext`c[
+         2, -1] = $CellContext`d1$$; $CellContext`c[
+         2, 0] = $CellContext`d2$$; $CellContext`c[
+         2, 1] = $CellContext`d3$$; $CellContext`c[
+         2, 2] = $CellContext`d4$$; $CellContext`c[
+         3, -3] = $CellContext`f0$$; $CellContext`c[
+         3, -2] := $CellContext`f1$$; $CellContext`c[
+         3, -1] = $CellContext`f2$$; $CellContext`c[
+         3, 0] = $CellContext`f3$$; $CellContext`c[
+         3, 1] = $CellContext`f4$$; $CellContext`c[
+         3, 2] = $CellContext`f5$$; $CellContext`c[3, 3] = $CellContext`f6$$; 
+       ParametricPlot3D[{
+          Sin[$CellContext`\[Theta]] Cos[$CellContext`\[Phi]], 
+           Sin[$CellContext`\[Theta]] Sin[$CellContext`\[Phi]], 
+           Cos[$CellContext`\[Theta]]} 
+         Sum[$CellContext`c[$CellContext`l$$, $CellContext`m] (
+             2^Rational[1, 2] Boole[$CellContext`m > 0] Re[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]] + 
+             Boole[$CellContext`m == 0] 
+              SphericalHarmonicY[$CellContext`l$$, 
+                0, $CellContext`\[Theta], $CellContext`\[Phi]] + 
+             2^Rational[1, 2] Boole[$CellContext`m < 0] Im[
+                
+                SphericalHarmonicY[$CellContext`l$$, $CellContext`m, \
+$CellContext`\[Theta], $CellContext`\[Phi]]])^2, {$CellContext`m, \
+-$CellContext`l$$, $CellContext`l$$}], {$CellContext`\[Phi], 0, 2 
+          Pi}, {$CellContext`\[Theta], 0, Pi}, 
+         PlotRange -> (2 $CellContext`l$$ + 1)/(4 Pi), Mesh -> False, 
+         ImageSize -> {400, 400}, Axes -> False, SphericalRegion -> True, 
+         Boxed -> False]), 
+      "Specifications" :> {{{$CellContext`l$$, 2, "orbitals"}, {
+         0 -> "s", 1 -> "p", 2 -> "d", 3 -> "f"}, ControlType -> Setter}, 
+        Delimiter, {{$CellContext`p0$$, 0, 
+          Subscript["p", "y"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p1$$, 0, 
+          Subscript["p", "z"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, {{$CellContext`p2$$, 0, 
+          Subscript["p", "x"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 1]}, Delimiter, {{$CellContext`d0$$, 1, 
+          Subscript["d", "xy"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d1$$, 1, 
+          Subscript["d", "yz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d2$$, 1, 
+          Subscript["d", "\!\(\*SuperscriptBox[\(z\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d3$$, 1, 
+          Subscript["d", "xz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, {{$CellContext`d4$$, 0, 
+          Subscript[
+          "d", "\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\(y\
+\), \(2\)]\)"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 2]}, Delimiter, {{$CellContext`f0$$, 0, 
+          Subscript[
+          "f", "y(3\!\(\*SuperscriptBox[\(x\), \(2\)]\)-\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f1$$, 0, 
+          Subscript[
+          "f", "z(\!\(\*SuperscriptBox[\(x\), \
+\(2\)]\)-\!\(\*SuperscriptBox[\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> 
+         Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f2$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(xz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f3$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(z\), \(3\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f4$$, 0, 
+          Subscript["f", "\!\(\*SuperscriptBox[\(yz\), \(2\)]\)"]}, {0, 1}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f5$$, 0, 
+          Subscript["f", "xyz"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}, {{$CellContext`f6$$, 0, 
+          Subscript[
+          "f", "x(\!\(\*SuperscriptBox[\(x\), \(2\)]\)-3\!\(\*SuperscriptBox[\
+\(y\), \(2\)]\))"]}, {0, 1}, ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`l$$ == 3]}}, 
+      "Options" :> {
+       TrackedSymbols -> True, ControlPlacement -> Left, 
+        AutorunSequencing -> {1}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->159510373]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "Snapshot 1: a ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["p", "2"], TraditionalForm]], "InlineMath"],
+ " configuration, showing a ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "x"], TraditionalForm]], "InlineMath"],
+ " orbital hole"
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4537586584417763`*^9, 3.453758791900948*^9}},
+ CellID->117489722],
+
+Cell[TextData[{
+ "Snapshot 2: spherically symmetrical ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["d", "5"], TraditionalForm]], "InlineMath"],
+ " or ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["d", "10"], TraditionalForm]], "InlineMath"],
+ " configuration"
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453758824640852*^9, 3.4537588932631207`*^9}},
+ CellID->1112286061],
+
+Cell[TextData[{
+ "Snapshot 3:  ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["d", "8"], TraditionalForm]], "InlineMath"],
+ " configuration, which accounts for square-planar complexes of Ni, Pd and Pt"
+}], "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453759261192224*^9, 3.453759332008198*^9}},
+ CellID->346680092]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4538097159795084`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.453756769000237*^9},
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["quantum mechanics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453753847497774*^9, 3.4537538806532516`*^9}, {
+   3.453809622888341*^9, 3.4538096248228655`*^9}},
+ CellID->875360418],
+
+Cell["chemistry", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4537538850754223`*^9, 3.453753898117436*^9}, {
+   3.4538096262113543`*^9, 3.4538096263205614`*^9}},
+ CellID->1919563376],
+
+Cell["college physics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4537539036040154`*^9, 3.453753918558366*^9}, {
+   3.4538096273502274`*^9, 3.4538096295499682`*^9}},
+ CellID->454831551]
+}, Open  ]],
+
+Cell["", "RelatedLinksSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["S. M. Blinder",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.453756787977148*^9, 3.453756805645239*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, Automatic},
+WindowMargins->{{45, Automatic}, {Automatic, 13}},
+Magnification->1.,
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[75722, 1627, 376, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[76101, 1638, 740, 17, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[76844, 1657, 340, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[77187, 1670, 637, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[77827, 1687, 844, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[78674, 1710, 369, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[79046, 1721, 1464, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[80513, 1754, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 83021, 1834},
+ {"RotateAndZoomIn3D", 83130, 1837},
+ {"DragLocators", 83240, 1840},
+ {"CreateAndDeleteLocators", 83356, 1843},
+ {"SliderZoom", 83470, 1846},
+ {"GamepadControls", 83576, 1849},
+ {"AutomaticAnimation", 83689, 1852},
+ {"BookmarkAnimation", 83806, 1855}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 114, 1, 74, "DemoTitle"],
+Cell[684, 25, 33, 0, 266, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[742, 29, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[796, 33, 17248, 418, 721, "Input",
+ CellID->2092299760],
+Cell[18047, 453, 9951, 182, 475, "Output",
+ CellID->227457116]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28044, 641, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[28083, 643, 3855, 106, 179, "ManipulateCaption",
+ CellID->237346695],
+Cell[31941, 751, 749, 23, 37, "ManipulateCaption",
+ CellID->722133527],
+Cell[32693, 776, 1984, 55, 87, "ManipulateCaption",
+ CellID->2049789256]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34714, 836, 28, 0, 168, "ThumbnailSection"],
+Cell[34745, 838, 9951, 182, 475, "Output",
+ CellID->117892087]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44733, 1025, 28, 0, 138, "SnapshotsSection"],
+Cell[44764, 1027, 9896, 181, 37, "Output",
+ CellID->23163430],
+Cell[54663, 1210, 9897, 181, 37, "Output",
+ CellID->540554605],
+Cell[64563, 1393, 9897, 181, 37, "Output",
+ CellID->159510373]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74497, 1579, 26, 0, 332, "DetailsSection"],
+Cell[74526, 1581, 389, 13, 23, "DetailNotes",
+ CellID->117489722],
+Cell[74918, 1596, 394, 13, 23, "DetailNotes",
+ CellID->1112286061],
+Cell[75315, 1611, 330, 9, 38, "DetailNotes",
+ CellID->346680092]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75682, 1625, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[75722, 1627, 376, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[76101, 1638, 740, 17, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[76844, 1657, 340, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[77187, 1670, 637, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[77827, 1687, 844, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[78674, 1710, 369, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[79046, 1721, 1464, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[80513, 1754, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81458, 1780, 30, 0, 152, "SearchTermsSection"],
+Cell[81491, 1782, 204, 4, 22, "SearchTerms",
+ CellID->875360418],
+Cell[81698, 1788, 199, 4, 22, "SearchTerms",
+ CellID->1919563376],
+Cell[81900, 1794, 204, 4, 22, "SearchTerms",
+ CellID->454831551]
+}, Open  ]],
+Cell[82119, 1801, 31, 0, 138, "RelatedLinksSection"],
+Cell[CellGroupData[{
+Cell[82175, 1805, 25, 0, 124, "AuthorSection"],
+Cell[82203, 1807, 389, 11, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
