@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     36854,        795]
-NotebookOptionsPosition[     35312,        758]
-NotebookOutlinePosition[     35731,        775]
-CellTagsIndexPosition[     35688,        772]
+NotebookDataLength[    110575,       2273]
+NotebookOptionsPosition[    107155,       2202]
+NotebookOutlinePosition[    107574,       2219]
+CellTagsIndexPosition[    107531,       2216]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -748,16 +748,1460 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell["\:90a3\:4e48\:5982\:4f55\:5f97\:5230\:5305\:7edc\:7ebf\:7684\:65b9\:7a0b\
 \:5462\:ff1f", "Subsection",
  CellChangeTimes->{{3.8696802560314775`*^9, 3.869680263947072*^9}, {
   3.8696803036978717`*^9, 
   3.869680320112352*^9}},ExpressionUUID->"4af01389-5967-4793-9255-\
-61eca1aa86b7"]
+61eca1aa86b7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DSolveValue", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "'"}], "[", "x", "]"}], "==", 
+      FractionBox[
+       RowBox[{"1", "-", "x"}], 
+       RowBox[{"-", "x"}]]}], ",", 
+     RowBox[{
+      RowBox[{"f", "[", "1", "]"}], "==", "0"}]}], "}"}], ",", 
+   RowBox[{"f", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.884214323748123*^9, 3.8842144041144185`*^9}, {
+  3.8842144402827787`*^9, 3.884214449818094*^9}, {3.884214675389662*^9, 
+  3.884214680689665*^9}, {3.8842149877896833`*^9, 3.8842149912979794`*^9}, {
+  3.884216057456875*^9, 3.884216062245401*^9}, {3.884217941078869*^9, 
+  3.884217943599884*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"c1f79327-40bd-49c4-b61f-d34d1dd535cb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", "x", "-", 
+  RowBox[{"Log", "[", "x", "]"}]}]], "Output",
+ CellChangeTimes->{3.8842144084460917`*^9, 3.8842144509976764`*^9, 
+  3.8842146269901547`*^9, 3.8842146819808435`*^9, 3.884214992018134*^9, 
+  3.884216062682494*^9, 3.8842179448882203`*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"862af934-62ba-45e1-96c6-a37e2710650f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"x", "-", 
+    RowBox[{"Log", "[", "x", "]"}], "-", "1"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"AspectRatio", "->", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8842149530514507`*^9, 3.884214970501421*^9}, {
+   3.8842150533343306`*^9, 3.884215064767166*^9}, 3.884216132066818*^9, {
+   3.8842179502962847`*^9, 3.884217952304517*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"282f3ef0-fd73-4bc8-acb9-3b2759f02eb8"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
+1: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
+zPD5f4wu+q7/AXFqcYs=
+       "]]},
+     Annotation[#, "Charting`Private`Tag$41005#1"]& ]}, {}},
+  AspectRatio->1,
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 1}, {0., 1.9713200869316503`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.884214971759527*^9, 3.88421506604154*^9, 
+  3.8842161335564013`*^9, 3.8842179531430817`*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"59040fcc-3ff8-4974-b3b6-632fd6d95315"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   GraphicsBox[{
+     {GrayLevel[1], 
+      LineBox[NCache[{{{0, 1}, {0, 
+         0}}, {{0, Rational[99, 100]}, {Rational[1, 100], 0}}, {{
+          0, Rational[49, 50]}, {Rational[1, 50], 0}}, {{
+          0, Rational[97, 100]}, {Rational[3, 100], 0}}, {{
+          0, Rational[24, 25]}, {Rational[1, 25], 0}}, {{
+          0, Rational[19, 20]}, {Rational[1, 20], 0}}, {{
+          0, Rational[47, 50]}, {Rational[3, 50], 0}}, {{
+          0, Rational[93, 100]}, {Rational[7, 100], 0}}, {{
+          0, Rational[23, 25]}, {Rational[2, 25], 0}}, {{
+          0, Rational[91, 100]}, {Rational[9, 100], 0}}, {{
+          0, Rational[9, 10]}, {Rational[1, 10], 0}}, {{
+          0, Rational[89, 100]}, {Rational[11, 100], 0}}, {{
+          0, Rational[22, 25]}, {Rational[3, 25], 0}}, {{
+          0, Rational[87, 100]}, {Rational[13, 100], 0}}, {{
+          0, Rational[43, 50]}, {Rational[7, 50], 0}}, {{
+          0, Rational[17, 20]}, {Rational[3, 20], 0}}, {{
+          0, Rational[21, 25]}, {Rational[4, 25], 0}}, {{
+          0, Rational[83, 100]}, {Rational[17, 100], 0}}, {{
+          0, Rational[41, 50]}, {Rational[9, 50], 0}}, {{
+          0, Rational[81, 100]}, {Rational[19, 100], 0}}, {{
+          0, Rational[4, 5]}, {Rational[1, 5], 0}}, {{0, Rational[79, 100]}, {
+          Rational[21, 100], 0}}, {{0, Rational[39, 50]}, {
+          Rational[11, 50], 0}}, {{0, Rational[77, 100]}, {
+          Rational[23, 100], 0}}, {{0, Rational[19, 25]}, {
+          Rational[6, 25], 0}}, {{0, Rational[3, 4]}, {Rational[1, 4], 0}}, {{
+          0, Rational[37, 50]}, {Rational[13, 50], 0}}, {{
+          0, Rational[73, 100]}, {Rational[27, 100], 0}}, {{
+          0, Rational[18, 25]}, {Rational[7, 25], 0}}, {{
+          0, Rational[71, 100]}, {Rational[29, 100], 0}}, {{
+          0, Rational[7, 10]}, {Rational[3, 10], 0}}, {{
+          0, Rational[69, 100]}, {Rational[31, 100], 0}}, {{
+          0, Rational[17, 25]}, {Rational[8, 25], 0}}, {{
+          0, Rational[67, 100]}, {Rational[33, 100], 0}}, {{
+          0, Rational[33, 50]}, {Rational[17, 50], 0}}, {{
+          0, Rational[13, 20]}, {Rational[7, 20], 0}}, {{
+          0, Rational[16, 25]}, {Rational[9, 25], 0}}, {{
+          0, Rational[63, 100]}, {Rational[37, 100], 0}}, {{
+          0, Rational[31, 50]}, {Rational[19, 50], 0}}, {{
+          0, Rational[61, 100]}, {Rational[39, 100], 0}}, {{
+          0, Rational[3, 5]}, {Rational[2, 5], 0}}, {{0, Rational[59, 100]}, {
+          Rational[41, 100], 0}}, {{0, Rational[29, 50]}, {
+          Rational[21, 50], 0}}, {{0, Rational[57, 100]}, {
+          Rational[43, 100], 0}}, {{0, Rational[14, 25]}, {
+          Rational[11, 25], 0}}, {{0, Rational[11, 20]}, {
+          Rational[9, 20], 0}}, {{0, Rational[27, 50]}, {
+          Rational[23, 50], 0}}, {{0, Rational[53, 100]}, {
+          Rational[47, 100], 0}}, {{0, Rational[13, 25]}, {
+          Rational[12, 25], 0}}, {{0, Rational[51, 100]}, {
+          Rational[49, 100], 0}}, {{0, Rational[1, 2]}, {
+          Rational[1, 2], 0}}, {{0, Rational[49, 100]}, {
+          Rational[51, 100], 0}}, {{0, Rational[12, 25]}, {
+          Rational[13, 25], 0}}, {{0, Rational[47, 100]}, {
+          Rational[53, 100], 0}}, {{0, Rational[23, 50]}, {
+          Rational[27, 50], 0}}, {{0, Rational[9, 20]}, {
+          Rational[11, 20], 0}}, {{0, Rational[11, 25]}, {
+          Rational[14, 25], 0}}, {{0, Rational[43, 100]}, {
+          Rational[57, 100], 0}}, {{0, Rational[21, 50]}, {
+          Rational[29, 50], 0}}, {{0, Rational[41, 100]}, {
+          Rational[59, 100], 0}}, {{0, Rational[2, 5]}, {
+          Rational[3, 5], 0}}, {{0, Rational[39, 100]}, {
+          Rational[61, 100], 0}}, {{0, Rational[19, 50]}, {
+          Rational[31, 50], 0}}, {{0, Rational[37, 100]}, {
+          Rational[63, 100], 0}}, {{0, Rational[9, 25]}, {
+          Rational[16, 25], 0}}, {{0, Rational[7, 20]}, {
+          Rational[13, 20], 0}}, {{0, Rational[17, 50]}, {
+          Rational[33, 50], 0}}, {{0, Rational[33, 100]}, {
+          Rational[67, 100], 0}}, {{0, Rational[8, 25]}, {
+          Rational[17, 25], 0}}, {{0, Rational[31, 100]}, {
+          Rational[69, 100], 0}}, {{0, Rational[3, 10]}, {
+          Rational[7, 10], 0}}, {{0, Rational[29, 100]}, {
+          Rational[71, 100], 0}}, {{0, Rational[7, 25]}, {
+          Rational[18, 25], 0}}, {{0, Rational[27, 100]}, {
+          Rational[73, 100], 0}}, {{0, Rational[13, 50]}, {
+          Rational[37, 50], 0}}, {{0, Rational[1, 4]}, {
+          Rational[3, 4], 0}}, {{0, Rational[6, 25]}, {
+          Rational[19, 25], 0}}, {{0, Rational[23, 100]}, {
+          Rational[77, 100], 0}}, {{0, Rational[11, 50]}, {
+          Rational[39, 50], 0}}, {{0, Rational[21, 100]}, {
+          Rational[79, 100], 0}}, {{0, Rational[1, 5]}, {
+          Rational[4, 5], 0}}, {{0, Rational[19, 100]}, {
+          Rational[81, 100], 0}}, {{0, Rational[9, 50]}, {
+          Rational[41, 50], 0}}, {{0, Rational[17, 100]}, {
+          Rational[83, 100], 0}}, {{0, Rational[4, 25]}, {
+          Rational[21, 25], 0}}, {{0, Rational[3, 20]}, {
+          Rational[17, 20], 0}}, {{0, Rational[7, 50]}, {
+          Rational[43, 50], 0}}, {{0, Rational[13, 100]}, {
+          Rational[87, 100], 0}}, {{0, Rational[3, 25]}, {
+          Rational[22, 25], 0}}, {{0, Rational[11, 100]}, {
+          Rational[89, 100], 0}}, {{0, Rational[1, 10]}, {
+          Rational[9, 10], 0}}, {{0, Rational[9, 100]}, {
+          Rational[91, 100], 0}}, {{0, Rational[2, 25]}, {
+          Rational[23, 25], 0}}, {{0, Rational[7, 100]}, {
+          Rational[93, 100], 0}}, {{0, Rational[3, 50]}, {
+          Rational[47, 50], 0}}, {{0, Rational[1, 20]}, {
+          Rational[19, 20], 0}}, {{0, Rational[1, 25]}, {
+          Rational[24, 25], 0}}, {{0, Rational[3, 100]}, {
+          Rational[97, 100], 0}}, {{0, Rational[1, 50]}, {
+          Rational[49, 50], 0}}, {{0, Rational[1, 100]}, {
+          Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}, {{{0, 1}, {0, 
+         0}}, {{0, 0.99}, {0.01, 0}}, {{0, 0.98}, {0.02, 0}}, {{0, 0.97}, {
+          0.03, 0}}, {{0, 0.96}, {0.04, 0}}, {{0, 0.95}, {0.05, 0}}, {{
+          0, 0.94}, {0.06, 0}}, {{0, 0.93}, {0.07, 0}}, {{0, 0.92}, {
+          0.08, 0}}, {{0, 0.91}, {0.09, 0}}, {{0, 0.9}, {0.1, 0}}, {{
+          0, 0.89}, {0.11, 0}}, {{0, 0.88}, {0.12, 0}}, {{0, 0.87}, {
+          0.13, 0}}, {{0, 0.86}, {0.14, 0}}, {{0, 0.85}, {0.15, 0}}, {{
+          0, 0.84}, {0.16, 0}}, {{0, 0.83}, {0.17, 0}}, {{0, 0.82}, {
+          0.18, 0}}, {{0, 0.81}, {0.19, 0}}, {{0, 0.8}, {0.2, 0}}, {{
+          0, 0.79}, {0.21, 0}}, {{0, 0.78}, {0.22, 0}}, {{0, 0.77}, {
+          0.23, 0}}, {{0, 0.76}, {0.24, 0}}, {{0, 0.75}, {0.25, 0}}, {{
+          0, 0.74}, {0.26, 0}}, {{0, 0.73}, {0.27, 0}}, {{0, 0.72}, {
+          0.28, 0}}, {{0, 0.71}, {0.29, 0}}, {{0, 0.7}, {0.3, 0}}, {{
+          0, 0.69}, {0.31, 0}}, {{0, 0.68}, {0.32, 0}}, {{0, 0.67}, {
+          0.33, 0}}, {{0, 0.66}, {0.34, 0}}, {{0, 0.65}, {0.35, 0}}, {{
+          0, 0.64}, {0.36, 0}}, {{0, 0.63}, {0.37, 0}}, {{0, 0.62}, {
+          0.38, 0}}, {{0, 0.61}, {0.39, 0}}, {{0, 0.6}, {0.4, 0}}, {{
+          0, 0.59}, {0.41, 0}}, {{0, 0.58}, {0.42, 0}}, {{0, 0.57}, {
+          0.43, 0}}, {{0, 0.56}, {0.44, 0}}, {{0, 0.55}, {0.45, 0}}, {{
+          0, 0.54}, {0.46, 0}}, {{0, 0.53}, {0.47, 0}}, {{0, 0.52}, {
+          0.48, 0}}, {{0, 0.51}, {0.49, 0}}, {{0, 0.5}, {0.5, 0}}, {{
+          0, 0.49}, {0.51, 0}}, {{0, 0.48}, {0.52, 0}}, {{0, 0.47}, {
+          0.53, 0}}, {{0, 0.46}, {0.54, 0}}, {{0, 0.45}, {0.55, 0}}, {{
+          0, 0.44}, {0.56, 0}}, {{0, 0.43}, {0.57, 0}}, {{0, 0.42}, {
+          0.58, 0}}, {{0, 0.41}, {0.59, 0}}, {{0, 0.4}, {0.6, 0}}, {{
+          0, 0.39}, {0.61, 0}}, {{0, 0.38}, {0.62, 0}}, {{0, 0.37}, {
+          0.63, 0}}, {{0, 0.36}, {0.64, 0}}, {{0, 0.35}, {0.65, 0}}, {{
+          0, 0.34}, {0.66, 0}}, {{0, 0.33}, {0.67, 0}}, {{0, 0.32}, {
+          0.68, 0}}, {{0, 0.31}, {0.69, 0}}, {{0, 0.3}, {0.7, 0}}, {{
+          0, 0.29}, {0.71, 0}}, {{0, 0.28}, {0.72, 0}}, {{0, 0.27}, {
+          0.73, 0}}, {{0, 0.26}, {0.74, 0}}, {{0, 0.25}, {0.75, 0}}, {{
+          0, 0.24}, {0.76, 0}}, {{0, 0.23}, {0.77, 0}}, {{0, 0.22}, {
+          0.78, 0}}, {{0, 0.21}, {0.79, 0}}, {{0, 0.2}, {0.8, 0}}, {{
+          0, 0.19}, {0.81, 0}}, {{0, 0.18}, {0.82, 0}}, {{0, 0.17}, {
+          0.83, 0}}, {{0, 0.16}, {0.84, 0}}, {{0, 0.15}, {0.85, 0}}, {{
+          0, 0.14}, {0.86, 0}}, {{0, 0.13}, {0.87, 0}}, {{0, 0.12}, {
+          0.88, 0}}, {{0, 0.11}, {0.89, 0}}, {{0, 0.1}, {0.9, 0}}, {{
+          0, 0.09}, {0.91, 0}}, {{0, 0.08}, {0.92, 0}}, {{0, 0.07}, {
+          0.93, 0}}, {{0, 0.06}, {0.94, 0}}, {{0, 0.05}, {0.95, 0}}, {{
+          0, 0.04}, {0.96, 0}}, {{0, 0.03}, {0.97, 0}}, {{0, 0.02}, {
+          0.98, 0}}, {{0, 0.01}, {0.99, 0}}, {{0, 0}, {1, 0}}}]]}, 
+     {RGBColor[1, 0, 0], CircleBox[{1, 1}, 1]}},
+    Background->GrayLevel[0],
+    PlotRange->{{0, 1}, {0, 1}}], ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"x", "-", 
+      RowBox[{"Log", "[", "x", "]"}], "-", "1"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8842151031201363`*^9, 3.8842151856064463`*^9}, 
+   3.884215228373938*^9, {3.88421609297546*^9, 3.88421611391006*^9}, 
+   3.8842179608083143`*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"f9fd84fd-2dc7-4a73-ae84-eb833ed84341"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {GrayLevel[1], 
+     LineBox[NCache[{{{0, 1}, {0, 
+        0}}, {{0, Rational[99, 100]}, {Rational[1, 100], 0}}, {{
+         0, Rational[49, 50]}, {Rational[1, 50], 0}}, {{
+         0, Rational[97, 100]}, {Rational[3, 100], 0}}, {{
+         0, Rational[24, 25]}, {Rational[1, 25], 0}}, {{
+         0, Rational[19, 20]}, {Rational[1, 20], 0}}, {{
+         0, Rational[47, 50]}, {Rational[3, 50], 0}}, {{
+         0, Rational[93, 100]}, {Rational[7, 100], 0}}, {{
+         0, Rational[23, 25]}, {Rational[2, 25], 0}}, {{
+         0, Rational[91, 100]}, {Rational[9, 100], 0}}, {{
+         0, Rational[9, 10]}, {Rational[1, 10], 0}}, {{
+         0, Rational[89, 100]}, {Rational[11, 100], 0}}, {{
+         0, Rational[22, 25]}, {Rational[3, 25], 0}}, {{
+         0, Rational[87, 100]}, {Rational[13, 100], 0}}, {{
+         0, Rational[43, 50]}, {Rational[7, 50], 0}}, {{
+         0, Rational[17, 20]}, {Rational[3, 20], 0}}, {{
+         0, Rational[21, 25]}, {Rational[4, 25], 0}}, {{
+         0, Rational[83, 100]}, {Rational[17, 100], 0}}, {{
+         0, Rational[41, 50]}, {Rational[9, 50], 0}}, {{
+         0, Rational[81, 100]}, {Rational[19, 100], 0}}, {{
+         0, Rational[4, 5]}, {Rational[1, 5], 0}}, {{0, Rational[79, 100]}, {
+         Rational[21, 100], 0}}, {{0, Rational[39, 50]}, {
+         Rational[11, 50], 0}}, {{0, Rational[77, 100]}, {
+         Rational[23, 100], 0}}, {{0, Rational[19, 25]}, {
+         Rational[6, 25], 0}}, {{0, Rational[3, 4]}, {Rational[1, 4], 0}}, {{
+         0, Rational[37, 50]}, {Rational[13, 50], 0}}, {{
+         0, Rational[73, 100]}, {Rational[27, 100], 0}}, {{
+         0, Rational[18, 25]}, {Rational[7, 25], 0}}, {{
+         0, Rational[71, 100]}, {Rational[29, 100], 0}}, {{
+         0, Rational[7, 10]}, {Rational[3, 10], 0}}, {{
+         0, Rational[69, 100]}, {Rational[31, 100], 0}}, {{
+         0, Rational[17, 25]}, {Rational[8, 25], 0}}, {{
+         0, Rational[67, 100]}, {Rational[33, 100], 0}}, {{
+         0, Rational[33, 50]}, {Rational[17, 50], 0}}, {{
+         0, Rational[13, 20]}, {Rational[7, 20], 0}}, {{
+         0, Rational[16, 25]}, {Rational[9, 25], 0}}, {{
+         0, Rational[63, 100]}, {Rational[37, 100], 0}}, {{
+         0, Rational[31, 50]}, {Rational[19, 50], 0}}, {{
+         0, Rational[61, 100]}, {Rational[39, 100], 0}}, {{
+         0, Rational[3, 5]}, {Rational[2, 5], 0}}, {{0, Rational[59, 100]}, {
+         Rational[41, 100], 0}}, {{0, Rational[29, 50]}, {
+         Rational[21, 50], 0}}, {{0, Rational[57, 100]}, {
+         Rational[43, 100], 0}}, {{0, Rational[14, 25]}, {
+         Rational[11, 25], 0}}, {{0, Rational[11, 20]}, {
+         Rational[9, 20], 0}}, {{0, Rational[27, 50]}, {
+         Rational[23, 50], 0}}, {{0, Rational[53, 100]}, {
+         Rational[47, 100], 0}}, {{0, Rational[13, 25]}, {
+         Rational[12, 25], 0}}, {{0, Rational[51, 100]}, {
+         Rational[49, 100], 0}}, {{0, Rational[1, 2]}, {
+         Rational[1, 2], 0}}, {{0, Rational[49, 100]}, {
+         Rational[51, 100], 0}}, {{0, Rational[12, 25]}, {
+         Rational[13, 25], 0}}, {{0, Rational[47, 100]}, {
+         Rational[53, 100], 0}}, {{0, Rational[23, 50]}, {
+         Rational[27, 50], 0}}, {{0, Rational[9, 20]}, {
+         Rational[11, 20], 0}}, {{0, Rational[11, 25]}, {
+         Rational[14, 25], 0}}, {{0, Rational[43, 100]}, {
+         Rational[57, 100], 0}}, {{0, Rational[21, 50]}, {
+         Rational[29, 50], 0}}, {{0, Rational[41, 100]}, {
+         Rational[59, 100], 0}}, {{0, Rational[2, 5]}, {
+         Rational[3, 5], 0}}, {{0, Rational[39, 100]}, {
+         Rational[61, 100], 0}}, {{0, Rational[19, 50]}, {
+         Rational[31, 50], 0}}, {{0, Rational[37, 100]}, {
+         Rational[63, 100], 0}}, {{0, Rational[9, 25]}, {
+         Rational[16, 25], 0}}, {{0, Rational[7, 20]}, {
+         Rational[13, 20], 0}}, {{0, Rational[17, 50]}, {
+         Rational[33, 50], 0}}, {{0, Rational[33, 100]}, {
+         Rational[67, 100], 0}}, {{0, Rational[8, 25]}, {
+         Rational[17, 25], 0}}, {{0, Rational[31, 100]}, {
+         Rational[69, 100], 0}}, {{0, Rational[3, 10]}, {
+         Rational[7, 10], 0}}, {{0, Rational[29, 100]}, {
+         Rational[71, 100], 0}}, {{0, Rational[7, 25]}, {
+         Rational[18, 25], 0}}, {{0, Rational[27, 100]}, {
+         Rational[73, 100], 0}}, {{0, Rational[13, 50]}, {
+         Rational[37, 50], 0}}, {{0, Rational[1, 4]}, {Rational[3, 4], 0}}, {{
+         0, Rational[6, 25]}, {Rational[19, 25], 0}}, {{
+         0, Rational[23, 100]}, {Rational[77, 100], 0}}, {{
+         0, Rational[11, 50]}, {Rational[39, 50], 0}}, {{
+         0, Rational[21, 100]}, {Rational[79, 100], 0}}, {{
+         0, Rational[1, 5]}, {Rational[4, 5], 0}}, {{0, Rational[19, 100]}, {
+         Rational[81, 100], 0}}, {{0, Rational[9, 50]}, {
+         Rational[41, 50], 0}}, {{0, Rational[17, 100]}, {
+         Rational[83, 100], 0}}, {{0, Rational[4, 25]}, {
+         Rational[21, 25], 0}}, {{0, Rational[3, 20]}, {
+         Rational[17, 20], 0}}, {{0, Rational[7, 50]}, {
+         Rational[43, 50], 0}}, {{0, Rational[13, 100]}, {
+         Rational[87, 100], 0}}, {{0, Rational[3, 25]}, {
+         Rational[22, 25], 0}}, {{0, Rational[11, 100]}, {
+         Rational[89, 100], 0}}, {{0, Rational[1, 10]}, {
+         Rational[9, 10], 0}}, {{0, Rational[9, 100]}, {
+         Rational[91, 100], 0}}, {{0, Rational[2, 25]}, {
+         Rational[23, 25], 0}}, {{0, Rational[7, 100]}, {
+         Rational[93, 100], 0}}, {{0, Rational[3, 50]}, {
+         Rational[47, 50], 0}}, {{0, Rational[1, 20]}, {
+         Rational[19, 20], 0}}, {{0, Rational[1, 25]}, {
+         Rational[24, 25], 0}}, {{0, Rational[3, 100]}, {
+         Rational[97, 100], 0}}, {{0, Rational[1, 50]}, {
+         Rational[49, 50], 0}}, {{0, Rational[1, 100]}, {
+         Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}, {{{0, 1}, {0, 
+        0}}, {{0, 0.99}, {0.01, 0}}, {{0, 0.98}, {0.02, 0}}, {{0, 0.97}, {
+         0.03, 0}}, {{0, 0.96}, {0.04, 0}}, {{0, 0.95}, {0.05, 0}}, {{
+         0, 0.94}, {0.06, 0}}, {{0, 0.93}, {0.07, 0}}, {{0, 0.92}, {
+         0.08, 0}}, {{0, 0.91}, {0.09, 0}}, {{0, 0.9}, {0.1, 0}}, {{
+         0, 0.89}, {0.11, 0}}, {{0, 0.88}, {0.12, 0}}, {{0, 0.87}, {
+         0.13, 0}}, {{0, 0.86}, {0.14, 0}}, {{0, 0.85}, {0.15, 0}}, {{
+         0, 0.84}, {0.16, 0}}, {{0, 0.83}, {0.17, 0}}, {{0, 0.82}, {
+         0.18, 0}}, {{0, 0.81}, {0.19, 0}}, {{0, 0.8}, {0.2, 0}}, {{
+         0, 0.79}, {0.21, 0}}, {{0, 0.78}, {0.22, 0}}, {{0, 0.77}, {
+         0.23, 0}}, {{0, 0.76}, {0.24, 0}}, {{0, 0.75}, {0.25, 0}}, {{
+         0, 0.74}, {0.26, 0}}, {{0, 0.73}, {0.27, 0}}, {{0, 0.72}, {
+         0.28, 0}}, {{0, 0.71}, {0.29, 0}}, {{0, 0.7}, {0.3, 0}}, {{
+         0, 0.69}, {0.31, 0}}, {{0, 0.68}, {0.32, 0}}, {{0, 0.67}, {
+         0.33, 0}}, {{0, 0.66}, {0.34, 0}}, {{0, 0.65}, {0.35, 0}}, {{
+         0, 0.64}, {0.36, 0}}, {{0, 0.63}, {0.37, 0}}, {{0, 0.62}, {
+         0.38, 0}}, {{0, 0.61}, {0.39, 0}}, {{0, 0.6}, {0.4, 0}}, {{
+         0, 0.59}, {0.41, 0}}, {{0, 0.58}, {0.42, 0}}, {{0, 0.57}, {
+         0.43, 0}}, {{0, 0.56}, {0.44, 0}}, {{0, 0.55}, {0.45, 0}}, {{
+         0, 0.54}, {0.46, 0}}, {{0, 0.53}, {0.47, 0}}, {{0, 0.52}, {
+         0.48, 0}}, {{0, 0.51}, {0.49, 0}}, {{0, 0.5}, {0.5, 0}}, {{
+         0, 0.49}, {0.51, 0}}, {{0, 0.48}, {0.52, 0}}, {{0, 0.47}, {
+         0.53, 0}}, {{0, 0.46}, {0.54, 0}}, {{0, 0.45}, {0.55, 0}}, {{
+         0, 0.44}, {0.56, 0}}, {{0, 0.43}, {0.57, 0}}, {{0, 0.42}, {
+         0.58, 0}}, {{0, 0.41}, {0.59, 0}}, {{0, 0.4}, {0.6, 0}}, {{
+         0, 0.39}, {0.61, 0}}, {{0, 0.38}, {0.62, 0}}, {{0, 0.37}, {
+         0.63, 0}}, {{0, 0.36}, {0.64, 0}}, {{0, 0.35}, {0.65, 0}}, {{
+         0, 0.34}, {0.66, 0}}, {{0, 0.33}, {0.67, 0}}, {{0, 0.32}, {
+         0.68, 0}}, {{0, 0.31}, {0.69, 0}}, {{0, 0.3}, {0.7, 0}}, {{
+         0, 0.29}, {0.71, 0}}, {{0, 0.28}, {0.72, 0}}, {{0, 0.27}, {
+         0.73, 0}}, {{0, 0.26}, {0.74, 0}}, {{0, 0.25}, {0.75, 0}}, {{
+         0, 0.24}, {0.76, 0}}, {{0, 0.23}, {0.77, 0}}, {{0, 0.22}, {
+         0.78, 0}}, {{0, 0.21}, {0.79, 0}}, {{0, 0.2}, {0.8, 0}}, {{
+         0, 0.19}, {0.81, 0}}, {{0, 0.18}, {0.82, 0}}, {{0, 0.17}, {
+         0.83, 0}}, {{0, 0.16}, {0.84, 0}}, {{0, 0.15}, {0.85, 0}}, {{
+         0, 0.14}, {0.86, 0}}, {{0, 0.13}, {0.87, 0}}, {{0, 0.12}, {
+         0.88, 0}}, {{0, 0.11}, {0.89, 0}}, {{0, 0.1}, {0.9, 0}}, {{
+         0, 0.09}, {0.91, 0}}, {{0, 0.08}, {0.92, 0}}, {{0, 0.07}, {
+         0.93, 0}}, {{0, 0.06}, {0.94, 0}}, {{0, 0.05}, {0.95, 0}}, {{
+         0, 0.04}, {0.96, 0}}, {{0, 0.03}, {0.97, 0}}, {{0, 0.02}, {
+         0.98, 0}}, {{0, 0.01}, {0.99, 0}}, {{0, 0}, {1, 0}}}]]}, 
+    {RGBColor[1, 0, 0], CircleBox[{1, 1}, 1]}}, {{{}, {}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], 
+       Opacity[1.], LineBox[CompressedData["
+1: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
+zPD5f4wu+q7/AXFqcYs=
+        "]]},
+      Annotation[#, "Charting`Private`Tag$41515#1"]& ]}, {}}},
+  Background->GrayLevel[0],
+  PlotRange->{{0, 1}, {0, 1}}]], "Output",
+ CellChangeTimes->{{3.884215160991479*^9, 3.884215186358265*^9}, 
+   3.8842152299660263`*^9, {3.8842160949960785`*^9, 3.884216114596839*^9}, 
+   3.8842179616118765`*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"1aaed050-2b21-4e1e-8d85-43a5ec50581c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     GraphicsBox[{
+       {GrayLevel[1], 
+        LineBox[NCache[{{{0, 1}, {0, 
+           0}}, {{0, Rational[99, 100]}, {Rational[1, 100], 0}}, {{
+            0, Rational[49, 50]}, {Rational[1, 50], 0}}, {{
+            0, Rational[97, 100]}, {Rational[3, 100], 0}}, {{
+            0, Rational[24, 25]}, {Rational[1, 25], 0}}, {{
+            0, Rational[19, 20]}, {Rational[1, 20], 0}}, {{
+            0, Rational[47, 50]}, {Rational[3, 50], 0}}, {{
+            0, Rational[93, 100]}, {Rational[7, 100], 0}}, {{
+            0, Rational[23, 25]}, {Rational[2, 25], 0}}, {{
+            0, Rational[91, 100]}, {Rational[9, 100], 0}}, {{
+            0, Rational[9, 10]}, {Rational[1, 10], 0}}, {{
+            0, Rational[89, 100]}, {Rational[11, 100], 0}}, {{
+            0, Rational[22, 25]}, {Rational[3, 25], 0}}, {{
+            0, Rational[87, 100]}, {Rational[13, 100], 0}}, {{
+            0, Rational[43, 50]}, {Rational[7, 50], 0}}, {{
+            0, Rational[17, 20]}, {Rational[3, 20], 0}}, {{
+            0, Rational[21, 25]}, {Rational[4, 25], 0}}, {{
+            0, Rational[83, 100]}, {Rational[17, 100], 0}}, {{
+            0, Rational[41, 50]}, {Rational[9, 50], 0}}, {{
+            0, Rational[81, 100]}, {Rational[19, 100], 0}}, {{
+            0, Rational[4, 5]}, {Rational[1, 5], 0}}, {{
+            0, Rational[79, 100]}, {Rational[21, 100], 0}}, {{
+            0, Rational[39, 50]}, {Rational[11, 50], 0}}, {{
+            0, Rational[77, 100]}, {Rational[23, 100], 0}}, {{
+            0, Rational[19, 25]}, {Rational[6, 25], 0}}, {{
+            0, Rational[3, 4]}, {Rational[1, 4], 0}}, {{
+            0, Rational[37, 50]}, {Rational[13, 50], 0}}, {{
+            0, Rational[73, 100]}, {Rational[27, 100], 0}}, {{
+            0, Rational[18, 25]}, {Rational[7, 25], 0}}, {{
+            0, Rational[71, 100]}, {Rational[29, 100], 0}}, {{
+            0, Rational[7, 10]}, {Rational[3, 10], 0}}, {{
+            0, Rational[69, 100]}, {Rational[31, 100], 0}}, {{
+            0, Rational[17, 25]}, {Rational[8, 25], 0}}, {{
+            0, Rational[67, 100]}, {Rational[33, 100], 0}}, {{
+            0, Rational[33, 50]}, {Rational[17, 50], 0}}, {{
+            0, Rational[13, 20]}, {Rational[7, 20], 0}}, {{
+            0, Rational[16, 25]}, {Rational[9, 25], 0}}, {{
+            0, Rational[63, 100]}, {Rational[37, 100], 0}}, {{
+            0, Rational[31, 50]}, {Rational[19, 50], 0}}, {{
+            0, Rational[61, 100]}, {Rational[39, 100], 0}}, {{
+            0, Rational[3, 5]}, {Rational[2, 5], 0}}, {{
+            0, Rational[59, 100]}, {Rational[41, 100], 0}}, {{
+            0, Rational[29, 50]}, {Rational[21, 50], 0}}, {{
+            0, Rational[57, 100]}, {Rational[43, 100], 0}}, {{
+            0, Rational[14, 25]}, {Rational[11, 25], 0}}, {{
+            0, Rational[11, 20]}, {Rational[9, 20], 0}}, {{
+            0, Rational[27, 50]}, {Rational[23, 50], 0}}, {{
+            0, Rational[53, 100]}, {Rational[47, 100], 0}}, {{
+            0, Rational[13, 25]}, {Rational[12, 25], 0}}, {{
+            0, Rational[51, 100]}, {Rational[49, 100], 0}}, {{
+            0, Rational[1, 2]}, {Rational[1, 2], 0}}, {{
+            0, Rational[49, 100]}, {Rational[51, 100], 0}}, {{
+            0, Rational[12, 25]}, {Rational[13, 25], 0}}, {{
+            0, Rational[47, 100]}, {Rational[53, 100], 0}}, {{
+            0, Rational[23, 50]}, {Rational[27, 50], 0}}, {{
+            0, Rational[9, 20]}, {Rational[11, 20], 0}}, {{
+            0, Rational[11, 25]}, {Rational[14, 25], 0}}, {{
+            0, Rational[43, 100]}, {Rational[57, 100], 0}}, {{
+            0, Rational[21, 50]}, {Rational[29, 50], 0}}, {{
+            0, Rational[41, 100]}, {Rational[59, 100], 0}}, {{
+            0, Rational[2, 5]}, {Rational[3, 5], 0}}, {{
+            0, Rational[39, 100]}, {Rational[61, 100], 0}}, {{
+            0, Rational[19, 50]}, {Rational[31, 50], 0}}, {{
+            0, Rational[37, 100]}, {Rational[63, 100], 0}}, {{
+            0, Rational[9, 25]}, {Rational[16, 25], 0}}, {{
+            0, Rational[7, 20]}, {Rational[13, 20], 0}}, {{
+            0, Rational[17, 50]}, {Rational[33, 50], 0}}, {{
+            0, Rational[33, 100]}, {Rational[67, 100], 0}}, {{
+            0, Rational[8, 25]}, {Rational[17, 25], 0}}, {{
+            0, Rational[31, 100]}, {Rational[69, 100], 0}}, {{
+            0, Rational[3, 10]}, {Rational[7, 10], 0}}, {{
+            0, Rational[29, 100]}, {Rational[71, 100], 0}}, {{
+            0, Rational[7, 25]}, {Rational[18, 25], 0}}, {{
+            0, Rational[27, 100]}, {Rational[73, 100], 0}}, {{
+            0, Rational[13, 50]}, {Rational[37, 50], 0}}, {{
+            0, Rational[1, 4]}, {Rational[3, 4], 0}}, {{0, Rational[6, 25]}, {
+            Rational[19, 25], 0}}, {{0, Rational[23, 100]}, {
+            Rational[77, 100], 0}}, {{0, Rational[11, 50]}, {
+            Rational[39, 50], 0}}, {{0, Rational[21, 100]}, {
+            Rational[79, 100], 0}}, {{0, Rational[1, 5]}, {
+            Rational[4, 5], 0}}, {{0, Rational[19, 100]}, {
+            Rational[81, 100], 0}}, {{0, Rational[9, 50]}, {
+            Rational[41, 50], 0}}, {{0, Rational[17, 100]}, {
+            Rational[83, 100], 0}}, {{0, Rational[4, 25]}, {
+            Rational[21, 25], 0}}, {{0, Rational[3, 20]}, {
+            Rational[17, 20], 0}}, {{0, Rational[7, 50]}, {
+            Rational[43, 50], 0}}, {{0, Rational[13, 100]}, {
+            Rational[87, 100], 0}}, {{0, Rational[3, 25]}, {
+            Rational[22, 25], 0}}, {{0, Rational[11, 100]}, {
+            Rational[89, 100], 0}}, {{0, Rational[1, 10]}, {
+            Rational[9, 10], 0}}, {{0, Rational[9, 100]}, {
+            Rational[91, 100], 0}}, {{0, Rational[2, 25]}, {
+            Rational[23, 25], 0}}, {{0, Rational[7, 100]}, {
+            Rational[93, 100], 0}}, {{0, Rational[3, 50]}, {
+            Rational[47, 50], 0}}, {{0, Rational[1, 20]}, {
+            Rational[19, 20], 0}}, {{0, Rational[1, 25]}, {
+            Rational[24, 25], 0}}, {{0, Rational[3, 100]}, {
+            Rational[97, 100], 0}}, {{0, Rational[1, 50]}, {
+            Rational[49, 50], 0}}, {{0, Rational[1, 100]}, {
+            Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}, {{{0, 1}, {0, 
+           0}}, {{0, 0.99}, {0.01, 0}}, {{0, 0.98}, {0.02, 0}}, {{0, 0.97}, {
+            0.03, 0}}, {{0, 0.96}, {0.04, 0}}, {{0, 0.95}, {0.05, 0}}, {{
+            0, 0.94}, {0.06, 0}}, {{0, 0.93}, {0.07, 0}}, {{0, 0.92}, {
+            0.08, 0}}, {{0, 0.91}, {0.09, 0}}, {{0, 0.9}, {0.1, 0}}, {{
+            0, 0.89}, {0.11, 0}}, {{0, 0.88}, {0.12, 0}}, {{0, 0.87}, {
+            0.13, 0}}, {{0, 0.86}, {0.14, 0}}, {{0, 0.85}, {0.15, 0}}, {{
+            0, 0.84}, {0.16, 0}}, {{0, 0.83}, {0.17, 0}}, {{0, 0.82}, {
+            0.18, 0}}, {{0, 0.81}, {0.19, 0}}, {{0, 0.8}, {0.2, 0}}, {{
+            0, 0.79}, {0.21, 0}}, {{0, 0.78}, {0.22, 0}}, {{0, 0.77}, {
+            0.23, 0}}, {{0, 0.76}, {0.24, 0}}, {{0, 0.75}, {0.25, 0}}, {{
+            0, 0.74}, {0.26, 0}}, {{0, 0.73}, {0.27, 0}}, {{0, 0.72}, {
+            0.28, 0}}, {{0, 0.71}, {0.29, 0}}, {{0, 0.7}, {0.3, 0}}, {{
+            0, 0.69}, {0.31, 0}}, {{0, 0.68}, {0.32, 0}}, {{0, 0.67}, {
+            0.33, 0}}, {{0, 0.66}, {0.34, 0}}, {{0, 0.65}, {0.35, 0}}, {{
+            0, 0.64}, {0.36, 0}}, {{0, 0.63}, {0.37, 0}}, {{0, 0.62}, {
+            0.38, 0}}, {{0, 0.61}, {0.39, 0}}, {{0, 0.6}, {0.4, 0}}, {{
+            0, 0.59}, {0.41, 0}}, {{0, 0.58}, {0.42, 0}}, {{0, 0.57}, {
+            0.43, 0}}, {{0, 0.56}, {0.44, 0}}, {{0, 0.55}, {0.45, 0}}, {{
+            0, 0.54}, {0.46, 0}}, {{0, 0.53}, {0.47, 0}}, {{0, 0.52}, {
+            0.48, 0}}, {{0, 0.51}, {0.49, 0}}, {{0, 0.5}, {0.5, 0}}, {{
+            0, 0.49}, {0.51, 0}}, {{0, 0.48}, {0.52, 0}}, {{0, 0.47}, {
+            0.53, 0}}, {{0, 0.46}, {0.54, 0}}, {{0, 0.45}, {0.55, 0}}, {{
+            0, 0.44}, {0.56, 0}}, {{0, 0.43}, {0.57, 0}}, {{0, 0.42}, {
+            0.58, 0}}, {{0, 0.41}, {0.59, 0}}, {{0, 0.4}, {0.6, 0}}, {{
+            0, 0.39}, {0.61, 0}}, {{0, 0.38}, {0.62, 0}}, {{0, 0.37}, {
+            0.63, 0}}, {{0, 0.36}, {0.64, 0}}, {{0, 0.35}, {0.65, 0}}, {{
+            0, 0.34}, {0.66, 0}}, {{0, 0.33}, {0.67, 0}}, {{0, 0.32}, {
+            0.68, 0}}, {{0, 0.31}, {0.69, 0}}, {{0, 0.3}, {0.7, 0}}, {{
+            0, 0.29}, {0.71, 0}}, {{0, 0.28}, {0.72, 0}}, {{0, 0.27}, {
+            0.73, 0}}, {{0, 0.26}, {0.74, 0}}, {{0, 0.25}, {0.75, 0}}, {{
+            0, 0.24}, {0.76, 0}}, {{0, 0.23}, {0.77, 0}}, {{0, 0.22}, {
+            0.78, 0}}, {{0, 0.21}, {0.79, 0}}, {{0, 0.2}, {0.8, 0}}, {{
+            0, 0.19}, {0.81, 0}}, {{0, 0.18}, {0.82, 0}}, {{0, 0.17}, {
+            0.83, 0}}, {{0, 0.16}, {0.84, 0}}, {{0, 0.15}, {0.85, 0}}, {{
+            0, 0.14}, {0.86, 0}}, {{0, 0.13}, {0.87, 0}}, {{0, 0.12}, {
+            0.88, 0}}, {{0, 0.11}, {0.89, 0}}, {{0, 0.1}, {0.9, 0}}, {{
+            0, 0.09}, {0.91, 0}}, {{0, 0.08}, {0.92, 0}}, {{0, 0.07}, {
+            0.93, 0}}, {{0, 0.06}, {0.94, 0}}, {{0, 0.05}, {0.95, 0}}, {{
+            0, 0.04}, {0.96, 0}}, {{0, 0.03}, {0.97, 0}}, {{0, 0.02}, {
+            0.98, 0}}, {{0, 0.01}, {0.99, 0}}, {{0, 0}, {1, 0}}}]]}, 
+       {RGBColor[1, 0, 0], CircleBox[{1, 1}, 1]}},
+      Background->GrayLevel[0],
+      PlotRange->{{0, 1}, {0, 1}}], ",", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"Abs", "[", 
+           RowBox[{"x", "-", "1"}], "]"}], "a"], "+", 
+         SuperscriptBox[
+          RowBox[{"Abs", "[", 
+           RowBox[{"y", "-", "1"}], "]"}], "a"]}], "==", "1"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8842151031201363`*^9, 3.8842151856064463`*^9}, 
+   3.884215228373938*^9, {3.884215313952058*^9, 3.8842153757652335`*^9}, {
+   3.8842154194059343`*^9, 3.8842154540728903`*^9}, {3.8842155728204603`*^9, 
+   3.8842156276049795`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"77fb2054-7585-4f7c-9a84-e3d33bd6c454"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 2.39, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 5}}, Typeset`size$$ = {360., {178., 182.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`a$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Graphics[{{
+           GrayLevel[1], 
+           Line[{{{0, 1}, {0, 0}}, {{0, 
+               Rational[99, 100]}, {
+               Rational[1, 100], 0}}, {{0, 
+               Rational[49, 50]}, {
+               Rational[1, 50], 0}}, {{0, 
+               Rational[97, 100]}, {
+               Rational[3, 100], 0}}, {{0, 
+               Rational[24, 25]}, {
+               Rational[1, 25], 0}}, {{0, 
+               Rational[19, 20]}, {
+               Rational[1, 20], 0}}, {{0, 
+               Rational[47, 50]}, {
+               Rational[3, 50], 0}}, {{0, 
+               Rational[93, 100]}, {
+               Rational[7, 100], 0}}, {{0, 
+               Rational[23, 25]}, {
+               Rational[2, 25], 0}}, {{0, 
+               Rational[91, 100]}, {
+               Rational[9, 100], 0}}, {{0, 
+               Rational[9, 10]}, {
+               Rational[1, 10], 0}}, {{0, 
+               Rational[89, 100]}, {
+               Rational[11, 100], 0}}, {{0, 
+               Rational[22, 25]}, {
+               Rational[3, 25], 0}}, {{0, 
+               Rational[87, 100]}, {
+               Rational[13, 100], 0}}, {{0, 
+               Rational[43, 50]}, {
+               Rational[7, 50], 0}}, {{0, 
+               Rational[17, 20]}, {
+               Rational[3, 20], 0}}, {{0, 
+               Rational[21, 25]}, {
+               Rational[4, 25], 0}}, {{0, 
+               Rational[83, 100]}, {
+               Rational[17, 100], 0}}, {{0, 
+               Rational[41, 50]}, {
+               Rational[9, 50], 0}}, {{0, 
+               Rational[81, 100]}, {
+               Rational[19, 100], 0}}, {{0, 
+               Rational[4, 5]}, {
+               Rational[1, 5], 0}}, {{0, 
+               Rational[79, 100]}, {
+               Rational[21, 100], 0}}, {{0, 
+               Rational[39, 50]}, {
+               Rational[11, 50], 0}}, {{0, 
+               Rational[77, 100]}, {
+               Rational[23, 100], 0}}, {{0, 
+               Rational[19, 25]}, {
+               Rational[6, 25], 0}}, {{0, 
+               Rational[3, 4]}, {
+               Rational[1, 4], 0}}, {{0, 
+               Rational[37, 50]}, {
+               Rational[13, 50], 0}}, {{0, 
+               Rational[73, 100]}, {
+               Rational[27, 100], 0}}, {{0, 
+               Rational[18, 25]}, {
+               Rational[7, 25], 0}}, {{0, 
+               Rational[71, 100]}, {
+               Rational[29, 100], 0}}, {{0, 
+               Rational[7, 10]}, {
+               Rational[3, 10], 0}}, {{0, 
+               Rational[69, 100]}, {
+               Rational[31, 100], 0}}, {{0, 
+               Rational[17, 25]}, {
+               Rational[8, 25], 0}}, {{0, 
+               Rational[67, 100]}, {
+               Rational[33, 100], 0}}, {{0, 
+               Rational[33, 50]}, {
+               Rational[17, 50], 0}}, {{0, 
+               Rational[13, 20]}, {
+               Rational[7, 20], 0}}, {{0, 
+               Rational[16, 25]}, {
+               Rational[9, 25], 0}}, {{0, 
+               Rational[63, 100]}, {
+               Rational[37, 100], 0}}, {{0, 
+               Rational[31, 50]}, {
+               Rational[19, 50], 0}}, {{0, 
+               Rational[61, 100]}, {
+               Rational[39, 100], 0}}, {{0, 
+               Rational[3, 5]}, {
+               Rational[2, 5], 0}}, {{0, 
+               Rational[59, 100]}, {
+               Rational[41, 100], 0}}, {{0, 
+               Rational[29, 50]}, {
+               Rational[21, 50], 0}}, {{0, 
+               Rational[57, 100]}, {
+               Rational[43, 100], 0}}, {{0, 
+               Rational[14, 25]}, {
+               Rational[11, 25], 0}}, {{0, 
+               Rational[11, 20]}, {
+               Rational[9, 20], 0}}, {{0, 
+               Rational[27, 50]}, {
+               Rational[23, 50], 0}}, {{0, 
+               Rational[53, 100]}, {
+               Rational[47, 100], 0}}, {{0, 
+               Rational[13, 25]}, {
+               Rational[12, 25], 0}}, {{0, 
+               Rational[51, 100]}, {
+               Rational[49, 100], 0}}, {{0, 
+               Rational[1, 2]}, {
+               Rational[1, 2], 0}}, {{0, 
+               Rational[49, 100]}, {
+               Rational[51, 100], 0}}, {{0, 
+               Rational[12, 25]}, {
+               Rational[13, 25], 0}}, {{0, 
+               Rational[47, 100]}, {
+               Rational[53, 100], 0}}, {{0, 
+               Rational[23, 50]}, {
+               Rational[27, 50], 0}}, {{0, 
+               Rational[9, 20]}, {
+               Rational[11, 20], 0}}, {{0, 
+               Rational[11, 25]}, {
+               Rational[14, 25], 0}}, {{0, 
+               Rational[43, 100]}, {
+               Rational[57, 100], 0}}, {{0, 
+               Rational[21, 50]}, {
+               Rational[29, 50], 0}}, {{0, 
+               Rational[41, 100]}, {
+               Rational[59, 100], 0}}, {{0, 
+               Rational[2, 5]}, {
+               Rational[3, 5], 0}}, {{0, 
+               Rational[39, 100]}, {
+               Rational[61, 100], 0}}, {{0, 
+               Rational[19, 50]}, {
+               Rational[31, 50], 0}}, {{0, 
+               Rational[37, 100]}, {
+               Rational[63, 100], 0}}, {{0, 
+               Rational[9, 25]}, {
+               Rational[16, 25], 0}}, {{0, 
+               Rational[7, 20]}, {
+               Rational[13, 20], 0}}, {{0, 
+               Rational[17, 50]}, {
+               Rational[33, 50], 0}}, {{0, 
+               Rational[33, 100]}, {
+               Rational[67, 100], 0}}, {{0, 
+               Rational[8, 25]}, {
+               Rational[17, 25], 0}}, {{0, 
+               Rational[31, 100]}, {
+               Rational[69, 100], 0}}, {{0, 
+               Rational[3, 10]}, {
+               Rational[7, 10], 0}}, {{0, 
+               Rational[29, 100]}, {
+               Rational[71, 100], 0}}, {{0, 
+               Rational[7, 25]}, {
+               Rational[18, 25], 0}}, {{0, 
+               Rational[27, 100]}, {
+               Rational[73, 100], 0}}, {{0, 
+               Rational[13, 50]}, {
+               Rational[37, 50], 0}}, {{0, 
+               Rational[1, 4]}, {
+               Rational[3, 4], 0}}, {{0, 
+               Rational[6, 25]}, {
+               Rational[19, 25], 0}}, {{0, 
+               Rational[23, 100]}, {
+               Rational[77, 100], 0}}, {{0, 
+               Rational[11, 50]}, {
+               Rational[39, 50], 0}}, {{0, 
+               Rational[21, 100]}, {
+               Rational[79, 100], 0}}, {{0, 
+               Rational[1, 5]}, {
+               Rational[4, 5], 0}}, {{0, 
+               Rational[19, 100]}, {
+               Rational[81, 100], 0}}, {{0, 
+               Rational[9, 50]}, {
+               Rational[41, 50], 0}}, {{0, 
+               Rational[17, 100]}, {
+               Rational[83, 100], 0}}, {{0, 
+               Rational[4, 25]}, {
+               Rational[21, 25], 0}}, {{0, 
+               Rational[3, 20]}, {
+               Rational[17, 20], 0}}, {{0, 
+               Rational[7, 50]}, {
+               Rational[43, 50], 0}}, {{0, 
+               Rational[13, 100]}, {
+               Rational[87, 100], 0}}, {{0, 
+               Rational[3, 25]}, {
+               Rational[22, 25], 0}}, {{0, 
+               Rational[11, 100]}, {
+               Rational[89, 100], 0}}, {{0, 
+               Rational[1, 10]}, {
+               Rational[9, 10], 0}}, {{0, 
+               Rational[9, 100]}, {
+               Rational[91, 100], 0}}, {{0, 
+               Rational[2, 25]}, {
+               Rational[23, 25], 0}}, {{0, 
+               Rational[7, 100]}, {
+               Rational[93, 100], 0}}, {{0, 
+               Rational[3, 50]}, {
+               Rational[47, 50], 0}}, {{0, 
+               Rational[1, 20]}, {
+               Rational[19, 20], 0}}, {{0, 
+               Rational[1, 25]}, {
+               Rational[24, 25], 0}}, {{0, 
+               Rational[3, 100]}, {
+               Rational[97, 100], 0}}, {{0, 
+               Rational[1, 50]}, {
+               Rational[49, 50], 0}}, {{0, 
+               Rational[1, 100]}, {
+               Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}]}, {
+           RGBColor[1, 0, 0], 
+           Circle[{1, 1}, 1]}}, Background -> GrayLevel[0], 
+         PlotRange -> {{0, 1}, {0, 1}}], 
+        ContourPlot[
+        Abs[$CellContext`x - 1]^$CellContext`a$$ + 
+          Abs[$CellContext`y - 1]^$CellContext`a$$ == 
+         1, {$CellContext`x, 0, 1}, {$CellContext`y, 0, 1}]], 
+      "Specifications" :> {{$CellContext`a$$, 1, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{410., {231.13403309800196`, 236.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{3.8842156987896757`*^9},
+ CellLabel->"In[19]:=",ExpressionUUID->"3f190bc5-4011-405d-a1d2-219e49a6b03d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:5f88\:63a5\:8fd1\:4e86\:ff0c\:4f46\:8fd8\:4e0d\:662f", "Subsection",
+ CellChangeTimes->{{3.8842157465699396`*^9, 
+  3.884215765442227*^9}},ExpressionUUID->"7d19c9a8-0f79-4584-a7fc-\
+94c9b269d38f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     GraphicsBox[{
+       {GrayLevel[1], 
+        LineBox[NCache[{{{0, 1}, {0, 
+           0}}, {{0, Rational[99, 100]}, {Rational[1, 100], 0}}, {{
+            0, Rational[49, 50]}, {Rational[1, 50], 0}}, {{
+            0, Rational[97, 100]}, {Rational[3, 100], 0}}, {{
+            0, Rational[24, 25]}, {Rational[1, 25], 0}}, {{
+            0, Rational[19, 20]}, {Rational[1, 20], 0}}, {{
+            0, Rational[47, 50]}, {Rational[3, 50], 0}}, {{
+            0, Rational[93, 100]}, {Rational[7, 100], 0}}, {{
+            0, Rational[23, 25]}, {Rational[2, 25], 0}}, {{
+            0, Rational[91, 100]}, {Rational[9, 100], 0}}, {{
+            0, Rational[9, 10]}, {Rational[1, 10], 0}}, {{
+            0, Rational[89, 100]}, {Rational[11, 100], 0}}, {{
+            0, Rational[22, 25]}, {Rational[3, 25], 0}}, {{
+            0, Rational[87, 100]}, {Rational[13, 100], 0}}, {{
+            0, Rational[43, 50]}, {Rational[7, 50], 0}}, {{
+            0, Rational[17, 20]}, {Rational[3, 20], 0}}, {{
+            0, Rational[21, 25]}, {Rational[4, 25], 0}}, {{
+            0, Rational[83, 100]}, {Rational[17, 100], 0}}, {{
+            0, Rational[41, 50]}, {Rational[9, 50], 0}}, {{
+            0, Rational[81, 100]}, {Rational[19, 100], 0}}, {{
+            0, Rational[4, 5]}, {Rational[1, 5], 0}}, {{
+            0, Rational[79, 100]}, {Rational[21, 100], 0}}, {{
+            0, Rational[39, 50]}, {Rational[11, 50], 0}}, {{
+            0, Rational[77, 100]}, {Rational[23, 100], 0}}, {{
+            0, Rational[19, 25]}, {Rational[6, 25], 0}}, {{
+            0, Rational[3, 4]}, {Rational[1, 4], 0}}, {{
+            0, Rational[37, 50]}, {Rational[13, 50], 0}}, {{
+            0, Rational[73, 100]}, {Rational[27, 100], 0}}, {{
+            0, Rational[18, 25]}, {Rational[7, 25], 0}}, {{
+            0, Rational[71, 100]}, {Rational[29, 100], 0}}, {{
+            0, Rational[7, 10]}, {Rational[3, 10], 0}}, {{
+            0, Rational[69, 100]}, {Rational[31, 100], 0}}, {{
+            0, Rational[17, 25]}, {Rational[8, 25], 0}}, {{
+            0, Rational[67, 100]}, {Rational[33, 100], 0}}, {{
+            0, Rational[33, 50]}, {Rational[17, 50], 0}}, {{
+            0, Rational[13, 20]}, {Rational[7, 20], 0}}, {{
+            0, Rational[16, 25]}, {Rational[9, 25], 0}}, {{
+            0, Rational[63, 100]}, {Rational[37, 100], 0}}, {{
+            0, Rational[31, 50]}, {Rational[19, 50], 0}}, {{
+            0, Rational[61, 100]}, {Rational[39, 100], 0}}, {{
+            0, Rational[3, 5]}, {Rational[2, 5], 0}}, {{
+            0, Rational[59, 100]}, {Rational[41, 100], 0}}, {{
+            0, Rational[29, 50]}, {Rational[21, 50], 0}}, {{
+            0, Rational[57, 100]}, {Rational[43, 100], 0}}, {{
+            0, Rational[14, 25]}, {Rational[11, 25], 0}}, {{
+            0, Rational[11, 20]}, {Rational[9, 20], 0}}, {{
+            0, Rational[27, 50]}, {Rational[23, 50], 0}}, {{
+            0, Rational[53, 100]}, {Rational[47, 100], 0}}, {{
+            0, Rational[13, 25]}, {Rational[12, 25], 0}}, {{
+            0, Rational[51, 100]}, {Rational[49, 100], 0}}, {{
+            0, Rational[1, 2]}, {Rational[1, 2], 0}}, {{
+            0, Rational[49, 100]}, {Rational[51, 100], 0}}, {{
+            0, Rational[12, 25]}, {Rational[13, 25], 0}}, {{
+            0, Rational[47, 100]}, {Rational[53, 100], 0}}, {{
+            0, Rational[23, 50]}, {Rational[27, 50], 0}}, {{
+            0, Rational[9, 20]}, {Rational[11, 20], 0}}, {{
+            0, Rational[11, 25]}, {Rational[14, 25], 0}}, {{
+            0, Rational[43, 100]}, {Rational[57, 100], 0}}, {{
+            0, Rational[21, 50]}, {Rational[29, 50], 0}}, {{
+            0, Rational[41, 100]}, {Rational[59, 100], 0}}, {{
+            0, Rational[2, 5]}, {Rational[3, 5], 0}}, {{
+            0, Rational[39, 100]}, {Rational[61, 100], 0}}, {{
+            0, Rational[19, 50]}, {Rational[31, 50], 0}}, {{
+            0, Rational[37, 100]}, {Rational[63, 100], 0}}, {{
+            0, Rational[9, 25]}, {Rational[16, 25], 0}}, {{
+            0, Rational[7, 20]}, {Rational[13, 20], 0}}, {{
+            0, Rational[17, 50]}, {Rational[33, 50], 0}}, {{
+            0, Rational[33, 100]}, {Rational[67, 100], 0}}, {{
+            0, Rational[8, 25]}, {Rational[17, 25], 0}}, {{
+            0, Rational[31, 100]}, {Rational[69, 100], 0}}, {{
+            0, Rational[3, 10]}, {Rational[7, 10], 0}}, {{
+            0, Rational[29, 100]}, {Rational[71, 100], 0}}, {{
+            0, Rational[7, 25]}, {Rational[18, 25], 0}}, {{
+            0, Rational[27, 100]}, {Rational[73, 100], 0}}, {{
+            0, Rational[13, 50]}, {Rational[37, 50], 0}}, {{
+            0, Rational[1, 4]}, {Rational[3, 4], 0}}, {{0, Rational[6, 25]}, {
+            Rational[19, 25], 0}}, {{0, Rational[23, 100]}, {
+            Rational[77, 100], 0}}, {{0, Rational[11, 50]}, {
+            Rational[39, 50], 0}}, {{0, Rational[21, 100]}, {
+            Rational[79, 100], 0}}, {{0, Rational[1, 5]}, {
+            Rational[4, 5], 0}}, {{0, Rational[19, 100]}, {
+            Rational[81, 100], 0}}, {{0, Rational[9, 50]}, {
+            Rational[41, 50], 0}}, {{0, Rational[17, 100]}, {
+            Rational[83, 100], 0}}, {{0, Rational[4, 25]}, {
+            Rational[21, 25], 0}}, {{0, Rational[3, 20]}, {
+            Rational[17, 20], 0}}, {{0, Rational[7, 50]}, {
+            Rational[43, 50], 0}}, {{0, Rational[13, 100]}, {
+            Rational[87, 100], 0}}, {{0, Rational[3, 25]}, {
+            Rational[22, 25], 0}}, {{0, Rational[11, 100]}, {
+            Rational[89, 100], 0}}, {{0, Rational[1, 10]}, {
+            Rational[9, 10], 0}}, {{0, Rational[9, 100]}, {
+            Rational[91, 100], 0}}, {{0, Rational[2, 25]}, {
+            Rational[23, 25], 0}}, {{0, Rational[7, 100]}, {
+            Rational[93, 100], 0}}, {{0, Rational[3, 50]}, {
+            Rational[47, 50], 0}}, {{0, Rational[1, 20]}, {
+            Rational[19, 20], 0}}, {{0, Rational[1, 25]}, {
+            Rational[24, 25], 0}}, {{0, Rational[3, 100]}, {
+            Rational[97, 100], 0}}, {{0, Rational[1, 50]}, {
+            Rational[49, 50], 0}}, {{0, Rational[1, 100]}, {
+            Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}, {{{0, 1}, {0, 
+           0}}, {{0, 0.99}, {0.01, 0}}, {{0, 0.98}, {0.02, 0}}, {{0, 0.97}, {
+            0.03, 0}}, {{0, 0.96}, {0.04, 0}}, {{0, 0.95}, {0.05, 0}}, {{
+            0, 0.94}, {0.06, 0}}, {{0, 0.93}, {0.07, 0}}, {{0, 0.92}, {
+            0.08, 0}}, {{0, 0.91}, {0.09, 0}}, {{0, 0.9}, {0.1, 0}}, {{
+            0, 0.89}, {0.11, 0}}, {{0, 0.88}, {0.12, 0}}, {{0, 0.87}, {
+            0.13, 0}}, {{0, 0.86}, {0.14, 0}}, {{0, 0.85}, {0.15, 0}}, {{
+            0, 0.84}, {0.16, 0}}, {{0, 0.83}, {0.17, 0}}, {{0, 0.82}, {
+            0.18, 0}}, {{0, 0.81}, {0.19, 0}}, {{0, 0.8}, {0.2, 0}}, {{
+            0, 0.79}, {0.21, 0}}, {{0, 0.78}, {0.22, 0}}, {{0, 0.77}, {
+            0.23, 0}}, {{0, 0.76}, {0.24, 0}}, {{0, 0.75}, {0.25, 0}}, {{
+            0, 0.74}, {0.26, 0}}, {{0, 0.73}, {0.27, 0}}, {{0, 0.72}, {
+            0.28, 0}}, {{0, 0.71}, {0.29, 0}}, {{0, 0.7}, {0.3, 0}}, {{
+            0, 0.69}, {0.31, 0}}, {{0, 0.68}, {0.32, 0}}, {{0, 0.67}, {
+            0.33, 0}}, {{0, 0.66}, {0.34, 0}}, {{0, 0.65}, {0.35, 0}}, {{
+            0, 0.64}, {0.36, 0}}, {{0, 0.63}, {0.37, 0}}, {{0, 0.62}, {
+            0.38, 0}}, {{0, 0.61}, {0.39, 0}}, {{0, 0.6}, {0.4, 0}}, {{
+            0, 0.59}, {0.41, 0}}, {{0, 0.58}, {0.42, 0}}, {{0, 0.57}, {
+            0.43, 0}}, {{0, 0.56}, {0.44, 0}}, {{0, 0.55}, {0.45, 0}}, {{
+            0, 0.54}, {0.46, 0}}, {{0, 0.53}, {0.47, 0}}, {{0, 0.52}, {
+            0.48, 0}}, {{0, 0.51}, {0.49, 0}}, {{0, 0.5}, {0.5, 0}}, {{
+            0, 0.49}, {0.51, 0}}, {{0, 0.48}, {0.52, 0}}, {{0, 0.47}, {
+            0.53, 0}}, {{0, 0.46}, {0.54, 0}}, {{0, 0.45}, {0.55, 0}}, {{
+            0, 0.44}, {0.56, 0}}, {{0, 0.43}, {0.57, 0}}, {{0, 0.42}, {
+            0.58, 0}}, {{0, 0.41}, {0.59, 0}}, {{0, 0.4}, {0.6, 0}}, {{
+            0, 0.39}, {0.61, 0}}, {{0, 0.38}, {0.62, 0}}, {{0, 0.37}, {
+            0.63, 0}}, {{0, 0.36}, {0.64, 0}}, {{0, 0.35}, {0.65, 0}}, {{
+            0, 0.34}, {0.66, 0}}, {{0, 0.33}, {0.67, 0}}, {{0, 0.32}, {
+            0.68, 0}}, {{0, 0.31}, {0.69, 0}}, {{0, 0.3}, {0.7, 0}}, {{
+            0, 0.29}, {0.71, 0}}, {{0, 0.28}, {0.72, 0}}, {{0, 0.27}, {
+            0.73, 0}}, {{0, 0.26}, {0.74, 0}}, {{0, 0.25}, {0.75, 0}}, {{
+            0, 0.24}, {0.76, 0}}, {{0, 0.23}, {0.77, 0}}, {{0, 0.22}, {
+            0.78, 0}}, {{0, 0.21}, {0.79, 0}}, {{0, 0.2}, {0.8, 0}}, {{
+            0, 0.19}, {0.81, 0}}, {{0, 0.18}, {0.82, 0}}, {{0, 0.17}, {
+            0.83, 0}}, {{0, 0.16}, {0.84, 0}}, {{0, 0.15}, {0.85, 0}}, {{
+            0, 0.14}, {0.86, 0}}, {{0, 0.13}, {0.87, 0}}, {{0, 0.12}, {
+            0.88, 0}}, {{0, 0.11}, {0.89, 0}}, {{0, 0.1}, {0.9, 0}}, {{
+            0, 0.09}, {0.91, 0}}, {{0, 0.08}, {0.92, 0}}, {{0, 0.07}, {
+            0.93, 0}}, {{0, 0.06}, {0.94, 0}}, {{0, 0.05}, {0.95, 0}}, {{
+            0, 0.04}, {0.96, 0}}, {{0, 0.03}, {0.97, 0}}, {{0, 0.02}, {
+            0.98, 0}}, {{0, 0.01}, {0.99, 0}}, {{0, 0}, {1, 0}}}]]}, 
+       {RGBColor[1, 0, 0], CircleBox[{1, 1}, 1]}},
+      Background->GrayLevel[0],
+      PlotRange->{{0, 1}, {0, 1}}], ",", 
+     RowBox[{"ContourPlot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"Abs", "[", "x", "]"}], "a"], "+", 
+         SuperscriptBox[
+          RowBox[{"Abs", "[", "y", "]"}], "a"]}], "==", "1"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1"}], "}"}], ",", "0.01", ",", "5"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.884217754366452*^9, 3.8842177958693643`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"ba50d9f3-a17b-46a7-96cf-1bd196106b34"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 1}, 0.01, 5}}, Typeset`size$$ = {
+    360., {178., 182.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`a$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Graphics[{{
+           GrayLevel[1], 
+           Line[{{{0, 1}, {0, 0}}, {{0, 
+               Rational[99, 100]}, {
+               Rational[1, 100], 0}}, {{0, 
+               Rational[49, 50]}, {
+               Rational[1, 50], 0}}, {{0, 
+               Rational[97, 100]}, {
+               Rational[3, 100], 0}}, {{0, 
+               Rational[24, 25]}, {
+               Rational[1, 25], 0}}, {{0, 
+               Rational[19, 20]}, {
+               Rational[1, 20], 0}}, {{0, 
+               Rational[47, 50]}, {
+               Rational[3, 50], 0}}, {{0, 
+               Rational[93, 100]}, {
+               Rational[7, 100], 0}}, {{0, 
+               Rational[23, 25]}, {
+               Rational[2, 25], 0}}, {{0, 
+               Rational[91, 100]}, {
+               Rational[9, 100], 0}}, {{0, 
+               Rational[9, 10]}, {
+               Rational[1, 10], 0}}, {{0, 
+               Rational[89, 100]}, {
+               Rational[11, 100], 0}}, {{0, 
+               Rational[22, 25]}, {
+               Rational[3, 25], 0}}, {{0, 
+               Rational[87, 100]}, {
+               Rational[13, 100], 0}}, {{0, 
+               Rational[43, 50]}, {
+               Rational[7, 50], 0}}, {{0, 
+               Rational[17, 20]}, {
+               Rational[3, 20], 0}}, {{0, 
+               Rational[21, 25]}, {
+               Rational[4, 25], 0}}, {{0, 
+               Rational[83, 100]}, {
+               Rational[17, 100], 0}}, {{0, 
+               Rational[41, 50]}, {
+               Rational[9, 50], 0}}, {{0, 
+               Rational[81, 100]}, {
+               Rational[19, 100], 0}}, {{0, 
+               Rational[4, 5]}, {
+               Rational[1, 5], 0}}, {{0, 
+               Rational[79, 100]}, {
+               Rational[21, 100], 0}}, {{0, 
+               Rational[39, 50]}, {
+               Rational[11, 50], 0}}, {{0, 
+               Rational[77, 100]}, {
+               Rational[23, 100], 0}}, {{0, 
+               Rational[19, 25]}, {
+               Rational[6, 25], 0}}, {{0, 
+               Rational[3, 4]}, {
+               Rational[1, 4], 0}}, {{0, 
+               Rational[37, 50]}, {
+               Rational[13, 50], 0}}, {{0, 
+               Rational[73, 100]}, {
+               Rational[27, 100], 0}}, {{0, 
+               Rational[18, 25]}, {
+               Rational[7, 25], 0}}, {{0, 
+               Rational[71, 100]}, {
+               Rational[29, 100], 0}}, {{0, 
+               Rational[7, 10]}, {
+               Rational[3, 10], 0}}, {{0, 
+               Rational[69, 100]}, {
+               Rational[31, 100], 0}}, {{0, 
+               Rational[17, 25]}, {
+               Rational[8, 25], 0}}, {{0, 
+               Rational[67, 100]}, {
+               Rational[33, 100], 0}}, {{0, 
+               Rational[33, 50]}, {
+               Rational[17, 50], 0}}, {{0, 
+               Rational[13, 20]}, {
+               Rational[7, 20], 0}}, {{0, 
+               Rational[16, 25]}, {
+               Rational[9, 25], 0}}, {{0, 
+               Rational[63, 100]}, {
+               Rational[37, 100], 0}}, {{0, 
+               Rational[31, 50]}, {
+               Rational[19, 50], 0}}, {{0, 
+               Rational[61, 100]}, {
+               Rational[39, 100], 0}}, {{0, 
+               Rational[3, 5]}, {
+               Rational[2, 5], 0}}, {{0, 
+               Rational[59, 100]}, {
+               Rational[41, 100], 0}}, {{0, 
+               Rational[29, 50]}, {
+               Rational[21, 50], 0}}, {{0, 
+               Rational[57, 100]}, {
+               Rational[43, 100], 0}}, {{0, 
+               Rational[14, 25]}, {
+               Rational[11, 25], 0}}, {{0, 
+               Rational[11, 20]}, {
+               Rational[9, 20], 0}}, {{0, 
+               Rational[27, 50]}, {
+               Rational[23, 50], 0}}, {{0, 
+               Rational[53, 100]}, {
+               Rational[47, 100], 0}}, {{0, 
+               Rational[13, 25]}, {
+               Rational[12, 25], 0}}, {{0, 
+               Rational[51, 100]}, {
+               Rational[49, 100], 0}}, {{0, 
+               Rational[1, 2]}, {
+               Rational[1, 2], 0}}, {{0, 
+               Rational[49, 100]}, {
+               Rational[51, 100], 0}}, {{0, 
+               Rational[12, 25]}, {
+               Rational[13, 25], 0}}, {{0, 
+               Rational[47, 100]}, {
+               Rational[53, 100], 0}}, {{0, 
+               Rational[23, 50]}, {
+               Rational[27, 50], 0}}, {{0, 
+               Rational[9, 20]}, {
+               Rational[11, 20], 0}}, {{0, 
+               Rational[11, 25]}, {
+               Rational[14, 25], 0}}, {{0, 
+               Rational[43, 100]}, {
+               Rational[57, 100], 0}}, {{0, 
+               Rational[21, 50]}, {
+               Rational[29, 50], 0}}, {{0, 
+               Rational[41, 100]}, {
+               Rational[59, 100], 0}}, {{0, 
+               Rational[2, 5]}, {
+               Rational[3, 5], 0}}, {{0, 
+               Rational[39, 100]}, {
+               Rational[61, 100], 0}}, {{0, 
+               Rational[19, 50]}, {
+               Rational[31, 50], 0}}, {{0, 
+               Rational[37, 100]}, {
+               Rational[63, 100], 0}}, {{0, 
+               Rational[9, 25]}, {
+               Rational[16, 25], 0}}, {{0, 
+               Rational[7, 20]}, {
+               Rational[13, 20], 0}}, {{0, 
+               Rational[17, 50]}, {
+               Rational[33, 50], 0}}, {{0, 
+               Rational[33, 100]}, {
+               Rational[67, 100], 0}}, {{0, 
+               Rational[8, 25]}, {
+               Rational[17, 25], 0}}, {{0, 
+               Rational[31, 100]}, {
+               Rational[69, 100], 0}}, {{0, 
+               Rational[3, 10]}, {
+               Rational[7, 10], 0}}, {{0, 
+               Rational[29, 100]}, {
+               Rational[71, 100], 0}}, {{0, 
+               Rational[7, 25]}, {
+               Rational[18, 25], 0}}, {{0, 
+               Rational[27, 100]}, {
+               Rational[73, 100], 0}}, {{0, 
+               Rational[13, 50]}, {
+               Rational[37, 50], 0}}, {{0, 
+               Rational[1, 4]}, {
+               Rational[3, 4], 0}}, {{0, 
+               Rational[6, 25]}, {
+               Rational[19, 25], 0}}, {{0, 
+               Rational[23, 100]}, {
+               Rational[77, 100], 0}}, {{0, 
+               Rational[11, 50]}, {
+               Rational[39, 50], 0}}, {{0, 
+               Rational[21, 100]}, {
+               Rational[79, 100], 0}}, {{0, 
+               Rational[1, 5]}, {
+               Rational[4, 5], 0}}, {{0, 
+               Rational[19, 100]}, {
+               Rational[81, 100], 0}}, {{0, 
+               Rational[9, 50]}, {
+               Rational[41, 50], 0}}, {{0, 
+               Rational[17, 100]}, {
+               Rational[83, 100], 0}}, {{0, 
+               Rational[4, 25]}, {
+               Rational[21, 25], 0}}, {{0, 
+               Rational[3, 20]}, {
+               Rational[17, 20], 0}}, {{0, 
+               Rational[7, 50]}, {
+               Rational[43, 50], 0}}, {{0, 
+               Rational[13, 100]}, {
+               Rational[87, 100], 0}}, {{0, 
+               Rational[3, 25]}, {
+               Rational[22, 25], 0}}, {{0, 
+               Rational[11, 100]}, {
+               Rational[89, 100], 0}}, {{0, 
+               Rational[1, 10]}, {
+               Rational[9, 10], 0}}, {{0, 
+               Rational[9, 100]}, {
+               Rational[91, 100], 0}}, {{0, 
+               Rational[2, 25]}, {
+               Rational[23, 25], 0}}, {{0, 
+               Rational[7, 100]}, {
+               Rational[93, 100], 0}}, {{0, 
+               Rational[3, 50]}, {
+               Rational[47, 50], 0}}, {{0, 
+               Rational[1, 20]}, {
+               Rational[19, 20], 0}}, {{0, 
+               Rational[1, 25]}, {
+               Rational[24, 25], 0}}, {{0, 
+               Rational[3, 100]}, {
+               Rational[97, 100], 0}}, {{0, 
+               Rational[1, 50]}, {
+               Rational[49, 50], 0}}, {{0, 
+               Rational[1, 100]}, {
+               Rational[99, 100], 0}}, {{0, 0}, {1, 0}}}]}, {
+           RGBColor[1, 0, 0], 
+           Circle[{1, 1}, 1]}}, Background -> GrayLevel[0], 
+         PlotRange -> {{0, 1}, {0, 1}}], 
+        ContourPlot[
+        Abs[$CellContext`x]^$CellContext`a$$ + 
+          Abs[$CellContext`y]^$CellContext`a$$ == 
+         1, {$CellContext`x, 0, 1}, {$CellContext`y, 0, 1}]], 
+      "Specifications" :> {{{$CellContext`a$$, 1}, 0.01, 5}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{410., {231.13403309800196`, 236.86596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8842177894572177`*^9, 3.884217810996251*^9}},
+ CellLabel->"Out[28]=",ExpressionUUID->"0af753b3-b9a1-46d8-9e77-25c49ff6223b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:597d\:50cf\:731c\:5bf9\:4e86\:ff0c\:770b\:8d77\:6765\:76f8\:5f53\:543b\
+\:5408", "Subsection",
+ CellChangeTimes->{{3.884217883255122*^9, 
+  3.884217921499646*^9}},ExpressionUUID->"57cdc73e-fdcf-4cf4-9802-\
+3079e484b2ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"3", 
+      SuperscriptBox["x", "3"]}], "-", 
+     SuperscriptBox["x", "2"], "+", 
+     RowBox[{"2", "x"}], "-", "4"}], 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox["x", "2"], "-", 
+      RowBox[{"3", "x"}], "+", "2"}]]], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8842164160451765`*^9, 3.8842164893010902`*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"3f9b9e8e-8ddd-4591-ac94-27dc13a944f2"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "8"], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "101"}], " ", 
+     SqrtBox["2"]}], "+", 
+    RowBox[{"135", " ", 
+     RowBox[{"ArcCoth", "[", 
+      SqrtBox["2"], "]"}]}]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.884216491558236*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"23eec1b0-cb4c-43cb-b540-a40fa82b03db"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{
+   FractionBox["1", "8"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "101"}], " ", 
+      SqrtBox["2"]}], "+", 
+     RowBox[{"135", " ", 
+      RowBox[{"ArcCoth", "[", 
+       SqrtBox["2"], "]"}]}]}], ")"}]}], "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[26]:=",ExpressionUUID->"5e78a707-87ea-442a-9fe9-9e6438a3379f"],
+
+Cell[BoxData[
+ RowBox[{"-", "2.98126694400554`"}]], "Output",
+ CellChangeTimes->{3.884216495902426*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"838fe387-fa59-45a4-a98e-429362a37db6"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{569.25, 771.},
-WindowMargins->{{Automatic, 174.75}, {Automatic, 0}},
+WindowSize->{569.25, 735.75},
+WindowMargins->{{Automatic, 25.5}, {Automatic, 0}},
 FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
 \:65e5)",
 StyleDefinitions->"Default.nb",
@@ -795,11 +2239,43 @@ Cell[25062, 569, 1231, 35, 184, "Input",ExpressionUUID->"17e39ff7-a53f-4db2-99b0
 Cell[26296, 606, 8686, 140, 377, "Output",ExpressionUUID->"bc7cbdd3-d941-4cfb-b202-4380f22f0f15"]
 }, Open  ]]
 }, Open  ]],
-Cell[35009, 750, 287, 5, 54, "Subsection",ExpressionUUID->"4af01389-5967-4793-9255-61eca1aa86b7"]
+Cell[CellGroupData[{
+Cell[35031, 752, 287, 5, 54, "Subsection",ExpressionUUID->"4af01389-5967-4793-9255-61eca1aa86b7"],
+Cell[CellGroupData[{
+Cell[35343, 761, 846, 21, 59, "Input",ExpressionUUID->"c1f79327-40bd-49c4-b61f-d34d1dd535cb"],
+Cell[36192, 784, 377, 7, 32, "Output",ExpressionUUID->"862af934-62ba-45e1-96c6-a37e2710650f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36606, 796, 523, 11, 43, "Input",ExpressionUUID->"282f3ef0-fd73-4bc8-acb9-3b2759f02eb8"],
+Cell[37132, 809, 5451, 109, 367, "Output",ExpressionUUID->"59040fcc-3ff8-4974-b3b6-632fd6d95315"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42620, 923, 9395, 156, 119, "Input",ExpressionUUID->"f9fd84fd-2dc7-4a73-ae84-eb833ed84341"],
+Cell[52018, 1081, 12900, 213, 377, "Output",ExpressionUUID->"1aaed050-2b21-4e1e-8d85-43a5ec50581c"]
+}, Open  ]],
+Cell[64933, 1297, 10184, 170, 201, "Input",ExpressionUUID->"77fb2054-7585-4f7c-9a84-e3d33bd6c454"],
+Cell[75120, 1469, 9915, 239, 483, InheritFromParent,ExpressionUUID->"3f190bc5-4011-405d-a1d2-219e49a6b03d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85072, 1713, 204, 3, 54, "Subsection",ExpressionUUID->"7d19c9a8-0f79-4584-a7fc-94c9b269d38f"],
+Cell[CellGroupData[{
+Cell[85301, 1720, 9995, 168, 201, "Input",ExpressionUUID->"ba50d9f3-a17b-46a7-96cf-1bd196106b34"],
+Cell[95299, 1890, 9953, 240, 487, "Output",ExpressionUUID->"0af753b3-b9a1-46d8-9e77-25c49ff6223b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[105301, 2136, 228, 4, 54, "Subsection",ExpressionUUID->"57cdc73e-fdcf-4cf4-9802-3079e484b2ae"],
+Cell[CellGroupData[{
+Cell[105554, 2144, 557, 16, 69, "Input",ExpressionUUID->"3f9b9e8e-8ddd-4591-ac94-27dc13a944f2"],
+Cell[106114, 2162, 382, 12, 48, "Output",ExpressionUUID->"23eec1b0-cb4c-43cb-b540-a40fa82b03db"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[106533, 2179, 397, 13, 59, "Input",ExpressionUUID->"5e78a707-87ea-442a-9fe9-9e6438a3379f"],
+Cell[106933, 2194, 182, 3, 32, "Output",ExpressionUUID->"838fe387-fa59-45a4-a98e-429362a37db6"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
