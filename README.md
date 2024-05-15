@@ -15,3 +15,4 @@ Mathematica notebook
 > Wolfram Language/批量notebook转pdf.nb
 
 [数学/共形（保角）映射.html](数学/共形（保角）映射.html)
+![img.png](img.png)

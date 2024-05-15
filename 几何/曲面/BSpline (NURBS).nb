@@ -1,0 +1,346 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12791,        338]
+NotebookOptionsPosition[     11720,        309]
+NotebookOutlinePosition[     12133,        326]
+CellTagsIndexPosition[     12090,        323]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["BSpline (NURBS)", "Title",
+ CellChangeTimes->{{3.8771564106365776`*^9, 3.8771564114805584`*^9}, {
+  3.87715799102429*^9, 
+  3.877158002850421*^9}},ExpressionUUID->"8fd16cdb-669d-49f9-9368-\
+2b2b5a077162"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cpts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "2"}], "}"}]}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"BSplineCurve", "[", 
+     RowBox[{"pts", ",", 
+      RowBox[{"SplineClosed", "->", "True"}]}], "]"}], ",", 
+    RowBox[{"BSplineSurface", "[", 
+     RowBox[{"cpts", ",", 
+      RowBox[{"SplineClosed", "->", "True"}]}], "]"}], ",", 
+    RowBox[{"Point", "/@", "cpts"}]}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.877157165511759*^9, 3.877157285238311*^9}, {
+  3.877157317562415*^9, 3.877157531551162*^9}, {3.8771575653715024`*^9, 
+  3.877157591253904*^9}, {3.8771581058053026`*^9, 3.8771581220133553`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"25e803ae-2c77-4c39-a2bf-27cb010c861f"],
+
+Cell[BoxData[
+ Graphics3DBox[{BSplineCurve3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}},
+    SplineClosed->True], 
+   BSplineSurface3DBox[{{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}}, {{0, 0, 
+    1}, {1, 0, 1}, {1, 1, 1}, {0, 1, 1}}, {{0, 0, 2}, {1, 0, 2}, {1, 1, 2}, {
+    0, 1, 2}}},
+    SplineClosed->True], {
+    Point3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}}], 
+    Point3DBox[{{0, 0, 1}, {1, 0, 1}, {1, 1, 1}, {0, 1, 1}}], 
+    Point3DBox[{{0, 0, 2}, {1, 0, 2}, {1, 1, 2}, {0, 1, 2}}]}},
+  ImageSize->{230.96874717982058`, 409.4346180562125},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{0.8001679209185292, -3.2689620525868963`, 0.3515940799839828},
+  ViewVertical->{0.18425451127819542`, -0.7862521083161479, 
+   0.5897947924846794}]], "Output",
+ CellChangeTimes->{{3.8771573212920384`*^9, 3.877157340081459*^9}, 
+   3.8771573740730734`*^9, 3.877157482412603*^9, {3.8771575124328127`*^9, 
+   3.877157532941392*^9}, {3.8771575834601183`*^9, 3.8771575929408865`*^9}, 
+   3.877158123598151*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"41396be7-33a7-4bdc-86ab-a83a816715a0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cpts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}]}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"BSplineCurve", "[", 
+     RowBox[{"pts", ",", 
+      RowBox[{"SplineClosed", "->", "True"}]}], "]"}], ",", 
+    RowBox[{"BSplineSurface", "[", 
+     RowBox[{"cpts", ",", 
+      RowBox[{"SplineClosed", "->", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", "True"}], "}"}]}]}], "]"}], ",", 
+    RowBox[{"Point", "/@", "cpts"}]}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.877157165511759*^9, 3.877157285238311*^9}, {
+  3.877157317562415*^9, 3.877157531551162*^9}, {3.8771575653715024`*^9, 
+  3.877157591253904*^9}, {3.8771581058053026`*^9, 3.8771581673824544`*^9}, {
+  3.877158222069395*^9, 3.8771582465763135`*^9}, {3.8771583063258877`*^9, 
+  3.8771583247904496`*^9}, {3.87715839150189*^9, 3.8771584498880234`*^9}, {
+  3.87715852391188*^9, 3.8771585297104917`*^9}, {3.877158616792843*^9, 
+  3.877158641023593*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"ff3dec29-1186-4e45-b04d-59d1d930c374"],
+
+Cell[BoxData[
+ Graphics3DBox[{BSplineCurve3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}},
+    SplineClosed->True], 
+   BSplineSurface3DBox[{{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}}, {{0, 0, 
+     1}, {1, 0, 1}, {1, 1, 1}, {0, 1, 1}}, {{0.5, 0.5, 0.5}, {0.5, 0.5, 
+     0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}}},
+    SplineClosed->{False, True}], {
+    Point3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}}], 
+    Point3DBox[{{0, 0, 1}, {1, 0, 1}, {1, 1, 1}, {0, 1, 1}}], 
+    Point3DBox[{{0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 
+     0.5}}]}},
+  ImageSize->{332.757648716149, 296.8082072739834},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{-2.490046485784837, -2.1693543235801434`, 0.7372722139039165},
+  ViewVertical->{-0.4159988229640035, -0.4548057629259902, 
+   0.7874621878553103}]], "Output",
+ CellChangeTimes->{
+  3.8771581787387*^9, {3.8771582235400286`*^9, 3.877158247165654*^9}, 
+   3.877158326472336*^9, {3.8771584004566126`*^9, 3.8771584085818415`*^9}, {
+   3.87715843888221*^9, 3.877158450541902*^9}, 3.8771585303364325`*^9, {
+   3.877158627167878*^9, 3.8771586420065823`*^9}},
+ CellLabel->"Out[63]=",ExpressionUUID->"3594ec58-300a-4c82-a987-eb9e709f975f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cpts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0.5"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.5"}], "}"}]}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"BSplineCurve", "[", 
+     RowBox[{"pts", ",", 
+      RowBox[{"SplineClosed", "->", "True"}]}], "]"}], ",", 
+    RowBox[{"BSplineSurface", "[", 
+     RowBox[{"cpts", ",", 
+      RowBox[{"SplineClosed", "->", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", "True"}], "}"}]}]}], "]"}], ",", 
+    RowBox[{"Point", "/@", "cpts"}]}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.877157165511759*^9, 3.877157285238311*^9}, {
+  3.877157317562415*^9, 3.877157531551162*^9}, {3.8771575653715024`*^9, 
+  3.877157591253904*^9}, {3.8771581058053026`*^9, 3.8771581673824544`*^9}, {
+  3.877158222069395*^9, 3.8771582465763135`*^9}, {3.8771583063258877`*^9, 
+  3.8771583247904496`*^9}, {3.87715839150189*^9, 3.8771584498880234`*^9}, {
+  3.87715852391188*^9, 3.8771585297104917`*^9}, {3.877158616792843*^9, 
+  3.877158641023593*^9}, {3.877158770822916*^9, 3.877158786148424*^9}, {
+  3.8771589780427027`*^9, 3.8771589799712005`*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"ede24605-c018-47a8-aa8d-ff4788ad48cf"],
+
+Cell[BoxData[
+ Graphics3DBox[{BSplineCurve3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}},
+    SplineClosed->True], 
+   BSplineSurface3DBox[{{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 
+     0}}, {{0, 0, 0.5}, {1, 0, 0.5}, {1, 1, 0.5}, {0, 1, 0.5}}, {{0.5, 0.5, 
+     0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}}},
+    SplineClosed->{True, True}], {
+    Point3DBox[{{0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0}}], 
+    Point3DBox[{{0, 0, 0.5}, {1, 0, 0.5}, {1, 1, 0.5}, {0, 1, 0.5}}], 
+    Point3DBox[{{0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 0.5}, {0.5, 0.5, 
+     0.5}}]}},
+  ImageSize->{388.12619000838106`, 275.2806571359168},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{-2.236186868334039, -2.160985237705676, 1.3340206491312465`},
+  ViewVertical->{-0.10073039273741945`, -0.06159192098619433, 
+   0.9930054497575507}]], "Output",
+ CellChangeTimes->{3.8771590060343723`*^9},
+ CellLabel->"Out[70]=",ExpressionUUID->"1229e256-97d1-4c49-bd59-01596d634a67"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{571, 418},
+WindowMargins->{{Automatic, 51}, {-11, Automatic}},
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"19b129e9-86fe-40f3-a944-eda4556a4750"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 210, 4, 98, "Title",ExpressionUUID->"8fd16cdb-669d-49f9-9368-2b2b5a077162"],
+Cell[CellGroupData[{
+Cell[815, 30, 2254, 63, 154, "Input",ExpressionUUID->"25e803ae-2c77-4c39-a2bf-27cb010c861f"],
+Cell[3072, 95, 1090, 19, 426, "Output",ExpressionUUID->"41396be7-33a7-4bdc-86ab-a83a816715a0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4199, 119, 2589, 69, 209, "Input",ExpressionUUID->"ff3dec29-1186-4e45-b04d-59d1d930c374"],
+Cell[6791, 190, 1197, 21, 313, "Output",ExpressionUUID->"3594ec58-300a-4c82-a987-eb9e709f975f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8025, 216, 2695, 70, 209, "Input",ExpressionUUID->"ede24605-c018-47a8-aa8d-ff4788ad48cf"],
+Cell[10723, 288, 969, 17, 314, "Output",ExpressionUUID->"1229e256-97d1-4c49-bd59-01596d634a67"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

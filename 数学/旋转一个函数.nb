@@ -1,0 +1,151 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5237,        143]
+NotebookOptionsPosition[      4612,        122]
+NotebookOutlinePosition[      5031,        139]
+CellTagsIndexPosition[      4988,        136]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:65cb\:8f6c\:4e00\:4e2a\:51fd\:6570", "Title",
+ CellChangeTimes->{{3.9232898077979584`*^9, 
+  3.9232898385452137`*^9}},ExpressionUUID->"c0faa085-287d-314b-b4d3-\
+cfe4defc9827"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"ParametricPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ReIm", "[", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["E", 
+            RowBox[{"I", " ", "\[Theta]"}]], 
+           RowBox[{"(", 
+            RowBox[{"x", "+", 
+             RowBox[{"I", " ", 
+              SuperscriptBox["x", "2"]}]}], ")"}]}], "+", 
+          RowBox[{"Complex", "@@", "p"}]}], "]"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "3"}]}], "]"}], ",", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Magenta", ",", 
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+        RowBox[{"Point", "[", "p", "]"}]}], "}"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"-", "2"}], ",", "2", ",", 
+     RowBox[{"ControlType", "\[Rule]", "Slider2D"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9232905813264084`*^9, 3.9232905871834946`*^9}, {
+  3.9232906405949097`*^9, 3.9232907058632812`*^9}, {3.923290771584051*^9, 
+  3.9232907807571697`*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"a69bad6b-d2a0-9b43-bc14-9a4fb310ec4d"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p$$ = {0, 0}, $CellContext`\[Theta]$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Theta]$$], 0, 2 Pi, ControlType -> Manipulator}, {{
+       Hold[$CellContext`p$$], {0, 0}}, -2, 2, ControlType -> Slider2D}}, 
+    Typeset`size$$ = {360., {179., 183.69043004512787`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`p$$ = {0, 0}, $CellContext`\[Theta]$$ = 0},
+       "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        ParametricPlot[{
+          ReIm[
+          E^(I $CellContext`\[Theta]$$) ($CellContext`x + I $CellContext`x^2) + 
+           Apply[Complex, $CellContext`p$$]]}, {$CellContext`x, -3, 3}, 
+         PlotRange -> 3], 
+        Graphics[{Magenta, 
+          PointSize[Large], 
+          Point[$CellContext`p$$]}]], 
+      "Specifications" :> {{$CellContext`\[Theta]$$, 0, 2 
+         Pi}, {{$CellContext`p$$, {0, 0}}, -2, 2, ControlType -> Slider2D}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {263.63403309800196`, 269.36596690199804`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9232898005137386`*^9, 3.9232905923563385`*^9, 3.923290707712816*^9, {
+   3.92329075794709*^9, 3.9232907820384693`*^9}},
+ CellLabel->"Out[95]=",ExpressionUUID->"09fce6f5-78b7-2640-a10f-9832bd00285a"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{Automatic, 234}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a0ce307b-7833-f04e-87cf-1644724a43ac"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 183, 3, 98, "Title",ExpressionUUID->"c0faa085-287d-314b-b4d3-cfe4defc9827"],
+Cell[CellGroupData[{
+Cell[788, 29, 1524, 42, 197, "Input",ExpressionUUID->"a69bad6b-d2a0-9b43-bc14-9a4fb310ec4d"],
+Cell[2315, 73, 2269, 45, 552, "Output",ExpressionUUID->"09fce6f5-78b7-2640-a10f-9832bd00285a"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

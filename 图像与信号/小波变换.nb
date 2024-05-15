@@ -1,0 +1,55 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1424,         47]
+NotebookOptionsPosition[       963,         31]
+NotebookOutlinePosition[      1383,         48]
+CellTagsIndexPosition[      1340,         45]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["\:5c0f\:6ce2\:53d8\:6362"], "Input",
+ CellChangeTimes->{{3.923477794138525*^9, 
+  3.9234777978316936`*^9}},ExpressionUUID->"e6409c61-df43-b14e-8138-\
+0cc286a831ca"],
+
+Cell[BoxData["MorletWavelet"], "Input",
+ CellChangeTimes->{{3.9234778227989235`*^9, 3.923477842271755*^9}, {
+  3.9234782211422176`*^9, 
+  3.9234782309024734`*^9}},ExpressionUUID->"0b857fd9-4a1b-b846-935e-\
+343eda802885"]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{429, Automatic}, {48, Automatic}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f339e989-798e-5b47-90a5-b94f35aa58f5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 178, 3, 28, "Input",ExpressionUUID->"e6409c61-df43-b14e-8138-0cc286a831ca"],
+Cell[739, 25, 220, 4, 43, "Input",ExpressionUUID->"0b857fd9-4a1b-b846-935e-343eda802885"]
+}
+]
+*)
+

@@ -1,0 +1,971 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     38529,        962]
+NotebookOptionsPosition[     34501,        836]
+NotebookOutlinePosition[     36086,        886]
+CellTagsIndexPosition[     35766,        874]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Elementary Cellular Automaton Egg", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.41413947318556*^9, 3.414139596310507*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eggform", "[", 
+   RowBox[{"r_", ",", "a_", ",", "x_"}], "]"}], ":=", 
+  RowBox[{"r", " ", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox["x", "2"]}], 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"Abs", "[", 
+        RowBox[{"a", "-", "x"}], "]"}], "2"], "+", 
+      RowBox[{"Abs", "[", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["x", "2"]}], "]"}]}]]]}]}]], "Input",
+ InitializationCell->True,
+ CellID->1334506369]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"u", " ", "Pi"}], "]"}], 
+        RowBox[{"eggform", "[", 
+         RowBox[{"width", ",", "shift", ",", "v"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{"u", " ", "Pi"}], "]"}], 
+        RowBox[{"eggform", "[", 
+         RowBox[{"width", ",", "shift", ",", "v"}], "]"}]}], ",", 
+       RowBox[{"-", "v"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"u", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"v", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+     RowBox[{"MeshShading", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{"transpose", ",", "Transpose", ",", "Identity"}], "]"}], 
+         "@", 
+         RowBox[{"CellularAutomaton", "[", 
+          RowBox[{"rule", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"7", ",", "All"}], "}"}]}], "]"}]}], "/.", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"1", "\[Rule]", "color"}], ",", 
+          RowBox[{"0", "\[Rule]", "egg"}]}], "}"}]}], ")"}]}], ",", 
+     RowBox[{"MeshStyle", "\[Rule]", "None"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rule", ",", "30"}], "}"}], ",", "0", ",", "255", ",", "1", ",",
+      
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"transpose", ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"shift", ",", ".2"}], "}"}], ",", ".15", ",", ".25", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"width", ",", ".8"}], "}"}], ",", ".7", ",", ".9", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"egg", ",", "White", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"color", ",", "Red", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "3", ",", "4", ",", "6"}], "}"}]}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "Manipulate"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.414139624503748*^9, 3.4141396414806356`*^9}, {
+   3.4141519797776327`*^9, 3.4141519985120077`*^9}, {3.4141520687776327`*^9, 
+   3.4141521518401327`*^9}, {3.4141522153088827`*^9, 3.4141522255745077`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    1, 0, 0], $CellContext`egg$$ = GrayLevel[1], $CellContext`rule$$ = 
+    30, $CellContext`shift$$ = 0.2, $CellContext`transpose$$ = 
+    False, $CellContext`width$$ = 0.8, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rule$$], 30}, 0, 255, 1}, {
+      Hold[$CellContext`transpose$$], {False, True}}, {{
+       Hold[$CellContext`shift$$], 0.2}, 0.15, 0.25}, {{
+       Hold[$CellContext`width$$], 0.8}, 0.7, 0.9}, {
+      Hold[$CellContext`egg$$], 
+      GrayLevel[1]}, {
+      Hold[$CellContext`color$$], 
+      RGBColor[1, 0, 0]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`rule$47383$$ = 0, $CellContext`transpose$47384$$ = 
+    False, $CellContext`shift$47385$$ = 0, $CellContext`width$47386$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[1, 0, 0], $CellContext`egg$$ = 
+        GrayLevel[1], $CellContext`rule$$ = 30, $CellContext`shift$$ = 
+        0.2, $CellContext`transpose$$ = False, $CellContext`width$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rule$$, $CellContext`rule$47383$$, 0], 
+        Hold[$CellContext`transpose$$, $CellContext`transpose$47384$$, False],
+         
+        Hold[$CellContext`shift$$, $CellContext`shift$47385$$, 0], 
+        Hold[$CellContext`width$$, $CellContext`width$47386$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{
+        Cos[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], 
+         Sin[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], -$CellContext`v}, {$CellContext`u, -1, 
+         1}, {$CellContext`v, -1, 1}, AspectRatio -> Automatic, Boxed -> 
+        False, Lighting -> "Neutral", MeshShading -> ReplaceAll[
+          If[$CellContext`transpose$$, Transpose, Identity][
+           CellularAutomaton[$CellContext`rule$$, {{1}, 0}, {7, All}]], {
+          1 -> $CellContext`color$$, 0 -> $CellContext`egg$$}], MeshStyle -> 
+        None, Axes -> False, ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`rule$$, 30}, 0, 255, 1, Appearance -> 
+         "Labeled", ImageSize -> Small}, {$CellContext`transpose$$, {
+         False, True}}, 
+        Delimiter, {{$CellContext`shift$$, 0.2}, 0.15, 0.25, ImageSize -> 
+         Small}, {{$CellContext`width$$, 0.8}, 0.7, 0.9, ImageSize -> Small}, 
+        Delimiter, {$CellContext`egg$$, 
+         GrayLevel[1], ImageSize -> Small}, {$CellContext`color$$, 
+         RGBColor[1, 0, 0], ImageSize -> Small}}, 
+      "Options" :> {
+       ControlPlacement -> Left, AutorunSequencing -> {1, 3, 4, 6}, 
+        TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{646., {225., 230.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`eggform[
+         Pattern[$CellContext`r, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`r 
+        Sqrt[(1 - $CellContext`x^2)/(Abs[$CellContext`a - $CellContext`x]^2 + 
+          Abs[1 - $CellContext`x^2])]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->498322136]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+An egg is colored by a cellular automaton that evolves a single marked cell. \
+Pick an elementary cellular automaton rule to show its evolution or the \
+transposed evolution. Change the width of the egg or shift its center of \
+radial inversion.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4141397829930973`*^9, 3.41414002132933*^9}, {
+   3.4141521777307577`*^9, 3.4141521960432577`*^9}, {3.4141836831459074`*^9, 
+   3.41418371225753*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    1, 0, 0], $CellContext`egg$$ = RGBColor[
+    1., 0.9159227893492027, 0.1428702220187686], $CellContext`rule$$ = 
+    30, $CellContext`shift$$ = 0.2, $CellContext`transpose$$ = 
+    False, $CellContext`width$$ = 0.8, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rule$$], 30}, 0, 255, 1}, {
+      Hold[$CellContext`transpose$$], {False, True}}, {{
+       Hold[$CellContext`shift$$], 0.2}, 0.15, 0.25}, {{
+       Hold[$CellContext`width$$], 0.8}, 0.7, 0.9}, {{
+       Hold[$CellContext`egg$$], 
+       RGBColor[1., 0.9159227893492027, 0.1428702220187686]}, 
+      GrayLevel[1]}, {
+      Hold[$CellContext`color$$], 
+      RGBColor[1, 0, 0]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`rule$47459$$ = 0, $CellContext`transpose$47460$$ = 
+    False, $CellContext`shift$47461$$ = 0, $CellContext`width$47462$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[1, 0, 0], $CellContext`egg$$ = 
+        RGBColor[
+         1., 0.9159227893492027, 0.1428702220187686], $CellContext`rule$$ = 
+        30, $CellContext`shift$$ = 0.2, $CellContext`transpose$$ = 
+        False, $CellContext`width$$ = 0.8}, "ControllerVariables" :> {
+        Hold[$CellContext`rule$$, $CellContext`rule$47459$$, 0], 
+        Hold[$CellContext`transpose$$, $CellContext`transpose$47460$$, False],
+         
+        Hold[$CellContext`shift$$, $CellContext`shift$47461$$, 0], 
+        Hold[$CellContext`width$$, $CellContext`width$47462$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{
+        Cos[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], 
+         Sin[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], -$CellContext`v}, {$CellContext`u, -1, 
+         1}, {$CellContext`v, -1, 1}, AspectRatio -> Automatic, Boxed -> 
+        False, Lighting -> "Neutral", MeshShading -> ReplaceAll[
+          If[$CellContext`transpose$$, Transpose, Identity][
+           CellularAutomaton[$CellContext`rule$$, {{1}, 0}, {7, All}]], {
+          1 -> $CellContext`color$$, 0 -> $CellContext`egg$$}], MeshStyle -> 
+        None, Axes -> False, ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`rule$$, 30}, 0, 255, 1, Appearance -> 
+         "Labeled", ImageSize -> Small}, {$CellContext`transpose$$, {
+         False, True}}, 
+        Delimiter, {{$CellContext`shift$$, 0.2}, 0.15, 0.25, ImageSize -> 
+         Small}, {{$CellContext`width$$, 0.8}, 0.7, 0.9, ImageSize -> Small}, 
+        Delimiter, {{$CellContext`egg$$, 
+          RGBColor[1., 0.9159227893492027, 0.1428702220187686]}, 
+         GrayLevel[1], ImageSize -> Small}, {$CellContext`color$$, 
+         RGBColor[1, 0, 0], ImageSize -> Small}}, 
+      "Options" :> {
+       ControlPlacement -> Left, AutorunSequencing -> {1, 3, 4, 6}, 
+        TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{646., {225., 230.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`eggform[
+         Pattern[$CellContext`r, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`r 
+        Sqrt[(1 - $CellContext`x^2)/(Abs[$CellContext`a - $CellContext`x]^2 + 
+          Abs[1 - $CellContext`x^2])]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->167287423]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    1, 0, 0], $CellContext`egg$$ = GrayLevel[1], $CellContext`rule$$ = 
+    30, $CellContext`shift$$ = 0.25, $CellContext`transpose$$ = 
+    False, $CellContext`width$$ = 0.7, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rule$$], 30}, 0, 255, 1}, {
+      Hold[$CellContext`transpose$$], {False, True}}, {{
+       Hold[$CellContext`shift$$], 0.25}, 0.15, 0.25}, {{
+       Hold[$CellContext`width$$], 0.7}, 0.7, 0.9}, {
+      Hold[$CellContext`egg$$], 
+      GrayLevel[1]}, {
+      Hold[$CellContext`color$$], 
+      RGBColor[1, 0, 0]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`rule$47535$$ = 0, $CellContext`transpose$47536$$ = 
+    False, $CellContext`shift$47537$$ = 0, $CellContext`width$47538$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[1, 0, 0], $CellContext`egg$$ = 
+        GrayLevel[1], $CellContext`rule$$ = 30, $CellContext`shift$$ = 
+        0.25, $CellContext`transpose$$ = False, $CellContext`width$$ = 0.7}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rule$$, $CellContext`rule$47535$$, 0], 
+        Hold[$CellContext`transpose$$, $CellContext`transpose$47536$$, False],
+         
+        Hold[$CellContext`shift$$, $CellContext`shift$47537$$, 0], 
+        Hold[$CellContext`width$$, $CellContext`width$47538$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{
+        Cos[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], 
+         Sin[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], -$CellContext`v}, {$CellContext`u, -1, 
+         1}, {$CellContext`v, -1, 1}, AspectRatio -> Automatic, Boxed -> 
+        False, Lighting -> "Neutral", MeshShading -> ReplaceAll[
+          If[$CellContext`transpose$$, Transpose, Identity][
+           CellularAutomaton[$CellContext`rule$$, {{1}, 0}, {7, All}]], {
+          1 -> $CellContext`color$$, 0 -> $CellContext`egg$$}], MeshStyle -> 
+        None, Axes -> False, ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`rule$$, 30}, 0, 255, 1, Appearance -> 
+         "Labeled", ImageSize -> Small}, {$CellContext`transpose$$, {
+         False, True}}, 
+        Delimiter, {{$CellContext`shift$$, 0.25}, 0.15, 0.25, ImageSize -> 
+         Small}, {{$CellContext`width$$, 0.7}, 0.7, 0.9, ImageSize -> Small}, 
+        Delimiter, {$CellContext`egg$$, 
+         GrayLevel[1], ImageSize -> Small}, {$CellContext`color$$, 
+         RGBColor[1, 0, 0], ImageSize -> Small}}, 
+      "Options" :> {
+       ControlPlacement -> Left, AutorunSequencing -> {1, 3, 4, 6}, 
+        TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{646., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`eggform[
+         Pattern[$CellContext`r, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`r 
+        Sqrt[(1 - $CellContext`x^2)/(Abs[$CellContext`a - $CellContext`x]^2 + 
+          Abs[1 - $CellContext`x^2])]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->335671488],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    1, 0, 0], $CellContext`egg$$ = GrayLevel[1], $CellContext`rule$$ = 
+    30, $CellContext`shift$$ = 0.15, $CellContext`transpose$$ = 
+    False, $CellContext`width$$ = 0.9, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rule$$], 30}, 0, 255, 1}, {
+      Hold[$CellContext`transpose$$], {False, True}}, {{
+       Hold[$CellContext`shift$$], 0.15}, 0.15, 0.25}, {{
+       Hold[$CellContext`width$$], 0.9}, 0.7, 0.9}, {
+      Hold[$CellContext`egg$$], 
+      GrayLevel[1]}, {
+      Hold[$CellContext`color$$], 
+      RGBColor[1, 0, 0]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`rule$47611$$ = 0, $CellContext`transpose$47612$$ = 
+    False, $CellContext`shift$47613$$ = 0, $CellContext`width$47614$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[1, 0, 0], $CellContext`egg$$ = 
+        GrayLevel[1], $CellContext`rule$$ = 30, $CellContext`shift$$ = 
+        0.15, $CellContext`transpose$$ = False, $CellContext`width$$ = 0.9}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rule$$, $CellContext`rule$47611$$, 0], 
+        Hold[$CellContext`transpose$$, $CellContext`transpose$47612$$, False],
+         
+        Hold[$CellContext`shift$$, $CellContext`shift$47613$$, 0], 
+        Hold[$CellContext`width$$, $CellContext`width$47614$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{
+        Cos[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], 
+         Sin[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], -$CellContext`v}, {$CellContext`u, -1, 
+         1}, {$CellContext`v, -1, 1}, AspectRatio -> Automatic, Boxed -> 
+        False, Lighting -> "Neutral", MeshShading -> ReplaceAll[
+          If[$CellContext`transpose$$, Transpose, Identity][
+           CellularAutomaton[$CellContext`rule$$, {{1}, 0}, {7, All}]], {
+          1 -> $CellContext`color$$, 0 -> $CellContext`egg$$}], MeshStyle -> 
+        None, Axes -> False, ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`rule$$, 30}, 0, 255, 1, Appearance -> 
+         "Labeled", ImageSize -> Small}, {$CellContext`transpose$$, {
+         False, True}}, 
+        Delimiter, {{$CellContext`shift$$, 0.15}, 0.15, 0.25, ImageSize -> 
+         Small}, {{$CellContext`width$$, 0.9}, 0.7, 0.9, ImageSize -> Small}, 
+        Delimiter, {$CellContext`egg$$, 
+         GrayLevel[1], ImageSize -> Small}, {$CellContext`color$$, 
+         RGBColor[1, 0, 0], ImageSize -> Small}}, 
+      "Options" :> {
+       ControlPlacement -> Left, AutorunSequencing -> {1, 3, 4, 6}, 
+        TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{646., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`eggform[
+         Pattern[$CellContext`r, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`r 
+        Sqrt[(1 - $CellContext`x^2)/(Abs[$CellContext`a - $CellContext`x]^2 + 
+          Abs[1 - $CellContext`x^2])]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->15395147],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    1, 0, 0], $CellContext`egg$$ = GrayLevel[1], $CellContext`rule$$ = 
+    30, $CellContext`shift$$ = 0.2, $CellContext`transpose$$ = 
+    True, $CellContext`width$$ = 0.8, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rule$$], 30}, 0, 255, 1}, {{
+       Hold[$CellContext`transpose$$], True}, {False, True}}, {{
+       Hold[$CellContext`shift$$], 0.2}, 0.15, 0.25}, {{
+       Hold[$CellContext`width$$], 0.8}, 0.7, 0.9}, {
+      Hold[$CellContext`egg$$], 
+      GrayLevel[1]}, {
+      Hold[$CellContext`color$$], 
+      RGBColor[1, 0, 0]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`rule$47687$$ = 0, $CellContext`transpose$47688$$ = 
+    False, $CellContext`shift$47689$$ = 0, $CellContext`width$47690$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[1, 0, 0], $CellContext`egg$$ = 
+        GrayLevel[1], $CellContext`rule$$ = 30, $CellContext`shift$$ = 
+        0.2, $CellContext`transpose$$ = True, $CellContext`width$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rule$$, $CellContext`rule$47687$$, 0], 
+        Hold[$CellContext`transpose$$, $CellContext`transpose$47688$$, False],
+         
+        Hold[$CellContext`shift$$, $CellContext`shift$47689$$, 0], 
+        Hold[$CellContext`width$$, $CellContext`width$47690$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ParametricPlot3D[{
+        Cos[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], 
+         Sin[$CellContext`u 
+           Pi] $CellContext`eggform[$CellContext`width$$, \
+$CellContext`shift$$, $CellContext`v], -$CellContext`v}, {$CellContext`u, -1, 
+         1}, {$CellContext`v, -1, 1}, AspectRatio -> Automatic, Boxed -> 
+        False, Lighting -> "Neutral", MeshShading -> ReplaceAll[
+          If[$CellContext`transpose$$, Transpose, Identity][
+           CellularAutomaton[$CellContext`rule$$, {{1}, 0}, {7, All}]], {
+          1 -> $CellContext`color$$, 0 -> $CellContext`egg$$}], MeshStyle -> 
+        None, Axes -> False, ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`rule$$, 30}, 0, 255, 1, Appearance -> 
+         "Labeled", ImageSize -> Small}, {{$CellContext`transpose$$, True}, {
+         False, True}}, 
+        Delimiter, {{$CellContext`shift$$, 0.2}, 0.15, 0.25, ImageSize -> 
+         Small}, {{$CellContext`width$$, 0.8}, 0.7, 0.9, ImageSize -> Small}, 
+        Delimiter, {$CellContext`egg$$, 
+         GrayLevel[1], ImageSize -> Small}, {$CellContext`color$$, 
+         RGBColor[1, 0, 0], ImageSize -> Small}}, 
+      "Options" :> {
+       ControlPlacement -> Left, AutorunSequencing -> {1, 3, 4, 6}, 
+        TrackedSymbols -> Manipulate}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{646., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`eggform[
+         Pattern[$CellContext`r, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`r 
+        Sqrt[(1 - $CellContext`x^2)/(Abs[$CellContext`a - $CellContext`x]^2 + 
+          Abs[1 - $CellContext`x^2])]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->327542142]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4141522579338827`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.414140360935769*^9},
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["automata", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.41414006383902*^9, 3.41414006584842*^9}},
+ CellID->751948646],
+
+Cell["egg", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.414140071208647*^9, 3.414140071704473*^9}},
+ CellID->1486249187],
+
+Cell["elementary cellular automaton", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4141400479680023`*^9, 3.4141400619764547`*^9}},
+ CellID->2073164403],
+
+Cell["oval", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.414140068251342*^9, 3.41414006910476*^9}},
+ CellID->59630727]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Cellular Automaton",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/CellularAutomaton.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4141523014026327`*^9, 3.4141523110432577`*^9}},
+ CellID->251000105],
+
+Cell[TextData[ButtonBox["Elementary Cellular Automaton",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/ElementaryCellularAutomaton.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4141523263713827`*^9, 3.4141523501370077`*^9}},
+ CellID->231887348],
+
+Cell[TextData[ButtonBox["Oval",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Oval.html"], None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.414140323177788*^9, 3.414140340332909*^9}},
+ CellID->2007787652]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Michael Schreiber",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Michael+\
+Schreiber"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Michael+Schreiber"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.414140036625225*^9, 3.414140041528323*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{775, 681},
+WindowMargins->{{10, Automatic}, {Automatic, 0}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (February 7, 2008)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[26803, 610, 375, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[27181, 621, 739, 17, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[27923, 640, 339, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[28265, 653, 636, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[28904, 670, 843, 21, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[29750, 693, 368, 9, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[30121, 704, 1411, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[31535, 737, 881, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 34875, 847},
+ {"RotateAndZoomIn3D", 34983, 850},
+ {"DragLocators", 35092, 853},
+ {"CreateAndDeleteLocators", 35207, 856},
+ {"SliderZoom", 35320, 859},
+ {"GamepadControls", 35425, 862},
+ {"AutomaticAnimation", 35537, 865},
+ {"BookmarkAnimation", 35653, 868}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 143, 2, 74, "DemoTitle"],
+Cell[CellGroupData[{
+Cell[758, 29, 33, 0, 156, "InitializationSection"],
+Cell[794, 31, 492, 17, 62, "Input",
+ InitializationCell->True,
+ CellID->1334506369]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1323, 53, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[1377, 57, 3621, 93, 268, "Input"],
+Cell[5001, 152, 4148, 82, 467, "Output",
+ CellID->498322136]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9195, 240, 36, 0, 136, "ManipulateCaptionSection"],
+Cell[9234, 242, 478, 9, 52, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9749, 256, 28, 0, 168, "ThumbnailSection"],
+Cell[9780, 258, 4377, 86, 467, "Output",
+ CellID->167287423]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14194, 349, 28, 0, 138, "SnapshotsSection"],
+Cell[14225, 351, 4152, 82, 469, "Output",
+ CellID->335671488],
+Cell[18380, 435, 4151, 82, 469, "Output",
+ CellID->15395147],
+Cell[22534, 519, 4163, 82, 469, "Output",
+ CellID->327542142]
+}, Open  ]],
+Cell[26712, 604, 26, 0, 232, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[26763, 608, 37, 0, 108, "ControlSuggestionsSection"],
+Cell[26803, 610, 375, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[27181, 621, 739, 17, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[27923, 640, 339, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[28265, 653, 636, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[28904, 670, 843, 21, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[29750, 693, 368, 9, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[30121, 704, 1411, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[31535, 737, 881, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32453, 763, 30, 0, 152, "SearchTermsSection"],
+Cell[32486, 765, 139, 3, 22, "SearchTerms",
+ CellID->751948646],
+Cell[32628, 770, 137, 3, 22, "SearchTerms",
+ CellID->1486249187],
+Cell[32768, 775, 167, 3, 22, "SearchTerms",
+ CellID->2073164403],
+Cell[32938, 780, 135, 3, 22, "SearchTerms",
+ CellID->59630727]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33110, 788, 31, 0, 138, "RelatedLinksSection"],
+Cell[33144, 790, 291, 7, 22, "RelatedLinks",
+ CellID->251000105],
+Cell[33438, 799, 312, 7, 22, "RelatedLinks",
+ CellID->231887348],
+Cell[33753, 808, 257, 6, 22, "RelatedLinks",
+ CellID->2007787652]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34047, 819, 25, 0, 136, "AuthorSection"],
+Cell[34075, 821, 398, 11, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

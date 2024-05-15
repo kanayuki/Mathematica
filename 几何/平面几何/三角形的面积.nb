@@ -1,0 +1,700 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26375,        692]
+NotebookOptionsPosition[     23590,        632]
+NotebookOutlinePosition[     24000,        649]
+CellTagsIndexPosition[     23957,        646]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\:4e09\:89d2\:5f62\:7684\:9762\:79ef", "Title",
+ CellChangeTimes->{{3.877241507542019*^9, 
+  3.8772415274377136`*^9}},ExpressionUUID->"95a8074a-4b98-4d9a-9964-\
+9ce5c75ff406"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"pts", "=", 
+     RowBox[{"RandomPoint", "[", 
+      RowBox[{
+       RowBox[{"Circle", "[", "]"}], ",", "3"}], "]"}]}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"abc", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"EuclideanDistance", "@@", "#"}], "&"}], "/@", 
+      RowBox[{"Subsets", "[", 
+       RowBox[{"pts", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}]}], ";", 
+    RowBox[{"Graphics", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"{", "Orange", "}"}], "]"}], ",", 
+         RowBox[{"FaceForm", "[", " ", "]"}], ",", 
+         RowBox[{"Triangle", "[", "pts", "]"}]}], "}"}], ",", 
+       RowBox[{"CircleThrough", "[", "pts", "]"}], ",", 
+       RowBox[{"Text", "[", "abc", "]"}], ",", 
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"Times", "@@", "abc"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0.3"}], "}"}]}], "]"}]}], "}"}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8772420048563223`*^9, 3.877242109786585*^9}, {
+  3.877242194489339*^9, 3.877242207701346*^9}, {3.877242267216965*^9, 
+  3.8772422818743715`*^9}, {3.8772423191752114`*^9, 3.8772424649668264`*^9}, {
+  3.877242576510808*^9, 3.877242579546578*^9}, {3.8772428306060987`*^9, 
+  3.8772428596685057`*^9}, {3.8772429071057234`*^9, 3.8772429168058157`*^9}, {
+  3.8772430007134147`*^9, 3.8772430306056824`*^9}, {3.8772431009344997`*^9, 
+  3.877243171838147*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"a4e0bb8b-806f-467c-a6b3-bb9fb50cefd3"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {EdgeForm[RGBColor[1, 0.5, 0]], FaceForm[None], 
+    TagBox[
+     PolygonBox[{{0.10176725489999808`, 0.9948082357068214}, {
+      0.7969371461704127, -0.6040622360765141}, {0.7788071689287136, 
+      0.6272634164569477}}],
+     "Triangle"]}, CircleBox[{0., 0.}, 1.], InsetBox[
+    RowBox[{"{", 
+     RowBox[{
+     "1.7434586210373868`", ",", "0.7703714943749105`", ",", 
+      "1.231459117738685`"}], "}"}], {0, 0}], 
+   InsetBox["1.653986069448605`", {0, 0.3}]}]], "Output",
+ CellChangeTimes->{
+  3.877242209027384*^9, 3.8772422540296555`*^9, {3.8772423319606285`*^9, 
+   3.8772423712148685`*^9}, {3.8772424371778183`*^9, 3.8772424738743343`*^9}, 
+   3.877242982113003*^9, {3.8772431581069183`*^9, 3.8772431721469793`*^9}},
+ CellLabel->"Out[64]=",ExpressionUUID->"c1ff0b6f-6c54-4d6e-9f66-3e53bddc8724"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:4f7f\:7528\:6d77\:4f26\:516c\:5f0f\:6765\:8ba1\:7b97\:4e09\:89d2\:5f62\
+\:9762\:79ef", "Subsection",
+ CellChangeTimes->{{3.8772466949042096`*^9, 
+  3.877246713448799*^9}},ExpressionUUID->"6fac38fe-0b76-4f2c-bd3d-\
+2deda38acd94"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaLookup", "[", "\"\<heron's formula\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8772426327270947`*^9, 3.877242655481902*^9}, {
+  3.877243279091201*^9, 3.8772433240783176`*^9}, {3.877243437389844*^9, 
+  3.877243446827633*^9}, {3.87724481202783*^9, 3.877244843207057*^9}, {
+  3.8772451175581408`*^9, 3.877245144750487*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"c0f7f23f-4f66-4107-8605-507c11a0e5b4"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"TriangleAreaSSS\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.8772426402487974`*^9, 3.877242656351784*^9}, {
+   3.877243315956566*^9, 3.87724332500581*^9}, 3.877243433717928*^9, {
+   3.877244832488141*^9, 3.8772448488658257`*^9}, {3.87724512181216*^9, 
+   3.877245150107227*^9}},
+ CellLabel->"Out[74]=",ExpressionUUID->"f2e1d618-9977-4089-9d22-3d0870ba0523"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", "\"\<TriangleAreaSSS\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.877245049840516*^9, 3.8772450679999247`*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"57b179e2-e171-4769-a5ca-49ccf5a3245d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"s\"", "\"Length\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Equal]", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       TemplateBox[{"\"a\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )], "+", 
+       TemplateBox[{"\"b\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )], "+", 
+       TemplateBox[{"\"c\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )]}], ")"}]}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"A\"", "\"Area\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      TemplateBox[{"\"s\"", "\"Length\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"a\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"b\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"c\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}]}]]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.8772450628862624`*^9, 3.877245068775348*^9}},
+ CellLabel->"Out[72]=",ExpressionUUID->"722e2eb7-8d03-43c1-a9de-8f630e997b25"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{"\"\<TriangleAreaSSS\>\"", ",", "\"\<Association\>\""}], "]"}]], \
+"Input",
+ CellChangeTimes->{{3.877245049840516*^9, 3.8772450679999247`*^9}, {
+  3.877246851432113*^9, 3.8772468962090263`*^9}},
+ CellLabel->"In[88]:=",ExpressionUUID->"e81079ed-ffe4-4e3d-a14d-446c298956db"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"s\"", "\"Length\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       TemplateBox[{"\"a\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )], "+", 
+       TemplateBox[{"\"b\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )], "+", 
+       TemplateBox[{"\"c\"", "\"Length\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+          "TextStyling"]& )]}], ")"}]}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"A\"", "\"Area\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", 
+    SqrtBox[
+     RowBox[{
+      TemplateBox[{"\"s\"", "\"Length\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"a\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"b\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         TemplateBox[{"\"c\"", "\"Length\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{"\"s\"", "\"Length\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+           "TextStyling"]& )]}], ")"}]}]]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.87724689820603*^9},
+ CellLabel->"Out[88]=",ExpressionUUID->"0f375d2f-6bd5-41c9-b79a-e7557052a59a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{"\"\<TriangleAreaSSS\>\"", ",", "\"\<QuantityVariableTable\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.877243050688697*^9, 3.87724308212805*^9}, {
+   3.8772451022080507`*^9, 3.8772451058094816`*^9}, {3.8772451589199514`*^9, 
+   3.8772451591902537`*^9}, 3.8772452077718534`*^9},
+ CellLabel->"In[77]:=",ExpressionUUID->"9b3f4c95-b7a0-472b-826c-3b2166977ce9"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {"\<\"symbol\"\>", "\<\"description\"\>", "\<\"physical quantity\"\>", "\
+\<\"dimensions\"\>"},
+     {"\<\"s\"\>", "\<\"semiperimeter\"\>", "\<\"Length\"\>", 
+      RowBox[{"{", 
+       RowBox[{"\<\"LengthUnit\"\>", ",", "1"}], "}"}]},
+     {"\<\"a\"\>", "\<\"first side length\"\>", "\<\"Length\"\>", 
+      RowBox[{"{", 
+       RowBox[{"\<\"LengthUnit\"\>", ",", "1"}], "}"}]},
+     {"\<\"b\"\>", "\<\"second side length\"\>", "\<\"Length\"\>", 
+      RowBox[{"{", 
+       RowBox[{"\<\"LengthUnit\"\>", ",", "1"}], "}"}]},
+     {"\<\"c\"\>", "\<\"third side length\"\>", "\<\"Length\"\>", 
+      RowBox[{"{", 
+       RowBox[{"\<\"LengthUnit\"\>", ",", "1"}], "}"}]},
+     {"\<\"A\"\>", "\<\"area\"\>", "\<\"Area\"\>", 
+      RowBox[{"{", 
+       RowBox[{"\<\"LengthUnit\"\>", ",", "2"}], "}"}]}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+      "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"], "DialogStyle",
+  StripOnInput->False]], "Output",
+ CellChangeTimes->{3.877245209525123*^9},
+ CellLabel->"Out[77]=",ExpressionUUID->"858df45f-deaf-4045-8a7f-8f9d12dc1a31"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{"\"\<TriangleAreaSSS\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<a\>\"", "->", 
+      RowBox[{"abc", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+     RowBox[{"\"\<b\>\"", "->", 
+      RowBox[{"abc", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+     RowBox[{"\"\<c\>\"", "->", 
+      RowBox[{"abc", "[", 
+       RowBox[{"[", "3", "]"}], "]"}]}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.877245171478285*^9, {3.877245620607155*^9, 3.8772456594447346`*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"4daf6f8a-46e3-47a7-b4db-7905092640ad"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   TemplateBox[{"\"s\"", "\"Length\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+      "TextStyling"]& )], "\[Equal]", "1.8726446165754909`"}], "&&", 
+  RowBox[{
+   TemplateBox[{"\"A\"", "\"Area\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+      "TextStyling"]& )], "\[Equal]", "0.4134965173621506`"}]}]], "Output",
+ CellChangeTimes->{3.877245171499093*^9, 3.8772456608010225`*^9},
+ CellLabel->"Out[78]=",ExpressionUUID->"c0ac813d-eabe-4d1b-b225-2227c17d323f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"s\"", "\"Length\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Equal]", "1.8726446165754909`"}], "&&", 
+   RowBox[{
+    TemplateBox[{"\"A\"", "\"Area\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Equal]", "0.4134965173621506`"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8772449192607965`*^9, 3.8772449250823126`*^9}, {
+  3.8772457986532083`*^9, 3.87724581833401*^9}, {3.877246951433642*^9, 
+  3.8772469517859364`*^9}, {3.8772470029905195`*^9, 3.877247003192603*^9}},
+ CellLabel->"In[90]:=",ExpressionUUID->"86983546-ae37-481d-bf93-b8e26390609d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     TemplateBox[{"\"A\"", "\"Area\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Rule]", "0.4134965173621506`"}], ",", 
+    RowBox[{
+     TemplateBox[{"\"s\"", "\"Length\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Rule]", "1.8726446165754909`"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.877245811617801*^9, 3.877245829284599*^9}, 
+   3.8772469530758605`*^9, 3.877247004157391*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"fa01a4e6-e80a-4fb0-8b30-ad9a84f28030"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"First", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"A\"", "\"Area\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+         "TextStyling"]& )], "\[Rule]", "0.4134965173621506`"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"s\"", "\"Length\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+         "TextStyling"]& )], "\[Rule]", "1.8726446165754909`"}]}], "}"}], 
+   "}"}], "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[82]:=",ExpressionUUID->"94b9057e-6485-414d-823d-938c17343c50"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"A\"", "\"Area\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "0.4134965173621506`"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"s\"", "\"Length\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "1.8726446165754909`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.8772458478711877`*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"b4483825-2c55-4ed4-9542-14ad2ab395bb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     TemplateBox[{"\"A\"", "\"Area\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Rule]", "0.4134965173621506`"}], ",", 
+    RowBox[{
+     TemplateBox[{"\"s\"", "\"Length\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Rule]", "1.8726446165754909`"}]}], "}"}], "/.",
+   "\[VeryThinSpace]", 
+  RowBox[{"Rule", "\[Rule]", "List"}]}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[86]:=",ExpressionUUID->"261a2589-4b74-43ed-ae2b-a4f289459ef6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"A\"", "\"Area\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " area"}], TooltipStyle -> 
+        "TextStyling"]& )], ",", "0.4134965173621506`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"s\"", "\"Length\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " length"}], TooltipStyle -> 
+        "TextStyling"]& )], ",", "1.8726446165754909`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.8772459362945337`*^9},
+ CellLabel->"Out[86]=",ExpressionUUID->"b790514c-e85e-4249-b3f5-e8f549b70f46"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Times", "@@", "abc"}], ",", 
+   RowBox[{"4", "*", "0.4134965173621506`"}]}], "}"}]], "Input",
+ CellChangeTimes->{{3.8772458717279167`*^9, 3.877245917881168*^9}, {
+  3.877245976727162*^9, 3.8772459825575976`*^9}},
+ CellLabel->"In[87]:=",ExpressionUUID->"b4e283eb-226f-498c-b92f-b99561043b68"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.653986069448605`", ",", "1.6539860694486024`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.8772458790322404`*^9, 3.8772459182256517`*^9}, 
+   3.8772459833160324`*^9},
+ CellLabel->"Out[87]=",ExpressionUUID->"be9291e8-694e-45ad-afe6-36c5085e225e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{949, 478},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (2022\:5e746\:670816\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"256d09d5-39f0-4302-88aa-9fe49982fe2c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 181, 3, 98, "Title",ExpressionUUID->"95a8074a-4b98-4d9a-9964-9ce5c75ff406"],
+Cell[CellGroupData[{
+Cell[786, 29, 1621, 40, 114, "Input",ExpressionUUID->"a4e0bb8b-806f-467c-a6b3-bb9fb50cefd3"],
+Cell[2410, 71, 835, 17, 376, "Output",ExpressionUUID->"c1ff0b6f-6c54-4d6e-9f66-3e53bddc8724"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3282, 93, 236, 4, 54, "Subsection",ExpressionUUID->"6fac38fe-0b76-4f2c-bd3d-2deda38acd94"],
+Cell[CellGroupData[{
+Cell[3543, 101, 431, 6, 43, "Input",ExpressionUUID->"c0f7f23f-4f66-4107-8605-507c11a0e5b4"],
+Cell[3977, 109, 391, 6, 32, "Output",ExpressionUUID->"f2e1d618-9977-4089-9d22-3d0870ba0523"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4405, 120, 233, 3, 43, InheritFromParent,ExpressionUUID->"57b179e2-e171-4769-a5ca-49ccf5a3245d"],
+Cell[4641, 125, 4433, 114, 48, "Output",ExpressionUUID->"722e2eb7-8d03-43c1-a9de-8f630e997b25"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9111, 244, 327, 6, 43, InheritFromParent,ExpressionUUID->"e81079ed-ffe4-4e3d-a14d-446c298956db"],
+Cell[9441, 252, 4442, 115, 48, "Output",ExpressionUUID->"0f375d2f-6bd5-41c9-b79a-e7557052a59a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13920, 372, 416, 7, 43, "Input",ExpressionUUID->"9b3f4c95-b7a0-472b-826c-3b2166977ce9"],
+Cell[14339, 381, 1325, 30, 109, "Output",ExpressionUUID->"858df45f-deaf-4045-8a7f-8f9d12dc1a31"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15701, 416, 631, 16, 43, InheritFromParent,ExpressionUUID->"4daf6f8a-46e3-47a7-b4db-7905092640ad"],
+Cell[16335, 434, 820, 17, 32, "Output",ExpressionUUID->"c0ac813d-eabe-4d1b-b225-2227c17d323f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17192, 456, 1039, 23, 43, "Input",ExpressionUUID->"86983546-ae37-481d-bf93-b8e26390609d"],
+Cell[18234, 481, 965, 23, 32, "Output",ExpressionUUID->"fa01a4e6-e80a-4fb0-8b30-ad9a84f28030"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19236, 509, 920, 23, 43, "Input",ExpressionUUID->"94b9057e-6485-414d-823d-938c17343c50"],
+Cell[20159, 534, 853, 21, 32, "Output",ExpressionUUID->"b4483825-2c55-4ed4-9542-14ad2ab395bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21049, 560, 925, 23, 43, "Input",ExpressionUUID->"261a2589-4b74-43ed-ae2b-a4f289459ef6"],
+Cell[21977, 585, 905, 23, 32, "Output",ExpressionUUID->"b790514c-e85e-4249-b3f5-e8f549b70f46"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22919, 613, 343, 7, 43, "Input",ExpressionUUID->"b4e283eb-226f-498c-b92f-b99561043b68"],
+Cell[23265, 622, 285, 5, 32, "Output",ExpressionUUID->"be9291e8-694e-45ad-afe6-36c5085e225e"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
